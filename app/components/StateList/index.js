@@ -28,7 +28,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
         },
         {
           text: 'Selangor',
-          iconType: <JohorIcon />,
+          iconType: <SelangorIcon />,
         },
         {
           text: 'Johor',
@@ -67,20 +67,15 @@ export default class StateList extends PureComponent { // eslint-disable-line re
     const {
       limit,
     } = this.state;
-    const listItem = [];
-    limit.map((item) => listItem.push(<CategoryItem text={item.text} iconType={item.iconType} />));
+    const listStateArray = [];
+    limit.map((item) => listStateArray.push(<CategoryItem text={item.text} iconType={item.iconType} />));
     return (
       <div>
         <div className="StateList-title">
           BROWSE STATES
         </div>
         <div className="StateList">
-          { listItem }
-          {/* <CategoryItem text="Kuala Lumpur" iconType={<KualaLumpurIcon />} />
-          <CategoryItem text="Selangor" iconType={<SelangorIcon />} />
-          <CategoryItem text="Johor" iconType={<JohorIcon />} />
-          <CategoryItem text="Melaka" iconType={<MelakaIcon />} />
-          <CategoryItem text="Negeri Sembilan" iconType={<NegeriIcon />} /> */}
+          { listStateArray }
           <button className="StateList-button" onClick={() => this.handleShowMore()}>
             <div className="StateList-buttonContainer">
               <div className="StateList-showMoreIcon">
