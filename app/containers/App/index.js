@@ -21,7 +21,6 @@ import JobDetail from 'containers/General/JobDetail/Loadable';
 import JobByState from 'containers/General/JobByState/Loadable';
 import EmployerProfile from 'containers/General/EmployerProfile/Loadable';
 import EmployerAvailableJobs from 'containers/General/EmployerAvailableJobs/Loadable';
-import EmployerProfileReadmore from 'containers/General/EmployerProfileReadmore/Loadable';
 // My jobs
 import MyJobs from 'containers/MyJobs/MyJobs/Loadable';
 import MyJobsExpired from 'containers/MyJobs/MyJobsExpired/Loadable';
@@ -80,7 +79,6 @@ export default function App() {
         <Route exact path="/job-by-state" component={JobByState} />
         <Route exact path="/employer-profile" component={EmployerProfile} />
         <Route exact path="/employer-available-jobs" component={EmployerAvailableJobs} />
-        <Route exact path="/employer-profile-read-more" component={EmployerProfileReadmore} />
         {/* Login / Register */}
         <Route exact path="/login-register/signup" component={Signup} />
         <Route exact path="/login-register/login" component={Login} />

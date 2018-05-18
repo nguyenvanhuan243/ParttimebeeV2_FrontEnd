@@ -6,6 +6,10 @@
   border: solid 1px #ffaa00;
 }
 
+a.CompanyInfo-href:hover {
+  text-decoration: none;
+}
+
 .CompanyInfo-container {
   display: flex;
 }
