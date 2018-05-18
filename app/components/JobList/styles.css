@@ -58,6 +58,7 @@
 
 .JobList-buttonContainer {
   cursor: pointer;
+  outline: none !important;
 }
 
 .JobList-showHeading {
