@@ -1,0 +1,92 @@
+.EmailUpdatedPassword-dashlineIcon {
+  margin-left: 26px;
+}
+
+.EmailUpdatedPassword-container {
+  margin-left: 467.5px;
+}
+
+.EmailUpdatedPassword-title {
+  width: 305px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+  margin-left: 100.5px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.EmailUpdatedPassword-abstract {
+  width: 506px;
+  height: 44px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: center;
+  color: #999999;
+}
+
+.EmailUpdatedPassword-button {
+  width: 400px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  margin-left: 52.5px;
+  margin-top: 34px;
+  margin-bottom: 16px;
+  padding-top: 9px;
+}
+
+.EmailUpdatedPassword-buttonText {
+  width: 114px;
+  height: 22px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 143px;
+}
+
+a.EmailUpdatedPassword-buttonText:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.EmailUpdatedPassword-support {
+  width: 369px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  margin-left: 68.5px;
+}
+.EmailUpdatedPassword-supportLink {
+  color: #c8cf2d;
+}
+
+a.EmailUpdatedPassword-supportLink:hover {
+  color: #c8cf2d;
+  text-decoration: none;
+}

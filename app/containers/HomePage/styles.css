@@ -1,0 +1,14 @@
+.HomePageContainer {
+  display: flex;
+  width: auto;
+}
+.HomePageContainer-sidebarContainer {
+  display: grid;
+}
+.HomePageContainer-jobListContainer {
+  display: grid;
+}
+
+.HomePageContainer-jobListContainer {
+  margin-top: 31px;
+}

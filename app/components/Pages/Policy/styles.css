@@ -1,0 +1,104 @@
+.PolicyPage-container {
+  margin-left: 170px;
+  margin-top: 30px;
+  margin-bottom: 249px;
+}
+
+.PolicyPage-privacy {
+  width: 87px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 26px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.23;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.PolicyPage-contentContainer {
+  width: 1100px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+}
+
+.PolicyPage-sectionContainer {
+  margin: 20px;
+}
+
+.Policy-session1 {
+  width: 1060px;
+  height: 154px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  margin-bottom: 20px;
+}
+
+.Policy-session2 {
+  width: 325px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.Policy-session3 {
+  width: 1060px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  margin-bottom: 20px;
+}
+
+.Policy-session4 {
+  width: 444px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.Policy-session5 {
+  width: 1060px;
+  height: 110px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+}

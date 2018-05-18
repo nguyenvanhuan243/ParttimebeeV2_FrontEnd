@@ -1,0 +1,62 @@
+.Header {
+  max-width: 1440px;
+  height: 62px;
+  background-color: #ffffff;
+  border-bottom: solid 1px #e8e8e8;
+  display: flex;
+}
+.SearchForm {
+  width: 230px;
+  height: 34px;
+  border-radius: 3px;
+  border: solid 1px #e8e8e8;
+  margin-top: 15px;
+  display: flex;
+}
+
+.Header-logo {
+  margin-top: 15px;
+  margin-left: 306px;
+}
+
+.Header-postJob {
+  width: 85px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  margin-left: 451px;
+  margin-top: 17px;
+}
+
+.Header-postJobText {
+  width: 53px;
+  height: 16px;
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #ffffff;
+  padding-left: 16px;
+  padding-top: 7px;
+  text-decoration: none;
+}
+
+.Header-searchForm {
+  display: flex;  
+  margin-left: 170px;
+}
+
+.SearchIcon {
+  margin-left: 11px;
+  padding-top: 4.9px;
+}
+
+.SearchForm-customInput {
+  width: 230px;
+  margin-top: 4px;
+  margin-left: 4px;
+}

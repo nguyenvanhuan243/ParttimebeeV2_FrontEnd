@@ -1,0 +1,71 @@
+.ForgotPasswordIncoming {
+  width: 1440px;
+  height: 1024px;
+  background-color: #f9f9f9 !important;
+  margin: 0px;
+}
+
+.ForgotPasswordIncoming-container {
+  margin-left: 529px;
+}
+
+.ForgotPasswordIncoming-mailingIcon {
+  padding-left: 165px;
+  padding-top: 124px;
+  padding-bottom: 24px;
+}
+
+.ForgotPasswordIncoming-incomingText {
+  width: 89px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+  padding-left: 147px;
+  padding-bottom: 24px;
+}
+
+.ForgotPasswordIncoming-abstract {
+  width: 382px;
+  height: 44px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: center;
+  color: #999999;
+  margin-bottom: 20px;
+}
+
+.ForgotPasswordIncoming-backToHome {
+  width: 114px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  margin-left: 134px;
+  margin-bottom: 662px;
+}
+.ForgotPasswordIncoming-backToHomeText {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: normal;
+  padding-left: 16px;
+  padding-top: 9px;
+}

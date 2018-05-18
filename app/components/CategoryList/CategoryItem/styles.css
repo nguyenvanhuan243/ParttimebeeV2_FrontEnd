@@ -1,0 +1,21 @@
+.CategoryItem {
+  width: 230px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+  margin-bottom: 4px;
+  display: flex;
+  object-fit: contain;
+}
+
+.CategoryItem-icon {
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.CategoryItem-text {
+  margin-top: 7px;
+  margin-left: 10px;
+}

@@ -1,0 +1,33 @@
+.Email {
+  width: 82px;
+  height: 34px;
+  border-radius: 3px;
+  border: solid 1px #999999;
+  display: flex;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.Email-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  opacity: NaN;
+  margin-left: 11px;
+  margin-top: 4px;
+}
+
+.Email-text {
+  width: 33px;
+  height: 16px;
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  color: #999999;
+  margin-left: 9px;
+  margin-top: 9px;
+}

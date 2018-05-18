@@ -1,0 +1,83 @@
+.ForgotPassword {
+  width: 1440px;
+  height: 1024px;
+  background-color: #f9f9f9;
+}
+
+.ForgotPassword-dashlineIcon {
+  margin-left: 26px;
+}
+
+.ForgotPassword-title {
+  width: 311px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+  margin-left: 564.5px;
+  margin-top: 24px;
+}
+
+.ForgotPassword-abstract {
+  width: 267px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffaa00;
+  margin-left: 587px;
+}
+
+.ForgotPassword-form {
+  margin-left: 522px;
+  margin-top: 52px;
+}
+
+.ForgotPassword-passwordContainer {
+  margin-left: 520px;
+  margin-top: 16px;
+  display: flex;
+}
+
+.ForgotPassword-forgotPassword {
+  width: 104px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #c8cf2d !important;
+}
+
+.ForgotPassword-haveAccount {
+  width: 202px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: right;
+  color: #999999;
+  margin-left: 94px;
+}
+.ForgotPassword-getStarted {
+  color: #c8cf2d !important;
+}

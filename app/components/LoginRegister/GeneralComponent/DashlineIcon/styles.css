@@ -1,0 +1,20 @@
+.DashlineIcon {
+  display: flex;
+  padding-top: 49px;
+}
+
+.DashlineIcon-line {
+  width: 1105px;
+  height: 95px;
+}
+
+.DashlineIcon-icon {
+  margin-left: 10px;
+  margin-top: 7px;
+  object-fit: contain;
+}
+
+.DashlineIcon-logo {
+  margin-left: 675px;
+  margin-top: -20px;
+}

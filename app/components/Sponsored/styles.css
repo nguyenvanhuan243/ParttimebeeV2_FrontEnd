@@ -1,0 +1,25 @@
+.Sponsored {
+  width: 250px;
+  height: 216px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+  margin-top: 20px;
+  margin-left: 21px;
+}
+
+.Sponsored-container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.Sponsored-title {
+  margin-top: 14px;
+}
+
+.Sponsored-image {
+  width: 218px;
+  height: 150px;
+  background-color: #e8e8e8;
+  margin-top: 12px;
+}

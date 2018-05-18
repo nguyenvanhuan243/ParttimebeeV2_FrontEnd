@@ -1,0 +1,22 @@
+.JobDescription {
+  width: 750px;
+  height: 380px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+}
+
+.JobDescription-content {
+  width: 710px;
+  height: 340px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin: 20px;
+}

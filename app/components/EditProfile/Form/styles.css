@@ -1,0 +1,10 @@
+.EditProfileForm {
+  width: 1100px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+}
+
+.EditProfileForm-container {
+  margin: 30px;
+}

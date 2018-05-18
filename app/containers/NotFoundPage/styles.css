@@ -1,0 +1,60 @@
+.NotFoundPage-icon {
+  margin-left: 696px;
+  margin-top: 31px;
+}
+
+.NotFoundPage-text {
+  width: 174px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+  margin-left: 633.5px;
+  margin-top: 24px;
+}
+
+.NotFoundPage-abstract {
+  width: 261px;
+  height: 44px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: center;
+  color: #999999;
+  margin-left: 589.5px;
+  margin-top: 10px;
+}
+
+.NotFoundPage-backToHome {
+  width: 114px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  margin-left: 663px;
+  margin-top: 20px;
+}
+.NotFoundPage-backToHomeText {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: normal;
+  padding-left: 16px;
+  padding-top: 9px;
+}

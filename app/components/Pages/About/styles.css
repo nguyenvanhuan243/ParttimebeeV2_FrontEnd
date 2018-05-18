@@ -1,0 +1,82 @@
+.AboutPage-titleContainer {
+  margin-left: 470px;
+}
+
+.AboutPage-title {
+  width: 479px;
+  height: 72px;
+  font-family: Roboto;
+  font-size: 60px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+  margin-top: 60px;
+  margin-left: 10.5px;
+}
+
+.AboutPage-abstract {
+  width: 500px;
+  height: 22px;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #999999;
+  margin-top: 20px;
+}
+
+.AboutPage-dashlineIcon {
+  margin-left: 26px;
+}
+
+.AboutPage-content {
+  width: 700px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: justify;
+  color: #999999;
+  margin-top: 66px;
+  margin-left: 370px;
+  margin-bottom: 210px;
+}
+
+.AboutPage-footer {
+  margin-left: 370px;
+  margin-bottom: 30px;
+}
+
+.AboutPage-devider {
+  height: 1px;
+  width: 700px;
+  background-color: #e8e8e8;
+  margin-bottom: 10px;
+}
+
+.AboutPage-copyRight {
+  width: 172px;
+  height: 14px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  margin-left: 264px; 
+  margin-top: 10px;
+}

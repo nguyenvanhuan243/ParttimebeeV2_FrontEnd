@@ -1,0 +1,42 @@
+.LoadingJobsItem {
+  width: 578px;
+  height: 108px;
+  border-bottom: solid 1px #e8e8e8;
+}
+
+.LoadingJobsItem-image {
+  width: 80px;
+  height: 80px;
+  background-color: #d8d8d8;
+  margin-top: 14px;
+  margin-left: 15px;
+}
+
+.LoadingJobsItem-container {
+  display: flex;
+}
+
+.LoadingJobsItem-rectangle {
+  margin-left: 15px;
+  margin-top: 25px;
+}
+
+.LoadingJobsItem-rectangle1 {
+  width: 400px;
+  height: 10px;
+  background-color: #d8d8d8;
+}
+
+.LoadingJobsItem-rectangle2 {
+  width: 200px;
+  height: 10px;
+  background-color: #d8d8d8;
+  margin-top: 10px;
+}
+
+.LoadingJobsItem-rectangle3 {
+  width: 100px;
+  height: 10px;
+  background-color: #d8d8d8;
+  margin-top: 10px;
+}

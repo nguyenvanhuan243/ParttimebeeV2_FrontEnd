@@ -1,0 +1,60 @@
+.Footer-information {
+  width: 183px;
+  height: 14px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  display: flex;
+  margin-left: 55px;
+  margin-top: 10px;
+}
+
+.Footer-copyRight {
+  width: 106px;
+  height: 15px;
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  margin-left: 93px;
+  margin-top: 4px;
+}
+
+.Footer-oval {
+  width: 2px;
+  height: 2px;
+  background-color: #999999;
+  margin-top: 6px;
+  margin-right: 5px;
+}
+
+.Footer-informationAbout {
+  margin-right: 5px;
+  color: #999999 !important;
+}
+
+.Footer-informationContact {
+  margin-right: 5px;
+  color: #999999 !important;
+}
+
+.Footer-informationTerms {
+  margin-right: 5px;
+  color: #999999 !important;
+}
+
+.Footer-informationPrivacy {
+  margin-right: 4px;
+  color: #999999 !important;
+}

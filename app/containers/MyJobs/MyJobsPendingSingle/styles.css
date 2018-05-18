@@ -1,0 +1,36 @@
+.MyJobsPendingSingle-bodyContainer {
+  margin-left: 170px;
+  margin-top: 30px;
+}
+
+.MyJobsPendingSingle-contentContainer {
+  margin-left: 8px;
+  margin-top: 31px;
+  display: flex;
+}
+
+.MyJobsPendingSingle-jobList {
+  margin-left: 93px;
+}
+
+.MyJobsPendingSingle-sideBar {
+  margin-left: 20px;
+}
+
+.MyJobsPendingSingle-googleAds250276 {
+  margin-top: 20px;
+}
+
+.MyJobsPendingSingle-availableJob {
+  width: 85px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+}

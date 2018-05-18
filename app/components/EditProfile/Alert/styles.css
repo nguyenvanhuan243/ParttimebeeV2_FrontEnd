@@ -1,0 +1,21 @@
+.EditProfileAlert {
+  width: 1100px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #fff1f0;
+  border: solid 1px #ffa39e;
+}
+
+.EditProfileAlert-content {
+  display: flex;
+}
+
+.EditProfileAlert-textContainer {
+  display: flex;
+  margin-left: 16px;
+  margin-top: 11px;
+}
+
+.EditProfileAlert-text {
+  margin-left: 4px;
+}
