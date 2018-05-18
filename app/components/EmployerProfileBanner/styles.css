@@ -159,6 +159,8 @@
 
 .EmployerProfileBanner-hrefText {
   color: #ffaa00;
+  cursor: pointer;
+  outline: none !important;
 }
 a.EmployerProfileBanner-hrefText:Hover {
   color: #ffaa00;
