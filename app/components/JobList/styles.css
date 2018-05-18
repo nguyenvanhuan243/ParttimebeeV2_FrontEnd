@@ -53,6 +53,11 @@
   text-align: left;
   color: #999999;
   margin-top: 15px;
+  text-decoration: none;
+}
+
+.JobList-buttonContainer {
+  cursor: pointer;
 }
 
 .JobList-showHeading {

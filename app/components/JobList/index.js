@@ -13,11 +13,28 @@ import React, { PureComponent, PropTypes } from 'react';
 import JobItem from 'components/JobList/JobItem/Loadable';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
 export default class JobList extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      limit: [1, 2, 3],
+    };
+  }
+
+  handleShowMore() {
+    this.setState({
+      limit: [1, 2, 3, 4, 5, 6, 7, 8],
+    });
+  }
   render() {
     const {
       text = '',
       showHeading = false,
     } = this.props;
+    const {
+      limit,
+    } = this.state;
+    const listItem = [];
+    limit.map(() => listItem.push(<JobItem />));
     return (
       <div>
         { showHeading ? <div className="JobList-showHeading">
@@ -29,17 +46,17 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
               Today, December 25
             </div>
           </div>
-          <JobItem />
-          <JobItem />
-          <JobItem />
-          <div className="JobList-showMore">
-            <div className="JobList-showMoreIcon">
-              <ShowMoreIcon />
+          { listItem}
+          <button className="JobList-buttonContainer" onClick={() => this.handleShowMore()}>
+            <div className="JobList-showMore">
+              <div className="JobList-showMoreIcon">
+                <ShowMoreIcon />
+              </div>
+              <div className="JobList-showMoreText">
+                SHOW 88 MORE
+              </div>
             </div>
-            <div className="JobList-showMoreText">
-              SHOW 88 MORE
-            </div>
-          </div>
+          </button>
         </div>
       </div>
     );
