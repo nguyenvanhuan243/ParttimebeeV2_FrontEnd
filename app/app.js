@@ -45,6 +45,7 @@ import 'components/JobList/styles.css';
 import 'components/JobList/JobItem/styles.css';
 import 'containers/HomePage/styles.css';
 import 'containers/General/JobDetail/styles.css';
+import 'containers/General/JobByState/styles.css';
 import 'components/Subscribe/styles.css';
 import 'components/Sponsored/styles.css';
 import 'containers/NotFoundPage/styles.css';

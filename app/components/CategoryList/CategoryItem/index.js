@@ -18,14 +18,16 @@ export default class CategoryItem extends PureComponent { // eslint-disable-line
       iconType = 'HomeIcon',
     } = this.props;
     return (
-      <div className="CategoryItem">
-        <div className="CategoryItem-icon">
-          { iconType }
+      <a href="http://localhost:3001/job-by-state">
+        <div className="CategoryItem">
+          <div className="CategoryItem-icon">
+            { iconType }
+          </div>
+          <div className="CategoryItem-text">
+            { text }
+          </div>
         </div>
-        <div className="CategoryItem-text">
-          { text }
-        </div>
-      </div>
+      </a>
     );
   }
 }

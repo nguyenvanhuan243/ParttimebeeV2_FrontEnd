@@ -28,6 +28,15 @@
   margin-top: 8px;
 }
 
+.JobItem-href {
+  text-decoration: none;
+}
+
+a.JobItem-href:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .JobItem-contentCompanyName {
   font-family: Roboto;
   font-size: 13px;

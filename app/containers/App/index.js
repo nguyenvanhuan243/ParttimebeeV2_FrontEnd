@@ -18,6 +18,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import LoadingJobs from 'containers/General/LoadingJobs/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import JobDetail from 'containers/General/JobDetail/Loadable';
+import JobByState from 'containers/General/JobByState/Loadable';
 import EmployerProfile from 'containers/General/EmployerProfile/Loadable';
 import EmployerAvailableJobs from 'containers/General/EmployerAvailableJobs/Loadable';
 import EmployerProfileReadmore from 'containers/General/EmployerProfileReadmore/Loadable';
@@ -76,6 +77,7 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/loading-jobs" component={LoadingJobs} />
         <Route exact path="/job-detail" component={JobDetail} />
+        <Route exact path="/job-by-state" component={JobByState} />
         <Route exact path="/employer-profile" component={EmployerProfile} />
         <Route exact path="/employer-available-jobs" component={EmployerAvailableJobs} />
         <Route exact path="/employer-profile-read-more" component={EmployerProfileReadmore} />
