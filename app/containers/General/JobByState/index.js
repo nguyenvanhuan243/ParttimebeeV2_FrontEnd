@@ -27,7 +27,7 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
             <CategoryList />
           </div>
           <div className="HomePageContainer-jobListContainer">
-            <JobList showHeading text="Jobs in Kuala Lumpur"/>
+            <JobList showHeading text="Jobs in Kuala Lumpur" />
           </div>
           <div className="HomePageContainer-sidebarContainer">
             <Subscribe />
