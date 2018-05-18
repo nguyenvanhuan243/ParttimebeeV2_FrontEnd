@@ -5,6 +5,10 @@
   background-color: #505d6c;
 }
 
+.EmployerProfileBanner-readMore {
+  height: 589px !important;
+}
+
 .EmployerProfileBanner-avatar {
   width: 140px;
   height: 140px;
