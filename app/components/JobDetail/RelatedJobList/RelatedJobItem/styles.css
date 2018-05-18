@@ -35,3 +35,7 @@
   text-align: left;
   color: #999999;
 }
+
+a.RelatedJobItem-href:hover {
+  text-decoration: none;
+}

@@ -14,20 +14,22 @@ import React, { PureComponent } from 'react';
 export default class RelatedJobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="RelatedJobItem">
-        <div className="RelatedJobItem-container">
-          <div className="RelatedJobItem-image">
-          </div>
-          <div className="RelatedJobItem-text">
-            <div className="RelatedJobItem-title">
-              JOB TITLE HERE
+      <a className="RelatedJobItem-href" href="http://localhost:3001/job-detail" target="_blank">
+        <div className="RelatedJobItem">
+          <div className="RelatedJobItem-container">
+            <div className="RelatedJobItem-image">
             </div>
-            <div className="RelatedJobItem-companyName">
-              Company Name Here
+            <div className="RelatedJobItem-text">
+              <div className="RelatedJobItem-title">
+                JOB TITLE HERE
+              </div>
+              <div className="RelatedJobItem-companyName">
+                Company Name Here
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
     );
   }
 }
