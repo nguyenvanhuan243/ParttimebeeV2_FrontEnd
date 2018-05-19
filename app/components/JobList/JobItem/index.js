@@ -12,11 +12,12 @@
 import React, { PureComponent } from 'react';
 import ViewIcon from 'components/Icons/View/Loadable';
 import ShareIcon from 'components/Icons/Share/Loadable';
+import config from '../../../../config';
 
 export default class JobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <a target="_blank" className="JobItem-href" href="/job-detail">
+      <a target="_blank" className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
         <div className="JobItem">
           <div className="JobItem-image">
           </div>
