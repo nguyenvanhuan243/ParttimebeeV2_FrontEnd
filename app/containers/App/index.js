@@ -73,51 +73,51 @@ export default function App() {
     <div>
       <Switch>
         {/* General */}
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/loading-jobs" component={LoadingJobs} />
-        <Route exact path="/job-detail" component={JobDetail} />
-        <Route exact path="/job-by-state" component={JobByState} />
-        <Route exact path="/employer-profile" component={EmployerProfile} />
-        <Route exact path="/employer-available-jobs" component={EmployerAvailableJobs} />
+        <Route exact path="/test/" component={HomePage} />
+        <Route exact path="/test/loading-jobs" component={LoadingJobs} />
+        <Route exact path="/test/job-detail" component={JobDetail} />
+        <Route exact path="/test/job-by-state" component={JobByState} />
+        <Route exact path="/test/employer-profile" component={EmployerProfile} />
+        <Route exact path="/test/employer-available-jobs" component={EmployerAvailableJobs} />
         {/* Login / Register */}
-        <Route exact path="/login-register/signup" component={Signup} />
-        <Route exact path="/login-register/login" component={Login} />
-        <Route exact path="/login-register/forgot-password" component={ForgotPassword} />
-        <Route exact path="/login-register/forgot-password-incoming" component={ForgotPasswordIncoming} />
-        <Route exact path="/login-register/email-reset-password" component={EmailResetPassword} />
-        <Route exact path="/login-register/click-email1" component={ClickEmail1} />
-        <Route exact path="/login-register/click-email2" component={ClickEmail2} />
-        <Route exact path="/login-register/email-updated-password" component={EmailUpdatedPassword} />
+        <Route exact path="/test/login-register/signup" component={Signup} />
+        <Route exact path="/test/login-register/login" component={Login} />
+        <Route exact path="/test/login-register/forgot-password" component={ForgotPassword} />
+        <Route exact path="/test/login-register/forgot-password-incoming" component={ForgotPasswordIncoming} />
+        <Route exact path="/test/login-register/email-reset-password" component={EmailResetPassword} />
+        <Route exact path="/test/login-register/click-email1" component={ClickEmail1} />
+        <Route exact path="/test/login-register/click-email2" component={ClickEmail2} />
+        <Route exact path="/test/login-register/email-updated-password" component={EmailUpdatedPassword} />
         {/* Pages */}
-        <Route exact path="/pages/terms" component={TermsPage} />
-        <Route exact path="/pages/policy" component={PolicyPage} />
-        <Route exact path="/pages/about" component={AboutPage} />
+        <Route exact path="/test/pages/terms" component={TermsPage} />
+        <Route exact path="/test/pages/policy" component={PolicyPage} />
+        <Route exact path="/test/pages/about" component={AboutPage} />
         {/* MY PROFILES */}
-        <Route exact path="/myprofile/my-profile" component={MyProfile} />
-        <Route exact path="/myprofile/my-profile-more" component={MyProfileMore} />
-        <Route exact path="/myprofile/edit-profile" component={EditProfile} />
-        <Route exact path="/myprofile/updating-profile" component={UpdatingProfile} />
-        <Route exact path="/myprofile/saving-profile" component={SavingProfile} />
-        <Route exact path="/myprofile/updated-profile" component={UpdatedProfile} />
-        <Route exact path="/myprofile/delete-profile-confirmation" component={DeleteProfileConfirmation} />
-        <Route exact path="/myprofile/delete-profile-complete-message" component={DeleteProfileCompleteMessage} />
+        <Route exact path="/test/myprofile/my-profile" component={MyProfile} />
+        <Route exact path="/test/myprofile/my-profile-more" component={MyProfileMore} />
+        <Route exact path="/test/myprofile/edit-profile" component={EditProfile} />
+        <Route exact path="/test/myprofile/updating-profile" component={UpdatingProfile} />
+        <Route exact path="/test/myprofile/saving-profile" component={SavingProfile} />
+        <Route exact path="/test/myprofile/updated-profile" component={UpdatedProfile} />
+        <Route exact path="/test/myprofile/delete-profile-confirmation" component={DeleteProfileConfirmation} />
+        <Route exact path="/test/myprofile/delete-profile-complete-message" component={DeleteProfileCompleteMessage} />
         {/* MY JOBS */}
-        <Route exact path="/myjobs/myjobs" component={MyJobs} />
-        <Route exact path="/myjobs/myjobs-expired" component={MyJobsExpired} />
-        <Route exact path="/myjobs/myjobs-expired-single" component={MyJobsExpiredSingle} />
-        <Route exact path="/myjobs/myjobs-no-jobs" component={MyJobsNoJobs} />
-        <Route exact path="/myjobs/myjobs-on-going" component={MyJobsOnGoing} />
-        <Route exact path="/myjobs/myjobs-on-going-single" component={MyJobsOnGoingSingle} />
-        <Route exact path="/myjobs/myjobs-pending" component={MyJobsPending} />
-        <Route exact path="/myjobs/myjobs-pending-single" component={MyJobsPendingSingle} />
-        <Route exact path="/myjobs/myjobs-ongoing-single-edit" component={MyJobsOnGoingSingleEdit} />
-        <Route exact path="/myjobs/myjobs-pending-single-edit" component={MyJobsPendingSingleEdit} />
-        <Route exact path="/myjobs/myjobs-expired-single-repost" component={MyJobsExpiredSingleRepost} />
-        <Route exact path="/myjobs/myjobs-on-going-single-edit-toast-box" component={MyJobsOnGoingSingleEditToastBox} />
-        <Route exact path="/myjobs/myjobs-pending-single-edit-toast-box" component={MyJobsPendingSingleEditToastBox} />
-        <Route exact path="/myjobs/myjobs-expired-single-repost-toast-box" component={MyJobsExpiredSingleRepostToastBox} />
-        <Route exact path="/myjobs/myjobs-delete-confirmation-popup" component={MyJobsDeleteConfirmationPopup} />
-        <Route exact path="/myjobs/myjobs-delete-confirmation-toast-box" component={MyJobsDeleteConfirmationToastBox} />
+        <Route exact path="/test/myjobs/myjobs" component={MyJobs} />
+        <Route exact path="/test/myjobs/myjobs-expired" component={MyJobsExpired} />
+        <Route exact path="/test/myjobs/myjobs-expired-single" component={MyJobsExpiredSingle} />
+        <Route exact path="/test/myjobs/myjobs-no-jobs" component={MyJobsNoJobs} />
+        <Route exact path="/test/myjobs/myjobs-on-going" component={MyJobsOnGoing} />
+        <Route exact path="/test/myjobs/myjobs-on-going-single" component={MyJobsOnGoingSingle} />
+        <Route exact path="/test/myjobs/myjobs-pending" component={MyJobsPending} />
+        <Route exact path="/test/myjobs/myjobs-pending-single" component={MyJobsPendingSingle} />
+        <Route exact path="/test/myjobs/myjobs-ongoing-single-edit" component={MyJobsOnGoingSingleEdit} />
+        <Route exact path="/test/myjobs/myjobs-pending-single-edit" component={MyJobsPendingSingleEdit} />
+        <Route exact path="/test/myjobs/myjobs-expired-single-repost" component={MyJobsExpiredSingleRepost} />
+        <Route exact path="/test/myjobs/myjobs-on-going-single-edit-toast-box" component={MyJobsOnGoingSingleEditToastBox} />
+        <Route exact path="/test/myjobs/myjobs-pending-single-edit-toast-box" component={MyJobsPendingSingleEditToastBox} />
+        <Route exact path="/test/myjobs/myjobs-expired-single-repost-toast-box" component={MyJobsExpiredSingleRepostToastBox} />
+        <Route exact path="/test/myjobs/myjobs-delete-confirmation-popup" component={MyJobsDeleteConfirmationPopup} />
+        <Route exact path="/test/myjobs/myjobs-delete-confirmation-toast-box" component={MyJobsDeleteConfirmationToastBox} />
         {/* POST JOBS */}
         <Route exact path="/postjobs-first-time-post-job" component={FirstTimePostJob} />
         <Route exact path="/postjobs-post-job" component={PostJob} />
