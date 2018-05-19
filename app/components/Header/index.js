@@ -14,26 +14,64 @@ import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
 
 export default class Header extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      expandAvatar: false,
+    };
+  }
+  handleExpandAvatar() {
+    this.setState({
+      expandAvatar: !this.state.expandAvatar,
+    });
+  }
   render() {
+    const {
+      expandAvatar,
+    } = this.state;
     return (
-      <div className="Header">
-        <div className="Header-searchForm">
-          <form className="SearchForm">
-            <div className="SearchIcon">
-              <SearchIcon />
-            </div>
-            <input className="SearchForm-customInput" placeholder="Search job..." />
-          </form>
+      <span>
+        <div className="Header">
+          <div className="Header-searchForm">
+            <form className="SearchForm">
+              <div className="SearchIcon">
+                <SearchIcon />
+              </div>
+              <input className="SearchForm-customInput" placeholder="Search job..." />
+            </form>
+          </div>
+          <div className="Header-logo">
+            <LogoIcon />
+          </div>
+          <div className="Header-postJob">
+            <a className="Header-postJobText" href="/post-job">
+              POSTJOB
+            </a>
+          </div>
+          <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar">
+          </button>
         </div>
-        <div className="Header-logo">
-          <LogoIcon />
-        </div>
-        <div className="Header-postJob">
-          <a className="Header-postJobText" href="/post-job">
-            POSTJOB
-          </a>
-        </div>
-      </div>
+        { expandAvatar ?
+          <div className="Header-expandLoggedAvatar">
+            <ul>
+              <li>
+                <a href="">
+                  MyJobs
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  MyProfile
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div> : null }
+      </span>
     );
   }
 }

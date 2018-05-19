@@ -60,3 +60,21 @@
   margin-top: 4px;
   margin-left: 4px;
 }
+
+.Header-loggedAvatar {
+  width: 40px;
+  height: 40px;
+  background-color: #d8d8d8;
+  border-radius: 30px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.Header-expandLoggedAvatar {
+  width: 110px;
+  height: 107px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+  margin-left: 1195px;
+  position: absolute;
+}
