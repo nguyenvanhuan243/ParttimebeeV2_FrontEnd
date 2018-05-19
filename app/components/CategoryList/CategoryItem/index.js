@@ -10,6 +10,7 @@
  */
 
 import React, { PureComponent, PropTypes } from 'react';
+import config from '../../../../config';
 
 export default class CategoryItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -18,7 +19,7 @@ export default class CategoryItem extends PureComponent { // eslint-disable-line
       iconType = 'HomeIcon',
     } = this.props;
     return (
-      <a href="/job-by-state">
+      <a href={`${config.BASE_URL}/job-by-state`}>
         <div className="CategoryItem">
           <div className="CategoryItem-icon">
             { iconType }
