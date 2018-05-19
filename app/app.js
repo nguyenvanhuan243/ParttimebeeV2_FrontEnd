@@ -43,6 +43,7 @@ import 'components/CategoryList/CategoryItem/styles.css';
 import 'components/StateList/styles.css';
 import 'components/JobList/styles.css';
 import 'components/JobList/JobItem/styles.css';
+import 'components/MyJobsComponent/styles.css';
 import 'containers/HomePage/styles.css';
 import 'containers/General/JobDetail/styles.css';
 import 'containers/General/JobByState/styles.css';
