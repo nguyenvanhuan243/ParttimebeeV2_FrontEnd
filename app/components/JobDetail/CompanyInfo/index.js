@@ -13,7 +13,7 @@ import React, { PureComponent } from 'react';
 export default class CompanyInfo extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <a className="CompanyInfo-href" href="http://localhost:3001/employer-profile" target="_blank">
+      <a className="CompanyInfo-href" href="/employer-profile" target="_blank">
         <div className="CompanyInfo">
           <div className="CompanyInfo-container">
             <div className="CompanyInfo-image">

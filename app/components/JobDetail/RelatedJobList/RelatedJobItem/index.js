@@ -14,7 +14,7 @@ import React, { PureComponent } from 'react';
 export default class RelatedJobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <a className="RelatedJobItem-href" href="http://localhost:3001/job-detail" target="_blank">
+      <a className="RelatedJobItem-href" href="/job-detail" target="_blank">
         <div className="RelatedJobItem">
           <div className="RelatedJobItem-container">
             <div className="RelatedJobItem-image">

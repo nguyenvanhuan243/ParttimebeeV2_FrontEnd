@@ -16,7 +16,7 @@ import ShareIcon from 'components/Icons/Share/Loadable';
 export default class JobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <a target="_blank" className="JobItem-href" href="http://localhost:3001/job-detail">
+      <a target="_blank" className="JobItem-href" href="/job-detail">
         <div className="JobItem">
           <div className="JobItem-image">
           </div>
