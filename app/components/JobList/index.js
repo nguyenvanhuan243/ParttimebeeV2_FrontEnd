@@ -29,12 +29,18 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
     const {
       text = '',
       showHeading = false,
+      title = 'Today, December 25',
+      showCity = true,
+      showView = true,
+      showShare = true,
+      showEdit = false,
+      showDelete = false,
     } = this.props;
     const {
       limit,
     } = this.state;
     const listItem = [];
-    limit.map(() => listItem.push(<JobItem />));
+    limit.map(() => listItem.push(<JobItem showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
     return (
       <div>
         { showHeading ? <div className="JobList-showHeading">
@@ -43,7 +49,7 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
         <div className="JobList">
           <div className="JobList-title">
             <div className="JobList-titleText">
-              Today, December 25
+              { title }
             </div>
           </div>
           { listItem }
@@ -66,4 +72,10 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
 JobList.propTypes = {
   text: PropTypes.string,
   showHeading: PropTypes.bool,
+  title: PropTypes.string,
+  showCity: PropTypes.bool,
+  showShare: PropTypes.bool,
+  showView: PropTypes.bool,
+  showEdit: PropTypes.bool,
+  showDelete: PropTypes.bool,
 };

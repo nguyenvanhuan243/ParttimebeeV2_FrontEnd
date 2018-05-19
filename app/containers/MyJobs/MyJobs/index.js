@@ -33,7 +33,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
               <MyJobsComponent />
             </div>
             <div className="MyJobs-jobList">
-              <JobList />
+              <JobList showDelete showEdit showCity={false} showView={false} showShare={false} title="On-going" />
             </div>
             <div className="MyJobs-sideBar">
               <ShareThisProfile />
