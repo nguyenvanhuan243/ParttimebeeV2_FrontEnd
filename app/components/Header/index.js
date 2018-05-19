@@ -12,6 +12,7 @@
 import React, { PureComponent } from 'react';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
+import config from '../../../config';
 
 export default class Header extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -55,17 +56,17 @@ export default class Header extends PureComponent { // eslint-disable-line react
           <div className="Header-expandLoggedAvatar">
             <ul>
               <li>
-                <a href="">
+                <a href={`${config.BASE_URL}/byjobs-myjobs`}>
                   MyJobs
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href={`${config.BASE_URL}/myprofile/my-profile`}>
                   MyProfile
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href={`${config.BASE_URL}/logout`}>
                   Logout
                 </a>
               </li>
