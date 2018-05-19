@@ -11,15 +11,41 @@
 
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
-export default class EditJob extends Component { // eslint-disable-line react/prefer-stateless-function
+import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
+import JobList from 'components/JobList/Loadable';
+import ShareThisProfile from 'components/ShareThisProfile/Loadable';
+import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
+import Footer from 'components/Footer/Loadable';
+export default class MyProfile extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="EditJob">
-        <div className="EditJob-header">
+      <div className="MyProfile">
+        <div className="MyProfile-header">
           <Header />
+        </div>
+        <div className="MyProfile-bodyContainer">
+          <div className="MyProfile-MyProfileBanner">
+            <EmployerProfileBanner />
+          </div>
+          <div className="MyProfile-contentContainer">
+            <div className="MyProfile-availableJob">
+              Available Jobs
+            </div>
+            <div className="MyProfile-jobList">
+              <JobList />
+            </div>
+            <div className="MyProfile-sideBar">
+              <ShareThisProfile />
+              <div className="MyProfile-googleAds250276">
+                <GoogleAds250276 />
+              </div>
+              <div>
+                <Footer />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
-
