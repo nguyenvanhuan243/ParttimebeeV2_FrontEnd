@@ -12,7 +12,6 @@
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import EditProfileForm from 'components/EditProfile/Form/Loadable';
-import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 export default class EditProfile extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -23,9 +22,6 @@ export default class EditProfile extends Component { // eslint-disable-line reac
         <div className="EditProfile-container">
           <div className="EditProfile-editProfile">
             EditProfile
-          </div>
-          <div className="EditProfile-postJobAlert">
-            <EditProfileAlert />
           </div>
           <div className="EditProfile-postJobForm">
             <EditProfileForm />
