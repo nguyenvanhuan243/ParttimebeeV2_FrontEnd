@@ -53,4 +53,3 @@ export default class EditProfile extends Component { // eslint-disable-line reac
   }
 }
 
-

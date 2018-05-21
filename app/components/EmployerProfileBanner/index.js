@@ -119,3 +119,4 @@ The idea was started when two young entrepreneurs, also a good friend who apprec
 EmployerProfileBanner.propTypes = {
   showEdit: PropTypes.bool,
 };
+
