@@ -31,15 +31,26 @@ export default class PutrajayaIcon extends PureComponent { // eslint-disable-lin
           x={0}
           y={0}
           xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
-            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhFBMVEX/gIDiRUXkExP80hLz
-            1UT/6HSXXl4SEhL70RPy1U/y1Uf//9Xu1WD60hr60hvy1Ev//4DlAADzpSX/0QDfBQUaFxeMMjLj
-            AQEAAAAiHR2YLy8sIyOlKio4KSmwJSVDLi67ICABAQFOMTHFGRkEBARaNDTMFBSnki6wky/4xA79
-            0gr///8CQ9HdAAAAEXRSTlMKx/z8xwu4/PzBxga4+/vDCrmrR9QAAAABYktHRCskueQIAAAAB3RJ
-            TUUH4gUHAQYh2Z56DwAAAGpJREFUKM/lyVkWQ0AURdEnpQsheAlXSETfzH+Alh9hVdUIcj7PJjIu
-            8aGEt4Rpkf2IZWA2yXmmmQIEAchfMvAGQFFqAHh/NABUXw2gblo1AF0//GA8Nc07sKY/BqH+Ll3V
-            4JF/Cxap8B6tQMEtynTo53UAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDUtMDdUMDE6MDY6MzMt
-            MDc6MDAkKGMYAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTA1LTA3VDAxOjA2OjMzLTA3OjAwVXXb
-            pAAAAABJRU5ErkJggg=="
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACN1BMVEUAAKoAAIAAAIBkZE9T
+          U1cAAJlrWkddTE9lZE9UU1d4ckBqY0YAAIEAAIEAAIAAAKr//wAAAID97wH8/ADduBDm2Bv++wH+
+          0QH/+gHl2BvdtxH9/QC2nBO0eCDu6Tf+8QH86AH96QH/8AHt6DezdyC3nBPmzQ7g3wWWdR2wgRzW
+          sRj+6gj/7wH/6QH/6AGxgRyXdR3g4AXWuxHHxgmeZSPMmx3kphjvjBX0qg3zpQ7zpA30qQ3texnk
+          pxjLmh2dZSLXvRDVsxKZjhLBhB2gnRzpsA3zaBjzZxjyYRryYhnzahjzYRrorwygnBzBhR2ajxLW
+          tBK3oxF6Xhyvix/e0Az45CzVnULjYxqgXBfurWfspw/OoD334yeviyC3pBGnlxKtfBzpsTmupQ/4
+          9jzaynTmMyIpJSD8/Pj36AKOqjPj4iatpA/psDmsexyplxO0pQ/YsSbyyTq+nxXuwRu4vkTdRiE9
+          OR3y8tXt4QZGtzjSvSHyyDrXsSa4rg7rzB3//TL/8i7//hfI53Xu88D24aTu25P39+V6yDT//hj/
+          8i3szBy5rg7w5QP5rRv52g3w1wL33QL8+hHn35LvuW7rrWLu7qD3+Az94QH13AL63gn5rRrv4wP0
+          3gLZuQbQuAjfywTauQb35wL//wf29Gf5+XH5+Qf25QLevAXs1APpxQT9zQH03wL/+wHixAXq1gP7
+          6AH/7QH/6wH74AHkxQPy4wPfxwXDsQjHrwjJsQnYvQXqzgP86wH///+09YiXAAAAEHRSTlMGiee/
+          vwXJyb+/x8eKfQQD1TVEJQAAAAFiS0dEvErS4u8AAAAHdElNRQfiBRQTLyXHu66SAAABIElEQVQo
+          z2NgYGRiFkADLEyMrAyMgoKYEoKCjAxM2CWYGASxSwgSJSEkhCkhLCIqICYuLiEgKSWNIiEjKycg
+          r6CoJKCsoookoaauoamlraOrp6OtpW9gqAaXMDI2MTUzt7C0sraxtbM3doBLODo5u7i6uXt4enn7
+          +Pr5B8Ak2AKDgkNCw8IjIqOiY0Jig+LYoRIc8QmJSckpqWnpGZlZ2Tm5eZwwo/ILCouKS0rLyisq
+          q4qqa/LhdtTW1Tc0NjW3tLa1d3TWd3XDJLh6evv6J0ycNHnK1GnTZ8ycNZsbpmPO3HnzFyxctHjJ
+          0mXLV6xctRrh8zUCAmvXrd+wYeOmzQJADkogbtm6bfuOnbt2kxTsqBI4o5YHuwQvAx/25MMPACfn
+          XkpWmZnGAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTA1LTIwVDE5OjQ3OjM3LTA3OjAwYbUFHgAA
+          ACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wNS0yMFQxOTo0NzozNy0wNzowMBDovaIAAAAASUVORK5C
+          YII="
         />
       </svg>
     );

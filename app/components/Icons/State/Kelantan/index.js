@@ -31,15 +31,23 @@ export default class KelantanIcon extends PureComponent { // eslint-disable-line
           x={0}
           y={0}
           xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
-            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhFBMVEX/gIDiRUXkExP80hLz
-            1UT/6HSXXl4SEhL70RPy1U/y1Uf//9Xu1WD60hr60hvy1Ev//4DlAADzpSX/0QDfBQUaFxeMMjLj
-            AQEAAAAiHR2YLy8sIyOlKio4KSmwJSVDLi67ICABAQFOMTHFGRkEBARaNDTMFBSnki6wky/4xA79
-            0gr///8CQ9HdAAAAEXRSTlMKx/z8xwu4/PzBxga4+/vDCrmrR9QAAAABYktHRCskueQIAAAAB3RJ
-            TUUH4gUHAQYh2Z56DwAAAGpJREFUKM/lyVkWQ0AURdEnpQsheAlXSETfzH+Alh9hVdUIcj7PJjIu
-            8aGEt4Rpkf2IZWA2yXmmmQIEAchfMvAGQFFqAHh/NABUXw2gblo1AF0//GA8Nc07sKY/BqH+Ll3V
-            4JF/Cxap8B6tQMEtynTo53UAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDUtMDdUMDE6MDY6MzMt
-            MDc6MDAkKGMYAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTA1LTA3VDAxOjA2OjMzLTA3OjAwVXXb
-            pAAAAABJRU5ErkJggg=="
+          AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABgFBMVEXVKyvdICjeHyfeICfd
+          ICf/QEDdICjeISf////cICjdHybdHyfdHybeISn/gIDdHybeJizhOkDhPELqdnvwoaTztLbnYWbs
+          horzsbT1wsTpcHXiREr2xMX98fLeKTDdISj+/v7zsrTjSE3hP0XfMjj99vb////2xsjrgITkUljt
+          jZHoZ2zlV1zvmp3jSU7dICfrgYX3ysv99fXfMTfnZWrmYGT++vriQkjkUVftj5LvlZj63t/52tzu
+          kJPvmZzjRkz99PTmW2D0trn87u763+DnYGXtjJDeJy798/P87e3dJSvvmJvmXWL75uf88PHzsLPd
+          JCv52tvqeHz76ergNDreKC/iRUvpb3T87O31vcDdIin2x8n86+zshIfiQ0nrfoLiQ0jlWV/wn6Ly
+          qaz++/vkUVblWF3rfIHobHDuk5fxqKrsgobwnaD1vb/gNz33z9HukpXobXHtiIzoa3DfLDL87+/+
+          /f3eKzH0vL71wMLyr7Hyra/qdXrpdHjfLjXukpZtr/zPAAAAD3RSTlMGh+XniQSAgwFg3PPbfQJR
+          6E72AAAAAWJLR0QIht6VegAAAAd0SU1FB+IFFBQAAnXiNREAAAEwSURBVCjPY2BgZOLHAMwsrAws
+          /FgBCwMzdglmBhhLQBBECsFl4BLCIiBSVAxDQlwCREpKIUsISQMJGVl+OXkBBUUgU0kZIqGiqqau
+          wa+pxa+tw6+rp29gqGZkDNFhYqpqZm5haWVtY2tnr6Tg4CgGNUrAyVnNxdXN3cPTy9vHV83PPwAq
+          IafCH6jm62YfJK7sHaxmwx8SCndVmFp4RKQ+P39UdEysWhySc+PVEhLNkvj5k1NS09TSkSR01TIs
+          MrOy3URy7DXU7JAkMtVyLdz48/L4vZXy1QqQJArV1GzjQYwiXTW1YiSJklI1MwMgLW9bpuZcjhxW
+          Umpqas4VlbJAKhw1EKvUoKAaPXRrHEDCHrUYwc5fJ1VfL1WHiCgcUcvEwIZdgp2Bg5OLGwPw8PIB
+          ANZGRFGM2HXqAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTA1LTIwVDIwOjAwOjAyLTA3OjAwFPNq
+          kgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wNS0yMFQyMDowMDowMi0wNzowMGWu0i4AAAAASUVO
+          RK5CYII="
         />
       </svg>
     );
