@@ -19,17 +19,17 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
           My Jobs
         </div>
         <div className="MyJobsComponent-content">
-          <a target="_blank" href={`${config.BASE_URL}/myjobs/myjobs-on-going`}>
+          <a href={`${config.BASE_URL}/myjobs/myjobs-on-going`}>
             <div>
               10 On-going jobs
             </div>
           </a>
-          <a target="_blank" href={`${config.BASE_URL}/myjobs/myjobs-pending`}>
+          <a href={`${config.BASE_URL}/myjobs/myjobs-pending`}>
             <div>
               1 Pending jobs
             </div>
           </a>
-          <a target="_blank" href={`${config.BASE_URL}/myjobs/myjobs-expired`}>
+          <a href={`${config.BASE_URL}/myjobs/myjobs-expired`}>
             <div>
               99 expired jobs
             </div>

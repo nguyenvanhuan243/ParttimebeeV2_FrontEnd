@@ -16,6 +16,7 @@ import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
 import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
 import Footer from 'components/Footer/Loadable';
+import MyJobsComponent from 'components/MyJobsComponent/Loadable';
 export default class MyJobsExpiredExpired extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -29,10 +30,10 @@ export default class MyJobsExpiredExpired extends Component { // eslint-disable-
           </div>
           <div className="MyJobsExpired-contentContainer">
             <div className="MyJobsExpired-availableJob">
-              Available Jobs
+              <MyJobsComponent />
             </div>
             <div className="MyJobsExpired-jobList">
-              <JobList />
+              <JobList title="Expired" />
             </div>
             <div className="MyJobsExpired-sideBar">
               <ShareThisProfile />

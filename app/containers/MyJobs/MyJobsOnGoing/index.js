@@ -16,6 +16,7 @@ import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
 import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
 import Footer from 'components/Footer/Loadable';
+import MyJobsComponent from 'components/MyJobsComponent/Loadable';
 export default class MyJobsOnGoing extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -29,10 +30,10 @@ export default class MyJobsOnGoing extends Component { // eslint-disable-line re
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
-              Available Jobs
+              <MyJobsComponent />
             </div>
             <div className="MyJobs-jobList">
-              <JobList />
+              <JobList title="On-going" />
             </div>
             <div className="MyJobs-sideBar">
               <ShareThisProfile />
