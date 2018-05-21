@@ -11,7 +11,7 @@
 
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
-import MyJobsExpiredBanner from 'components/EmployerProfileBanner/Loadable';
+import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
 import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
@@ -19,6 +19,7 @@ import Footer from 'components/Footer/Loadable';
 import MyJobsComponent from 'components/MyJobsComponent/Loadable';
 export default class MyJobsExpiredExpired extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const SHOWEDIT = true;
     return (
       <div className="MyJobsExpired">
         <div className="MyJobsExpired-header">
@@ -26,7 +27,7 @@ export default class MyJobsExpiredExpired extends Component { // eslint-disable-
         </div>
         <div className="MyJobsExpired-bodyContainer">
           <div className="MyJobsExpired-MyJobsExpiredBanner">
-            <MyJobsExpiredBanner />
+            <EmployerProfileBanner showEdit={SHOWEDIT} />
           </div>
           <div className="MyJobsExpired-contentContainer">
             <div className="MyJobsExpired-availableJob">

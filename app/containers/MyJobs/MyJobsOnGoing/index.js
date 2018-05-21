@@ -11,7 +11,7 @@
 
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
-import MyJobsBanner from 'components/EmployerProfileBanner/Loadable';
+import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
 import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
@@ -19,6 +19,7 @@ import Footer from 'components/Footer/Loadable';
 import MyJobsComponent from 'components/MyJobsComponent/Loadable';
 export default class MyJobsOnGoing extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const SHOWEDIT = true;
     return (
       <div className="MyJobs">
         <div className="MyJobs-header">
@@ -26,7 +27,7 @@ export default class MyJobsOnGoing extends Component { // eslint-disable-line re
         </div>
         <div className="MyJobs-bodyContainer">
           <div className="MyJobs-MyJobsBanner">
-            <MyJobsBanner />
+            <EmployerProfileBanner showEdit={SHOWEDIT} />
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">

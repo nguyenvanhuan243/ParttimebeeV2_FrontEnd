@@ -103,7 +103,7 @@ The idea was started when two young entrepreneurs, also a good friend who apprec
             </div>
           </div>
           { showEdit ?
-            <a className="EmployerProfileBanner-hrefText" target="_blank" href={`${config.BASE_URL}/myprofile/edit-profile`}>
+            <a className="EmployerProfileBanner-hrefText" href={`${config.BASE_URL}/myprofile/edit-profile`}>
               <div className="EmployerProfileBanner-editButton">
                 <div className="EmployerProfileBanner-editButtonText">
                   Edit
