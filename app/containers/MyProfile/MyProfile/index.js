@@ -19,6 +19,7 @@ import Footer from 'components/Footer/Loadable';
 import MyJobsComponent from 'components/MyJobsComponent/Loadable';
 export default class MyProfile extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const SHOWEDIT = true;
     return (
       <div className="MyProfile">
         <div className="MyProfile-header">
@@ -26,7 +27,7 @@ export default class MyProfile extends Component { // eslint-disable-line react/
         </div>
         <div className="MyProfile-bodyContainer">
           <div className="MyProfile-MyProfileBanner">
-            <EmployerProfileBanner />
+            <EmployerProfileBanner showEdit={SHOWEDIT} />
           </div>
           <div className="MyProfile-contentContainer">
             <div className="MyProfile-availableJob">

@@ -1,0 +1,98 @@
+.EditProfile-container {
+  margin-left: 170px;
+  margin-top: 30px;
+}
+
+.EditProfile-editProfile {
+  width: 127px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 26px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.23;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.EditProfile-postJobAlert {
+  margin-bottom: 30px;
+}
+
+.EditProfile-deleteMyAccount {
+  width: 1100px;
+  height: 104px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.EditProfile-containerDeleteAccount {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.EditProfile-title {
+  width: 132px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.EditProfile-content {
+  margin-top: 10px;
+}
+
+.EditProfile-content {
+  display: flex;
+}
+
+.EditProfile-text {
+  width: 367px;
+  height: 14px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.EditProfile-button {
+  width: 98px;
+  height: 34px;
+  border-radius: 3px;
+  border: solid 1px #e8e8e8;
+  padding-left: 16.5px;
+  padding-top: 7px;
+  margin-bottom: 30px;
+}
+
+.EditProfile-buttonText {
+  width: 65px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #999999;
+}

@@ -9,12 +9,13 @@
  * the linting exception.
  */
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import PhoneIcon from 'components/Icons/Phone/Loadable';
 import WhiteEmailIcon from 'components/Icons/WhiteEmail/Loadable';
 import WebIcon from 'components/Icons/Web/Loadable';
 import AddressIcon from 'components/Icons/Address/Loadable';
 import classNames from 'classnames';
+import config from '../../../config';
 export default class EmployerProfileBanner extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
@@ -32,6 +33,9 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
     const {
       showReadMore,
     } = this.state;
+    const {
+      showEdit = false,
+    } = this.props;
     const className = classNames('EmployerProfileBanner',
       { 'EmployerProfileBanner-readMore': showReadMore }
     );
@@ -98,13 +102,20 @@ The idea was started when two young entrepreneurs, also a good friend who apprec
               }
             </div>
           </div>
-          <div className="EmployerProfileBanner-editButton">
-            <div className="EmployerProfileBanner-editButtonText">
-              Edit
-            </div>
-          </div>
+          { showEdit ?
+            <a className="EmployerProfileBanner-hrefText" target="_blank" href={`${config.BASE_URL}/myprofile/edit-profile`}>
+              <div className="EmployerProfileBanner-editButton">
+                <div className="EmployerProfileBanner-editButtonText">
+                  Edit
+                </div>
+              </div>
+            </a> : null }
         </div>
       </div>
     );
   }
 }
+
+EmployerProfileBanner.propTypes = {
+  showEdit: PropTypes.bool,
+};

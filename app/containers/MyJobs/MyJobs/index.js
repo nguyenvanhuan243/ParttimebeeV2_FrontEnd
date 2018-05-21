@@ -19,6 +19,7 @@ import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
 import Footer from 'components/Footer/Loadable';
 export default class MyJobs extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const SHOWEDIT = true;
     return (
       <div className="MyJobs">
         <div className="MyJobs-header">
@@ -26,7 +27,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
         </div>
         <div className="MyJobs-bodyContainer">
           <div className="MyJobs-MyJobsBanner">
-            <EmployerProfileBanner />
+            <EmployerProfileBanner showEdit={SHOWEDIT} />
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
