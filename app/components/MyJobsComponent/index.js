@@ -10,6 +10,7 @@
  */
 
 import React, { PureComponent } from 'react';
+import config from '../../../config';
 export default class MyJobsComponent extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -18,17 +19,17 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
           My Jobs
         </div>
         <div className="MyJobsComponent-content">
-          <a href="">
+          <a target="_blank" href={`${config.BASE_URL}/myjobs/myjobs-on-going`}>
             <div>
               10 On-going jobs
             </div>
           </a>
-          <a href="">
+          <a target="_blank" href={`${config.BASE_URL}/myjobs/myjobs-pending`}>
             <div>
               1 Pending jobs
             </div>
           </a>
-          <a href="">
+          <a target="_blank" href={`${config.BASE_URL}/myjobs/myjobs-expired`}>
             <div>
               99 expired jobs
             </div>
