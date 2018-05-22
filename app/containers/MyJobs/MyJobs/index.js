@@ -21,7 +21,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
   render() {
     const SHOWEDIT = true;
     return (
-      <div className="MyJobs">
+      <div className="MyJobs container">
         <div className="MyJobs-header">
           <Header />
         </div>
