@@ -13,16 +13,19 @@ import React, { PureComponent } from 'react';
 import ReportIcon from 'components/Icons/Report/Loadable';
 
 export default class ReportButon extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  handleReportButton() {
+    alert('Clicked');
+  }
   render() {
     return (
-      <div className="ReportButon">
+      <button onClick={() => this.handleReportButton()} className="ReportButon">
         <div className="ReportButon-icon">
           <ReportIcon />
         </div>
         <div className="ReportButon-text">
           REPORTJOB
         </div>
-      </div>
+      </button>
     );
   }
 }

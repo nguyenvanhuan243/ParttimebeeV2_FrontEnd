@@ -6,6 +6,7 @@
   border: solid 1px #e8e8e8;
   display: flex;
   margin-left: 297px;
+  outline: none !important;
 }
 
 .ReportButon-icon {
