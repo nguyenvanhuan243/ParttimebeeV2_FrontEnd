@@ -16,7 +16,7 @@ export default class AboutPage extends PureComponent { // eslint-disable-line re
   render() {
     return (
       <div className="AboutPage">
-        <div className="AboutPage-header">
+        <div className="AboutPage-header container">
           <Header />
         </div>
         <div className="AboutPage-titleContainer">

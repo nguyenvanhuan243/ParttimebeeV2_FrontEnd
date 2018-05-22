@@ -15,7 +15,7 @@ export default class PolicyPage extends PureComponent { // eslint-disable-line r
   render() {
     return (
       <div className="PolicyPage">
-        <div className="PolicyPage-header">
+        <div className="PolicyPage-header container">
           <Header />
         </div>
         <div className="PolicyPage-container">

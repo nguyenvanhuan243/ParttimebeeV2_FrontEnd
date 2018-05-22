@@ -15,7 +15,7 @@ export default class TermsPage extends PureComponent { // eslint-disable-line re
   render() {
     return (
       <div className="TermsPage">
-        <div className="TermsPage-header">
+        <div className="TermsPage-header container">
           <Header />
         </div>
         <div className="TermsPage-container">
