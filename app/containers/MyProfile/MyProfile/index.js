@@ -21,7 +21,7 @@ export default class MyProfile extends Component { // eslint-disable-line react/
   render() {
     const SHOWEDIT = true;
     return (
-      <div className="MyProfile">
+      <div className="MyProfile container">
         <div className="MyProfile-header">
           <Header />
         </div>
