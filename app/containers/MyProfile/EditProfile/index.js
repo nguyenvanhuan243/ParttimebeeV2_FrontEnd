@@ -15,7 +15,7 @@ import EditProfileForm from 'components/EditProfile/Form/Loadable';
 export default class EditProfile extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="EditProfile">
+      <div className="EditProfile container">
         <div className="EditProfile-header">
           <Header />
         </div>
