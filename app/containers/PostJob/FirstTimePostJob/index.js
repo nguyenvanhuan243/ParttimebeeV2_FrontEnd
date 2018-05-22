@@ -16,7 +16,7 @@ import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 export default class FirstTimePostJob extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="FirstTimePostJob">
+      <div className="FirstTimePostJob container">
         <div className="FirstTimePostJob-header">
           <Header />
         </div>

@@ -20,7 +20,7 @@ import Footer from 'components/Footer/Loadable';
 export default class EmployerProfile extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="EmployerProfile">
+      <div className="EmployerProfile container">
         <div className="EmployerProfile-header">
           <Header />
         </div>
