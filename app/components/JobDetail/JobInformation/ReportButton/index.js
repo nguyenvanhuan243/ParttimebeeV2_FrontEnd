@@ -23,7 +23,7 @@ export default class ReportButon extends PureComponent { // eslint-disable-line 
           <ReportIcon />
         </div>
         <div className="ReportButon-text">
-          REPORTJOB
+          REPORT JOB
         </div>
       </button>
     );

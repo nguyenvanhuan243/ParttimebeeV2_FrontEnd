@@ -1,5 +1,5 @@
 .ReportButon {
-  width: 105px;
+  /* width: 105px; */
   height: 24px;
   border-radius: 3px;
   background-color: #ffffff;
@@ -26,4 +26,5 @@
   margin-left: 6px;
   margin-top: 4px;
   cursor: pointer;
+  display: inline;
 }
