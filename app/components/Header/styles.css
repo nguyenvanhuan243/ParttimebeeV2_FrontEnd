@@ -1,5 +1,5 @@
 .Header {
-  max-width: 1440px;
+  width: 1440px;
   height: 62px;
   background-color: #ffffff;
   border-bottom: solid 1px #e8e8e8;
@@ -47,7 +47,7 @@
 
 .Header-searchForm {
   display: flex;  
-  margin-left: 170px;
+  margin-left: 11.8%;
 }
 
 .SearchIcon {
