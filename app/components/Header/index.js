@@ -45,12 +45,12 @@ export default class Header extends PureComponent { // eslint-disable-line react
             <LogoIcon />
           </div>
           <div className="Header-postJobContainer col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div className="Header-postJob">
-              <a className="Header-postJobText" href="/post-job">
-                POSTJOB
-              </a>
-            </div>
-            <div className="Header-buttonContainer">
+            <div className="Header-test">
+              <div className="Header-postJob">
+                <a className="Header-postJobText" href="/post-job">
+                  POSTJOB
+                </a>
+              </div>
               <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar">
               </button>
             </div>

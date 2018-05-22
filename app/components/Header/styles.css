@@ -81,11 +81,8 @@
   position: absolute;
 }
 
-.Header-postJobContainer {
+.Header-test {
   display: flex;
   text-align: right;
-}
-
-.Header-buttonContainer {
-  text-align: right;
+  float: right;
 }
