@@ -21,7 +21,7 @@ export default class EditProfile extends Component { // eslint-disable-line reac
         </div>
         <div className="EditProfile-container">
           <div className="EditProfile-editProfile">
-            EditProfile
+            Edit Profile
           </div>
           <div className="EditProfile-postJobForm">
             <EditProfileForm />
