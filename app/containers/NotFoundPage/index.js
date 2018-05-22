@@ -16,7 +16,7 @@ import NotFoundPageIcon from 'components/Icons/NotFoundPage/Loadable';
 export default class NotFound extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="NotFoundPage">
+      <div className="NotFoundPage container">
         <Header />
         <div className="NotFoundPage-icon">
           <NotFoundPageIcon />
