@@ -49,7 +49,7 @@ export default class JobDetail extends Component { // eslint-disable-line react/
         <div className="JobDetail-reportJob">
           <Header />
           <div className="JobDetail-container">
-            <div className="JobDetail-body">
+            <div>
               <JobDetailHeader />
               <div className="JobDetail-jobInformation">
                 <JobInformation />
