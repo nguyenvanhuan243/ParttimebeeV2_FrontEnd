@@ -16,7 +16,7 @@
 
 .Header-logo {
   margin-top: 15px;
-  margin-left: 306px;
+  text-align: center;
 }
 
 .Header-postJob {
@@ -24,8 +24,8 @@
   height: 30px;
   border-radius: 3px;
   background-color: #ffaa00;
-  margin-left: 451px;
   margin-top: 17px;
+  text-align: right;
 }
 
 .Header-postJobText {
@@ -47,7 +47,7 @@
 
 .Header-searchForm {
   display: flex;  
-  margin-left: 11.8%;
+  margin-left: 5px;
 }
 
 .SearchIcon {
@@ -68,6 +68,7 @@
   border-radius: 30px;
   margin-top: 12px;
   cursor: pointer;
+  text-align: right;
 }
 .Header-expandLoggedAvatar {
   width: 110px;
@@ -77,4 +78,13 @@
   border: solid 1px #e8e8e8;
   margin-left: 1195px;
   position: absolute;
+}
+
+.Header-postJobContainer {
+  display: flex;
+  text-align: right;
+}
+
+.Header-buttonContainer {
+  text-align: right;
 }
