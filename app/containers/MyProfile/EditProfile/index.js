@@ -27,19 +27,19 @@ export default class EditProfile extends Component { // eslint-disable-line reac
             <EditProfileForm />
           </div>
           <div className="EditProfile-deleteMyAccount">
-            <div className="EditProfile-containerDeleteAccount">
-              <div className="EditProfile-title">
-                DELETEMYACCOUNT
+            <div className="EditProfile-deleteAccountContainer col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <div className="EditProfile-deleteAccounText">
+                DELETE MY ACCOUNT
               </div>
-              <div className="EditProfile-content">
-                <div classNam="EditProfile-text">
-                  Taking a break from Parttime Bee? Youve found the right place.
-                </div>
-                <div className="EditProfile-button">
-                  <div className="EditProfile-buttonText">
-                    CONTINUE
-                  </div>
-                </div>
+              <div className="EditProfile-abstract">
+                Taking a break from Parttime Bee? Youve found the right place.
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div className="EditProfile-buttonTextContainer">
+                <button className="EditProfile-buttonText">
+                  CONTINUE
+                </button>
               </div>
             </div>
           </div>
