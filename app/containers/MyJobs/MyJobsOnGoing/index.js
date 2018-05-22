@@ -21,7 +21,7 @@ export default class MyJobsOnGoing extends Component { // eslint-disable-line re
   render() {
     const SHOWEDIT = true;
     return (
-      <div className="MyJobs">
+      <div className="MyJobs container">
         <div className="MyJobs-header">
           <Header />
         </div>
