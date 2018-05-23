@@ -12,31 +12,31 @@
 import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
 
-export default class DeleteConfirmationPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class DeleteProfile extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const {
       closeFunc = () => {},
     } = this.props;
     return (
-      <div className="DeleteConfirmationPopup">
-        <button onClick={closeFunc} className="DeleteConfirmationPopup-closeButton">
-          <div className="DeleteConfirmationPopup-closeIcon">
+      <div className="DeleteProfile">
+        <button onClick={closeFunc} className="DeleteProfile-closeButton">
+          <div className="DeleteProfile-closeIcon">
             <CloseIcon />
           </div>
         </button>
-        <div className="DeleteConfirmationPopup-container">
-          <div className="DeleteConfirmationPopup-content">
-            <div className="DeleteConfirmationPopup-text">
+        <div className="DeleteProfile-container">
+          <div className="DeleteProfile-content">
+            <div className="DeleteProfile-text">
               Are you sure to delete this job?
             </div>
-            <div className="DeleteConfirmationPopup-buttonContainer">
-              <button className="DeleteConfirmationPopup-cancelButton">
-                <span className="DeleteConfirmationPopup-cancelButtonText">
+            <div className="DeleteProfile-buttonContainer">
+              <button className="DeleteProfile-cancelButton">
+                <span className="DeleteProfile-cancelButtonText">
                   Cancel
                 </span>
               </button>
-              <button className="DeleteConfirmationPopup-deleteButton">
-                <span className="DeleteConfirmationPopup-deleteButtonText">
+              <button className="DeleteProfile-deleteButton">
+                <span className="DeleteProfile-deleteButtonText">
                   Delete
                 </span>
               </button>
@@ -48,7 +48,7 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
   }
 }
 
-DeleteConfirmationPopup.propTypes = {
+DeleteProfile.propTypes = {
   closeFunc: PropTypes.func.isRequired,
 };
 
