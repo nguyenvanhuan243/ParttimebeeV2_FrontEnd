@@ -16,24 +16,26 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
     return (
       <div className="MyJobsComponent-container">
         <div className="MyJobsComponent-title">
-          My Jobs
+          <span className="MyJobsComponent-titleText">
+            My Jobs
+          </span>
         </div>
         <div className="MyJobsComponent-content">
-          <a href={`${config.BASE_URL}/myjobs/myjobs-on-going`}>
-            <div>
+          <div className="MyJobsComponent-textContainer">
+            <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-on-going`}>
               10 On-going jobs
-            </div>
-          </a>
-          <a href={`${config.BASE_URL}/myjobs/myjobs-pending`}>
-            <div>
+            </a>
+          </div>
+          <div className="MyJobsComponent-textContainer">
+            <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-pending`}>
               1 Pending jobs
-            </div>
-          </a>
-          <a href={`${config.BASE_URL}/myjobs/myjobs-expired`}>
-            <div>
+            </a>
+          </div>
+          <div className="MyJobsComponent-textContainer">
+            <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-expired`}>
               99 expired jobs
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     );
