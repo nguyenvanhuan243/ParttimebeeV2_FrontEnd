@@ -33,26 +33,30 @@ export default class Header extends PureComponent { // eslint-disable-line react
     return (
       <span>
         <div className="Header">
-          <div className="Header-searchForm col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <form className="SearchForm">
-              <div className="SearchIcon">
-                <SearchIcon />
-              </div>
-              <input className="SearchForm-customInput" placeholder="Search job..." />
-            </form>
+          <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div className="Header-searchForm">
+              <form className="SearchForm">
+                <div className="SearchIcon">
+                  <SearchIcon />
+                </div>
+                <input className="SearchForm-customInput" placeholder="Search job..." />
+              </form>
+            </div>
           </div>
           <div className="Header-logo col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <LogoIcon />
           </div>
-          <div className="Header-postJobContainer col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div className="Header-test">
-              <div className="Header-postJob">
-                <a className="Header-postJobText" href="/post-job">
-                  POSTJOB
-                </a>
+          <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div className="Header-postJobContainer">
+              <div className="Header-test">
+                <div className="Header-postJob">
+                  <a className="Header-postJobText" href="/post-job">
+                    POSTJOB
+                  </a>
+                </div>
+                <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar">
+                </button>
               </div>
-              <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar">
-              </button>
             </div>
           </div>
         </div>

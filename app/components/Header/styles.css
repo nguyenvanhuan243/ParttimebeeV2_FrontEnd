@@ -116,3 +116,11 @@ a.Header-hrefText:hover {
   margin: 0px !important;
   padding: 0px !important;
 }
+
+.Header-searchForm {
+  margin-left: 35.41666666%;
+}
+
+.Header-postJobContainer {
+  margin-right: 35.41666666%;
+}
