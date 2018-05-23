@@ -5,6 +5,7 @@
   position: fixed;
   display: block;
   animation: DeleteConfirmationPopup 0.3s;
+  z-index: 1;
 }
 
 @keyframes DeleteConfirmationPopup {

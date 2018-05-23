@@ -19,7 +19,7 @@ export default class EditProfile extends Component { // eslint-disable-line reac
     super();
     this.state = {
       showAskReasonPopup: false,
-      showDeleteProfile: false,
+      isSubmited: false,
     };
   }
   handleAskReasonPopup() {
@@ -27,24 +27,30 @@ export default class EditProfile extends Component { // eslint-disable-line reac
       showAskReasonPopup: !this.state.showAskReasonPopup,
     });
   }
-  handleShowDeleteProfiflePopup() {
+  handleSubmitForm() {
     this.setState({
-      showDeleteProfile: !this.state.showDeleteProfile,
+      isSubmited: true,
+    });
+  }
+  handleDeleteProfile() {
+    this.setState({
+      showAskReasonPopup: false,
+      isSubmited: false,
     });
   }
   render() {
     const {
       showAskReasonPopup,
-      showDeleteProfile,
+      isSubmited,
     } = this.state;
     return (
       <div>
         <div>
-          { (showAskReasonPopup || showDeleteProfile) ?
+          { (showAskReasonPopup || isSubmited) ?
             <AskReasonPopup
-              showDeleteProfileFunc={() => this.handleShowDeleteProfiflePopup()}
               closeAskReasonFunc={() => this.handleAskReasonPopup()}
-              closePopupFunc={() => { this.handleAskReasonPopup(); this.handleShowDeleteProfiflePopup(); }}
+              closePopupFunc={() => { this.handleDeleteProfile(); }}
+              onSubmitFormFunc={() => this.handleSubmitForm()}
             /> : null }
         </div>
         <div className="EditProfile container">

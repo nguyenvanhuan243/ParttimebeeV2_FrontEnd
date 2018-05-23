@@ -30,9 +30,11 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
     const {
       closeAskReasonFunc = () => {},
       showDeleteProfileFunc = () => {},
+      onSubmitFormFunc = () => {},
     } = this.props;
     closeAskReasonFunc();
     showDeleteProfileFunc();
+    onSubmitFormFunc();
     this.setState({
       showDeleteProfile: !this.state.showDeleteProfile,
     });
@@ -134,5 +136,6 @@ AskReasonPopup.propTypes = {
   closePopupFunc: PropTypes.func.isRequired,
   closeAskReasonFunc: PropTypes.func.isRequired,
   showDeleteProfileFunc: PropTypes.func.isRequired,
+  onSubmitFormFunc: PropTypes.func.isRequired,
 };
 
