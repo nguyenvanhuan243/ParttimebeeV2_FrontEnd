@@ -78,12 +78,36 @@ a.Header-postJobText:hover {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   background-color: #ffffff;
   border: solid 1px #e8e8e8;
-  margin-left: 900px;
+  margin-left: 1035px;
   position: absolute;
+  border-radius: 4px;
+}
+
+.Header-ulContainer {
+  list-style-type: none;
+  padding-left: 20px !important;
 }
 
 .Header-test {
   display: flex;
   text-align: right;
   float: right;
+}
+
+.Header-hrefText {
+  width: 50px;
+  height: 16px;
+  font-family: Roboto;
+  font-size: 11px !important;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #999999;
+}
+
+a.Header-hrefText:hover {
+  text-decoration: none !important;
 }
