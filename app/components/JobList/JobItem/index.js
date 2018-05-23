@@ -25,7 +25,7 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
       showDelete = false,
     } = this.props;
     return (
-      <a target="_blank" className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
+      <a className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
         <div className="JobItem">
           <div className="JobItem-image">
           </div>
