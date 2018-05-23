@@ -48,7 +48,6 @@ a.Header-postJobText:hover {
 
 .Header-searchForm {
   display: flex;  
-  margin-left: 5px;
 }
 
 .SearchIcon {
@@ -111,4 +110,9 @@ a.Header-postJobText:hover {
 
 a.Header-hrefText:hover {
   text-decoration: none !important;
+}
+
+.col-lg-4 {
+  margin: 0px !important;
+  padding: 0px !important;
 }
