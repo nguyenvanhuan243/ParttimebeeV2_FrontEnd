@@ -85,12 +85,6 @@ a.Header-postJobText:hover {
   padding-left: 20px !important;
 }
 
-.Header-test {
-  display: flex;
-  text-align: right;
-  float: right;
-}
-
 .Header-hrefText {
   width: 50px;
   height: 16px;
@@ -120,4 +114,7 @@ a.Header-hrefText:hover {
 
 .Header-postJobContainer {
   margin-right: 35.41666666%;
+  display: flex;
+  text-align: right;
+  float: right;
 }
