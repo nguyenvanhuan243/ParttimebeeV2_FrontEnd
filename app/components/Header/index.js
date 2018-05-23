@@ -43,8 +43,10 @@ export default class Header extends PureComponent { // eslint-disable-line react
               </form>
             </div>
           </div>
-          <div className="Header-logo col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <LogoIcon />
+          <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div className="Header-logo">
+              <LogoIcon />
+            </div>
           </div>
           <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div className="Header-postJobContainer">
