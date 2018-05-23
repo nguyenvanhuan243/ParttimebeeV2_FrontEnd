@@ -1,4 +1,5 @@
 .Header {
+  max-width: 1440px;
   height: 62px;
   background-color: #ffffff;
   border-bottom: solid 1px #e8e8e8;
@@ -48,6 +49,7 @@ a.Header-postJobText:hover {
 .Header-searchForm {
   display: flex;  
   margin-left: 5px;
+  margin-left: 105.500px;
 }
 
 .SearchIcon {
