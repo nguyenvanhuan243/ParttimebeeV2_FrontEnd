@@ -17,11 +17,28 @@ import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
 import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
 import Footer from 'components/Footer/Loadable';
+import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadable';
+
 export default class MyJobs extends Component { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      showDeleteConfirmationPopup: false,
+    };
+  }
+  handleDeleteConfirmationPopup() {
+    this.setState({
+      showDeleteConfirmationPopup: !this.state.showDeleteConfirmationPopup,
+    });
+  }
   render() {
     const SHOWEDIT = true;
+    const {
+      showDeleteConfirmationPopup,
+    } = this.state;
     return (
       <div className="MyJobs container">
+        { showDeleteConfirmationPopup ? <DeleteConfirmationPopup closeFunc={() => this.handleDeleteConfirmationPopup()} /> : null }
         <div className="MyJobs-header">
           <Header />
         </div>
@@ -34,7 +51,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
               <MyJobsComponent />
             </div>
             <div className="MyJobs-jobList">
-              <JobList showDelete showEdit showCity={false} showView={false} showShare={false} title="On-going" />
+              <JobList onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()} showDelete showEdit showCity={false} showView={false} showShare={false} title="On-going" />
             </div>
             <div className="MyJobs-sideBar">
               <ShareThisProfile />

@@ -12,7 +12,7 @@
 import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
 
-export default class ReportJobPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class DeleteConfirmationPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
     this.state = {
@@ -29,66 +29,66 @@ export default class ReportJobPopup extends PureComponent { // eslint-disable-li
       selectedOption,
     } = this.state;
     const {
-      closePopupFunc = () => {},
+      closeFunc = () => {},
     } = this.props;
 
     return (
-      <div className="ReportJobPopup">
-        <button className="ReportJobPopup-closeButton" onClick={closePopupFunc}>
-          <div className="ReportJobPopup-closeIcon">
+      <div className="DeleteConfirmationPopup">
+        <button onClick={closeFunc} className="DeleteConfirmationPopup-closeButton">
+          <div className="DeleteConfirmationPopup-closeIcon">
             <CloseIcon />
           </div>
         </button>
-        <div className="ReportJobPopup-reportJob">
-          <div className="ReportJobPopup-reportJobContent">
-            <div className="ReportJobPopup-reportJobTitle">
+        <div className="DeleteConfirmationPopup-reportJob">
+          <div className="DeleteConfirmationPopup-reportJobContent">
+            <div className="DeleteConfirmationPopup-reportJobTitle">
               Report job
             </div>
-            <div className="ReportJobPopup-selectOptionContainer">
-              <div className="ReportJobPopup-selectOptionTitle">
+            <div className="DeleteConfirmationPopup-selectOptionContainer">
+              <div className="DeleteConfirmationPopup-selectOptionTitle">
                 This job is:
               </div>
-              <div className="ReportJobPopup-selectOption">
+              <div className="DeleteConfirmationPopup-selectOption">
                 <form>
                   <div>
-                    <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Spam" checked={selectedOption === 'Spam'} />
-                      <span className="ReportJobPopup-inputText">
+                    <fieldset className="DeleteConfirmationPopup-fieldset">
+                      <input className="DeleteConfirmationPopup-radio" onChange={this.handleOptionChange} type="radio" value="Spam" checked={selectedOption === 'Spam'} />
+                      <span className="DeleteConfirmationPopup-inputText">
                         Spam
                       </span>
                     </fieldset>
-                    <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Duplicate" checked={selectedOption === 'Duplicate'} />
-                      <span className="ReportJobPopup-inputText">
+                    <fieldset className="DeleteConfirmationPopup-fieldset">
+                      <input className="DeleteConfirmationPopup-radio" onChange={this.handleOptionChange} type="radio" value="Duplicate" checked={selectedOption === 'Duplicate'} />
+                      <span className="DeleteConfirmationPopup-inputText">
                         Duplicate
                       </span>
                     </fieldset>
-                    <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Inappropriate" checked={selectedOption === 'Inappropriate'} />
-                      <span className="ReportJobPopup-inputText">
+                    <fieldset className="DeleteConfirmationPopup-fieldset">
+                      <input className="DeleteConfirmationPopup-radio" onChange={this.handleOptionChange} type="radio" value="Inappropriate" checked={selectedOption === 'Inappropriate'} />
+                      <span className="DeleteConfirmationPopup-inputText">
                         Inappropriate
                       </span>
                     </fieldset>
-                    <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Needs editing" checked={selectedOption === 'Needs editing'} />
-                      <span className="ReportJobPopup-inputText">
+                    <fieldset className="DeleteConfirmationPopup-fieldset">
+                      <input className="DeleteConfirmationPopup-radio" onChange={this.handleOptionChange} type="radio" value="Needs editing" checked={selectedOption === 'Needs editing'} />
+                      <span className="DeleteConfirmationPopup-inputText">
                         Needs editing
                       </span>
                     </fieldset>
-                    <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Self promotion" checked={selectedOption === 'Self promotion'} />
-                      <span className="ReportJobPopup-inputText">
+                    <fieldset className="DeleteConfirmationPopup-fieldset">
+                      <input className="DeleteConfirmationPopup-radio" onChange={this.handleOptionChange} type="radio" value="Self promotion" checked={selectedOption === 'Self promotion'} />
+                      <span className="DeleteConfirmationPopup-inputText">
                         Self promotion
                       </span>
                     </fieldset>
-                    <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Not working" checked={selectedOption === 'Not working'} />
-                      <span className="ReportJobPopup-inputText">
+                    <fieldset className="DeleteConfirmationPopup-fieldset">
+                      <input className="DeleteConfirmationPopup-radio" onChange={this.handleOptionChange} type="radio" value="Not working" checked={selectedOption === 'Not working'} />
+                      <span className="DeleteConfirmationPopup-inputText">
                         Not working
                       </span>
                     </fieldset>
-                    <button className="ReportJobPopup-submitReport">
-                      <div className="ReportJobPopup-submitReportText">
+                    <button className="DeleteConfirmationPopup-submitReport">
+                      <div className="DeleteConfirmationPopup-submitReportText">
                         Submit
                       </div>
                     </button>
@@ -103,7 +103,7 @@ export default class ReportJobPopup extends PureComponent { // eslint-disable-li
   }
 }
 
-ReportJobPopup.propTypes = {
-  closePopupFunc: PropTypes.func.isRequired,
+DeleteConfirmationPopup.propTypes = {
+  closeFunc: PropTypes.func.isRequired,
 };
 

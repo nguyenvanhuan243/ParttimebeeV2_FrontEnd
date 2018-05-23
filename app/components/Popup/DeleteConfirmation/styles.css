@@ -1,13 +1,13 @@
-.ReportJobPopup {
+.DeleteConfirmationPopup {
   width: 1440px;
   height: 1157px;
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   display: block;
-  animation: ReportJobPopup 0.3s;
+  animation: DeleteConfirmationPopup 0.3s;
 }
 
-@keyframes ReportJobPopup {
+@keyframes DeleteConfirmationPopup {
   0%{
     transform: scale(1);
   }
@@ -31,7 +31,7 @@
   }
 }
 
-.ReportJobPopup-inputText {
+.DeleteConfirmationPopup-inputText {
   margin-left: 5px;
   width: 34px;
   height: 20px !important;
@@ -46,7 +46,7 @@
   color: #000000;
 }
 
-.ReportJobPopup-closeButton {
+.DeleteConfirmationPopup-closeButton {
   width: 40px;
   height: 40px;
   background-color: #ffffff;
@@ -56,7 +56,7 @@
   cursor: pointer;
 }
 
-.ReportJobPopup-closeIcon {
+.DeleteConfirmationPopup-closeIcon {
   padding-left: 6px;
   padding-top: 0px;
   width: 16px;
@@ -64,7 +64,7 @@
   object-fit: contain;
 }
 
-.ReportJobPopup-reportJob {
+.DeleteConfirmationPopup-reportJob {
   width: 400px;
   height: 386px;
   border-radius: 3px;
@@ -74,7 +74,7 @@
   padding: 20px;
 }
 
-.ReportJobPopup-reportJobContent {
+.DeleteConfirmationPopup-reportJobContent {
   width: 360px;
   height: 346px;
   border-radius: 3px;
@@ -82,7 +82,7 @@
   border: solid 1px #e8e8e8;
 }
 
-.ReportJobPopup-reportJobTitle {
+.DeleteConfirmationPopup-reportJobTitle {
   width: 93px;
   height: 32px;
   font-family: Roboto;
@@ -99,11 +99,11 @@
   margin-bottom: 20px;
 }
 
-.ReportJobPopup-selectOptionContainer {
+.DeleteConfirmationPopup-selectOptionContainer {
   margin-left: 20px;
 }
 
-.ReportJobPopup-selectOptionTitle {
+.DeleteConfirmationPopup-selectOptionTitle {
   width: 64px;
   height: 20px;
   font-family: Roboto;
@@ -117,7 +117,7 @@
   color: #000000 !important;
 }
 
-.ReportJobPopup-submitReport {
+.DeleteConfirmationPopup-submitReport {
   width: 74px;
   height: 34px;
   border-radius: 3px;
@@ -128,18 +128,18 @@
   padding-left: 16px;
 }
 
-.ReportJobPopup-fieldset {
+.DeleteConfirmationPopup-fieldset {
   margin-top: 10px;
   height: 20px !important;
 }
 
-.ReportJobPopup-radio {
+.DeleteConfirmationPopup-radio {
   width: 10px;
   height: 10px;
   border: solid 1px #e7e7e7;
 }
 
-.ReportJobPopup-submitReportText {
+.DeleteConfirmationPopup-submitReportText {
   font-family: Roboto;
   font-size: 11px;
   font-weight: bold;
