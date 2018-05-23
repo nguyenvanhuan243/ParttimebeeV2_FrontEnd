@@ -31,7 +31,7 @@ export default class MyJobsOnGoing extends Component { // eslint-disable-line re
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
-              <MyJobsComponent />
+              <MyJobsComponent activeGoing />
             </div>
             <div className="MyJobs-jobList">
               <JobList title="On-going" />

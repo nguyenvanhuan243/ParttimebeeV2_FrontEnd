@@ -9,10 +9,26 @@
  * the linting exception.
  */
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import config from '../../../config';
+import classNames from 'classnames';
 export default class MyJobsComponent extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const {
+      activeGoing = false,
+      activePending = false,
+      activeExpired = false,
+    } = this.props;
+
+    const activeGoingClassName = classNames('MyJobsComponent-textContainer',
+      { 'MyJobsComponent-active': activeGoing }
+    );
+    const activePendingClassName = classNames('MyJobsComponent-textContainer',
+      { 'MyJobsComponent-active': activePending }
+    );
+    const activeExpiredClassName = classNames('MyJobsComponent-textContainer',
+      { 'MyJobsComponent-active': activeExpired }
+    );
     return (
       <div className="MyJobsComponent-container">
         <div className="MyJobsComponent-title">
@@ -21,17 +37,17 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
           </span>
         </div>
         <div className="MyJobsComponent-content">
-          <div className="MyJobsComponent-textContainer">
+          <div className={activeGoingClassName}>
             <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-on-going`}>
               10 On-going jobs
             </a>
           </div>
-          <div className="MyJobsComponent-textContainer">
+          <div className={activePendingClassName}>
             <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-pending`}>
               1 Pending jobs
             </a>
           </div>
-          <div className="MyJobsComponent-textContainer">
+          <div className={activeExpiredClassName}>
             <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-expired`}>
               99 expired jobs
             </a>
@@ -41,4 +57,10 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
     );
   }
 }
+
+MyJobsComponent.propTypes = {
+  activeGoing: PropTypes.bool,
+  activePending: PropTypes.bool,
+  activeExpired: PropTypes.bool,
+};
 

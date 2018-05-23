@@ -47,3 +47,10 @@ a.MyJobsComponent-text:hover {
 .MyJobsComponent-textContainer {
   margin-bottom: 12px;
 }
+
+.MyJobsComponent-active {
+  width: 114px;
+  height: 28px;
+  border-radius: 3px;
+  background-color: #e8e8e8;
+}

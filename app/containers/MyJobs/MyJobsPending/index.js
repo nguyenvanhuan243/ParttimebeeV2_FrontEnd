@@ -30,7 +30,7 @@ export default class MyJobsPending extends Component { // eslint-disable-line re
           </div>
           <div className="MyJobsPending-contentContainer">
             <div className="MyJobsPending-availableJob">
-              <MyJobsComponent />
+              <MyJobsComponent activePending />
             </div>
             <div className="MyJobsPending-jobList">
               <JobList title="Pending" />

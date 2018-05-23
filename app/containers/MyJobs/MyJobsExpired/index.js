@@ -31,7 +31,7 @@ export default class MyJobsExpiredExpired extends Component { // eslint-disable-
           </div>
           <div className="MyJobsExpired-contentContainer">
             <div className="MyJobsExpired-availableJob">
-              <MyJobsComponent />
+              <MyJobsComponent activeExpired />
             </div>
             <div className="MyJobsExpired-jobList">
               <JobList title="Expired" />
