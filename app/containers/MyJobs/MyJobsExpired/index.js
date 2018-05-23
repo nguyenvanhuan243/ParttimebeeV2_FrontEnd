@@ -21,11 +21,11 @@ export default class MyJobsExpiredExpired extends Component { // eslint-disable-
   render() {
     const SHOWEDIT = true;
     return (
-      <div className="MyJobsExpired container">
+      <div className="MyJobsExpiredcontainer">
         <div className="MyJobsExpired-header">
           <Header />
         </div>
-        <div className="MyJobsExpired-bodyContainer">
+        <div className="MyJobsExpired-bodyContainer container">
           <div className="MyJobsExpired-MyJobsExpiredBanner">
             <EmployerProfileBanner showEdit={SHOWEDIT} />
           </div>

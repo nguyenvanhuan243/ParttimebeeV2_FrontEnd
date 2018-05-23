@@ -43,13 +43,13 @@ export default class JobDetail extends Component { // eslint-disable-line react/
       { 'JobDetail-showReportPopup': showPopup }
     );
     return (
-      <div className="JobDetail container">
+      <div className="JobDetail">
         <div className={className}>
           <ReportJobPopup closePopupFunc={() => this.showReportPopup()} />
         </div>
         <div className="JobDetail-reportJob">
           <Header />
-          <div className="JobDetail-container">
+          <div className="JobDetail-container container">
             <div>
               <JobDetailHeader />
               <div className="JobDetail-jobInformation">

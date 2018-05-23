@@ -5,6 +5,7 @@
   position: fixed;
   display: block;
   animation: DeleteProfile 0.3s;
+  z-index: 1;
 }
 
 @keyframes DeleteProfile {

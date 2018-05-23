@@ -20,11 +20,11 @@ import MyJobsComponent from 'components/MyJobsComponent/Loadable';
 export default class MyJobsPending extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="MyJobsPending container">
+      <div className="MyJobsPending">
         <div className="MyJobsPending-header">
           <Header />
         </div>
-        <div className="MyJobsPending-bodyContainer">
+        <div className="MyJobsPending-bodyContainer container">
           <div className="MyJobsPending-MyJobsPendingBanner">
             <MyJobsPendingBanner />
           </div>

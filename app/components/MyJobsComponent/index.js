@@ -10,8 +10,9 @@
  */
 
 import React, { PureComponent, PropTypes } from 'react';
-import config from '../../../config';
 import classNames from 'classnames';
+import config from '../../../config';
+
 export default class MyJobsComponent extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const {
