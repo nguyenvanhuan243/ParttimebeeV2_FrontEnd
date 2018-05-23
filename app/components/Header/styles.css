@@ -24,12 +24,10 @@
   border-radius: 3px;
   background-color: #ffaa00;
   margin-top: 17px;
-  text-align: right;
+  text-align: center;
 }
 
 .Header-postJobText {
-  width: 53px;
-  height: 16px;
   font-family: Roboto;
   font-size: 11px;
   font-weight: bold;
@@ -39,9 +37,12 @@
   letter-spacing: 0.2px;
   text-align: left;
   color: #ffffff;
-  padding-left: 16px;
   padding-top: 7px;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+a.Header-postJobText:hover {
+  color: #ffffff;
 }
 
 .Header-searchForm {
