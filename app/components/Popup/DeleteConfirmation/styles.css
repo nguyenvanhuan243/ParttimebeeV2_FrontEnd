@@ -31,21 +31,6 @@
   }
 }
 
-.DeleteConfirmationPopup-inputText {
-  margin-left: 5px;
-  width: 34px;
-  height: 20px !important;
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.54;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
-}
-
 .DeleteConfirmationPopup-closeButton {
   width: 40px;
   height: 40px;
@@ -64,26 +49,26 @@
   object-fit: contain;
 }
 
-.DeleteConfirmationPopup-reportJob {
-  width: 400px;
-  height: 386px;
+.DeleteConfirmationPopup-container {
+  width: 440px;
+  height: 166px;
   border-radius: 3px;
   background-color: #f9f9f9;
-  margin-left: 520px;
-  margin-top: 80px;
   padding: 20px;
+  margin-left: 350px;
+  margin-top: 250px;
 }
 
-.DeleteConfirmationPopup-reportJobContent {
-  width: 360px;
-  height: 346px;
+.DeleteConfirmationPopup-content {
+  width: 400px;
+  height: 126px;
   border-radius: 3px;
   background-color: #ffffff;
   border: solid 1px #e8e8e8;
 }
 
-.DeleteConfirmationPopup-reportJobTitle {
-  width: 93px;
+.DeleteConfirmationPopup-text {
+  width: 360px;
   height: 32px;
   font-family: Roboto;
   font-size: 20px;
@@ -94,52 +79,36 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  margin-left: 134px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
-.DeleteConfirmationPopup-selectOptionContainer {
-  margin-left: 20px;
+.DeleteConfirmationPopup-buttonContainer {
+  text-align: right;
+  margin-right: 20px;
 }
 
-.DeleteConfirmationPopup-selectOptionTitle {
-  width: 64px;
-  height: 20px;
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.54;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000 !important;
+.DeleteConfirmationPopup-cancelButton {
+  width: 75px;
+  height: 34px;
+  border-radius: 3px;
+  outline: none !important;
+  border: solid 1px #e8e8e8;
+  cursor: pointer;
 }
 
-.DeleteConfirmationPopup-submitReport {
-  width: 74px;
+.DeleteConfirmationPopup-deleteButton {
+  width: 72px;
   height: 34px;
   border-radius: 3px;
   background-color: #ffaa00;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  outline: none !important;
   cursor: pointer;
-  padding-left: 16px;
+  margin-left: 10px;
 }
 
-.DeleteConfirmationPopup-fieldset {
-  margin-top: 10px;
-  height: 20px !important;
-}
-
-.DeleteConfirmationPopup-radio {
-  width: 10px;
-  height: 10px;
-  border: solid 1px #e7e7e7;
-}
-
-.DeleteConfirmationPopup-submitReportText {
+.DeleteConfirmationPopup-deleteButtonText {
+  width: 40px;
+  height: 16px;
   font-family: Roboto;
   font-size: 11px;
   font-weight: bold;
@@ -147,6 +116,20 @@
   font-stretch: normal;
   line-height: 1.45;
   letter-spacing: 0.2px;
-  text-align: left;
+  text-align: center;
   color: #ffffff;
+}
+
+.DeleteConfirmationPopup-cancelButtonText {
+  width: 43px;
+  height: 16px;
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #999999;
 }

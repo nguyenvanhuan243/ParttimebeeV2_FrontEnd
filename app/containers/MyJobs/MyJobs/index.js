@@ -38,7 +38,9 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     } = this.state;
     return (
       <div className="MyJobs container">
-        { showDeleteConfirmationPopup ? <DeleteConfirmationPopup closeFunc={() => this.handleDeleteConfirmationPopup()} /> : null }
+        <div className="MyJobs-deleteConfirmationPopup">
+          { showDeleteConfirmationPopup ? <DeleteConfirmationPopup closeFunc={() => this.handleDeleteConfirmationPopup()} /> : null }
+        </div>
         <div className="MyJobs-header">
           <Header />
         </div>
