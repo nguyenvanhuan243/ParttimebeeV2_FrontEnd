@@ -171,7 +171,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
         <div className="StateList-title">
           BROWSE STATES
         </div>
-        <div className="StateList">
+        <div>
           { listStateArray }
           <button className="StateList-button" onClick={() => this.handleShowMore()}>
             <div className="StateList-buttonContainer">

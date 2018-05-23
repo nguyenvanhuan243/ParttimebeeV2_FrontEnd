@@ -4,17 +4,19 @@
 }
 .HomePageContainer-sidebarContainer {
   display: grid;
+  width: 17.361111111%;
+  margin-left: 20px;
 }
 .HomePageContainer-jobListContainer {
   display: grid;
-}
-
-.HomePageContainer-jobListContainer {
   margin-top: 31px;
+  width: 40.138888888%;
+  margin-left: 21px;
 }
 
 .HomePageContainer-categoryList {
   margin-left: 11.805555555%;
+  width: 15.972222222%;
 }
 
 .HomePageContainer-sidebarContainer {

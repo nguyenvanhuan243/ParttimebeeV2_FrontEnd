@@ -1,13 +1,11 @@
 .JobList {
   background-color: white;
-  margin-left: 21px;
   border-radius: 3px;
   border: solid 1px #e8e8e8;
   height: 414px;
 }
 
 .JobList-title {
-  width: 578px;
   height: 45px;
 }
 
@@ -26,7 +24,6 @@
 }
 
 .JobList-showMore {
-  width: 578px;
   height: 45px;
   border-radius: 3px;
   background-color: #ffffff;

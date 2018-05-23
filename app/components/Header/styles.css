@@ -5,7 +5,7 @@
   display: flex;
 }
 .SearchForm {
-  width: 230px;
+  width: 73.353412826%;
   height: 34px;
   border-radius: 3px;
   border: solid 1px #e8e8e8;
@@ -55,9 +55,7 @@ a.Header-postJobText:hover {
 }
 
 .SearchForm-customInput {
-  width: 230px;
   margin-top: 4px;
-  margin-left: 4px;
 }
 
 .Header-loggedAvatar {

@@ -1,11 +1,9 @@
 .Sponsored {
-  width: 250px;
   height: 216px;
   border-radius: 3px;
   background-color: #ffffff;
   border: solid 1px #e8e8e8;
   margin-top: 20px;
-  margin-left: 21px;
 }
 
 .Sponsored-container {

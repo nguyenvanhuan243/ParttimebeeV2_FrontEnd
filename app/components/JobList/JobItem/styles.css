@@ -1,5 +1,4 @@
 .JobItem {
-  width: 578px;
   height: 108px;
   background-color: #ffffff;
   border-top: solid 1px #e8e8e8;
@@ -98,7 +97,7 @@ a.JobItem-href:hover {
 }
 .JobItem-contentViewContainer {
   display: flex;
-  margin-left: 136px;
+  margin-left: 23.5%;
 }
 .JobItem-contentShareContainer {
   width: 73px;
