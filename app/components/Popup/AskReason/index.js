@@ -48,7 +48,7 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
               <div className="AskReasonPopup-selectOptionTitle">
                 Reason:
               </div>
-              <div className="AskReasonPopup-selectOption">
+              <div>
                 <form>
                   <div>
                     <fieldset className="AskReasonPopup-fieldset">
@@ -82,6 +82,19 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                       </span>
                     </fieldset>
                     <div className="AskReasonPopup-separate">
+                    </div>
+                    <div className="AskReasonPopup-selectOptionTitle">
+                      Feedback:
+                    </div>
+                    <fieldset className="AskReasonPopup-fieldset">
+                      <input placeholder="Type your feedback here…" onChange={this.handleOptionChange} />
+                    </fieldset>
+                    <div className="AskReasonPopup-separate">
+                    </div>
+                    <div className="AskReasonPopup-note">
+                      <span>
+                        <b>Note:</b>  If you choose to delete your account, we will delete your profile and remove you from our mailing lists.This cannot be reversed.
+                      </span>
                     </div>
                     <button className="AskReasonPopup-submitReport">
                       <div className="AskReasonPopup-submitReportText">
