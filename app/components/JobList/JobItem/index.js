@@ -13,9 +13,21 @@ import React, { PureComponent, PropTypes } from 'react';
 import ViewIcon from 'components/Icons/View/Loadable';
 import ShareIcon from 'components/Icons/Share/Loadable';
 import DeleteIcon from 'components/Icons/Delete/Loadable';
+import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadable';
 import config from '../../../../config';
 
 export default class JobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      showDeleteConfirmationPopup: false,
+    };
+  }
+  showDeleteConfirmationPopup() {
+    this.setState({
+      showDeleteConfirmationPopup: true,
+    });
+  }
   render() {
     const {
       showCity = true,
@@ -24,8 +36,12 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
       showEdit = false,
       showDelete = false,
     } = this.props;
+    const {
+      showDeleteConfirmationPopup,
+    } = this.state;
     return (
       <div className="JobItem">
+        { showDeleteConfirmationPopup ? <DeleteConfirmationPopup /> : null }
         <a className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
           <div className="JobItem-image">
           </div>
@@ -72,11 +88,11 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
                 </div>
               </div> : null }
             { showDelete ?
-              <div className="JobItem-contentShareContainer">
+              <button onClick={() => this.showDeleteConfirmationPopup()} className="JobItem-contentShareContainer">
                 <div className="JobItem-contentShareIcon">
                   <DeleteIcon />
                 </div>
-              </div> : null }
+              </button> : null }
             { showEdit ?
               <div className="JobItem-contentShareContainer">
                 <div className="JobItem-contentShareIcon">

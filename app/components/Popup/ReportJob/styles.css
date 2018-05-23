@@ -1,0 +1,152 @@
+.ReportJobPopup {
+  width: 1440px;
+  height: 1157px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: block;
+  animation: ReportJobPopup 0.3s;
+}
+
+@keyframes ReportJobPopup {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.4);
+  }
+  60%{
+    transform: scale(1.1);
+  }
+  70%{
+    transform: scale(1.2);
+  }
+  80%{
+    transform: scale(1);
+  }
+  90%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.ReportJobPopup-inputText {
+  margin-left: 5px;
+  width: 34px;
+  height: 20px !important;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.ReportJobPopup-closeButton {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 30px;  
+  margin-left: 60px;
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.ReportJobPopup-closeIcon {
+  padding-left: 6px;
+  padding-top: 0px;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.ReportJobPopup-reportJob {
+  width: 400px;
+  height: 386px;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+  margin-left: 520px;
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.ReportJobPopup-reportJobContent {
+  width: 360px;
+  height: 346px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+}
+
+.ReportJobPopup-reportJobTitle {
+  width: 93px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-left: 134px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ReportJobPopup-selectOptionContainer {
+  margin-left: 20px;
+}
+
+.ReportJobPopup-selectOptionTitle {
+  width: 64px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000 !important;
+}
+
+.ReportJobPopup-submitReport {
+  width: 74px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  padding-left: 16px;
+}
+
+.ReportJobPopup-fieldset {
+  margin-top: 10px;
+  height: 20px !important;
+}
+
+.ReportJobPopup-radio {
+  width: 10px;
+  height: 10px;
+  border: solid 1px #e7e7e7;
+}
+
+.ReportJobPopup-submitReportText {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #ffffff;
+}

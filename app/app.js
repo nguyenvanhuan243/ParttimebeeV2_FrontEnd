@@ -93,7 +93,7 @@ import 'components/LoadingJobs/LoadingJobsList/styles.css';
 import 'components/LoadingJobs/LoadingJobsList/LoadingJobsItem/styles.css';
 
 // Report job popup
-import 'components/ReportJobPopup/styles.css';
+import 'components/Popup/ReportJob/styles.css';
 
 
 // Employer Profile

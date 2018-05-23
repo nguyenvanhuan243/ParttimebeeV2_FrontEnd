@@ -108,6 +108,8 @@ a.JobItem-href:hover {
   border: solid 1px #e8e8e8;
   display: flex;
   margin-left: 15px;
+  outline: none !important;
+  cursor: pointer;
 }
 .JobItem-contentShareText {
   font-family: Roboto;

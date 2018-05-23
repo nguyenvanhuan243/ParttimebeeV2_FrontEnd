@@ -19,7 +19,7 @@ import RelatedJobList from 'components/JobDetail/RelatedJobList/Loadable';
 import CompanyInfo from 'components/JobDetail/CompanyInfo/Loadable';
 import RectangleGoogleAds from 'components/Advertiments/RectangleGoogleAds/Loadable';
 import SquareleGoogleAds from 'components/Advertiments/SquareGoogleAds/Loadable';
-import ReportJobPopup from 'components/ReportJobPopup/Loadable';
+import ReportJobPopup from 'components/Popup/ReportJob/Loadable';
 import classNames from 'classnames';
 
 export default class JobDetail extends Component { // eslint-disable-line react/prefer-stateless-function
