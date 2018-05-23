@@ -1,0 +1,1 @@
+export const REPORT_BUTTON = 'REPORT_BUTTON';

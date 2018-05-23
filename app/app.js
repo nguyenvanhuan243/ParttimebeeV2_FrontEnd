@@ -55,7 +55,6 @@ import 'components/JobDetail/JobDetailHeader/styles.css';
 import 'components/JobDetail/JobInformation/styles.css';
 import 'components/JobDetail/JobDescription/styles.css';
 import 'components/JobDetail/CompanyInfo/styles.css';
-import 'components/JobDetail/JobInformation/ReportButton/styles.css';
 import 'components/JobDetail/JobInformation/SocialButton/Email/styles.css';
 import 'components/JobDetail/JobInformation/SocialButton/Facebook/styles.css';
 import 'components/JobDetail/JobInformation/SocialButton/Whatsapp/styles.css';

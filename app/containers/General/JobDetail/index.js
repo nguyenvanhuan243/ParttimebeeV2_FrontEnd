@@ -29,6 +29,7 @@ export default class JobDetail extends Component { // eslint-disable-line react/
       showPopup: false,
     };
   }
+
   showReportPopup() {
     this.setState({
       showPopup: !this.state.showPopup,
@@ -36,7 +37,7 @@ export default class JobDetail extends Component { // eslint-disable-line react/
   }
   render() {
     const {
-      showPopup,
+      showPopup = false,
     } = this.state;
     const className = classNames('JobDetail-reportJobPopup',
       { 'JobDetail-showReportPopup': showPopup }
@@ -44,7 +45,7 @@ export default class JobDetail extends Component { // eslint-disable-line react/
     return (
       <div className="JobDetail container">
         <div className={className}>
-          <ReportJobPopup />
+          <ReportJobPopup closePopupFunc={() => this.showReportPopup()} />
         </div>
         <div className="JobDetail-reportJob">
           <Header />
@@ -52,7 +53,7 @@ export default class JobDetail extends Component { // eslint-disable-line react/
             <div>
               <JobDetailHeader />
               <div className="JobDetail-jobInformation">
-                <JobInformation />
+                <JobInformation handleShowPopup={() => this.showReportPopup()} />
               </div>
               <div className="JobDetail-descriptionTitle">
                 JOB DESCRIPTION

@@ -9,16 +9,14 @@
  * the linting exception.
  */
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
-import classNames from 'classnames';
 
 export default class ReportJobPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
     this.state = {
       selectedOption: 'Duplicate',
-      showPopup: false,
     };
   }
   handleOptionChange = (event) => {
@@ -26,24 +24,17 @@ export default class ReportJobPopup extends PureComponent { // eslint-disable-li
       selectedOption: event.target.value,
     });
   }
-  closeReportPopup = () => {
-    this.setState({
-      showPopup: !this.state.showPopup,
-    });
-  }
   render() {
     const {
       selectedOption,
-      showPopup,
     } = this.state;
-
-    const className = classNames('ReportJobPopup',
-      { 'ReportJobPopup-closeReportPopup': showPopup }
-    );
+    const {
+      closePopupFunc = () => {},
+    } = this.props;
 
     return (
-      <div className={className}>
-        <button className="ReportJobPopup-closeButton" onClick={this.closeReportPopup}>
+      <div className="ReportJobPopup">
+        <button className="ReportJobPopup-closeButton" onClick={closePopupFunc}>
           <div className="ReportJobPopup-closeIcon">
             <CloseIcon />
           </div>
@@ -111,3 +102,8 @@ export default class ReportJobPopup extends PureComponent { // eslint-disable-li
     );
   }
 }
+
+ReportJobPopup.propTypes = {
+  closePopupFunc: PropTypes.func.isRequired,
+};
+

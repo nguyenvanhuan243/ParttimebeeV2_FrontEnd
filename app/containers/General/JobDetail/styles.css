@@ -1,6 +1,6 @@
 .JobDetail-reportJobPopup {
   position: fixed;
-  display: block;
+  display: none;
   z-index: 2;
   cursor: pointer;
 }
@@ -65,5 +65,5 @@
   margin-top: 30px;
 }
 .JobDetail-showReportPopup {
-  display: block;
+  display: block !important; 
 }

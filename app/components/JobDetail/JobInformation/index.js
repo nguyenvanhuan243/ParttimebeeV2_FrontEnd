@@ -9,21 +9,31 @@
  * the linting exception.
  */
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import Facebook from 'components/JobDetail/JobInformation/SocialButton/Facebook/Loadable';
 import Whatsapp from 'components/JobDetail/JobInformation/SocialButton/Whatsapp/Loadable';
 import Email from 'components/JobDetail/JobInformation/SocialButton/Email/Loadable';
-import ReportButton from 'components/JobDetail/JobInformation/ReportButton/Loadable';
+import ReportIcon from 'components/Icons/Report/Loadable';
 
 export default class JobInformation extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const {
+      handleShowPopup = () => {},
+    } = this.props;
     return (
       <div className="JobInformation">
         <div className="JobInformation-socialButton">
           <Facebook />
           <Whatsapp />
           <Email />
-          <ReportButton />
+          <button onClick={handleShowPopup} className="ReportButon">
+            <div className="ReportButon-icon">
+              <ReportIcon />
+            </div>
+            <div className="ReportButon-text">
+              REPORT JOB
+            </div>
+          </button>
         </div>
         <div className="JobInformation-separate">
         </div>
@@ -52,4 +62,8 @@ export default class JobInformation extends PureComponent { // eslint-disable-li
     );
   }
 }
+
+JobInformation.propTypes = {
+  handleShowPopup: PropTypes.func.isRequired,
+};
 

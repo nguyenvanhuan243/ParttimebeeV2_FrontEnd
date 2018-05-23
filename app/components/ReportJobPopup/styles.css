@@ -31,10 +31,6 @@
   }
 }
 
-.ReportJobPopup-closeReportPopup {
-  display: none;
-}
-
 .ReportJobPopup-inputText {
   margin-left: 5px;
   width: 34px;
