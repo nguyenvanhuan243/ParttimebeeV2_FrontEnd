@@ -5,6 +5,7 @@
   position: fixed;
   display: block;
   animation: AskReasonPopup 0.3s;
+  z-index: 1;
 }
 
 @keyframes AskReasonPopup {
@@ -65,27 +66,32 @@
   object-fit: contain;
 }
 
-.AskReasonPopup-reportJob {
-  width: 400px;
-  height: 386px;
+.AskReasonPopup-askReason {
+  width: 600px;
+  height: 561px;
   border-radius: 3px;
   background-color: #f9f9f9;
-  margin-left: 520px;
-  margin-top: 80px;
   padding: 20px;
+  margin-left: 350px;
+  margin-top: 10px;
 }
 
-.AskReasonPopup-reportJobContent {
-  width: 360px;
-  height: 346px;
+.AskReasonPopup-askReasonContent {
+  width: 560px;
+  height: 467px;
   border-radius: 3px;
   background-color: #ffffff;
   border: solid 1px #e8e8e8;
 }
 
-.AskReasonPopup-reportJobTitle {
-  width: 93px;
-  height: 32px;
+.AskReasonPopup-separate {
+  width: 520px;
+  height: 1px;
+  background-color: #e8e8e8;
+  margin-top: 20px;
+}
+
+.AskReasonPopup-askReasonTitle {
   font-family: Roboto;
   font-size: 20px;
   font-weight: normal;
@@ -95,9 +101,8 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  margin-left: 134px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  display: inline;
+  margin-left: 20px;
 }
 
 .AskReasonPopup-selectOptionContainer {

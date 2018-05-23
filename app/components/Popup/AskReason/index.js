@@ -39,14 +39,14 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
             <CloseIcon />
           </div>
         </button>
-        <div className="AskReasonPopup-reportJob">
-          <div className="AskReasonPopup-reportJobContent">
-            <div className="AskReasonPopup-reportJobTitle">
-              Report job
+        <div className="AskReasonPopup-askReason">
+          <div className="AskReasonPopup-askReasonContent">
+            <div className="AskReasonPopup-askReasonTitle">
+              Why do you want to delete your account?
             </div>
             <div className="AskReasonPopup-selectOptionContainer">
               <div className="AskReasonPopup-selectOptionTitle">
-                This job is:
+                Reason:
               </div>
               <div className="AskReasonPopup-selectOption">
                 <form>
@@ -54,39 +54,35 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                     <fieldset className="AskReasonPopup-fieldset">
                       <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Spam" checked={selectedOption === 'Spam'} />
                       <span className="AskReasonPopup-inputText">
-                        Spam
+                        This account was a duplicate account.
                       </span>
                     </fieldset>
                     <fieldset className="AskReasonPopup-fieldset">
                       <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Duplicate" checked={selectedOption === 'Duplicate'} />
                       <span className="AskReasonPopup-inputText">
-                        Duplicate
+                        I had a bad experience on the platform.
                       </span>
                     </fieldset>
                     <fieldset className="AskReasonPopup-fieldset">
                       <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Inappropriate" checked={selectedOption === 'Inappropriate'} />
                       <span className="AskReasonPopup-inputText">
-                        Inappropriate
+                        I’m no longer interested in this community.
                       </span>
                     </fieldset>
                     <fieldset className="AskReasonPopup-fieldset">
                       <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Needs editing" checked={selectedOption === 'Needs editing'} />
                       <span className="AskReasonPopup-inputText">
-                        Needs editing
+                        I’m just taking a break.
                       </span>
                     </fieldset>
                     <fieldset className="AskReasonPopup-fieldset">
                       <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Self promotion" checked={selectedOption === 'Self promotion'} />
                       <span className="AskReasonPopup-inputText">
-                        Self promotion
+                        Other
                       </span>
                     </fieldset>
-                    <fieldset className="AskReasonPopup-fieldset">
-                      <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Not working" checked={selectedOption === 'Not working'} />
-                      <span className="AskReasonPopup-inputText">
-                        Not working
-                      </span>
-                    </fieldset>
+                    <div className="AskReasonPopup-separate">
+                    </div>
                     <button className="AskReasonPopup-submitReport">
                       <div className="AskReasonPopup-submitReportText">
                         Submit
