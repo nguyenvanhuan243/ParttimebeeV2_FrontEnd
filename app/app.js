@@ -95,6 +95,7 @@ import 'components/LoadingJobs/LoadingJobsList/LoadingJobsItem/styles.css';
 // Report job popup
 import 'components/Popup/ReportJob/styles.css';
 import 'components/Popup/DeleteConfirmation/styles.css';
+import 'components/Popup/AskReason/styles.css';
 
 
 // Employer Profile
