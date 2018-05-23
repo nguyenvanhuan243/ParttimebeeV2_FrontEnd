@@ -21,10 +21,8 @@ export default class MyProfile extends Component { // eslint-disable-line react/
   render() {
     const SHOWEDIT = true;
     return (
-      <div className="MyProfile container">
-        <div className="MyProfile-header">
-          <Header />
-        </div>
+      <div className="MyProfile">
+        <Header />
         <div className="MyProfile-bodyContainer">
           <div className="MyProfile-MyProfileBanner">
             <EmployerProfileBanner showEdit={SHOWEDIT} />

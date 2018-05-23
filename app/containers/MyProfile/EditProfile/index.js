@@ -53,10 +53,8 @@ export default class EditProfile extends Component { // eslint-disable-line reac
               onSubmitFormFunc={() => this.handleSubmitForm()}
             /> : null }
         </div>
-        <div className="EditProfile container">
-          <div className="EditProfile-header">
-            <Header />
-          </div>
+        <div className="EditProfile">
+          <Header />
           <div className="EditProfile-container">
             <div className="EditProfile-editProfile">
               Edit Profile
