@@ -13,11 +13,13 @@ import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import EditProfileForm from 'components/EditProfile/Form/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
+
 export default class EditProfile extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
     this.state = {
       showAskReasonPopup: false,
+      showDeleteProfile: false,
     };
   }
   handleAskReasonPopup() {
@@ -25,14 +27,25 @@ export default class EditProfile extends Component { // eslint-disable-line reac
       showAskReasonPopup: !this.state.showAskReasonPopup,
     });
   }
+  handleShowDeleteProfiflePopup() {
+    this.setState({
+      showDeleteProfile: !this.state.showDeleteProfile,
+    });
+  }
   render() {
     const {
       showAskReasonPopup,
+      showDeleteProfile,
     } = this.state;
     return (
       <div>
         <div>
-          { showAskReasonPopup ? <AskReasonPopup closePopupFunc={() => this.handleAskReasonPopup()} /> : null }
+          { (showAskReasonPopup || showDeleteProfile) ?
+            <AskReasonPopup
+              showDeleteProfileFunc={() => this.handleShowDeleteProfiflePopup()}
+              closeAskReasonFunc={() => this.handleAskReasonPopup()}
+              closePopupFunc={() => { this.handleAskReasonPopup(); this.handleShowDeleteProfiflePopup(); }}
+            /> : null }
         </div>
         <div className="EditProfile container">
           <div className="EditProfile-header">
