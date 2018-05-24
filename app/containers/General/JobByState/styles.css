@@ -1,7 +1,4 @@
-.HomePageContainer {
-  display: flex;
-  width: auto;
-}
+
 .HomePageContainer-sidebarContainer {
   display: grid;
 }
