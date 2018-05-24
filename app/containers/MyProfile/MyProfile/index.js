@@ -1,42 +1,82 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
+import Item from 'components/MyJobsComponent/Item/Loadable';
 import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
 import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
 import Footer from 'components/Footer/Loadable';
-import MyJobsComponent from 'components/MyJobsComponent/Loadable';
-export default class MyProfile extends Component { // eslint-disable-line react/prefer-stateless-function
+import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadable';
+
+export default class MyJobs extends Component { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      showDeleteConfirmationPopup: false,
+      activeCurrent: '',
+    };
+  }
+  handleDeleteConfirmationPopup() {
+    this.setState({
+      showDeleteConfirmationPopup: !this.state.showDeleteConfirmationPopup,
+    });
+  }
+  handleActive(value) {
+    this.setState({
+      activeCurrent: value,
+    });
+  }
   render() {
     const SHOWEDIT = true;
+    const {
+      showDeleteConfirmationPopup,
+      activeCurrent,
+    } = this.state;
+    const myJobList = [];
+    const textArray = [
+      '10 On-going jobs',
+      '1 Pending job',
+      '99 Expired jobs',
+    ];
+    myJobList.push(textArray.map((value) =>
+      <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
     return (
-      <div className="MyProfile">
+      <div className="MyJobs">
+        <div className="MyJobs-deleteConfirmationPopup">
+          { showDeleteConfirmationPopup ? <DeleteConfirmationPopup closeFunc={() => this.handleDeleteConfirmationPopup()} /> : null }
+        </div>
         <Header />
-        <div className="MyProfile-bodyContainer">
-          <div className="MyProfile-MyProfileBanner">
+        <div className="MyJobs-bodyContainer">
+          <div className="MyJobs-MyJobsBanner">
             <EmployerProfileBanner showEdit={SHOWEDIT} />
           </div>
-          <div className="MyProfile-contentContainer">
-            <div className="MyProfile-availableJob">
-              <MyJobsComponent />
+          <div className="MyJobs-contentContainer">
+            <div className="MyJobs-availableJob">
+              <div className="MyJobsComponent-container">
+                <div className="MyJobsComponent-title">
+                  <span className="MyJobsComponent-titleText">
+                    My Jobs
+                  </span>
+                </div>
+                <div className="MyJobsComponent-content">
+                  { myJobList }
+                </div>
+              </div>
             </div>
-            <div className="MyProfile-jobList">
-              <JobList />
+            <div className="MyJobs-jobList">
+              <JobList
+                onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                showDelete
+                showEdit
+                showCity={false}
+                showView={false}
+                showShare={false}
+                title={activeCurrent}
+              />
             </div>
-            <div className="MyProfile-sideBar">
+            <div className="MyJobs-sideBar">
               <ShareThisProfile />
-              <div className="MyProfile-googleAds250276">
+              <div className="MyJobs-googleAds250276">
                 <GoogleAds250276 />
               </div>
               <div>

@@ -43,7 +43,6 @@ import 'components/CategoryList/CategoryItem/styles.css';
 import 'components/StateList/styles.css';
 import 'components/JobList/styles.css';
 import 'components/JobList/JobItem/styles.css';
-import 'components/MyJobsComponent/styles.css';
 import 'components/MyJobsComponent/Item/styles.css';
 import 'containers/HomePage/styles.css';
 import 'containers/General/JobDetail/styles.css';
@@ -108,11 +107,9 @@ import 'components/ShareThisProfile/styles.css';
 
 // My jobs
 import 'containers/MyJobs/MyJobs/styles.css';
-import 'containers/MyJobs/MyJobsExpired/styles.css';
 import 'containers/MyJobs/MyJobsExpiredSingle/styles.css';
 import 'containers/MyJobs/MyJobsNoJobs/styles.css';
 import 'containers/MyJobs/MyJobsOnGoingSingle/styles.css';
-import 'containers/MyJobs/MyJobsPending/styles.css';
 import 'containers/MyJobs/MyJobsPendingSingle/styles.css';
 import 'containers/MyJobs/MyJobsDeleteConfirmationPopup/styles.css';
 import 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/styles.css';

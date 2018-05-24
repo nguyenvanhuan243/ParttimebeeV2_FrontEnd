@@ -11,7 +11,6 @@
 
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
-import MyJobsComponent from 'components/MyJobsComponent/Loadable';
 import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
@@ -30,7 +29,6 @@ export default class EmployerProfile extends Component { // eslint-disable-line 
           </div>
           <div className="EmployerProfile-contentContainer">
             <div className="EmployerProfile-availableJob">
-              <MyJobsComponent />
             </div>
             <div className="EmployerProfile-jobList">
               <JobList />

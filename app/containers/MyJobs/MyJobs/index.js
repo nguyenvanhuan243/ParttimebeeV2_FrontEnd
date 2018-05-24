@@ -1,17 +1,6 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
-import MyJobsComponent from 'components/MyJobsComponent/Loadable';
+import Item from 'components/MyJobsComponent/Item/Loadable';
 import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
@@ -24,6 +13,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     super();
     this.state = {
       showDeleteConfirmationPopup: false,
+      activeCurrent: 'on-goging',
     };
   }
   handleDeleteConfirmationPopup() {
@@ -31,11 +21,25 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       showDeleteConfirmationPopup: !this.state.showDeleteConfirmationPopup,
     });
   }
+  handleActive(value) {
+    this.setState({
+      activeCurrent: value,
+    });
+  }
   render() {
     const SHOWEDIT = true;
     const {
       showDeleteConfirmationPopup,
+      activeCurrent,
     } = this.state;
+    const myJobList = [];
+    const textArray = [
+      '10 On-going jobs',
+      '1 Pending job',
+      '99 Expired jobs',
+    ];
+    myJobList.push(textArray.map((value) =>
+      <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
     return (
       <div className="MyJobs">
         <div className="MyJobs-deleteConfirmationPopup">
@@ -48,7 +52,16 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
-              <MyJobsComponent />
+              <div className="MyJobsComponent-container">
+                <div className="MyJobsComponent-title">
+                  <span className="MyJobsComponent-titleText">
+                    My Jobs
+                  </span>
+                </div>
+                <div className="MyJobsComponent-content">
+                  { myJobList }
+                </div>
+              </div>
             </div>
             <div className="MyJobs-jobList">
               <JobList
@@ -58,7 +71,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
                 showCity={false}
                 showView={false}
                 showShare={false}
-                title="On-going"
+                title={activeCurrent}
               />
             </div>
             <div className="MyJobs-sideBar">
@@ -76,4 +89,3 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     );
   }
 }
-

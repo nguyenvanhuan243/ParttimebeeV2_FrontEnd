@@ -23,12 +23,9 @@ import EmployerProfile from 'containers/General/EmployerProfile/Loadable';
 import EmployerAvailableJobs from 'containers/General/EmployerAvailableJobs/Loadable';
 // My jobs
 import MyJobs from 'containers/MyJobs/MyJobs/Loadable';
-import MyJobsExpired from 'containers/MyJobs/MyJobsExpired/Loadable';
 import MyJobsExpiredSingle from 'containers/MyJobs/MyJobsExpiredSingle/Loadable';
 import MyJobsNoJobs from 'containers/MyJobs/MyJobsNoJobs/Loadable';
 import MyJobsOnGoingSingle from 'containers/MyJobs/MyJobsOnGoingSingle/Loadable';
-import MyJobsOnGoing from 'containers/MyJobs/MyJobsOnGoing/Loadable';
-import MyJobsPending from 'containers/MyJobs/MyJobsPending/Loadable';
 import MyJobsPendingSingle from 'containers/MyJobs/MyJobsPendingSingle/Loadable';
 // End My jobs
 import Signup from 'components/LoginRegister/Signup/Loadable';
@@ -60,7 +57,6 @@ import SearchResult from 'containers/PostJob/SearchResult/Loadable';
 import NoSearchResult from 'containers/PostJob/NoSearchResult/Loadable';
 
 // MY PROFILES
-import MyProfile from 'containers/MyProfile/MyProfile/Loadable';
 import MyProfileMore from 'containers/MyProfile/MyProfileMore/Loadable';
 import EditProfile from 'containers/MyProfile/EditProfile/Loadable';
 import UpdatingProfile from 'containers/MyProfile/UpdatingProfile/Loadable';
@@ -93,7 +89,7 @@ export default function App() {
         <Route exact path="/test/pages/policy" component={PolicyPage} />
         <Route exact path="/test/pages/about" component={AboutPage} />
         {/* MY PROFILES */}
-        <Route exact path="/test/myprofile/my-profile" component={MyProfile} />
+        <Route exact path="/test/myprofile/my-profile" component={MyJobs} />
         <Route exact path="/test/myprofile/my-profile-more" component={MyProfileMore} />
         <Route exact path="/test/myprofile/edit-profile" component={EditProfile} />
         <Route exact path="/test/myprofile/updating-profile" component={UpdatingProfile} />
@@ -103,12 +99,9 @@ export default function App() {
         <Route exact path="/test/myprofile/delete-profile-complete-message" component={DeleteProfileCompleteMessage} />
         {/* MY JOBS */}
         <Route exact path="/test/myjobs/myjobs" component={MyJobs} />
-        <Route exact path="/test/myjobs/myjobs-expired" component={MyJobsExpired} />
         <Route exact path="/test/myjobs/myjobs-expired-single" component={MyJobsExpiredSingle} />
         <Route exact path="/test/myjobs/myjobs-no-jobs" component={MyJobsNoJobs} />
-        <Route exact path="/test/myjobs/myjobs-on-going" component={MyJobsOnGoing} />
         <Route exact path="/test/myjobs/myjobs-on-going-single" component={MyJobsOnGoingSingle} />
-        <Route exact path="/test/myjobs/myjobs-pending" component={MyJobsPending} />
         <Route exact path="/test/myjobs/myjobs-pending-single" component={MyJobsPendingSingle} />
         <Route exact path="/test/myjobs/myjobs-ongoing-single-edit" component={MyJobsOnGoingSingleEdit} />
         <Route exact path="/test/myjobs/myjobs-pending-single-edit" component={MyJobsPendingSingleEdit} />
