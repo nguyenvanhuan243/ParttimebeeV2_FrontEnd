@@ -38,6 +38,8 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       '1 Pending job',
       '99 Expired jobs',
     ];
+    const myProfile = location.pathname.includes('my-profile');
+    const employerProfile = location.pathname.includes('employer-profile');
     myJobList.push(textArray.map((value) =>
       <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
     return (
@@ -52,25 +54,26 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
-              <div className="MyJobsComponent-container">
-                <div className="MyJobsComponent-title">
-                  <span className="MyJobsComponent-titleText">
-                    My Jobs
-                  </span>
-                </div>
-                <div className="MyJobsComponent-content">
-                  { myJobList }
-                </div>
-              </div>
+              { myProfile ?
+                <div className="MyJobsComponent-container">
+                  <div className="MyJobsComponent-title">
+                    <span className="MyJobsComponent-titleText">
+                      My Jobs
+                    </span>
+                  </div>
+                  <div className="MyJobsComponent-content">
+                    { myJobList }
+                  </div>
+                </div> : 'Available Jobs' }
             </div>
             <div className="MyJobs-jobList">
               <JobList
                 onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
-                showDelete
-                showEdit
-                showCity={false}
-                showView={false}
-                showShare={false}
+                showDelete={myProfile}
+                showEdit={myProfile}
+                showCity={employerProfile}
+                showView={employerProfile}
+                showShare={employerProfile}
                 title={activeCurrent}
               />
             </div>
