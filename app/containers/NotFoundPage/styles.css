@@ -1,9 +1,9 @@
 .NotFoundPage {
-  /* margin-left: 40.9375%; */
   text-align: center;
 }
 .NotFoundPage-icon {
   margin-top: 31px;
+  margin-bottom: 24px;
 }
 
 .NotFoundPage-text {
@@ -16,10 +16,9 @@
   font-stretch: normal;
   line-height: 1.6;
   letter-spacing: normal;
-  /* text-align: center; */
   color: #000000;
-  /* margin-left: 633.5px; */
   margin-top: 24px;
+  margin-bottom: 10px;
 }
 
 .NotFoundPage-abstract {
@@ -34,17 +33,22 @@
   letter-spacing: normal;
   text-align: center;
   color: #999999;
-  /* margin-left: 589.5px; */
   margin-top: 10px;
 }
+
+.NotFoundPage-abstractContainer {
+  margin-bottom: 20px;
+}
+
 
 .NotFoundPage-backToHome {
   width: 114px;
   height: 34px;
   border-radius: 3px;
   background-color: #ffaa00;
-  /* margin-left: 663px; */
   margin-top: 20px;
+  margin-left: 46.041666666%;
+  cursor: pointer;
 }
 .NotFoundPage-backToHomeText {
   font-family: Roboto;
@@ -56,8 +60,12 @@
   letter-spacing: 0.2px;
   text-align: left;
   color: #ffffff;
-  text-decoration: none;
+  outline: none !important;
   letter-spacing: normal;
-  padding-left: 16px;
-  padding-top: 9px;
+  cursor: pointer;
+}
+
+a.NotFoundPage-backToHomeText:hover {
+  text-decoration: none !important;
+  color: #ffffff;
 }

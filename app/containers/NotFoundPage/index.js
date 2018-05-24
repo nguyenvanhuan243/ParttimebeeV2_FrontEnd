@@ -11,6 +11,7 @@
 
 import React from 'react';
 import Header from 'components/Header/Loadable';
+import config from '../../../config';
 import NotFoundPageIcon from 'components/Icons/NotFoundPage/Loadable';
 
 export default class NotFound extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -27,17 +28,16 @@ export default class NotFound extends React.PureComponent { // eslint-disable-li
               404 Page Not Found
             </span>
           </div>
-          <div>
+          <div className="NotFoundPage-abstractContainer">
             <span className="NotFoundPage-abstract">
-              I don’t know why you come to this page but we’re sorry about that…
+              I don’t know why you come to this page<br></br>
+              but we’re sorry about that…
             </span>
           </div>
-          <div>
-            <span className="NotFoundPage-backToHome">
-              <span className="NotFoundPage-backToHomeText">
-                BACK TO HOME
-              </span>
-            </span>
+          <div className="NotFoundPage-backToHome">
+            <a href={`${config.BASE_URL}`} className="NotFoundPage-backToHomeText">
+              BACK TO HOME
+            </a>
           </div>
         </div>
       </div>
