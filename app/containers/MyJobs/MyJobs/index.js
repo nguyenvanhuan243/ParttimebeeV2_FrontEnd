@@ -41,9 +41,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
         <div className="MyJobs-deleteConfirmationPopup">
           { showDeleteConfirmationPopup ? <DeleteConfirmationPopup closeFunc={() => this.handleDeleteConfirmationPopup()} /> : null }
         </div>
-        <div className="MyJobs-header">
-          <Header />
-        </div>
+        <Header />
         <div className="MyJobs-bodyContainer">
           <div className="MyJobs-MyJobsBanner">
             <EmployerProfileBanner showEdit={SHOWEDIT} />

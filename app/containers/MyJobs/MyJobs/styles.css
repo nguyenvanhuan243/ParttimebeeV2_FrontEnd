@@ -11,10 +11,12 @@
 
 .MyJobs-jobList {
   margin-left: 93px;
+  width: 56.199916669%;
 }
 
 .MyJobs-sideBar {
   margin-left: 20px;
+  width: 24.224102012%;
 }
 
 .MyJobs-googleAds250276 {
@@ -22,7 +24,7 @@
 }
 
 .MyJobs-availableJob {
-  width: 85px;
+  width: 15.972222222%;
   height: 20px;
   font-family: Roboto;
   font-size: 13px;
@@ -33,4 +35,5 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
+  margin-right: 1.458333333%;
 }
