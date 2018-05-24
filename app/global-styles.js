@@ -25,7 +25,7 @@ injectGlobal`
   .container {
     margin: 0px !important;
     padding: 0px !important;
-    width: 2040px !important;
+    max-width: 3440px !important;
     background-color: #fafafa;
   }
 

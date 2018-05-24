@@ -20,21 +20,19 @@ import Footer from 'components/Footer/Loadable';
 export default class HomePage extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="container">
+      <div>
         <Header />
-        <div className="">
-          <div className="HomePageContainer">
-            <div className="HomePageContainer-categoryList">
-              <CategoryList />
-            </div>
-            <div className="HomePageContainer-jobListContainer">
-              <JobList />
-            </div>
-            <div className="HomePageContainer-sidebarContainer">
-              <Subscribe />
-              <Sponsored />
-              <Footer />
-            </div>
+        <div className="HomePageContainer">
+          <div className="HomePageContainer-categoryList">
+            <CategoryList />
+          </div>
+          <div className="HomePageContainer-jobListContainer">
+            <JobList />
+          </div>
+          <div className="HomePageContainer-sidebarContainer">
+            <Subscribe />
+            <Sponsored />
+            <Footer />
           </div>
         </div>
       </div>

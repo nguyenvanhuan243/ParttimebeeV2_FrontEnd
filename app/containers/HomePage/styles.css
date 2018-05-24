@@ -1,6 +1,5 @@
 .HomePageContainer {
-  display: flex;
-  width: auto;
+  /* display: flex; */
 }
 .HomePageContainer-sidebarContainer {
   display: grid;
@@ -21,10 +20,4 @@
 
 .HomePageContainer-sidebarContainer {
   margin-right: 11.805555555%;
-}
-
-.container {
-  margin: 0px !important;
-  padding: 0px !important;
-  max-width: 2440px !important;
 }
