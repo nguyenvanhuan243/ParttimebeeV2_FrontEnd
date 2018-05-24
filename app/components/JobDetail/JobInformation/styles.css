@@ -1,5 +1,5 @@
 .JobInformation {
-  width: 750px;
+  /* width: 750px; */
   height: 195px;
   border-radius: 3px;
   background-color: #ffffff;
@@ -9,7 +9,6 @@
 
 .JobInformation-socialButton {
   display: flex;
-  margin-left: 20px;
   margin-top: 20px;
 }
 
@@ -81,7 +80,7 @@
 }
 
 .JobInformation-separate {
-  width: 710px;
+  /* width: 710px; */
   height: 1px;
   background-color: #e8e8e8;
   margin-left: 20px;

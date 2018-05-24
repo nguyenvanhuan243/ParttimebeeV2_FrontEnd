@@ -1,5 +1,4 @@
 .JobDescription {
-  width: 750px;
   height: 380px;
   border-radius: 3px;
   background-color: #ffffff;
@@ -7,7 +6,6 @@
 }
 
 .JobDescription-content {
-  width: 710px;
   height: 340px;
   font-family: Roboto;
   font-size: 13px;
