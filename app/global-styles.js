@@ -22,6 +22,12 @@ injectGlobal`
     width: auto;
   }
 
+  .container {
+    margin: 0px !important;
+    padding: 0px !important;
+    max-width: 3440px !important;
+  }
+
   p,
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
