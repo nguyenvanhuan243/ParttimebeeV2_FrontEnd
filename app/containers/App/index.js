@@ -57,7 +57,6 @@ import SearchResult from 'containers/PostJob/SearchResult/Loadable';
 import NoSearchResult from 'containers/PostJob/NoSearchResult/Loadable';
 
 // MY PROFILES
-import MyProfileMore from 'containers/MyProfile/MyProfileMore/Loadable';
 import EditProfile from 'containers/MyProfile/EditProfile/Loadable';
 import UpdatingProfile from 'containers/MyProfile/UpdatingProfile/Loadable';
 import SavingProfile from 'containers/MyProfile/SavingProfile/Loadable';
@@ -90,7 +89,6 @@ export default function App() {
         <Route exact path="/test/pages/about" component={AboutPage} />
         {/* MY PROFILES */}
         <Route exact path="/test/myprofile/my-profile" component={MyJobs} />
-        <Route exact path="/test/myprofile/my-profile-more" component={MyProfileMore} />
         <Route exact path="/test/myprofile/edit-profile" component={EditProfile} />
         <Route exact path="/test/myprofile/updating-profile" component={UpdatingProfile} />
         <Route exact path="/test/myprofile/saving-profile" component={SavingProfile} />
