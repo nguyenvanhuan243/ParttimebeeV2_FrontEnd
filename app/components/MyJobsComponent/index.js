@@ -9,27 +9,11 @@
  * the linting exception.
  */
 
-import React, { PureComponent, PropTypes } from 'react';
-import classNames from 'classnames';
+import React, { PureComponent } from 'react';
+import Item from 'components/MyJobsComponent/Item/Loadable';
 
 export default class MyJobsComponent extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const {
-      activeGoing = false,
-      activePending = false,
-      activeExpired = false,
-      onActive = () => {},
-    } = this.props;
-
-    const activeGoingClassName = classNames('MyJobsComponent-textContainer',
-      { 'MyJobsComponent-active': activeGoing }
-    );
-    const activePendingClassName = classNames('MyJobsComponent-textContainer',
-      { 'MyJobsComponent-active': activePending }
-    );
-    const activeExpiredClassName = classNames('MyJobsComponent-textContainer',
-      { 'MyJobsComponent-active': activeExpired }
-    );
     return (
       <div className="MyJobsComponent-container">
         <div className="MyJobsComponent-title">
@@ -38,31 +22,11 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
           </span>
         </div>
         <div className="MyJobsComponent-content">
-          <div className={activeGoingClassName}>
-            <button id="on-going" onClick={onActive} className="">
-              10 On-going jobs
-            </button>
-          </div>
-          <div className={activePendingClassName}>
-            <button id="on-pending" onClick={onActive} className="">
-              1 Pending jobs
-            </button>
-          </div>
-          <div className={activeExpiredClassName}>
-            <button id="on-expired" onClick={onActive} className="">
-              99 expired jobs
-            </button>
-          </div>
+          <Item />
+          <Item text="1 Pending job" />
+          <Item text="99 Expired jobs" />
         </div>
       </div>
     );
   }
 }
-
-MyJobsComponent.propTypes = {
-  activeGoing: PropTypes.bool,
-  activePending: PropTypes.bool,
-  activeExpired: PropTypes.bool,
-  onActive: PropTypes.func.isRequired,
-};
-
