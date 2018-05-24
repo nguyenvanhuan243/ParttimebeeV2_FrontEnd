@@ -19,7 +19,7 @@ export default class Subscribe extends PureComponent { // eslint-disable-line re
             Subscribe
           </div>
         </div>
-        <div className="Subscribe-container">
+        <div className="">
           <div className="Subscribe-body">
             <div className="Subscribe-text">
               Receive latest jobs update in your inbox, every day!
