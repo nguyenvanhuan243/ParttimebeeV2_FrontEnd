@@ -29,6 +29,19 @@
 
 .JobItem-href {
   text-decoration: none;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+a.JobItem-href:hover {
+  color: #000000;
 }
 
 a.JobItem-href:hover {
