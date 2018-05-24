@@ -24,12 +24,6 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     super();
     this.state = {
       showDeleteConfirmationPopup: false,
-      onGoing: false,
-      onPending: false,
-      onExpired: false,
-      activeGoing: false,
-      activePending: false,
-      activeExpired: false,
     };
   }
   handleDeleteConfirmationPopup() {
@@ -37,30 +31,10 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       showDeleteConfirmationPopup: !this.state.showDeleteConfirmationPopup,
     });
   }
-  handleActiveJob() {
-    if (document.getElementById('on-going').textContent.includes('going')) {
-      this.setState({
-        activeGoing: true,
-      });
-    }
-    if (document.getElementById('on-pending').textContent.includes('Pending')) {
-      this.setState({
-        activePending: true,
-      });
-    }
-    if (document.getElementById('on-expired').textContent.includes('expired')) {
-      this.setState({
-        activeExpired: true,
-      });
-    }
-  }
   render() {
     const SHOWEDIT = true;
     const {
       showDeleteConfirmationPopup,
-      activeGoing,
-      activePending,
-      activeExpired,
     } = this.state;
     return (
       <div className="MyJobs">
@@ -74,10 +48,18 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
-              <MyJobsComponent activeGoing={activeGoing} activePending={activePending} activeExpired={activeExpired} onActive={() => this.handleActiveJob()} />
+              <MyJobsComponent />
             </div>
             <div className="MyJobs-jobList">
-              <JobList onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()} showDelete showEdit showCity={false} showView={false} showShare={false} title="On-going" />
+              <JobList
+                onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                showDelete
+                showEdit
+                showCity={false}
+                showView={false}
+                showShare={false}
+                title="On-going"
+              />
             </div>
             <div className="MyJobs-sideBar">
               <ShareThisProfile />

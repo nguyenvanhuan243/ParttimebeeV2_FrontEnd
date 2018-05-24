@@ -13,7 +13,29 @@ import React, { PureComponent } from 'react';
 import Item from 'components/MyJobsComponent/Item/Loadable';
 
 export default class MyJobsComponent extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      activeCurrent: '',
+    };
+  }
+  handleActiveCurrent(value) {
+    this.setState({
+      activeCurrent: value,
+    });
+  }
   render() {
+    const myJobList = [];
+    const textArray = [
+      '10 On-going jobs',
+      '1 Pending job',
+      '99 Expired jobs',
+    ];
+    const {
+      activeCurrent,
+    } = this.state;
+    myJobList.push(textArray.map((value) =>
+      <Item key={value} onActiveJob={() => this.handleActiveCurrent(value)} text={value} active={activeCurrent === value} />));
     return (
       <div className="MyJobsComponent-container">
         <div className="MyJobsComponent-title">
@@ -22,9 +44,7 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
           </span>
         </div>
         <div className="MyJobsComponent-content">
-          <Item />
-          <Item text="1 Pending job" />
-          <Item text="99 Expired jobs" />
+          { myJobList }
         </div>
       </div>
     );

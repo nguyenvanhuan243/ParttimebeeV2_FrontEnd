@@ -17,15 +17,18 @@ export default class Item extends PureComponent { // eslint-disable-line react/p
     const {
       active = false,
       text = '10 On-going jobs',
+      onActiveJob = () => {},
     } = this.props;
     const itemClassName = classNames('Item-container', {
       'Item-active': active,
     });
     return (
-      <div className={itemClassName}>
-        <div className="Item-text">
-          { text }
-        </div>
+      <div>
+        <button onClick={onActiveJob} className={itemClassName}>
+          <div className="Item-text">
+            { text }
+          </div>
+        </button>
       </div>
     );
   }
@@ -34,5 +37,6 @@ export default class Item extends PureComponent { // eslint-disable-line react/p
 Item.propTypes = {
   active: PropTypes.bool,
   text: PropTypes.string,
+  onActiveJob: PropTypes.func.isRequired,
 };
 

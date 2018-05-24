@@ -3,6 +3,7 @@
   cursor: pointer;
   padding-left: 8px;
   padding-top: 4px;
+  outline: none !important;
 }
 
 .Item-active {
