@@ -24,7 +24,7 @@ export default class EmployerProfile extends Component { // eslint-disable-line 
         <div className="EmployerProfile-header">
           <Header />
         </div>
-        <div className="EmployerProfile-bodyContainer container">
+        <div className="EmployerProfile-bodyContainer">
           <div className="EmployerProfile-employerProfileBanner">
             <EmployerProfileBanner />
           </div>

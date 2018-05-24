@@ -8,11 +8,10 @@
  * reloading is not a necessity for you then you can refactor it and remove
  * the linting exception.
  */
-
 import React from 'react';
 import Header from 'components/Header/Loadable';
-import config from '../../../config';
 import NotFoundPageIcon from 'components/Icons/NotFoundPage/Loadable';
+import config from '../../../config';
 
 export default class NotFound extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
