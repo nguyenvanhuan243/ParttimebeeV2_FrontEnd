@@ -11,7 +11,6 @@
 
 import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
-import config from '../../../config';
 
 export default class MyJobsComponent extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -19,6 +18,7 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
       activeGoing = false,
       activePending = false,
       activeExpired = false,
+      onActive = () => {},
     } = this.props;
 
     const activeGoingClassName = classNames('MyJobsComponent-textContainer',
@@ -39,19 +39,19 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
         </div>
         <div className="MyJobsComponent-content">
           <div className={activeGoingClassName}>
-            <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-on-going`}>
+            <button id="on-going" onClick={onActive} className="">
               10 On-going jobs
-            </a>
+            </button>
           </div>
           <div className={activePendingClassName}>
-            <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-pending`}>
+            <button id="on-pending" onClick={onActive} className="">
               1 Pending jobs
-            </a>
+            </button>
           </div>
           <div className={activeExpiredClassName}>
-            <a className="MyJobsComponent-text" href={`${config.BASE_URL}/myjobs/myjobs-expired`}>
+            <button id="on-expired" onClick={onActive} className="">
               99 expired jobs
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -63,5 +63,6 @@ MyJobsComponent.propTypes = {
   activeGoing: PropTypes.bool,
   activePending: PropTypes.bool,
   activeExpired: PropTypes.bool,
+  onActive: PropTypes.func.isRequired,
 };
 
