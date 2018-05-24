@@ -100,7 +100,6 @@ import 'components/Popup/DeleteProfile/styles.css';
 
 
 // Employer Profile
-import 'containers/General/EmployerProfile/styles.css';
 import 'containers/General/EmployerAvailableJobs/styles.css';
 import 'components/EmployerProfileBanner/styles.css';
 import 'components/ShareThisProfile/styles.css';

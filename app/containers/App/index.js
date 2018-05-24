@@ -19,7 +19,6 @@ import LoadingJobs from 'containers/General/LoadingJobs/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import JobDetail from 'containers/General/JobDetail/Loadable';
 import JobByState from 'containers/General/JobByState/Loadable';
-import EmployerProfile from 'containers/General/EmployerProfile/Loadable';
 import EmployerAvailableJobs from 'containers/General/EmployerAvailableJobs/Loadable';
 // My jobs
 import MyJobs from 'containers/MyJobs/MyJobs/Loadable';
@@ -72,7 +71,7 @@ export default function App() {
         <Route exact path="/test/loading-jobs" component={LoadingJobs} />
         <Route exact path="/test/job-detail" component={JobDetail} />
         <Route exact path="/test/job-by-state" component={JobByState} />
-        <Route exact path="/test/employer-profile" component={EmployerProfile} />
+        <Route exact path="/test/employer-profile" component={MyJobs} />
         <Route exact path="/test/employer-available-jobs" component={EmployerAvailableJobs} />
         {/* Login / Register */}
         <Route exact path="/test/login-register/signup" component={Signup} />
