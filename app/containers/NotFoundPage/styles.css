@@ -1,5 +1,8 @@
+.NotFoundPage {
+  /* margin-left: 40.9375%; */
+  text-align: center;
+}
 .NotFoundPage-icon {
-  margin-left: 696px;
   margin-top: 31px;
 }
 
@@ -13,9 +16,9 @@
   font-stretch: normal;
   line-height: 1.6;
   letter-spacing: normal;
-  text-align: center;
+  /* text-align: center; */
   color: #000000;
-  margin-left: 633.5px;
+  /* margin-left: 633.5px; */
   margin-top: 24px;
 }
 
@@ -31,7 +34,7 @@
   letter-spacing: normal;
   text-align: center;
   color: #999999;
-  margin-left: 589.5px;
+  /* margin-left: 589.5px; */
   margin-top: 10px;
 }
 
@@ -40,7 +43,7 @@
   height: 34px;
   border-radius: 3px;
   background-color: #ffaa00;
-  margin-left: 663px;
+  /* margin-left: 663px; */
   margin-top: 20px;
 }
 .NotFoundPage-backToHomeText {

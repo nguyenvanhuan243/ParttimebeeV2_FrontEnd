@@ -16,20 +16,28 @@ import NotFoundPageIcon from 'components/Icons/NotFoundPage/Loadable';
 export default class NotFound extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="NotFoundPage">
+      <div>
         <Header />
-        <div className="NotFoundPage-icon">
-          <NotFoundPageIcon />
-        </div>
-        <div className="NotFoundPage-text">
-          404 Page Not Found
-        </div>
-        <div className="NotFoundPage-abstract">
-          I don’t know why you come to this page but we’re sorry about that…
-        </div>
-        <div className="NotFoundPage-backToHome">
-          <div className="NotFoundPage-backToHomeText">
-            BACK TO HOME
+        <div className="NotFoundPage">
+          <div className="NotFoundPage-icon">
+            <NotFoundPageIcon />
+          </div>
+          <div className="">
+            <span className="NotFoundPage-text">
+              404 Page Not Found
+            </span>
+          </div>
+          <div>
+            <span className="NotFoundPage-abstract">
+              I don’t know why you come to this page but we’re sorry about that…
+            </span>
+          </div>
+          <div>
+            <span className="NotFoundPage-backToHome">
+              <span className="NotFoundPage-backToHomeText">
+                BACK TO HOME
+              </span>
+            </span>
           </div>
         </div>
       </div>
