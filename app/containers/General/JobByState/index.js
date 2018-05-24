@@ -17,17 +17,19 @@ import Subscribe from 'components/Subscribe/Loadable';
 import Sponsored from 'components/Sponsored/Loadable';
 import Footer from 'components/Footer/Loadable';
 
-export default class HomePage extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class JobByState extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
         <Header />
-        <div className="HomePageContainer container">
-          <CategoryList />
-          <div className="HomePageContainer-jobListContainer">
+        <div className="JobByState">
+          <div className="JobByState-categoryList">
+            <CategoryList />
+          </div>
+          <div className="JobByState-jobListContainer">
             <JobList showHeading text="Jobs in Kuala Lumpur" />
           </div>
-          <div className="HomePageContainer-sidebarContainer">
+          <div className="JobByState-sidebarContainer">
             <Subscribe />
             <Sponsored />
             <Footer />
@@ -37,3 +39,4 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
     );
   }
 }
+
