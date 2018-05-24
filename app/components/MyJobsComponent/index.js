@@ -19,7 +19,7 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
       activeCurrent: '',
     };
   }
-  handleActiveCurrent(value) {
+  handleActive(value) {
     this.setState({
       activeCurrent: value,
     });
@@ -35,7 +35,7 @@ export default class MyJobsComponent extends PureComponent { // eslint-disable-l
       activeCurrent,
     } = this.state;
     myJobList.push(textArray.map((value) =>
-      <Item key={value} onActiveJob={() => this.handleActiveCurrent(value)} text={value} active={activeCurrent === value} />));
+      <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
     return (
       <div className="MyJobsComponent-container">
         <div className="MyJobsComponent-title">
