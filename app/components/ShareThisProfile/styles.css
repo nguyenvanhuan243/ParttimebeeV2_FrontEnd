@@ -34,10 +34,16 @@
   margin-left: 16px;
 }
 
+.ShareThisProfile-facebook {
+  cursor: pointer;
+}
+
 .ShareThisProfile-whatsapp {
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .ShareThisProfile-email {
   margin-left: 10px;
+  cursor: pointer;
 }
