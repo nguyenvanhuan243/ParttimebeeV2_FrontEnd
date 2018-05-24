@@ -129,7 +129,6 @@ import 'containers/PostJob/PreView/styles.css';
 import 'containers/PostJob/PostJobConfirmed/styles.css';
 
 // MY PROFILE.
-import 'containers/MyProfile/MyProfile/styles.css';
 import 'containers/MyProfile/EditProfile/styles.css';
 import 'containers/MyProfile/UpdatingProfile/styles.css';
 import 'containers/MyProfile/SavingProfile/styles.css';
