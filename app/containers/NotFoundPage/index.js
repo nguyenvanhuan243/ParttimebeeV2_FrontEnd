@@ -28,10 +28,14 @@ export default class NotFound extends React.PureComponent { // eslint-disable-li
             </span>
           </div>
           <div className="NotFoundPage-abstractContainer">
-            <span className="NotFoundPage-abstract">
-              I don’t know why you come to this page<br></br>
-              but we’re sorry about that…
-            </span>
+            <div className="NotFoundPage-abstract">
+              <span className="NotFoundPage-aboveText">
+                I don’t know why you come to this page<br></br>
+              </span>
+              <span className="NotFoundPage-belowText">
+                but we’re sorry about that…
+              </span>
+            </div>
           </div>
           <div className="NotFoundPage-backToHome">
             <a href={`${config.BASE_URL}`} className="NotFoundPage-backToHomeText">
