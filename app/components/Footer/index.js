@@ -17,19 +17,19 @@ export default class Footer extends PureComponent { // eslint-disable-line react
     return (
       <div className="Footer">
         <div className="Footer-information">
-          <a href={`${config.BASE_URL}/pages/about`} className="Footer-informationAbout">
+          <a href={`${config.BASE_URL}/pages/about`}>
             About
           </a>
           <div className="Footer-oval"></div>
-          <a href={`${config.BASE_URL}/pages/about`} className="Footer-informationContact">
+          <a href={`${config.BASE_URL}/pages/about`}>
             Contact
           </a>
           <div className="Footer-oval"></div>
-          <a href={`${config.BASE_URL}/pages/terms`} className="Footer-informationTerms">
+          <a href={`${config.BASE_URL}/pages/terms`}>
             Terms
           </a>
           <div className="Footer-oval"></div>
-          <a href={`${config.BASE_URL}/pages/policy`} className="Footer-informationPrivacy">
+          <a href={`${config.BASE_URL}/pages/policy`}>
             Privacy
           </a>
         </div>
