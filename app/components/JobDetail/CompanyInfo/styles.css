@@ -24,7 +24,6 @@ a.CompanyInfo-href:hover {
 .CompanyInfo-text {
   display:grid;
   margin-left: 10px;
-  width: 193px;
   height: 42px;
   font-size: 15px;
   font-weight: bold;
