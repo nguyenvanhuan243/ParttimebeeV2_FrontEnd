@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import EditProfileForm from 'components/EditProfile/Form/Loadable';
+import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
 
 export default class EditProfile extends Component { // eslint-disable-line react/prefer-stateless-function
@@ -42,11 +43,14 @@ export default class EditProfile extends Component { // eslint-disable-line reac
               onSubmitFormFunc={() => this.handleSubmitForm()}
             /> : null }
         </div>
-        <div className="EditProfile">
+        <div>
           <Header />
           <div className="EditProfile-container">
             <div className="EditProfile-editProfile">
               Edit Profile
+            </div>
+            <div className="EditProfile-alert">
+              <EditProfileAlert />
             </div>
             <div className="EditProfile-postJobForm">
               <EditProfileForm />

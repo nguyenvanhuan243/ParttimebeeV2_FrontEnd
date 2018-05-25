@@ -1,17 +1,9 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 export default class CloseIconAlert extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const {
+      marginTop = '2.5',
+    } = this.props;
     return (
       <svg
         version="1.1"
@@ -23,6 +15,7 @@ export default class CloseIconAlert extends PureComponent { // eslint-disable-li
         viewBox="0 0 14 14"
         enableBackground="new 0 0 14 14"
         xmlSpace="preserve"
+        style={{ marginTop }}
       >
         <image
           width={14}
@@ -42,3 +35,7 @@ export default class CloseIconAlert extends PureComponent { // eslint-disable-li
     );
   }
 }
+
+CloseIconAlert.propTypes = {
+  marginTop: PropTypes.string,
+};

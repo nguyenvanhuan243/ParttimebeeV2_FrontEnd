@@ -19,11 +19,9 @@ export default class EditProfileAlert extends PureComponent { // eslint-disable-
           <div className="EditProfileAlert-closeRedIcon">
           </div>
           <div className="EditProfileAlert-textContainer">
-            <div className="EditProfileAlert-closeIconAlert">
-              <CloseIconAlert />
-            </div>
+            <CloseIconAlert CloseIconAlert />
             <div className="EditProfileAlert-text">
-              Please fill in your Contact Name and Company Name.
+              Please fill in your <b>Contact Name</b> and <b>Company Name.</b>
             </div>
           </div>
           <div className="EditProfileAlert-closeIcon">

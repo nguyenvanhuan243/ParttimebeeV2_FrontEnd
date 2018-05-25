@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+.EditProfile-alert {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .EditProfile-editProfile {
   font-size: 26px;
   font-weight: bold;
