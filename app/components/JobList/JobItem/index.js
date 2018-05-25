@@ -93,11 +93,11 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
                   <DeleteIcon />
                 </button> : null }
               { showEdit ?
-                <div className="JobItem-contentShareContainer">
-                  <div className="JobItem-contentShareIcon">
+                <div className="JobItem-contentEditContainer">
+                  <div>
                     <ShareIcon />
                   </div>
-                  <div className="JobItem-contentShareText">
+                  <div className="JobItem-contentEditText">
                     EDIT
                   </div>
                 </div> : null }

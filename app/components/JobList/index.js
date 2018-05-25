@@ -57,9 +57,7 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
           { listItem }
           <button className="JobList-buttonContainer" onClick={() => this.handleShowMore()}>
             <div className="JobList-showMore">
-              <div className="JobList-showMoreIcon">
-                <ShowMoreIcon />
-              </div>
+              <ShowMoreIcon />
               <div className="JobList-showMoreText">
                 SHOW 88 MORE
               </div>

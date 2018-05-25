@@ -110,9 +110,9 @@ a.JobItem-href:hover {
 }
 .JobItem-contentViewContainer {
   display: flex;
-  margin-left: 23.5%;
+  margin-left: 136px;
 }
-.JobItem-contentShareContainer {
+.JobItem-contentEditContainer {
   width: 62px;
   height: 24px;
   border-radius: 3px;
@@ -124,6 +124,17 @@ a.JobItem-href:hover {
   cursor: pointer;
   padding-left: 11px;
   padding-right: 4px;
+}
+
+.JobItem-contentShareContainer {
+  width: 83px;
+  height: 24px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8e8;
+  padding-left: 13px;
+  display: flex;
+  margin-left: 15px;
 }
 
 .JobItem-deleteIcon {
@@ -138,7 +149,7 @@ a.JobItem-href:hover {
   cursor: pointer;
   margin-left: 353px;
 }
-.JobItem-contentShareText {
+.JobItem-contentEditText {
   width: 24px;
   height: 16px;
   font-size: 11px;
@@ -153,8 +164,22 @@ a.JobItem-href:hover {
   padding-top: 4px;
 }
 
+.JobItem-contentShareText {
+  width: 12px;
+  height: 16px;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  margin-left: 6px;
+  padding-top: 4px;
+}
+
 .JobItem-contentViewNumber {
-  
   font-size: 11px;
   font-weight: normal;
   font-style: normal;
