@@ -19,27 +19,27 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
     } = this.props;
     return (
       <div className="DeleteConfirmationPopup">
-        <button onClick={closeFunc} className="DeleteConfirmationPopup-closeButton">
-          <div className="DeleteConfirmationPopup-closeIcon">
+        <div className="DeleteConfirmationPopup-containerPopup">
+          <button onClick={closeFunc} className="DeleteConfirmationPopup-closeButton">
             <CloseIcon />
-          </div>
-        </button>
-        <div className="DeleteConfirmationPopup-container">
-          <div className="DeleteConfirmationPopup-content">
-            <div className="DeleteConfirmationPopup-text">
-              Are you sure to delete this job?
-            </div>
-            <div className="DeleteConfirmationPopup-buttonContainer">
-              <button className="DeleteConfirmationPopup-cancelButton">
-                <span className="DeleteConfirmationPopup-cancelButtonText">
-                  Cancel
-                </span>
-              </button>
-              <button className="DeleteConfirmationPopup-deleteButton">
-                <span className="DeleteConfirmationPopup-deleteButtonText">
-                  Delete
-                </span>
-              </button>
+          </button>
+          <div className="DeleteConfirmationPopup-container">
+            <div className="DeleteConfirmationPopup-content">
+              <div className="DeleteConfirmationPopup-text">
+                Are you sure to delete this job?
+              </div>
+              <div className="DeleteConfirmationPopup-buttonContainer">
+                <button className="DeleteConfirmationPopup-cancelButton">
+                  <span className="DeleteConfirmationPopup-cancelButtonText">
+                    Cancel
+                  </span>
+                </button>
+                <button className="DeleteConfirmationPopup-deleteButton">
+                  <span className="DeleteConfirmationPopup-deleteButtonText">
+                    Delete
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
