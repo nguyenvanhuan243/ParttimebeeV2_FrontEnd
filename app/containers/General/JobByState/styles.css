@@ -1,22 +1,20 @@
 .JobByState {
   display: flex;
+  width: 1100px;
+  margin: 0 auto;
 }
 
 .JobByState-categoryList {
-  margin-left: 11.805555555%;
-  width: 15.972222222%;
+  margin-right: 21px;
 }
 
 .JobByState-jobListContainer {
   display: grid;
   margin-top: 31px;
-  width: 40.138888888%;
-  margin-left: 1.458333333%;
+  margin-right: 21px;
 }
 
 .JobByState-sidebarContainer {
   display: grid;
   width: 17.361111111%;
-  margin-left: 1.458333333%;
-  margin-right: 11.805555555%;
 }
