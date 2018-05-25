@@ -19,7 +19,7 @@ injectGlobal`
   #app {
     background-color: #fafafa;
     min-height: 100%;
-    max-width: 1440px;
+    width: auto;
   }
 
   p,

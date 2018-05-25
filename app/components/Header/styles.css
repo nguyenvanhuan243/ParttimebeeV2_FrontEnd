@@ -1,11 +1,15 @@
 .Header {
-  height: 62px;
   background-color: #ffffff;
   border-bottom: solid 1px #e8e8e8;
+  height: 63px;
+}
+.Header-container {
+  width: 1100px;
   display: flex;
+  margin: 0 auto;
 }
 .SearchForm {
-  width: 73.353412826%;
+  width: 230px;
   height: 34px;
   border-radius: 3px;
   border: solid 1px #e8e8e8;
@@ -16,6 +20,8 @@
 .Header-logo {
   margin-top: 15px;
   text-align: center;
+  margin-left: 306px;
+  margin-right: 451px;
 }
 
 .Header-postJob {
@@ -118,12 +124,7 @@ a.Header-hrefText:hover {
   padding: 0px !important;
 }
 
-.Header-searchForm {
-  margin-left: 35.41666666%;
-}
-
 .Header-postJobContainer {
-  margin-right: 35.41666666%;
   display: flex;
   text-align: right;
   float: right;

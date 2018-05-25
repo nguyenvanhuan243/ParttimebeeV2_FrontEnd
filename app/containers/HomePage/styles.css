@@ -6,12 +6,13 @@
 
 .HomePageContainer-categoryList {
   width: 230px;
+  margin-right: 21px;
 }
 
 .HomePageContainer-jobListContainer {
   display: grid;
   margin-top: 31px;
-  margin-left: 1.458333333%;
+  margin-right: 21px;
 }
 
 .HomePageContainer-sidebarContainer {

@@ -15,17 +15,19 @@
 .JobDetail-container {
   display: flex;
   margin-top: 36px;
+  width: 1100px;
+  margin: 0 auto;
+  margin-top: 36px;
 }
 
 .JobDetail-containerContent {
-  width: 52.083333333%;
-  margin-left: 11.805555555%;
+  width: 750px;
+  margin-right: 30px;
 }
 
 .JobDetail-containerSideBar {
   margin-right: 11.805555555%;
-  width: 22.222222222%;
-  margin-left: 2.083333333%;
+  width: 321px;
 }
 
 .JobDetail-sideBar {
@@ -55,7 +57,7 @@
 }
 
 .JobDetail-separate { 
-  /* width: 321px; */
+  width: 321px;
   height: 1px;
   background-color: #e8e8e8;
 }
