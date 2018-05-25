@@ -42,16 +42,16 @@ export default class EditProfileForm extends PureComponent { // eslint-disable-l
               Company Name
             </div>
             <div className="EditProfileForm-lableItem">
-              Address(optional)
+              Address<span className="EditProfileForm-optionInput">(optional)</span>
             </div>
             <div className="EditProfileForm-lableItem">
-              Phone(optional)
+              Phone<span className="EditProfileForm-optionInput">(optional)</span>
             </div>
             <div className="EditProfileForm-lableItem">
-              Website(optional)
+              Website<span className="EditProfileForm-optionInput">(optional)</span>
             </div>
             <div className="EditProfileForm-lableItem">
-              Company Description (optional)
+              Company Description <span className="EditProfileForm-optionInput">(optional)</span>
             </div>
           </div>
           <div className="EditProfileForm-inputContainer">
@@ -89,7 +89,7 @@ export default class EditProfileForm extends PureComponent { // eslint-disable-l
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" />
+                <input className="EditProfileForm-inputHoverEmail" type="aria" />
                 <div className="EditProfileForm-separate" />
               </div>
             </form>
