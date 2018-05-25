@@ -58,14 +58,6 @@
   outline: none !important;
 }
 
-.ReportJobPopup-closeIcon {
-  padding-left: 6px;
-  padding-top: 0px;
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
 .ReportJobPopup-reportJob {
   width: 400px;
   height: 386px;

@@ -35,9 +35,7 @@ export default class ReportJobPopup extends PureComponent { // eslint-disable-li
     return (
       <div className="ReportJobPopup">
         <button className="ReportJobPopup-closeButton" onClick={closePopupFunc}>
-          <div className="ReportJobPopup-closeIcon">
-            <CloseIcon />
-          </div>
+          <CloseIcon />
         </button>
         <div className="ReportJobPopup-reportJob">
           <div className="ReportJobPopup-reportJobContent">
