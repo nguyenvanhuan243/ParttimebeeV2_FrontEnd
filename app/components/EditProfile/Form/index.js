@@ -14,11 +14,18 @@ export default class EditProfileForm extends PureComponent { // eslint-disable-l
   render() {
     return (
       <div className="EditProfileForm">
+        <div className="EditProfileForm-avatarContainer">
+          <div className="EditProfileForm-avatar">
+            Avatar
+          </div>
+          <div className="EditProfileForm-image">
+          </div>
+          <div className="EditProfileForm-editAvatar">
+            Edit avatar
+          </div>
+        </div>
         <div className="EditProfileForm-container">
           <div className="EditProfileForm-lableContainer">
-            <div className="EditProfileForm-lableItem EditProfileForm-lableItemAvatar">
-              Avatar
-            </div>
             <div className="EditProfileForm-lableItem">
               Email
             </div>
@@ -44,47 +51,45 @@ export default class EditProfileForm extends PureComponent { // eslint-disable-l
               Website(optional)
             </div>
             <div className="EditProfileForm-lableItem">
-              Company Description
+              Company Description (optional)
             </div>
           </div>
           <div className="EditProfileForm-inputContainer">
             <form>
-              <div className="EditProfileForm-avatar">
-              </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" placeholder="http://" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
               <div className="EditProfileForm-lableItem">
-                <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
+                <input className="EditProfileForm-inputHoverEmail" type="text" />
                 <div className="EditProfileForm-separate" />
               </div>
             </form>
