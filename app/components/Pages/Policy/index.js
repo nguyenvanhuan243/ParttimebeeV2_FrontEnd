@@ -14,10 +14,8 @@ import Header from 'components/Header/Loadable';
 export default class PolicyPage extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="PolicyPage">
-        <div className="PolicyPage-header container">
-          <Header />
-        </div>
+      <div>
+        <Header />
         <div className="PolicyPage-container">
           <div className="PolicyPage-privacy">
             Privacy

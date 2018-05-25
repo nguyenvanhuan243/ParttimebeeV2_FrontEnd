@@ -14,10 +14,8 @@ import Header from 'components/Header/Loadable';
 export default class TermsPage extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="TermsPage">
-        <div className="TermsPage-header container">
-          <Header />
-        </div>
+      <div>
+        <Header />
         <div className="TermsPage-container">
           <div className="TermsPage-termsOfService">
             Terms of Service

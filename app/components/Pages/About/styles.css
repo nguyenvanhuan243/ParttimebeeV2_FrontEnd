@@ -3,9 +3,6 @@
 }
 
 .AboutPage-title {
-  width: 479px;
-  height: 72px;
-  
   font-size: 60px;
   font-weight: 900;
   font-style: normal;
@@ -14,14 +11,13 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;
-  margin-top: 60px;
   margin-left: 10.5px;
+  display: inline;
 }
 
 .AboutPage-abstract {
   width: 500px;
   height: 22px;
-  
   font-size: 22px;
   font-weight: normal;
   font-style: normal;
@@ -39,7 +35,6 @@
 
 .AboutPage-content {
   width: 700px;
-  
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -68,7 +63,6 @@
 .AboutPage-copyRight {
   width: 172px;
   height: 14px;
-  
   font-size: 12px;
   font-weight: normal;
   font-style: normal;

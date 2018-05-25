@@ -15,10 +15,8 @@ import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon
 export default class AboutPage extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="AboutPage">
-        <div className="AboutPage-header container">
-          <Header />
-        </div>
+      <div>
+        <Header />
         <div className="AboutPage-titleContainer">
           <div className="AboutPage-title">
             Big bold text here

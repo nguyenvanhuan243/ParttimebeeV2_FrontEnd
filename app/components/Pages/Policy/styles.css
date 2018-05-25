@@ -1,13 +1,13 @@
 .PolicyPage-container {
-  margin-left: 170px;
   margin-top: 30px;
-  margin-bottom: 249px;
+  width: 1100px;
+  margin: 0 auto;
+  margin-bottom: 187px;
 }
 
 .PolicyPage-privacy {
   width: 87px;
   height: 32px;
-  
   font-size: 26px;
   font-weight: bold;
   font-style: normal;
@@ -47,9 +47,6 @@
 }
 
 .Policy-session2 {
-  width: 325px;
-  height: 32px;
-  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -63,7 +60,6 @@
 
 .Policy-session3 {
   width: 1060px;
-  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -76,8 +72,6 @@
 }
 
 .Policy-session4 {
-  width: 444px;
-  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
