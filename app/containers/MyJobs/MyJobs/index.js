@@ -75,6 +75,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
                 showView={employerProfile}
                 showShare={employerProfile}
                 title={activeCurrent}
+                showImage={false}
               />
             </div>
             <div className="MyJobs-sideBar">

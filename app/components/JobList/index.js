@@ -35,13 +35,14 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
       showShare = true,
       showEdit = false,
       showDelete = false,
+      showImage = true,
       onDeleteConfirmation = () => {},
     } = this.props;
     const {
       limit,
     } = this.state;
     const listItem = [];
-    limit.map(() => listItem.push(<JobItem onClickJobItem={onDeleteConfirmation} showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
+    limit.map(() => listItem.push(<JobItem showImage={showImage} onClickJobItem={onDeleteConfirmation} showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
     return (
       <div>
         { showHeading ? <div className="JobList-showHeading">
@@ -79,5 +80,6 @@ JobList.propTypes = {
   showView: PropTypes.bool,
   showEdit: PropTypes.bool,
   showDelete: PropTypes.bool,
+  showImage: PropTypes.bool,
   onDeleteConfirmation: PropTypes.func.isRequired,
 };

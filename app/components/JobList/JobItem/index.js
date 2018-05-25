@@ -34,6 +34,7 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
       showShare = true,
       showEdit = false,
       showDelete = false,
+      showImage = true,
     } = this.props;
     const {
       onClickJobItem = () => {},
@@ -41,10 +42,11 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
     return (
       <div>
         <div className="JobItem">
-          <a className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
-            <div className="JobItem-image">
-            </div>
-          </a>
+          { showImage ?
+            <a className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
+              <div className="JobItem-image">
+              </div>
+            </a> : null }
           <div className="JobItem-content">
             <div className="JobItem-contentTitle">
               <a className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
@@ -87,10 +89,8 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
                   </div>
                 </div> : null }
               { showDelete ?
-                <button onClick={onClickJobItem} className="JobItem-contentShareContainer">
-                  <div className="JobItem-contentShareIcon">
-                    <DeleteIcon />
-                  </div>
+                <button onClick={onClickJobItem} className="JobItem-deleteIcon">
+                  <DeleteIcon />
                 </button> : null }
               { showEdit ?
                 <div className="JobItem-contentShareContainer">
@@ -115,6 +115,7 @@ JobItem.propTypes = {
   showShare: PropTypes.bool,
   showEdit: PropTypes.bool,
   showDelete: PropTypes.bool,
+  showImage: PropTypes.bool,
   onClickJobItem: PropTypes.func.isRequired,
 };
 
