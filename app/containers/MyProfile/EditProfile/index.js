@@ -63,7 +63,7 @@ export default class EditProfile extends Component { // eslint-disable-line reac
               <EditProfileForm />
             </div>
             <div className="EditProfile-deleteMyAccount">
-              <div className="EditProfile-deleteAccountContainer col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <div className="EditProfile-deleteAccountContainer">
                 <div className="EditProfile-deleteAccounText">
                   DELETE MY ACCOUNT
                 </div>
@@ -71,12 +71,10 @@ export default class EditProfile extends Component { // eslint-disable-line reac
                   Taking a break from Parttime Bee? Youve found the right place.
                 </div>
               </div>
-              <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div className="EditProfile-buttonTextContainer">
-                  <button onClick={() => this.handleAskReasonPopup()} className="EditProfile-buttonText">
-                    CONTINUE
-                  </button>
-                </div>
+              <div className="EditProfile-buttonTextContainer">
+                <button onClick={() => this.handleAskReasonPopup()} className="EditProfile-buttonText">
+                  CONTINUE
+                </button>
               </div>
             </div>
           </div>

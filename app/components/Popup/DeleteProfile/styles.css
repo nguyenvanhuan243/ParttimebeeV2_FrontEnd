@@ -43,14 +43,6 @@
   outline: none !important;
 }
 
-.DeleteProfile-closeIcon {
-  padding-left: 6px;
-  padding-top: 0px;
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
 .DeleteProfile-container {
   width: 440px;
   height: 166px;

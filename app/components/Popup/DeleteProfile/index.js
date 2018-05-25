@@ -20,9 +20,7 @@ export default class DeleteProfile extends PureComponent { // eslint-disable-lin
     return (
       <div className="DeleteProfile">
         <button onClick={closeFunc} className="DeleteProfile-closeButton">
-          <div className="DeleteProfile-closeIcon">
-            <CloseIcon />
-          </div>
+          <CloseIcon />
         </button>
         <div className="DeleteProfile-container">
           <div className="DeleteProfile-content">

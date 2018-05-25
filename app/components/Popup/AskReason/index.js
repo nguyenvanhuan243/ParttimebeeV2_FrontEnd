@@ -54,9 +54,7 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
         { !showDeleteProfile ?
           <div className="AskReasonPopup">
             <button className="AskReasonPopup-closeButton" onClick={closePopupFunc}>
-              <div className="AskReasonPopup-closeIcon">
-                <CloseIcon />
-              </div>
+              <CloseIcon />
             </button>
             <div className="AskReasonPopup-askReason">
               <div className="AskReasonPopup-askReasonContent">
