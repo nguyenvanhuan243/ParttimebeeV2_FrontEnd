@@ -1,5 +1,5 @@
 .ShareThisProfile {
-  /* width: 250px; */
+  width: 250px;
   height: 121px;
   border-radius: 3px;
   background-color: #ffffff;
@@ -7,9 +7,7 @@
 }
 
 .ShareThisProfile-title {
-  /* width: 223px; */
-  height: 20px;
-  
+  height: 46px;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -18,20 +16,20 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  margin-left: 16px;
-  margin-top: 13px;
+  padding-top: 14px;
+  padding-left: 16px;
 }
 
 .ShareThisProfile-separate {
-  /* width: 250px; */
   height: 1px;
   background-color: #e8e8e8;
 }
 
 .ShareThisProfile-buttonContainer {
   display: flex;
-  margin-top: 20px;
-  margin-left: 16px;
+  height: 74px;
+  padding-top: 20px;
+  padding-left: 16px;
 }
 
 .ShareThisProfile-facebook {
