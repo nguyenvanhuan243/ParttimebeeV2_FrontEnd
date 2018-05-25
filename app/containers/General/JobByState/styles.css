@@ -15,6 +15,5 @@
 }
 
 .JobByState-sidebarContainer {
-  display: grid;
-  width: 17.361111111%;
+  display: block;
 }
