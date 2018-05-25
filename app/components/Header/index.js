@@ -10,9 +10,11 @@
  */
 
 import React, { PureComponent } from 'react';
+import classname from 'classnames';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
 import config from '../../../config';
+
 
 export default class Header extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -30,6 +32,8 @@ export default class Header extends PureComponent { // eslint-disable-line react
     const {
       expandAvatar,
     } = this.state;
+    const logoutStatus = location.pathname.includes('logout');
+    const logoutClassName = classname('Header-postJob', { 'Header-logout': logoutStatus });
     return (
       <div>
         <div className="Header">
@@ -46,13 +50,12 @@ export default class Header extends PureComponent { // eslint-disable-line react
               <LogoIcon />
             </div>
             <div className="Header-postJobContainer">
-              <div className="Header-postJob">
+              <div className={logoutClassName}>
                 <a className="Header-postJobText" href="/post-job">
                   POSTJOB
                 </a>
               </div>
-              <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar">
-              </button>
+              { !logoutStatus && <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar"></button> }
             </div>
           </div>
         </div>
