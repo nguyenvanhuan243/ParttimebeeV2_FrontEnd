@@ -11,7 +11,7 @@
 
 import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
-import DeleteProfile from 'components/Popup/DeleteProfile/Loadable';
+import DeleteConfirmation from 'components/Popup/DeleteConfirmation/Loadable';
 
 export default class AskReasonPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -50,7 +50,7 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
 
     return (
       <div>
-        { showDeleteProfile ? <DeleteProfile closeFunc={closePopupFunc} /> : null}
+        { showDeleteProfile ? <DeleteConfirmation type={'ACCOUNT'} closeFunc={closePopupFunc} /> : null}
         { !showDeleteProfile ?
           <div className="AskReasonPopup">
             <button className="AskReasonPopup-closeButton" onClick={closePopupFunc}>

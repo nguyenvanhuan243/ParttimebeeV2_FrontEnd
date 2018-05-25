@@ -16,7 +16,9 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
   render() {
     const {
       closeFunc = () => {},
+      type = 'JOB',
     } = this.props;
+    const isJobType = type === 'JOB';
     return (
       <div className="DeleteConfirmationPopup">
         <div className="DeleteConfirmationPopup-containerPopup">
@@ -26,7 +28,9 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
           <div className="DeleteConfirmationPopup-container">
             <div className="DeleteConfirmationPopup-content">
               <div className="DeleteConfirmationPopup-text">
-                Are you sure to delete this job?
+                { isJobType ?
+                  'Are you sure to delete this job?' :
+                  'Are you sure to delete this account?' }
               </div>
               <div className="DeleteConfirmationPopup-buttonContainer">
                 <button className="DeleteConfirmationPopup-cancelButton">
@@ -50,5 +54,6 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
 
 DeleteConfirmationPopup.propTypes = {
   closeFunc: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
 
