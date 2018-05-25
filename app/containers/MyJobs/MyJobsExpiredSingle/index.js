@@ -14,7 +14,7 @@ import Header from 'components/Header/Loadable';
 import MyJobsBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
-import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
+import GoogleAds250276 from 'components/GoogleAdsense/Loadable';
 import Footer from 'components/Footer/Loadable';
 export default class MyJobsExpiredSingle extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {

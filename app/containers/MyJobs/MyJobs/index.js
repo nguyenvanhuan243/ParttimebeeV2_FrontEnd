@@ -4,7 +4,7 @@ import Item from 'components/MyJobsComponent/Item/Loadable';
 import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
-import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
+import GoogleAdsense from 'components/GoogleAdsense/Loadable';
 import Footer from 'components/Footer/Loadable';
 import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadable';
 
@@ -81,7 +81,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
             <div className="MyJobs-sideBar">
               <ShareThisProfile />
               <div className="MyJobs-googleAds250276">
-                <GoogleAds250276 />
+                <GoogleAdsense />
               </div>
               <div>
                 <Footer />

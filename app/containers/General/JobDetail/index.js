@@ -1,14 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import Footer from 'components/Footer/Loadable';
@@ -17,8 +6,7 @@ import JobInformation from 'components/JobDetail/JobInformation/Loadable';
 import JobDescription from 'components/JobDetail/JobDescription/Loadable';
 import RelatedJobList from 'components/JobDetail/RelatedJobList/Loadable';
 import CompanyInfo from 'components/JobDetail/CompanyInfo/Loadable';
-import RectangleGoogleAds from 'components/Advertiments/RectangleGoogleAds/Loadable';
-import SquareleGoogleAds from 'components/Advertiments/SquareGoogleAds/Loadable';
+import GoogleAdsense from 'components/GoogleAdsense/Loadable';
 import ReportJobPopup from 'components/Popup/ReportJob/Loadable';
 import classNames from 'classnames';
 
@@ -62,7 +50,7 @@ export default class JobDetail extends Component { // eslint-disable-line react/
                 <JobDescription />
               </div>
               <div className="JobDetail-rectangleGoogleAds">
-                <RectangleGoogleAds />
+                <GoogleAdsense adsWidth={468} adsHeight={60} />
               </div>
             </div>
             <div className="JobDetail-containerSideBar">
@@ -81,7 +69,7 @@ export default class JobDetail extends Component { // eslint-disable-line react/
                 <RelatedJobList />
               </div>
               <div className="JobDetail-squareleGoogleAds">
-                <SquareleGoogleAds />
+                <GoogleAdsense adsWidth={320} adsHeight={300} />
               </div>
               <div className="JobDetail-Footer">
                 <Footer />

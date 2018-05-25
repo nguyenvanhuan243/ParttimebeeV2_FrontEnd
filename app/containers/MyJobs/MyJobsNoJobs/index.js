@@ -14,7 +14,7 @@ import Header from 'components/Header/Loadable';
 import MyJobsBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
-import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
+import GoogleAdsense from 'components/GoogleAdsense/Loadable';
 import Footer from 'components/Footer/Loadable';
 export default class MyJobsNoJobs extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -37,7 +37,7 @@ export default class MyJobsNoJobs extends Component { // eslint-disable-line rea
             <div className="MyJobs-sideBar">
               <ShareThisProfile />
               <div className="MyJobs-googleAds250276">
-                <GoogleAds250276 />
+                <GoogleAdsense />
               </div>
               <div>
                 <Footer />

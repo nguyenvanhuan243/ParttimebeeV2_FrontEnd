@@ -14,7 +14,7 @@ import Header from 'components/Header/Loadable';
 import EmployerProfileBanner from 'components/EmployerProfileBanner/Loadable';
 import JobList from 'components/JobList/Loadable';
 import ShareThisProfile from 'components/ShareThisProfile/Loadable';
-import GoogleAds250276 from 'components/Advertiments/GoogleAds250276/Loadable';
+import GoogleAdsense from 'components/GoogleAdsense/Loadable';
 import Footer from 'components/Footer/Loadable';
 export default class MyJobsDeleteConfirmationPopup extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -37,7 +37,7 @@ export default class MyJobsDeleteConfirmationPopup extends Component { // eslint
             <div className="MyJobsDeleteConfirmationPopup-sideBar">
               <ShareThisProfile />
               <div className="MyJobsDeleteConfirmationPopup-googleAds250276">
-                <GoogleAds250276 />
+                <GoogleAdsense />
               </div>
               <div>
                 <Footer />

@@ -62,11 +62,6 @@ import 'components/EditProfile/Form/styles.css';
 import 'components/EditProfile/Alert/styles.css';
 import 'components/PostJobForm/styles.css';
 
-// Advertiments
-import 'components/Advertiments/RectangleGoogleAds/styles.css';
-import 'components/Advertiments/SquareGoogleAds/styles.css';
-import 'components/Advertiments/GoogleAds250276/styles.css';
-
 // Related jobs
 import 'components/JobDetail/RelatedJobList/styles.css';
 import 'components/JobDetail/RelatedJobList/RelatedJobItem/styles.css';
@@ -94,10 +89,8 @@ import 'components/LoadingJobs/LoadingJobsList/LoadingJobsItem/styles.css';
 
 // Report job popup
 import 'components/Popup/ReportJob/styles.css';
-import 'components/Popup/DeleteConfirmation/styles.css';
 import 'components/Popup/AskReason/styles.css';
-import 'components/Popup/DeleteProfile/styles.css';
-
+import 'components/Popup/DeleteConfirmation/styles.css';
 
 // Employer Profile
 import 'containers/General/EmployerAvailableJobs/styles.css';
