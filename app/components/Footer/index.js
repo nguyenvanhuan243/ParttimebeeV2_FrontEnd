@@ -21,7 +21,7 @@ export default class Footer extends PureComponent { // eslint-disable-line react
             About
           </a>
           <div className="Footer-oval"></div>
-          <a href={`${config.BASE_URL}/pages/about`}>
+          <a href="mailto:parttimebee.my@gmail.com">
             Contact
           </a>
           <div className="Footer-oval"></div>

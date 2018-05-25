@@ -16,6 +16,9 @@ export default class EditProfileForm extends PureComponent { // eslint-disable-l
       <div className="EditProfileForm">
         <div className="EditProfileForm-container">
           <div className="EditProfileForm-lableContainer">
+            <div className="EditProfileForm-lableItem EditProfileForm-lableItemAvatar">
+              Avatar
+            </div>
             <div className="EditProfileForm-lableItem">
               Email
             </div>
@@ -46,6 +49,8 @@ export default class EditProfileForm extends PureComponent { // eslint-disable-l
           </div>
           <div className="EditProfileForm-inputContainer">
             <form>
+              <div className="EditProfileForm-avatar">
+              </div>
               <div className="EditProfileForm-lableItem">
                 <input className="EditProfileForm-inputHoverEmail" type="text" placeholder="Email" />
                 <div className="EditProfileForm-separate" />

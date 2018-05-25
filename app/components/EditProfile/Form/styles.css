@@ -6,7 +6,7 @@
 }
 
 .EditProfileForm-container {
-  margin: 30px;
+  margin: 20px;
   display: flex;
 }
 
@@ -14,8 +14,15 @@
   width: 165px;
 }
 
+.EditProfileForm-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #d8d8d8;
+}
+
 .EditProfileForm-lableItem {
-  margin-top: 35px; 
+  margin-top: 30px; 
   height: 20px;
   font-size: 13px;
   font-weight: 500;
@@ -25,6 +32,10 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
+}
+
+.EditProfileForm-lableItemAvatar {
+  margin-top: 10px !important;
 }
 .EditProfileForm-separate {
   width: 875px;
