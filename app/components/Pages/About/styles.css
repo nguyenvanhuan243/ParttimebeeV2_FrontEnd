@@ -1,7 +1,9 @@
-.AboutPage-titleContainer {
-  margin-left: 470px;
+.AboutPage-container {
+  width: 1338px;
+  padding-top: 60px;
+  margin: 0 auto;
+  text-align: center;
 }
-
 .AboutPage-title {
   font-size: 60px;
   font-weight: 900;
@@ -9,14 +11,11 @@
   font-stretch: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-align: center;
   color: #000000;
-  margin-left: 10.5px;
   display: inline;
 }
 
 .AboutPage-abstract {
-  width: 500px;
   height: 22px;
   font-size: 22px;
   font-weight: normal;
@@ -24,13 +23,12 @@
   font-stretch: normal;
   line-height: 1;
   letter-spacing: normal;
-  text-align: center;
   color: #999999;
   margin-top: 20px;
 }
 
 .AboutPage-dashlineIcon {
-  margin-left: 26px;
+  margin-top: 49px; 
 }
 
 .AboutPage-content {
@@ -44,12 +42,14 @@
   text-align: justify;
   color: #999999;
   margin-top: 66px;
-  margin-left: 370px;
+  margin-left: 344px;
+  margin-right: 344px;
   margin-bottom: 210px;
 }
 
 .AboutPage-footer {
-  margin-left: 370px;
+  margin-left: 344px;;
+  margin-right: 344px;;
   margin-bottom: 30px;
 }
 
@@ -71,6 +71,8 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  margin-left: 264px; 
+  margin-left: 608; 
   margin-top: 10px;
+  margin-left: 264px;
+  margin-right: 264px;
 }
