@@ -51,8 +51,8 @@ export default class Header extends PureComponent { // eslint-disable-line react
                   POSTJOB
                 </a>
               </div>
-              {/* <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar">
-              </button> */}
+              <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar">
+              </button>
             </div>
           </div>
         </div>

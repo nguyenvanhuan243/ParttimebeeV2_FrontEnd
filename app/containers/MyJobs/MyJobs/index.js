@@ -38,7 +38,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       '1 Pending job',
       '99 Expired jobs',
     ];
-    const myProfile = location.pathname.includes('my-profile');
+    const myProfile = location.pathname.includes('my-profile') || location.pathname.includes('myjobs/myjobs');
     const employerProfile = location.pathname.includes('employer-profile');
     myJobList.push(textArray.map((value) =>
       <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));

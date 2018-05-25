@@ -21,7 +21,7 @@
   margin-top: 15px;
   text-align: center;
   margin-left: 306px;
-  margin-right: 451px;
+  margin-right: 395px;
 }
 
 .Header-postJob {
@@ -81,7 +81,6 @@ a.Header-postJobText:hover {
   border-radius: 30px;
   margin-top: 12px;
   cursor: pointer;
-  text-align: right;
   outline: none !important;
   margin-left: 16px;
 }
@@ -126,8 +125,7 @@ a.Header-hrefText:hover {
 
 .Header-postJobContainer {
   display: flex;
-  text-align: right;
-  float: right;
+  width: 141px;
 }
 
 input.SearchForm-customInput:focus {
