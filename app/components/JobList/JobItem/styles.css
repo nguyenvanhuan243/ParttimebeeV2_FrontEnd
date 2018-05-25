@@ -15,7 +15,7 @@
   margin-left: 15px;
 }
 .JobItem-contentTitle {
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -30,7 +30,7 @@
 .JobItem-href {
   text-decoration: none;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -49,7 +49,7 @@ a.JobItem-href:hover {
 }
 
 .JobItem-contentCompanyName {
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -68,7 +68,7 @@ a.JobItem-href:hover {
   border: solid 1px #e8e8e8;
 }
 .JobItem-contentJobStateText {
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: normal;
   font-style: normal;
@@ -90,7 +90,7 @@ a.JobItem-href:hover {
 }
 
 .JobItem-contentJobCityText {
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: normal;
   font-style: normal;
@@ -124,7 +124,7 @@ a.JobItem-href:hover {
   cursor: pointer;
 }
 .JobItem-contentShareText {
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: normal;
   font-style: normal;
@@ -143,7 +143,7 @@ a.JobItem-href:hover {
 }
 
 .JobItem-contentViewNumber {
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: normal;
   font-style: normal;

@@ -4,7 +4,7 @@
 }
 
 .EditProfile-editProfile {
-  font-family: Roboto;
+  
   font-size: 26px;
   font-weight: bold;
   font-style: normal;
@@ -41,7 +41,7 @@
 }
 
 .EditProfile-deleteAccounText {
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -61,7 +61,7 @@
 .EditProfile-title {
   width: 132px;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -83,7 +83,7 @@
 .EditProfile-text {
   width: 367px;
   height: 14px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -117,7 +117,7 @@
 .EditProfile-buttonText {
   width: 65px;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: bold;
   font-style: normal;
@@ -134,7 +134,7 @@
 .EditProfile-abstract {
   width: 367px;
   height: 14px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

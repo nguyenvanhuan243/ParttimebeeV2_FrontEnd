@@ -28,7 +28,6 @@
 
 .EmployerProfileBanner-title {
   height: 32px;
-  font-family: Roboto;
   font-size: 24px;
   font-weight: bold;
   font-style: normal;
@@ -67,7 +66,6 @@
 .EmployerProfileBanner-phoneText {
   width: 79px;
   height: 20px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -82,7 +80,6 @@
 .EmployerProfileBanner-mailText {
   width: 91px;
   height: 20px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -97,7 +94,7 @@
 .EmployerProfileBanner-webText {
   width: 135px;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -112,7 +109,6 @@
 .EmployerProfileBanner-addressText {
   width: 680px;
   height: 20px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -135,7 +131,6 @@
 .EmployerProfileBanner-companyDescription {
   width: 150px;
   height: 20px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: bold;
   font-style: normal;
@@ -149,7 +144,6 @@
 .EmployerProfileBanner-companyDescriptionText {
   width: 680px;
   height: 40px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -182,7 +176,7 @@ a.EmployerProfileBanner-hrefText:Hover {
 .EmployerProfileBanner-editButtonText {
   width: 24px;
   height: 16px;
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;

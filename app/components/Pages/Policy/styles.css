@@ -7,7 +7,7 @@
 .PolicyPage-privacy {
   width: 87px;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 26px;
   font-weight: bold;
   font-style: normal;
@@ -34,7 +34,7 @@
 .Policy-session1 {
   width: 1060px;
   height: 154px;
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -49,7 +49,7 @@
 .Policy-session2 {
   width: 325px;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -63,7 +63,7 @@
 
 .Policy-session3 {
   width: 1060px;
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -77,7 +77,7 @@
 
 .Policy-session4 {
   width: 444px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -92,7 +92,7 @@
 .Policy-session5 {
   width: 1060px;
   height: 110px;
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;

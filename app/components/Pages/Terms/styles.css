@@ -7,7 +7,7 @@
 .TermsPage-termsOfService {
   width: 199px;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 26px;
   font-weight: bold;
   font-style: normal;
@@ -35,7 +35,7 @@
 .TermsPage-section1 {
   width: 1060px;
   height: 96px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -50,7 +50,7 @@
 .TermsPage-section2 {
   width: 1060px;
   /* height: 220px; */
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -65,7 +65,7 @@
 .TermsPage-section3 {
   width: 271px;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -79,7 +79,7 @@
 
 .TermsPage-section4 {
   width: 1060px;
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;

@@ -72,7 +72,7 @@
 .DeleteProfile-text {
   width: 360px;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -111,7 +111,7 @@
 .DeleteProfile-deleteButtonText {
   width: 40px;
   height: 16px;
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;
@@ -125,7 +125,7 @@
 .DeleteProfile-cancelButtonText {
   width: 43px;
   height: 16px;
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;

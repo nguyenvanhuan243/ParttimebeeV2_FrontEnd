@@ -9,7 +9,7 @@
 .EmailUpdatedPassword-title {
   width: 305px;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -26,7 +26,7 @@
 .EmailUpdatedPassword-abstract {
   width: 506px;
   height: 44px;
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -51,7 +51,7 @@
 .EmailUpdatedPassword-buttonText {
   width: 114px;
   height: 22px;
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: bold;
   font-style: normal;
@@ -71,7 +71,7 @@ a.EmailUpdatedPassword-buttonText:hover {
 .EmailUpdatedPassword-support {
   width: 369px;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

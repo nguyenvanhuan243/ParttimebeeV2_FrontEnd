@@ -5,7 +5,7 @@
 .AboutPage-title {
   width: 479px;
   height: 72px;
-  font-family: Roboto;
+  
   font-size: 60px;
   font-weight: 900;
   font-style: normal;
@@ -21,7 +21,7 @@
 .AboutPage-abstract {
   width: 500px;
   height: 22px;
-  font-family: Roboto;
+  
   font-size: 22px;
   font-weight: normal;
   font-style: normal;
@@ -39,7 +39,7 @@
 
 .AboutPage-content {
   width: 700px;
-  font-family: Roboto;
+  
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -68,7 +68,7 @@
 .AboutPage-copyRight {
   width: 172px;
   height: 14px;
-  font-family: Roboto;
+  
   font-size: 12px;
   font-weight: normal;
   font-style: normal;

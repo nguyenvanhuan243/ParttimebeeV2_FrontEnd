@@ -26,7 +26,7 @@
 .MyJobs-availableJob {
   width: 15.972222222%;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -53,7 +53,7 @@
 .MyJobsComponent-titleText {
   width: 50px;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -70,7 +70,7 @@
 }
 
 .MyJobsComponent-text {
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

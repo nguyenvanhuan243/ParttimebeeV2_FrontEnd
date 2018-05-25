@@ -38,7 +38,7 @@
 }
 
 .Header-postJobText {
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;
@@ -67,7 +67,7 @@ a.Header-postJobText:hover {
 .SearchForm-customInput {
   margin-top: 2px;
   margin-left: 4px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -111,7 +111,7 @@ a.Header-postJobText:hover {
 .Header-hrefText {
   width: 50px;
   height: 16px;
-  font-family: Roboto;
+  
   font-size: 11px !important;
   font-weight: 500;
   font-style: normal;

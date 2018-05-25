@@ -36,7 +36,7 @@
   margin-left: 5px;
   width: 34px;
   height: 20px !important;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -87,7 +87,7 @@
 .ReportJobPopup-reportJobTitle {
   width: 93px;
   height: 32px;
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -108,7 +108,7 @@
 .ReportJobPopup-selectOptionTitle {
   width: 64px;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -142,7 +142,7 @@
 }
 
 .ReportJobPopup-submitReportText {
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;

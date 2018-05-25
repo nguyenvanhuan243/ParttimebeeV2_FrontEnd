@@ -11,7 +11,6 @@
 .ForgotPassword-title {
   width: 311px;
   height: 32px;
-  font-family: Roboto;
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -27,7 +26,6 @@
 .ForgotPassword-abstract {
   width: 267px;
   height: 20px;
-  font-family: Roboto;
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -53,7 +51,7 @@
 .ForgotPassword-forgotPassword {
   width: 104px;
   height: 20px;
-  font-family: Roboto;
+  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -67,7 +65,6 @@
 .ForgotPassword-haveAccount {
   width: 202px;
   height: 20px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

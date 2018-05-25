@@ -1,5 +1,5 @@
 .StateList-title {
-  font-family: Roboto;
+  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;
@@ -16,9 +16,7 @@
 }
 
 .StateList-buttonText {
-  width: 73px;
   height: 16px;
-  font-family: Roboto;
   font-size: 11px;
   font-weight: normal;
   font-style: normal;

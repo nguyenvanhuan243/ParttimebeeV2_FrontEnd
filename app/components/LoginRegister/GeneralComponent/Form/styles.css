@@ -27,7 +27,6 @@
 }
 
 .FormComponent-buttonInput {
-  font-family: Roboto;
   font-size: 15px;
   font-weight: bold;
   font-style: normal;
@@ -43,7 +42,6 @@
 .FormComponent-placeHolderTop {
   width: 58px;
   height: 20px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
