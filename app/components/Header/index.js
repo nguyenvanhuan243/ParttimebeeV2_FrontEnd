@@ -66,12 +66,12 @@ export default class Header extends PureComponent { // eslint-disable-line react
             <div className="Header-expandLoggedAvatar">
               <ul className="Header-ulContainer">
                 <li>
-                  <a className="Header-hrefText" href={`${config.BASE_URL}/myjobs`}>
+                  <a className="Header-hrefText" href={`${config.BASE_URL}/myjobs/myjobs`}>
                     My Jobs
                   </a>
                 </li>
                 <li>
-                  <a className="Header-hrefText" href={`${config.BASE_URL}/myprofile`}>
+                  <a className="Header-hrefText" href={`${config.BASE_URL}/myprofile/my-profile`}>
                     My Profile
                   </a>
                 </li>
