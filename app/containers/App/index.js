@@ -87,7 +87,7 @@ export default function App() {
         <Route exact path="/test/pages/policy" component={PolicyPage} />
         <Route exact path="/test/pages/about" component={AboutPage} />
         {/* MY PROFILES */}
-        <Route exact path="/test/myprofile/my-profile" component={MyJobs} />
+        <Route exact path="/test/myprofile" component={MyJobs} />
         <Route exact path="/test/myprofile/edit-profile" component={EditProfile} />
         <Route exact path="/test/myprofile/updating-profile" component={UpdatingProfile} />
         <Route exact path="/test/myprofile/saving-profile" component={SavingProfile} />
@@ -95,7 +95,7 @@ export default function App() {
         <Route exact path="/test/myprofile/delete-profile-confirmation" component={DeleteProfileConfirmation} />
         <Route exact path="/test/myprofile/delete-profile-complete-message" component={DeleteProfileCompleteMessage} />
         {/* MY JOBS */}
-        <Route exact path="/test/myjobs/myjobs" component={MyJobs} />
+        <Route exact path="/test/myjobs" component={MyJobs} />
         <Route exact path="/test/myjobs/myjobs-expired-single" component={MyJobsExpiredSingle} />
         <Route exact path="/test/myjobs/myjobs-no-jobs" component={MyJobsNoJobs} />
         <Route exact path="/test/myjobs/myjobs-on-going-single" component={MyJobsOnGoingSingle} />
