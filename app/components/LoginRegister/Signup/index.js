@@ -14,12 +14,30 @@ import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon
 import FormComponent from 'components/LoginRegister/GeneralComponent/Form/Loadable';
 
 export default class Signup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      isLoading: true,
+    };
+  }
+  // After 0.1s then Signup component will be rendered.
+  componentWillMount() {
+    setTimeout(
+      () => {
+        this.setState({
+          isLoading: !this.state.isLoading,
+        });
+      },
+      100
+    );
+  }
   render() {
+    if (this.state.isLoading) {
+      return null;
+    }
     return (
       <div className="Signup">
-        <div className="Signup-dashlineIcon">
-          <DashlineIcon />
-        </div>
+        <DashlineIcon />
         <div className="Signup-title">
           Start posting jobs on Parttime Bee!
         </div>

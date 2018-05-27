@@ -1,17 +1,13 @@
 .Signup {
-  width: 1440px;
-  height: 1024px;
-  background-color: #f9f9f9;
-}
-
-.Signup-dashlineIcon {
-  margin-left: 26px;
+  width: 1388px;
+  padding-top: 60px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .Signup-title {
   width: 311px;
   height: 32px;
-  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -20,14 +16,12 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;
-  margin-left: 564.5px;
+  margin: 0 auto;
   margin-top: 24px;
 }
 
 .Signup-abstract {
-  width: 56px;
   height: 22px;
-  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -36,18 +30,17 @@
   letter-spacing: normal;
   text-align: center;
   color: #ffaa00;
-  margin-left: 692px;
+  margin: 0 auto;
 }
 
 .Signup-form {
-  margin-left: 522px;
+  margin-left: 494px;
+  margin-right: 494px;
   margin-top: 52px;
 }
 
 .Signup-loginHere {
-  width: 209px;
   height: 20px;
-  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -65,9 +58,7 @@
   color: #ffaa00;
 }
 .Signup-termService {
-  width: 388px;
   height: 20px;
-  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -76,7 +67,6 @@
   letter-spacing: normal;
   text-align: center;
   color: #999999;
-  margin-left: 526px;
   margin-top: 8px;
 }
 

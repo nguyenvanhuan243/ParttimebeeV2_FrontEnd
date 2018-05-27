@@ -51,7 +51,7 @@ export default class Header extends PureComponent { // eslint-disable-line react
             </div>
             <div className="Header-postJobContainer">
               <div className={logoutClassName}>
-                <a className="Header-postJobText" href="/post-job">
+                <a className="Header-postJobText" href={`${config.BASE_URL}/user/signup`}>
                   POSTJOB
                 </a>
               </div>

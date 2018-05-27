@@ -1,14 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { PureComponent, PropTypes } from 'react';
 import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
 
@@ -44,9 +33,11 @@ export default class FormComponent extends PureComponent { // eslint-disable-lin
                 </div>
                 <div className="FormComponent-separateColor" />
               </span> : null }
-            <div className="FormComponent-button">
-              <input className="FormComponent-buttonInput" type="submit" value={buttonText} />
-            </div>
+            <button className="FormComponent-button">
+              <div className="FormComponent-buttonText">
+                { buttonText }
+              </div>
+            </button>
           </div>
         </form>
       </div>
