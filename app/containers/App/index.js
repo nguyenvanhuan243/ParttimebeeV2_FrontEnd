@@ -74,14 +74,14 @@ export default function App() {
         <Route exact path="/test/employer-profile" component={MyJobs} />
         <Route exact path="/test/employer-available-jobs" component={EmployerAvailableJobs} />
         {/* Login / Register */}
-        <Route exact path="/test/login-register/signup" component={Signup} />
-        <Route exact path="/test/login-register/login" component={Login} />
-        <Route exact path="/test/login-register/forgot-password" component={ForgotPassword} />
-        <Route exact path="/test/login-register/forgot-password-incoming" component={ForgotPasswordIncoming} />
-        <Route exact path="/test/login-register/email-reset-password" component={EmailResetPassword} />
-        <Route exact path="/test/login-register/click-email1" component={ClickEmail1} />
-        <Route exact path="/test/login-register/click-email2" component={ClickEmail2} />
-        <Route exact path="/test/login-register/email-updated-password" component={EmailUpdatedPassword} />
+        <Route exact path="/test/user/signup" component={Signup} />
+        <Route exact path="/test/user/login" component={Login} />
+        <Route exact path="/test/user/forgot-password" component={ForgotPassword} />
+        <Route exact path="/test/user/forgot-password-incoming" component={ForgotPasswordIncoming} />
+        <Route exact path="/test/user/email-reset-password" component={EmailResetPassword} />
+        <Route exact path="/test/user/click-email1" component={ClickEmail1} />
+        <Route exact path="/test/user/click-email2" component={ClickEmail2} />
+        <Route exact path="/test/user/email-updated-password" component={EmailUpdatedPassword} />
         {/* Pages */}
         <Route exact path="/test/pages/terms" component={TermsPage} />
         <Route exact path="/test/pages/policy" component={PolicyPage} />
