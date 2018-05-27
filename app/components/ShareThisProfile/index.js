@@ -31,12 +31,12 @@ export default class ShareThisProfile extends PureComponent { // eslint-disable-
           <button onClick={() => this.shareProfileOnFacebook()} className="ShareThisProfile-facebook">
             <FacebookIcon />
           </button>
-          <div className="ShareThisProfile-whatsapp">
+          <button className="ShareThisProfile-whatsapp">
             <WhatsAppIcon />
-          </div>
-          <div className="ShareThisProfile-email">
+          </button>
+          <button className="ShareThisProfile-email">
             <EmailIcon />
-          </div>
+          </button>
         </div>
       </div>
     );

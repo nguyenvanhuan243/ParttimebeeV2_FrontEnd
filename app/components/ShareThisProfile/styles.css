@@ -37,14 +37,17 @@
 .ShareThisProfile-facebook {
   cursor: pointer;
   outline: none !important;
+  padding: 0px !important;
 }
 
 .ShareThisProfile-whatsapp {
   margin-left: 10px;
   cursor: pointer;
+  padding: 0px !important;
 }
 
 .ShareThisProfile-email {
   margin-left: 10px;
   cursor: pointer;
+  padding: 0px !important;
 }
