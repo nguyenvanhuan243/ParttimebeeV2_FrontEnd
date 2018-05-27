@@ -15,11 +15,13 @@ import WhatsAppIcon from 'components/ShareThisProfile/Icons/WhatsAppIcon/Loadabl
 import EmailIcon from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 
 export default class ShareThisProfile extends PureComponent { // eslint-disable-line react/prefer-stateless-function
-  shareProfileOnFacebook() {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${location.href}`;
-    window.open(url, 'width=200,height=100');
+  handleShare(url) {
+    window.open(url);
   }
   render() {
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${location.href}`;
+    const whatsappUrl = 'https://web.whatsapp.com';
+    const mailTo = 'mailto: parttimebee.my@gmail.com';
     return (
       <div className="ShareThisProfile">
         <div className="ShareThisProfile-title">
@@ -28,13 +30,13 @@ export default class ShareThisProfile extends PureComponent { // eslint-disable-
         <div className="ShareThisProfile-separate">
         </div>
         <div className="ShareThisProfile-buttonContainer">
-          <button onClick={() => this.shareProfileOnFacebook()} className="ShareThisProfile-facebook">
+          <button onClick={() => this.handleShare(facebookUrl)} className="ShareThisProfile-facebook">
             <FacebookIcon />
           </button>
-          <button className="ShareThisProfile-whatsapp">
+          <button onClick={() => this.handleShare(whatsappUrl)} className="ShareThisProfile-whatsapp">
             <WhatsAppIcon />
           </button>
-          <button className="ShareThisProfile-email">
+          <button onClick={() => this.handleShare(mailTo)} className="ShareThisProfile-email">
             <EmailIcon />
           </button>
         </div>
