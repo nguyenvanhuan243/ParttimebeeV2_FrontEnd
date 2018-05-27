@@ -50,11 +50,13 @@ export default class Header extends PureComponent { // eslint-disable-line react
               <LogoIcon />
             </div>
             <div className="Header-postJobContainer">
-              <div className={logoutClassName}>
-                <a className="Header-postJobText" href={`${config.BASE_URL}/user/signup`}>
-                  POSTJOB
-                </a>
-              </div>
+              <a className="Header-href" href={`${config.BASE_URL}/user/signup`}>
+                <div className={logoutClassName}>
+                  <span className="Header-postJobText">
+                    POSTJOB
+                  </span>
+                </div>
+              </a>
               { !logoutStatus && <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar"></button> }
             </div>
           </div>
