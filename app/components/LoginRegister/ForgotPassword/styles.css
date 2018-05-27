@@ -1,15 +1,11 @@
 .ForgotPassword {
-  width: 1440px;
-  height: 1024px;
-  background-color: #f9f9f9;
-}
-
-.ForgotPassword-dashlineIcon {
-  margin-left: 26px;
+  width: 1388px;
+  padding-top: 60px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .ForgotPassword-title {
-  width: 311px;
   height: 32px;
   font-size: 20px;
   font-weight: normal;
@@ -19,12 +15,10 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;
-  margin-left: 564.5px;
   margin-top: 24px;
 }
 
 .ForgotPassword-abstract {
-  width: 267px;
   height: 20px;
   font-size: 15px;
   font-weight: normal;
@@ -34,7 +28,6 @@
   letter-spacing: normal;
   text-align: center;
   color: #ffaa00;
-  margin-left: 587px;
 }
 
 .ForgotPassword-form {
@@ -51,7 +44,6 @@
 .ForgotPassword-forgotPassword {
   width: 104px;
   height: 20px;
-  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

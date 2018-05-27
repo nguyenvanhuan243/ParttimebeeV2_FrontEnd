@@ -1,17 +1,7 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { PureComponent } from 'react';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import FormComponent from 'components/LoginRegister/GeneralComponent/Form/Loadable';
+import config from '../../../../config';
 
 export default class Signup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -49,11 +39,11 @@ export default class Signup extends PureComponent { // eslint-disable-line react
         </div>
         <div className="Signup-loginHere">
           Aready have an account?
-          <a className="Signup-loginHereHref" href=""> Login here</a>
+          <a className="Signup-loginHereHref" href={`${config.BASE_URL}/user/login`}> Login here</a>
         </div>
         <div className="Signup-termService">
           By clicking ’Sign up FREE’, I agree to Parttime Bee’s
-          <a href="" className="Signup-loginHereHref"> Term of Service</a>
+          <a href={`${config.BASE_URL}/pages/terms`} className="Signup-loginHereHref"> Term of Service</a>
         </div>
       </div>
     );

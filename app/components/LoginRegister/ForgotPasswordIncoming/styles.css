@@ -1,24 +1,12 @@
 .ForgotPasswordIncoming {
-  width: 1440px;
-  height: 1024px;
-  background-color: #f9f9f9 !important;
-  margin: 0px;
-}
-
-.ForgotPasswordIncoming-container {
-  margin-left: 529px;
-}
-
-.ForgotPasswordIncoming-mailingIcon {
-  padding-left: 165px;
+  width: 1100px;
   padding-top: 124px;
-  padding-bottom: 24px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .ForgotPasswordIncoming-incomingText {
-  width: 89px;
   height: 32px;
-  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -27,14 +15,13 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;
-  padding-left: 147px;
   padding-bottom: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .ForgotPasswordIncoming-abstract {
-  width: 382px;
   height: 44px;
-  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -51,11 +38,13 @@
   height: 34px;
   border-radius: 3px;
   background-color: #ffaa00;
-  margin-left: 134px;
-  margin-bottom: 662px;
+  padding-top: 4px;
+  margin-left: 493px;
+  margin-right: 493px;
 }
 .ForgotPasswordIncoming-backToHomeText {
-  
+  width: 82px !important;
+  height: 16px !important;
   font-size: 11px;
   font-weight: bold;
   font-style: normal;
@@ -64,8 +53,7 @@
   letter-spacing: 0.2px;
   text-align: left;
   color: #ffffff;
+}
+a.ForgotPasswordIncoming-href:hover {
   text-decoration: none;
-  letter-spacing: normal;
-  padding-left: 16px;
-  padding-top: 9px;
 }

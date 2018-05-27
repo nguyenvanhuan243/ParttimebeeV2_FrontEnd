@@ -1,7 +1,8 @@
 .Login {
-  width: 1440px;
-  height: 1024px;
-  background-color: #f9f9f9;
+  width: 1388px;
+  padding-top: 60px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .Login-dashlineIcon {
@@ -9,9 +10,7 @@
 }
 
 .Login-title {
-  width: 311px;
   height: 32px;
-  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -20,14 +19,12 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;
-  margin-left: 564.5px;
   margin-top: 24px;
 }
 
 .Login-abstract {
   width: 56px;
   height: 22px;
-  
   font-size: 15px;
   font-weight: normal;
   font-style: normal;
@@ -65,9 +62,7 @@
 }
 
 .Login-haveAccount {
-  width: 202px;
   height: 20px;
-  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

@@ -17,9 +17,7 @@ export default class ForgotPassword extends PureComponent { // eslint-disable-li
   render() {
     return (
       <div className="ForgotPassword">
-        <div className="ForgotPassword-dashlineIcon">
-          <DashlineIcon />
-        </div>
+        <DashlineIcon />
         <div className="ForgotPassword-title">
           Forgot your password?
         </div>

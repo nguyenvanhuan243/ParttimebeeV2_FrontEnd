@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import config from '../../../../../config';
 import Logo from 'components/LoginRegister/GeneralComponent/Logo/Loadable';
+import config from '../../../../../config';
 
 export default class DashlineIcon extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
