@@ -15,6 +15,10 @@ import WhatsAppIcon from 'components/ShareThisProfile/Icons/WhatsAppIcon/Loadabl
 import EmailIcon from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 
 export default class ShareThisProfile extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  shareProfileOnFacebook() {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${location.href}`;
+    window.open(url, 'width=200,height=100');
+  }
   render() {
     return (
       <div className="ShareThisProfile">
@@ -24,9 +28,9 @@ export default class ShareThisProfile extends PureComponent { // eslint-disable-
         <div className="ShareThisProfile-separate">
         </div>
         <div className="ShareThisProfile-buttonContainer">
-          <div className="ShareThisProfile-facebook">
+          <button onClick={() => this.shareProfileOnFacebook()} className="ShareThisProfile-facebook">
             <FacebookIcon />
-          </div>
+          </button>
           <div className="ShareThisProfile-whatsapp">
             <WhatsAppIcon />
           </div>

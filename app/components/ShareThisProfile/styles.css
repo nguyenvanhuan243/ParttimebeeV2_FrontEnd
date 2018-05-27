@@ -29,11 +29,14 @@
   display: flex;
   height: 74px;
   padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 16px;
+  padding-right: 16px;
 }
 
 .ShareThisProfile-facebook {
   cursor: pointer;
+  outline: none !important;
 }
 
 .ShareThisProfile-whatsapp {
