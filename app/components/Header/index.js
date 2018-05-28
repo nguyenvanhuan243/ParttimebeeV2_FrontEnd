@@ -15,13 +15,16 @@ import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
 import config from '../../../config';
 
-
 export default class Header extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
     this.state = {
       expandAvatar: false,
     };
+  }
+  onLogout() {
+    localStorage.removeItem('currentUser');
+    window.location.replace(`${config.BASE_URL}`);
   }
   handleExpandAvatar() {
     this.setState({
@@ -57,7 +60,7 @@ export default class Header extends PureComponent { // eslint-disable-line react
                   </span>
                 </div>
               </a>
-              { !logoutStatus && <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar"></button> }
+              { localStorage.currentUser && <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar"></button> }
             </div>
           </div>
         </div>
@@ -76,7 +79,7 @@ export default class Header extends PureComponent { // eslint-disable-line react
                   </a>
                 </li>
                 <li>
-                  <a className="Header-hrefText" href={`${config.BASE_URL}/logout`}>
+                  <a onClick={() => this.onLogout()} className="Header-hrefText" href="">
                     Logout
                   </a>
                 </li>
