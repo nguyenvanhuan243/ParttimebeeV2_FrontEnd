@@ -14,8 +14,6 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
       showImage = true,
       title = '',
       href = '',
-    } = this.props;
-    const {
       onClickJobItem = () => {},
     } = this.props;
     return (

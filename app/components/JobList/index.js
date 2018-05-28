@@ -1,14 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { PureComponent, PropTypes } from 'react';
 import JobItem from 'components/JobList/JobItem/Loadable';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
@@ -23,9 +12,9 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
   }
   componentWillMount() {
     const url = `${config.API_BASE_URL}/jobs`;
-    axios.get(url).then((response) => {
+    axios.get(url).then((res) => {
       this.setState({
-        dataResourceEndPoint: response.data,
+        dataResourceEndPoint: res.data,
       });
     });
   }
@@ -48,7 +37,18 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
       dataResourceEndPoint = [],
     } = this.state;
     const listItem = [];
-    dataResourceEndPoint.map((item) => listItem.push(<JobItem href={`${config.BASE_URL}/job-detail/${item.id}`} title={item.title} showImage={showImage} onClickJobItem={onDeleteConfirmation} showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
+    dataResourceEndPoint.map((item) =>
+      listItem.push(<JobItem
+        href={`${config.BASE_URL}/job-detail/${item.id}`}
+        title={item.title}
+        showImage={showImage}
+        onClickJobItem={onDeleteConfirmation}
+        showDelete={showDelete}
+        showEdit={showEdit}
+        showView={showView}
+        showShare={showShare}
+        showCity={showCity}
+      />));
     return (
       <div>
         { showHeading ? <div className="JobList-showHeading">
