@@ -1,31 +1,24 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
-import React, { PureComponent } from 'react';
-import config from '../../../../../config';
+import React, { PureComponent, PropTypes } from 'react';
 
 export default class RelatedJobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const {
+      title = 'JOB TITLE HERE',
+      companyName = 'Company Name',
+      href = '',
+    } = this.props;
     return (
-      <a className="RelatedJobItem-href" href={`${config.BASE_URL}/job-detail`}>
+      <a className="RelatedJobItem-href" href={href}>
         <div className="RelatedJobItem">
           <div className="RelatedJobItem-container">
             <div className="RelatedJobItem-image">
             </div>
             <div className="RelatedJobItem-text">
               <div className="RelatedJobItem-title">
-                JOB TITLE HERE
+                { title }
               </div>
               <div className="RelatedJobItem-companyName">
-                Company Name Here
+                { companyName }
               </div>
             </div>
           </div>
@@ -34,3 +27,9 @@ export default class RelatedJobItem extends PureComponent { // eslint-disable-li
     );
   }
 }
+
+RelatedJobItem.propTypes = {
+  title: PropTypes.string,
+  companyName: PropTypes.string,
+  href: PropTypes.string,
+};

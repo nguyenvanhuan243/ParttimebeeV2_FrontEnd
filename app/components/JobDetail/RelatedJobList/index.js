@@ -11,8 +11,30 @@
 
 import React, { PureComponent } from 'react';
 import RelatedJobItem from 'components/JobDetail/RelatedJobList/RelatedJobItem/Loadable';
+import axios from 'axios';
+import config from '../../../../config';
 
 export default class RelatedJobList extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      dataResourceEndPoint: [],
+    };
+  }
+  componentWillMount() {
+    const url = `${config.API_BASE_URL}/jobs?limit=5`;
+    axios.get(url).then((response) => {
+      this.setState({
+        dataResourceEndPoint: response.data,
+      });
+    });
+  }
+  renderRelatedJob() {
+    const {
+      dataResourceEndPoint = [],
+    } = this.state;
+    return dataResourceEndPoint.map((item) => <RelatedJobItem href={`${config.BASE_URL}/job-detail/${item.id}`} title={item.title} companyName={item.companyName} />);
+  }
   render() {
     return (
       <div>
@@ -20,21 +42,7 @@ export default class RelatedJobList extends PureComponent { // eslint-disable-li
           RELATED JOBS
         </div>
         <div className="RelatedJobList">
-          <div className="RelatedJobList-item">
-            <RelatedJobItem />
-          </div>
-          <div className="RelatedJobList-item">
-            <RelatedJobItem />
-          </div>
-          <div className="RelatedJobList-item">
-            <RelatedJobItem />
-          </div>
-          <div className="RelatedJobList-item">
-            <RelatedJobItem />
-          </div>
-          <div className="RelatedJobList-item">
-            <RelatedJobItem />
-          </div>
+          { this.renderRelatedJob() }
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 .RelatedJobItem-container {
   display: flex;
+  margin-bottom: 11px;
 }
 
 .RelatedJobItem-text {

@@ -4,6 +4,7 @@
   border-radius: 3px;
   background-color: #f3f3f3;
   border: solid 1px #e8e8e8;
+  padding: 11px;
 }
 
 .RelatedJobList-Title {
@@ -17,9 +18,4 @@
   text-align: left;
   color: #999999;
   margin-bottom: 10px;
-}
-
-.RelatedJobList-item {
-  margin-left: 11px;
-  margin-top: 11px;
 }
