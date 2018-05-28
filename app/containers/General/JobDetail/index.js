@@ -9,13 +9,27 @@ import CompanyInfo from 'components/JobDetail/CompanyInfo/Loadable';
 import GoogleAdsense from 'components/GoogleAdsense/Loadable';
 import ReportJobPopup from 'components/Popup/ReportJob/Loadable';
 import classNames from 'classnames';
+import axios from 'axios';
+import config from '../../../../config';
 
 export default class JobDetail extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
     this.state = {
       showPopup: false,
+      jobItem: {},
     };
+  }
+
+  // Get a specify user with id
+  componentWillMount() {
+    const jobId = location.pathname.match(/\d+/)[0];
+    const url = `${config.API_BASE_URL}/jobs/${jobId}`;
+    axios.get(url).then((response) => {
+      this.setState({
+        jobItem: response.data,
+      });
+    });
   }
 
   showReportPopup() {
@@ -23,9 +37,11 @@ export default class JobDetail extends Component { // eslint-disable-line react/
       showPopup: !this.state.showPopup,
     });
   }
+
   render() {
     const {
       showPopup = false,
+      jobItem = {},
     } = this.state;
     const className = classNames('JobDetail-reportJobPopup',
       { 'JobDetail-showReportPopup': showPopup }
@@ -39,12 +55,18 @@ export default class JobDetail extends Component { // eslint-disable-line react/
           <Header />
           <div className="JobDetail-container">
             <div className="JobDetail-containerContent">
-              <JobDetailHeader />
+              <JobDetailHeader
+                title={jobItem.title}
+                companyName={jobItem.companyName}
+                state={jobItem.state}
+                city={jobItem.city}
+              />
               <div className="JobDetail-jobInformation">
                 <JobInformation handleShowPopup={() => this.showReportPopup()} />
               </div>
               <div className="JobDetail-descriptionTitle">
                 JOB DESCRIPTION
+                { jobItem.title }
               </div>
               <div className="JobDetail-description">
                 <JobDescription />

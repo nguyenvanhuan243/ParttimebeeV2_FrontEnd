@@ -69,7 +69,7 @@ export default function App() {
         {/* General */}
         <Route exact path="/test/" component={HomePage} />
         <Route exact path="/test/loading-jobs" component={LoadingJobs} />
-        <Route exact path="/test/job-detail" component={JobDetail} />
+        <Route exact path="/test/job-detail/:id" component={JobDetail} />
         <Route exact path="/test/job-by-state" component={JobByState} />
         <Route exact path="/test/employer-profile" component={MyJobs} />
         <Route exact path="/test/employer-available-jobs" component={EmployerAvailableJobs} />

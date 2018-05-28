@@ -18,7 +18,6 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
   constructor() {
     super();
     this.state = {
-      limit: [1, 2, 3],
       dataResourceEndPoint: [],
     };
   }
@@ -31,9 +30,6 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
     });
   }
   handleShowMore() {
-    this.setState({
-      limit: [1, 2, 3, 4, 5, 6, 7, 8],
-    });
   }
   render() {
     const {
@@ -49,12 +45,10 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
       onDeleteConfirmation = () => {},
     } = this.props;
     const {
-      // limit,
       dataResourceEndPoint = [],
     } = this.state;
     const listItem = [];
-    console.log(dataResourceEndPoint);
-    dataResourceEndPoint.map((item) => listItem.push(<JobItem title={item.title} showImage={showImage} onClickJobItem={onDeleteConfirmation} showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
+    dataResourceEndPoint.map((item) => listItem.push(<JobItem href={`${config.BASE_URL}/job-detail/${item.id}`} title={item.title} showImage={showImage} onClickJobItem={onDeleteConfirmation} showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
     return (
       <div>
         { showHeading ? <div className="JobList-showHeading">

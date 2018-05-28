@@ -9,29 +9,35 @@
  * the linting exception.
  */
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 export default class JobDetailHeader extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const {
+      title = 'Presentable Chinese Female Crew - KL/Selangor',
+      companyName = 'Company Name',
+      state = 'KUALALUMPUR',
+      city = 'PUTRAJAYA',
+    } = this.props;
     return (
       <div className="JobDetailHeader">
         <div className="JobDetailHeader-image">
         </div>
         <div className="JobDetailHeader-info">
           <div className="JobDetailHeader-title">
-            Presentable Chinese Female Crew - KL/Selangor
+            { title }
           </div>
           <div className="JobDetailHeader-companyName">
-            Company Name
+            { companyName }
           </div>
           <div className="JobDetailHeader-address">
             <div className="JobDetailHeader-addressState">
               <div className="JobDetailHeader-addressStateText">
-                KUALALUMPUR
+                { state }
               </div>
             </div>
             <div className="JobDetailHeader-addressCity">
               <div className="JobDetailHeader-addressCityText">
-                PUTRAJAYA
+                { city }
               </div>
             </div>
           </div>
@@ -40,4 +46,11 @@ export default class JobDetailHeader extends PureComponent { // eslint-disable-l
     );
   }
 }
+
+JobDetailHeader.propTypes = {
+  title: PropTypes.string,
+  companyName: PropTypes.string,
+  state: PropTypes.string,
+  city: PropTypes.string,
+};
 

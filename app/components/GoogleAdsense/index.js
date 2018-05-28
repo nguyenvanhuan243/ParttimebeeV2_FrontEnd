@@ -12,7 +12,7 @@
 import React, { Component, PropTypes } from 'react';
 export default class GoogleAdsense extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { adsWidth = '250', adsHeight = '250' } = this.props;
+    const { adsWidth = 250, adsHeight = 250 } = this.props;
     const adsStyle = {
       width: adsWidth,
       height: adsHeight,
@@ -25,6 +25,6 @@ export default class GoogleAdsense extends Component { // eslint-disable-line re
   }
 }
 GoogleAdsense.propTypes = {
-  adsWidth: PropTypes.string,
-  adsHeight: PropTypes.string,
+  adsWidth: PropTypes.number,
+  adsHeight: PropTypes.number,
 };
