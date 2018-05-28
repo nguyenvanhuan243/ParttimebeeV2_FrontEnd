@@ -35,6 +35,7 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
       showEdit = false,
       showDelete = false,
       showImage = true,
+      title = '',
     } = this.props;
     const {
       onClickJobItem = () => {},
@@ -50,7 +51,7 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
           <div className="JobItem-content">
             <div className="JobItem-contentTitle">
               <a className="JobItem-href" href={`${config.BASE_URL}/job-detail`}>
-                Presentable Chinese Female Crew - KL/Selangor
+                { title }
               </a>
             </div>
             <div className="JobItem-contentCompanyName">
@@ -117,5 +118,6 @@ JobItem.propTypes = {
   showDelete: PropTypes.bool,
   showImage: PropTypes.bool,
   onClickJobItem: PropTypes.func.isRequired,
+  title: PropTypes.string,
 };
 

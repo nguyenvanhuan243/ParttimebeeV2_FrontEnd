@@ -12,14 +12,24 @@
 import React, { PureComponent, PropTypes } from 'react';
 import JobItem from 'components/JobList/JobItem/Loadable';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
+import axios from 'axios';
+import config from '../../../config';
 export default class JobList extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
     this.state = {
       limit: [1, 2, 3],
+      dataResourceEndPoint: [],
     };
   }
-
+  componentWillMount() {
+    const url = `${config.API_BASE_URL}/jobs`;
+    axios.get(url).then((response) => {
+      this.setState({
+        dataResourceEndPoint: response.data,
+      });
+    });
+  }
   handleShowMore() {
     this.setState({
       limit: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -39,10 +49,12 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
       onDeleteConfirmation = () => {},
     } = this.props;
     const {
-      limit,
+      // limit,
+      dataResourceEndPoint = [],
     } = this.state;
     const listItem = [];
-    limit.map(() => listItem.push(<JobItem showImage={showImage} onClickJobItem={onDeleteConfirmation} showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
+    console.log(dataResourceEndPoint);
+    dataResourceEndPoint.map((item) => listItem.push(<JobItem title={item.title} showImage={showImage} onClickJobItem={onDeleteConfirmation} showDelete={showDelete} showEdit={showEdit} showView={showView} showShare={showShare} showCity={showCity} />));
     return (
       <div>
         { showHeading ? <div className="JobList-showHeading">
