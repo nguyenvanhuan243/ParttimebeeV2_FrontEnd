@@ -11,6 +11,8 @@ export default class Signup extends PureComponent { // eslint-disable-line react
     this.state = {
       isLoading: true,
       isSubmited: false,
+      success: false,
+      danger: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -27,15 +29,26 @@ export default class Signup extends PureComponent { // eslint-disable-line react
   }
   onSubmit(e) {
     e.preventDefault();
-    this.setState({
-      isSubmited: !this.state.isSubmited,
+    const url = `${config.API_BASE_URL}/users?email=${this.email.value}&password=${this.password.value}`;
+    axios.post(url).then((response) => {
+      if (response.status === 201) {
+        this.setState({
+          success: true,
+        });
+      }
+    }).catch((error) => {
+      if (error.response.status === 422) {
+        this.setState({
+          danger: true,
+        });
+      }
     });
-    axios.post(`${config.API_BASE_URL}/users?email=${this.email.value}&password=${this.password.value}`);
   }
   render() {
     const {
-      isSubmited,
       isLoading,
+      success,
+      danger,
     } = this.state;
 
     if (isLoading) {
@@ -54,12 +67,14 @@ export default class Signup extends PureComponent { // eslint-disable-line react
         <div className="Signup-form">
           <div className="FormComponent">
             {
-              isSubmited ?
+              success ?
                 <Alert color="success">
                   Your account has been registered, Please check email to confirm it.
                 </Alert> : null
             }
-
+            { (danger && !success) ? <Alert color="danger">
+              This email is used by a other user, Please use email has not been registered!
+            </Alert> : null }
             <form onSubmit={this.onSubmit}>
               <div className="FormComponent-inputCustom">
                 <input
