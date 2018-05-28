@@ -4,17 +4,6 @@ import ShareIcon from 'components/Icons/Share/Loadable';
 import DeleteIcon from 'components/Icons/Delete/Loadable';
 
 export default class JobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
-  constructor() {
-    super();
-    this.state = {
-      showDeleteConfirmationPopup: false,
-    };
-  }
-  showDeleteConfirmationPopup() {
-    this.setState({
-      showDeleteConfirmationPopup: true,
-    });
-  }
   render() {
     const {
       showCity = true,
