@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import ViewIcon from 'components/Icons/View/Loadable';
 import ShareIcon from 'components/Icons/Share/Loadable';
 import DeleteIcon from 'components/Icons/Delete/Loadable';
+import config from '../../../../config';
 
 export default class JobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -70,14 +71,14 @@ export default class JobItem extends PureComponent { // eslint-disable-line reac
                   <DeleteIcon />
                 </button> : null }
               { showEdit ?
-                <div className="JobItem-contentEditContainer">
+                <a href={`${config.BASE_URL}/postjobs-edit-job`} className="JobItem-contentEditContainer">
                   <div>
                     <ShareIcon />
                   </div>
                   <div className="JobItem-contentEditText">
                     EDIT
                   </div>
-                </div> : null }
+                </a> : null }
             </div>
           </div>
         </div>

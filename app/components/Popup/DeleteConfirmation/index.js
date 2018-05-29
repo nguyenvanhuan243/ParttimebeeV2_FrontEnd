@@ -11,8 +11,16 @@
 
 import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
+import axios from 'axios';
+import config from '../../../../config';
 
 export default class DeleteConfirmationPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  handleDelete() {
+    const jobId = 22;
+    const url = `${config.API_BASE_URL}/jobs/${jobId}}`;
+    axios.delete(url);
+    window.location.reload();
+  }
   render() {
     const {
       closeFunc = () => {},
@@ -38,7 +46,7 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
                     Cancel
                   </span>
                 </button>
-                <button className="DeleteConfirmationPopup-deleteButton">
+                <button onClick={() => this.handleDelete()} className="DeleteConfirmationPopup-deleteButton">
                   <span className="DeleteConfirmationPopup-deleteButtonText">
                     Delete
                   </span>
