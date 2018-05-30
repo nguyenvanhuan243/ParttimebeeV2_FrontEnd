@@ -40,31 +40,31 @@ export default class Login extends PureComponent { // eslint-disable-line react/
           Great to see you again!
         </div>
         <div className="Login-form">
-          <div className="FormComponent">
+          <div className="Login-container">
             <form onSubmit={this.onSubmit}>
-              <div className="FormComponent-inputCustom">
+              <div className="Login-inputCustom">
                 <input
-                  className="FormComponent-inputHoverEmail"
+                  className="Login-inputHoverEmail"
                   type="text"
                   placeholder="Email"
                   ref={(ref) => (this.email = ref)}
                 />
-                <div className="FormComponent-separate" />
-                <div className="FormComponent-placeHolderTop">
+                <div className="Login-separate" />
+                <div className="Login-placeHolderTop">
                   Password
                 </div>
-                <div className="FormComponent-passwordContainer">
+                <div className="Login-inputPassContainer">
                   <input
-                    className="FormComponent-inputHover"
+                    className="Login-inputHover"
                     type="password"
                     placeholder="Password"
                     ref={(ref) => (this.password = ref)}
                   />
                   <ShowPasswordIcon />
                 </div>
-                <div className="FormComponent-separateColor" />
-                <button className="FormComponent-button">
-                  <div className="FormComponent-buttonText">
+                <div className="Login-separateColor" />
+                <button className="Login-button">
+                  <div className="Login-buttonText">
                     Login
                   </div>
                 </button>
