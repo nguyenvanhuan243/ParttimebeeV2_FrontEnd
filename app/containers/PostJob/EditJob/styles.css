@@ -32,6 +32,11 @@
   margin-right: 20px;
 }
 
+.EditJob-formContainer {
+  display: flex;
+  margin: 20px;
+}
+
 .EditJob-sideBarTitle {
   width: 330px;
   height: 20px;
@@ -57,4 +62,51 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
+}
+
+.EditJob-lableContainer {
+  margin-right: 20px;
+  width: 120px;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+}
+.EditJob-lableTitle {
+  margin-bottom: 64px;
+}
+
+.EditJob-lableCategory {
+  margin-bottom: 36px;
+}
+
+.EditJob-lableDescription {
+  margin-bottom: 255px;
+}
+
+.EditJob-lableSalary {
+  margin-bottom: 40px;
+}
+
+.EditJob-lableSalaryType {
+  margin-bottom: 40px;
+}
+
+.EditJob-lableSalaryState {
+  margin-bottom: 35px;
+}
+
+.EditJob-separateActive {
+  width: 570px;
+  height: 1px;
+  background-color: #ffaa00;
+  margin-top: 4px;
+}
+
+.EditJob-inputCategory {
+  margin-top: 54px;
 }
