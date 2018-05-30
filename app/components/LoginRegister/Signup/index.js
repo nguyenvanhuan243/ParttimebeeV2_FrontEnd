@@ -13,6 +13,8 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       isSubmited: false,
       success: false,
       danger: false,
+      focusEmail: false,
+      focusPassword: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -44,11 +46,33 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       }
     });
   }
+  handleFocusEmail() {
+    this.setState({
+      focusEmail: true,
+    });
+  }
+  handleFocusOutEmail() {
+    this.setState({
+      focusEmail: false,
+    })
+  }
+  handleFocusPassword() {
+    this.setState({
+      focusPassword: true,
+    });
+  }
+  handleFocusOutPassword() {
+    this.setState({
+      focusPassword: false,
+    })
+  }
   render() {
     const {
       isLoading,
       success,
       danger,
+      focusEmail,
+      focusPassword,
     } = this.state;
 
     if (isLoading) {
@@ -82,8 +106,12 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                   type="text"
                   placeholder="Email"
                   ref={(ref) => (this.email = ref)}
+                  onFocus={() => this.handleFocusEmail()}
+                  onBlur={() => this.handleFocusOutEmail()}
                 />
-                <div className="FormComponent-separate" />
+                { focusEmail ?
+                  <div className="FormComponent-separateColor" /> : 
+                  <div className="FormComponent-separate" /> }
                 <div className="FormComponent-placeHolderTop">
                   Password
                 </div>
@@ -93,10 +121,14 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                     type="password"
                     placeholder="Password"
                     ref={(ref) => (this.password = ref)}
+                    onFocus={() => this.handleFocusPassword()}
+                    onBlur={() => this.handleFocusOutPassword()}
                   />
                   <ShowPasswordIcon />
                 </div>
-                <div className="FormComponent-separateColor" />
+                { focusPassword ?
+                  <div className="FormComponent-separateColor" /> : 
+                  <div className="FormComponent-separate" /> }
                 <button className="FormComponent-button">
                   <div className="FormComponent-buttonText">
                     Sign up FREE
