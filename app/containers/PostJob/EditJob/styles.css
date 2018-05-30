@@ -150,6 +150,7 @@
   border: solid 1px #e8e8e8;
   margin: 0px !important;
   margin-right: 16px !important;
+  cursor: pointer;
 }
 .EditJob-buttonPostjob {
   width: 96px;
@@ -158,6 +159,7 @@
   background-color: #ffaa00;
   padding: 0px !important;
   margin: 0px !important;
+  cursor: pointer;
 }
 
 .EditJob-textAria {
