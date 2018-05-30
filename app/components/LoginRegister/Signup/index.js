@@ -16,6 +16,8 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       danger: false,
       focusEmail: false,
       focusPassword: false,
+      showEmailAnimation: false,
+      isPassword: true,
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -47,15 +49,43 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       }
     });
   }
+  handleTogglePassword(e) {
+    e.preventDefault();
+    this.setState({
+      isPassword: !this.state.isPassword,
+    });
+  }
   handleFocusEmail() {
     this.setState({
       focusEmail: true,
     });
   }
-  handleFocusOutEmail() {
+  handleFocusoutEmail() {
     this.setState({
       focusEmail: false,
     });
+  }
+  handleOnchangeEmail(e) {
+    if (e.target.value === '') {
+      this.setState({
+        showEmailAnimation: false,
+      });
+    } else {
+      this.setState({
+        showEmailAnimation: true,
+      });
+    }
+  }
+  handleOnchangePassword(e) {
+    if (e.target.value === '') {
+      this.setState({
+        showPasswordAnimation: false,
+      });
+    } else {
+      this.setState({
+        showPasswordAnimation: true,
+      });
+    }
   }
   handleFocusPassword() {
     this.setState({
@@ -74,16 +104,22 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       danger,
       focusEmail,
       focusPassword,
+      showEmailAnimation,
+      showPasswordAnimation,
+      isPassword,
     } = this.state;
+    const passwordType = isPassword ? 'password' : 'text';
 
     if (isLoading) {
       return null;
     }
     const emailAnimation = classNames('Signup-inputLabel', {
-      'Signup-inputAnimation': focusEmail,
+      'Signup-inputAnimation': showEmailAnimation,
+      'Signup-animationColor': focusEmail,
     });
     const passwordAnimation = classNames('Signup-inputLabel', {
-      'Signup-inputAnimation': focusPassword,
+      'Signup-inputAnimation': showPasswordAnimation,
+      'Signup-animationColor': focusPassword,
     });
 
     return (
@@ -115,7 +151,8 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.handleFocusEmail()}
-                    onBlur={() => this.handleFocusOutEmail()}
+                    onBlur={() => this.handleFocusoutEmail()}
+                    onChange={(e) => this.handleOnchangeEmail(e)}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
                   { focusEmail ?
@@ -123,15 +160,18 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                     <div className="Signup-separate" /> }
                 </div>
                 <div className="Signup-passwordContainer">
-                  <input
-                    className="Signup-inputHover"
-                    type="password"
-                    placeholder="Password"
-                    ref={(ref) => (this.password = ref)}
-                    onFocus={() => this.handleFocusPassword()}
-                    onBlur={() => this.handleFocusOutPassword()}
-                  />
-                  <ShowPasswordIcon />
+                  <div className="Signup-inputPasswordContainer">
+                    <input
+                      className="Signup-inputHover"
+                      type={passwordType}
+                      placeholder="Password"
+                      ref={(ref) => (this.password = ref)}
+                      onFocus={() => this.handleFocusPassword()}
+                      onBlur={() => this.handleFocusOutPassword()}
+                      onChange={(e) => this.handleOnchangePassword(e)}
+                    />
+                    <ShowPasswordIcon onToggle={(e) => this.handleTogglePassword(e)} />
+                  </div>
                   { focusPassword ?
                     <div className="Signup-separateColor" /> :
                     <div className="Signup-separate" /> }

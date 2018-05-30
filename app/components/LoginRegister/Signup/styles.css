@@ -159,12 +159,23 @@ input.Signup-inputHoverEmail {
   pointer-events: none;
   left: 0px;
   float: left;
-  color: #ffaa00;
 }
 
 .Signup-inputAnimation {
   opacity: 1 !important;
   transform: translateY(-50px) scale(0.78);
+}
+
+.Signup-animationColor {
+  color: #ffaa00;
+}
+
+.Signup-inputPasswordContainer {
+  display: flex;
+}
+
+.Signup-showPasswordIcon {
+
 }
 
 .Signup-emailContainer {

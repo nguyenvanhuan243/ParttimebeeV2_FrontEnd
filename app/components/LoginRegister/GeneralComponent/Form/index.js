@@ -29,7 +29,9 @@ export default class FormComponent extends PureComponent { // eslint-disable-lin
                 </div>
                 <div className="FormComponent-passwordContainer">
                   <input className="FormComponent-inputHover" type="password" placeholder="Password" />
-                  <ShowPasswordIcon />
+                  <button className="">
+                    <ShowPasswordIcon />
+                  </button>
                 </div>
                 <div className="FormComponent-separateColor" />
               </span> : null }
