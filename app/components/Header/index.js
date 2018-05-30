@@ -35,6 +35,9 @@ export default class Header extends PureComponent { // eslint-disable-line react
     const {
       expandAvatar,
     } = this.state;
+    const notLoginStyle = {
+      marginLeft: localStorage.currentUser ? '0' : '56',
+    };
     const logoutStatus = location.pathname.includes('logout');
     const logoutClassName = classname('Header-postJob', { 'Header-logout': logoutStatus });
     return (
@@ -52,7 +55,7 @@ export default class Header extends PureComponent { // eslint-disable-line react
             <div className="Header-logo">
               <LogoIcon />
             </div>
-            <div className="Header-postJobContainer">
+            <div style={notLoginStyle} className="Header-postJobContainer">
               <a className="Header-href" href={`${config.BASE_URL}/user/signup`}>
                 <div className={logoutClassName}>
                   <span className="Header-postJobText">
