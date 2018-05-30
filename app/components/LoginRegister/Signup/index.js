@@ -54,7 +54,7 @@ export default class Signup extends PureComponent { // eslint-disable-line react
   handleFocusOutEmail() {
     this.setState({
       focusEmail: false,
-    })
+    });
   }
   handleFocusPassword() {
     this.setState({
@@ -64,7 +64,7 @@ export default class Signup extends PureComponent { // eslint-disable-line react
   handleFocusOutPassword() {
     this.setState({
       focusPassword: false,
-    })
+    });
   }
   render() {
     const {
@@ -89,7 +89,7 @@ export default class Signup extends PureComponent { // eslint-disable-line react
           It’s Free!
         </div>
         <div className="Signup-form">
-          <div className="FormComponent">
+          <div>
             {
               success ?
                 <Alert color="success">
@@ -100,9 +100,9 @@ export default class Signup extends PureComponent { // eslint-disable-line react
               This email is used by a other user, Please use email has not been registered!
             </Alert> : null }
             <form onSubmit={this.onSubmit}>
-              <div className="FormComponent-inputCustom">
+              <div className="Signup-inputCustom">
                 <input
-                  className="FormComponent-inputHoverEmail"
+                  className="Signup-inputHoverEmail"
                   type="text"
                   placeholder="Email"
                   ref={(ref) => (this.email = ref)}
@@ -110,14 +110,14 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                   onBlur={() => this.handleFocusOutEmail()}
                 />
                 { focusEmail ?
-                  <div className="FormComponent-separateColor" /> : 
-                  <div className="FormComponent-separate" /> }
-                <div className="FormComponent-placeHolderTop">
+                  <div className="Signup-separateColor" /> :
+                  <div className="Signup-separate" /> }
+                <div className="Signup-placeHolderTop">
                   Password
                 </div>
-                <div className="FormComponent-passwordContainer">
+                <div className="Signup-passwordContainer">
                   <input
-                    className="FormComponent-inputHover"
+                    className="Signup-inputHover"
                     type="password"
                     placeholder="Password"
                     ref={(ref) => (this.password = ref)}
@@ -127,10 +127,10 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                   <ShowPasswordIcon />
                 </div>
                 { focusPassword ?
-                  <div className="FormComponent-separateColor" /> : 
-                  <div className="FormComponent-separate" /> }
-                <button className="FormComponent-button">
-                  <div className="FormComponent-buttonText">
+                  <div className="Signup-separateColor" /> :
+                  <div className="Signup-separate" /> }
+                <button className="Signup-button">
+                  <div className="Signup-buttonText">
                     Sign up FREE
                   </div>
                 </button>
