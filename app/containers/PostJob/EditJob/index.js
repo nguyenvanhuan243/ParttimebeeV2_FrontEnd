@@ -68,7 +68,7 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
                       </option>
                     </select>
                     <div className="EditJob-inputDescription">
-                      <input placeholder="Description" />
+                      <textarea className="EditJob-textAria" placeholder="Description" />
                     </div>
                     <div className="EditJob-separate"></div>
                     <div className="EditJob-inputSalary">
