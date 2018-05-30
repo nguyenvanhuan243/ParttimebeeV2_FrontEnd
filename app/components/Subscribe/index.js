@@ -1,17 +1,23 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
 
 import React, { PureComponent } from 'react';
+
 export default class Subscribe extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = {
+      emailValue: '',
+    };
+  }
+  handleSubscribe(e) {
+    this.setState({
+      emailValue: e.target.value,
+    });
+  }
   render() {
+    const requestUrl = 'https://azwebmall.us16.list-manage.com/subscribe/post?u=b7ad0359586fb6fdfbd8378ca&amp;id=ce67653993';
+    const {
+      emailValue,
+    } = this.state;
     return (
       <div className="Subscribe">
         <div className="Subscribe-titleContainer">
@@ -29,8 +35,17 @@ export default class Subscribe extends PureComponent { // eslint-disable-line re
             <div className="Subscribe-image">
             </div>
             <div className="Subscribe-emailForm">
-              <form>
-                <input className="Subscribe-emailFormCustom" placeholder="Your email" />
+              <form action={requestUrl} method="POST" noValidate>
+                <input
+                  type="email"
+                  name="EMAIL"
+                  className="Subscribe-emailFormCustom"
+                  placeholder="Your email"
+                  value={emailValue}
+                  onChange={(e) => this.handleSubscribe(e)}
+                  autoCapitalize="off"
+                  autoCorrect="off"
+                />
                 <button className="Subscribe-button">
                   <span className="Subscribe-buttonText">
                     SUBSCRIBE
@@ -44,4 +59,3 @@ export default class Subscribe extends PureComponent { // eslint-disable-line re
     );
   }
 }
-
