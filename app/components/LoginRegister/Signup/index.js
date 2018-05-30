@@ -3,6 +3,7 @@ import axios from 'axios';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
 import { Alert } from 'reactstrap';
+import classNames from 'classnames';
 import config from '../../../../config';
 
 export default class Signup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -78,6 +79,9 @@ export default class Signup extends PureComponent { // eslint-disable-line react
     if (isLoading) {
       return null;
     }
+    const classNameAnimation = classNames('Signup-inputLabel', {
+      'Signup-inputAnimation': focusEmail,
+    });
 
     return (
       <div className="Signup">
@@ -101,19 +105,19 @@ export default class Signup extends PureComponent { // eslint-disable-line react
             </Alert> : null }
             <form onSubmit={this.onSubmit}>
               <div className="Signup-inputCustom">
-                <input
-                  className="Signup-inputHoverEmail"
-                  type="text"
-                  placeholder="Email"
-                  ref={(ref) => (this.email = ref)}
-                  onFocus={() => this.handleFocusEmail()}
-                  onBlur={() => this.handleFocusOutEmail()}
-                />
-                { focusEmail ?
-                  <div className="Signup-separateColor" /> :
-                  <div className="Signup-separate" /> }
-                <div className="Signup-placeHolderTop">
-                  Password
+                <div className="Signup-emailContainer">
+                  <input
+                    className="Signup-inputHoverEmail"
+                    type="text"
+                    placeholder="Email"
+                    ref={(ref) => (this.email = ref)}
+                    onFocus={() => this.handleFocusEmail()}
+                    onBlur={() => this.handleFocusOutEmail()}
+                  />
+                  <label htmlFor className={classNameAnimation}>Email</label>
+                  { focusEmail ?
+                    <div className="Signup-separateColor" /> :
+                    <div className="Signup-separate" /> }
                 </div>
                 <div className="Signup-passwordContainer">
                   <input

@@ -151,3 +151,23 @@ input.Signup-inputHoverEmail {
 :-moz-placeholder { /* Firefox 18- */
   padding-left: 0px;
 }
+
+.Signup-inputLabel {
+  opacity: 0;
+  transform-origin: left top;
+  transition: color 200ms ease, transform 200ms ease;
+  will-change: transform;
+  pointer-events: none;
+  left: 0px;
+  float: left;
+  color: #ffaa00;
+}
+
+.Signup-inputAnimation {
+  opacity: 1 !important;
+  transform: translateY(-50px) scale(0.78);
+}
+
+.Signup-emailContainer {
+
+}
