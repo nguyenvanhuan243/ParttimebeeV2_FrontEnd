@@ -136,3 +136,26 @@
 .EditJob-inputCity {
   margin-top: 30px;
 }
+
+.EditJob-buttonContainer {
+  margin-top: 30px;
+  margin-left: 368px;
+  display: flex;
+}
+.EditJob-buttonPreview {
+  width: 90px;
+  height: 34px;
+  border-radius: 3px;
+  padding: 0px !important;
+  border: solid 1px #e8e8e8;
+  margin: 0px !important;
+  margin-right: 16px !important;
+}
+.EditJob-buttonPostjob {
+  width: 96px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  padding: 0px !important;
+  margin: 0px !important;
+}

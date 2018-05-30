@@ -105,6 +105,14 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
                       <input placeholder="inputCity" />
                     </div>
                     <div className="EditJob-separate"></div>
+                    <div className="EditJob-buttonContainer">
+                      <button className="EditJob-buttonPreview">
+                        Preview
+                      </button>
+                      <button className="EditJob-buttonPostjob">
+                        Post job
+                      </button>
+                    </div>
                   </form>
                 </div>
               </div>
