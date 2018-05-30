@@ -79,8 +79,11 @@ export default class Signup extends PureComponent { // eslint-disable-line react
     if (isLoading) {
       return null;
     }
-    const classNameAnimation = classNames('Signup-inputLabel', {
+    const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': focusEmail,
+    });
+    const passwordAnimation = classNames('Signup-inputLabel', {
+      'Signup-inputAnimation': focusPassword,
     });
 
     return (
@@ -114,7 +117,7 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                     onFocus={() => this.handleFocusEmail()}
                     onBlur={() => this.handleFocusOutEmail()}
                   />
-                  <label htmlFor className={classNameAnimation}>Email</label>
+                  <label htmlFor className={emailAnimation}>Email</label>
                   { focusEmail ?
                     <div className="Signup-separateColor" /> :
                     <div className="Signup-separate" /> }
@@ -129,10 +132,11 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                     onBlur={() => this.handleFocusOutPassword()}
                   />
                   <ShowPasswordIcon />
+                  { focusPassword ?
+                    <div className="Signup-separateColor" /> :
+                    <div className="Signup-separate" /> }
+                  <label htmlFor className={passwordAnimation}>Password</label>
                 </div>
-                { focusPassword ?
-                  <div className="Signup-separateColor" /> :
-                  <div className="Signup-separate" /> }
                 <button className="Signup-button">
                   <div className="Signup-buttonText">
                     Sign up FREE
