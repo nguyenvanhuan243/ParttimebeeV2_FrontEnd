@@ -7,6 +7,8 @@ import ShareThisProfile from 'components/ShareThisProfile/Loadable';
 import GoogleAdsense from 'components/GoogleAdsense/Loadable';
 import Footer from 'components/Footer/Loadable';
 import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadable';
+import axios from 'axios';
+import config from '../../../../config';
 
 export default class MyJobs extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -14,7 +16,16 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     this.state = {
       showDeleteConfirmationPopup: false,
       activeCurrent: 'on-goging',
+      myJobResourceEndPoint: [],
     };
+  }
+
+  componentWillMount() {
+    const currentUser = localStorage.currentUser;
+    const url = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
+    axios.get(url).then((response) => this.setState({
+      myJobResourceEndPoint: response.data,
+    }));
   }
   handleDeleteConfirmationPopup() {
     this.setState({
@@ -31,12 +42,16 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     const {
       showDeleteConfirmationPopup,
       activeCurrent,
+      myJobResourceEndPoint,
     } = this.state;
+    const goingJobNumber = myJobResourceEndPoint.filter((item) => item.type_job === 'going').length;
+    const pendingJobNumber = myJobResourceEndPoint.filter((item) => item.type_job === 'pending').length;
+    const expiredJobNumber = myJobResourceEndPoint.filter((item) => item.type_job === 'expired').length;
     const myJobList = [];
     const textArray = [
-      '10 On-going jobs',
-      '1 Pending job',
-      '99 Expired jobs',
+      `${goingJobNumber} On-going jobs`,
+      `${pendingJobNumber} Pending jobs`,
+      `${expiredJobNumber} Expired jobs`,
     ];
     const myProfile = location.pathname.includes('my-profile') || location.pathname.includes('myjobs/myjobs');
     const employerProfile = location.pathname.includes('employer-profile');
