@@ -50,7 +50,7 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
                 <div className="EditJob-inputContainer">
                   <form>
                     <div className="EditJob-inputTitle">
-                      <input placeholder="Title" />
+                      <input className="EditJob-customInput" placeholder="Title" />
                     </div>
                     <div className="EditJob-separateActive"></div>
                     <select className="EditJob-inputCategory">
@@ -72,7 +72,7 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
                     </div>
                     <div className="EditJob-separate"></div>
                     <div className="EditJob-inputSalary">
-                      <input placeholder="Salary" />
+                      <input className="EditJob-customInput" placeholder="Salary" />
                     </div>
                     <div className="EditJob-separate"></div>
                     <div className="EditJob-inputSalaryType">
@@ -102,7 +102,7 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
                       </select>
                     </div>
                     <div className="EditJob-inputCity">
-                      <input placeholder="inputCity" />
+                      <input className="EditJob-customInput" placeholder="inputCity" />
                     </div>
                     <div className="EditJob-separate"></div>
                     <div className="EditJob-buttonContainer">

@@ -166,3 +166,8 @@
   outline: none !important;
   resize: none;
 }
+
+.EditJob-customInput {
+  width: 570px !important;
+  outline: none !important;
+}
