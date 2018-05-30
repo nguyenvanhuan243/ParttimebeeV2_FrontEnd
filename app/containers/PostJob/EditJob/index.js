@@ -49,7 +49,9 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
                 </div>
                 <div className="EditJob-inputContainer">
                   <form>
-                    <input />
+                    <div className="EditJob-inputTitle">
+                      <input placeholder="Title" />
+                    </div>
                     <div className="EditJob-separateActive"></div>
                     <select className="EditJob-inputCategory">
                       <option>
@@ -65,6 +67,44 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
                         Category 4
                       </option>
                     </select>
+                    <div className="EditJob-inputDescription">
+                      <input placeholder="Description" />
+                    </div>
+                    <div className="EditJob-separate"></div>
+                    <div className="EditJob-inputSalary">
+                      <input placeholder="Salary" />
+                    </div>
+                    <div className="EditJob-separate"></div>
+                    <div className="EditJob-inputSalaryType">
+                      <select>
+                        <option>
+                          option 1
+                        </option>
+                        <option>
+                          option 2
+                        </option>
+                        <option>
+                          option 3
+                        </option>
+                      </select>
+                    </div>
+                    <div className="EditJob-inputSalaryState">
+                      <select>
+                        <option>
+                          State 1
+                        </option>
+                        <option>
+                          State 2
+                        </option>
+                        <option>
+                          State 3
+                        </option>
+                      </select>
+                    </div>
+                    <div className="EditJob-inputCity">
+                      <input placeholder="inputCity" />
+                    </div>
+                    <div className="EditJob-separate"></div>
                   </form>
                 </div>
               </div>
