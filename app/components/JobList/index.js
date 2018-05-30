@@ -11,8 +11,13 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
     };
   }
   componentWillMount() {
+    const hasMyjob = location.pathname.includes('myjobs');
+    const hasProfile = location.pathname.includes('my-profile');
+    const currentUser = localStorage.currentUser;
     const url = `${config.API_BASE_URL}/jobs`;
-    axios.get(url).then((res) => {
+    const urlCurrentUser = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
+    const urlRequest = (currentUser && (hasMyjob || hasProfile)) ? urlCurrentUser : url;
+    axios.get(urlRequest).then((res) => {
       this.setState({
         dataResourceEndPoint: res.data,
       });
