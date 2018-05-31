@@ -104,9 +104,31 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
                 showCity={employerProfile}
                 showView={employerProfile}
                 showShare={employerProfile}
-                title={activeCurrent}
+                title={'On-going'}
                 showImage={false}
-                jobType={this.getActiveJob(activeCurrent)}
+                jobType={'going'}
+              />
+              <JobList
+                onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                showDelete={myProfile}
+                showEdit={myProfile}
+                showCity={employerProfile}
+                showView={employerProfile}
+                showShare={employerProfile}
+                title={'Pending'}
+                showImage={false}
+                jobType={'pending'}
+              />
+              <JobList
+                onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                showDelete={myProfile}
+                showEdit={myProfile}
+                showCity={employerProfile}
+                showView={employerProfile}
+                showShare={employerProfile}
+                title={'Expired'}
+                showImage={false}
+                jobType={'expired'}
               />
             </div>
             <div className="MyJobs-sideBar">
