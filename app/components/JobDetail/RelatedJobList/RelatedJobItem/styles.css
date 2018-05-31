@@ -1,6 +1,6 @@
 .RelatedJobItem-container {
   display: flex;
-  margin-bottom: 11px;
+  margin-bottom: 10px;
 }
 
 .RelatedJobItem-text {
@@ -39,4 +39,11 @@
 
 a.RelatedJobItem-href:hover {
   text-decoration: none;
+}
+
+.RelatedJobItem-separate {
+  width: 298px;
+  height: 1px;
+  background-color: #e8e8e8;
+  margin-bottom: 10px;
 }

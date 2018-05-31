@@ -6,6 +6,7 @@ export default class RelatedJobItem extends PureComponent { // eslint-disable-li
       title = 'JOB TITLE HERE',
       companyName = 'Company Name',
       href = '',
+      showSeparate = true,
     } = this.props;
     return (
       <a className="RelatedJobItem-href" href={href}>
@@ -22,6 +23,7 @@ export default class RelatedJobItem extends PureComponent { // eslint-disable-li
               </div>
             </div>
           </div>
+          { showSeparate ? <div className="RelatedJobItem-separate"></div> : null }
         </div>
       </a>
     );
@@ -32,4 +34,5 @@ RelatedJobItem.propTypes = {
   title: PropTypes.string,
   companyName: PropTypes.string,
   href: PropTypes.string,
+  showSeparate: PropTypes.bool,
 };
