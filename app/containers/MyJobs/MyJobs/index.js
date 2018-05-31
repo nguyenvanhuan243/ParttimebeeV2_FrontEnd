@@ -19,13 +19,28 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       myJobResourceEndPoint: [],
     };
   }
-
   componentWillMount() {
     const currentUser = localStorage.currentUser;
     const url = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
     axios.get(url).then((response) => this.setState({
       myJobResourceEndPoint: response.data,
     }));
+  }
+  getActiveJob(active) {
+    let activeJob = '';
+    if (active.includes('On-going')) {
+      activeJob = 'going';
+      return activeJob;
+    }
+    if (active.includes('Pending')) {
+      activeJob = 'pending';
+      return activeJob;
+    }
+    if (active.includes('Expired')) {
+      activeJob = 'expired';
+      return activeJob;
+    }
+    return activeJob;
   }
   handleDeleteConfirmationPopup() {
     this.setState({
@@ -91,6 +106,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
                 showShare={employerProfile}
                 title={activeCurrent}
                 showImage={false}
+                jobType={this.getActiveJob(activeCurrent)}
               />
             </div>
             <div className="MyJobs-sideBar">

@@ -37,12 +37,21 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
       showDelete = false,
       showImage = true,
       onDeleteConfirmation = () => {},
+      jobType = 'going',
     } = this.props;
     const {
       dataResourceEndPoint = [],
     } = this.state;
+    const hasMyjob = location.pathname.includes('myjobs');
+    const hasProfile = location.pathname.includes('my-profile');
     const listItem = [];
-    dataResourceEndPoint.map((item) =>
+    let listFilterd = [];
+    if (hasMyjob || hasProfile) {
+      listFilterd = dataResourceEndPoint.filter((item) => item.type_job === (jobType));
+    } else {
+      listFilterd = dataResourceEndPoint;
+    }
+    listFilterd.map((item) =>
       listItem.push(<JobItem
         href={`${config.BASE_URL}/job-detail/${item.id}`}
         title={item.title}
@@ -91,4 +100,5 @@ JobList.propTypes = {
   showDelete: PropTypes.bool,
   showImage: PropTypes.bool,
   onDeleteConfirmation: PropTypes.func.isRequired,
+  jobType: PropTypes.string,
 };
