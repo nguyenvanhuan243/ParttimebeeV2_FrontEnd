@@ -10,6 +10,11 @@ import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadabl
 import axios from 'axios';
 import config from '../../../../config';
 
+const JOB_TYPE = {
+  GOING: 'going',
+  PENDING: 'pending',
+  EXPIRED: 'expired',
+};
 export default class MyJobs extends Component { // eslint-disable-line react/prefer-stateless-function
   constructor() {
     super();
@@ -62,9 +67,9 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       activeCurrent,
       myJobResourceEndPoint,
     } = this.state;
-    const goingJobNumber = this.countJobByType(myJobResourceEndPoint, 'going');
-    const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, 'pending');
-    const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, 'expired');
+    const goingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.GOING);
+    const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.PENDING);
+    const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.EXPIRED);
     const myJobList = [];
     const textArray = [
       `${goingJobNumber} On-going jobs`,
