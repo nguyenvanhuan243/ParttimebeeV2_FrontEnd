@@ -55,7 +55,6 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       showPasswordAnimation,
       isPassword,
     } = this.state;
-    const passwordType = isPassword ? 'password' : 'text';
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
@@ -102,7 +101,7 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                   <div className="Signup-inputPasswordContainer">
                     <input
                       className="Signup-inputHover"
-                      type={passwordType}
+                      type={isPassword ? 'password' : 'text'}
                       placeholder="Password"
                       ref={(ref) => (this.password = ref)}
                       onFocus={() => this.setState({ focusPassword: true })}
