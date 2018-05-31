@@ -31,16 +31,6 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       }
     });
   }
-  handleTogglePassword(e) {
-    e.preventDefault();
-    this.setState({ isPassword: !this.state.isPassword });
-  }
-  handleFocusEmail() {
-    this.setState({ focusEmail: true });
-  }
-  handleFocusoutEmail() {
-    this.setState({ focusEmail: false });
-  }
   handleOnchangeEmail(e) {
     if (e.target.value === '') {
       this.setState({ showEmailAnimation: false });
@@ -54,12 +44,6 @@ export default class Signup extends PureComponent { // eslint-disable-line react
     } else {
       this.setState({ showPasswordAnimation: true });
     }
-  }
-  handleFocusPassword() {
-    this.setState({ focusPassword: true });
-  }
-  handleFocusOutPassword() {
-    this.setState({ focusPassword: false });
   }
   render() {
     const {
@@ -107,14 +91,12 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                     type="text"
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
-                    onFocus={() => this.handleFocusEmail()}
-                    onBlur={() => this.handleFocusoutEmail()}
+                    onFocus={() => this.setState({ focusEmail: true })}
+                    onBlur={() => this.setState({ focusEmail: false })}
                     onChange={(e) => this.handleOnchangeEmail(e)}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
-                  { focusEmail ?
-                    <div className="Signup-separateColor" /> :
-                    <div className="Signup-separate" /> }
+                  <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
                 <div className="Signup-passwordContainer">
                   <div className="Signup-inputPasswordContainer">
@@ -123,15 +105,18 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                       type={passwordType}
                       placeholder="Password"
                       ref={(ref) => (this.password = ref)}
-                      onFocus={() => this.handleFocusPassword()}
-                      onBlur={() => this.handleFocusOutPassword()}
+                      onFocus={() => this.setState({ focusPassword: true })}
+                      onBlur={() => this.setState({ focusPassword: false })}
                       onChange={(e) => this.handleOnchangePassword(e)}
                     />
-                    <ShowPasswordIcon onToggle={(e) => this.handleTogglePassword(e)} />
+                    <ShowPasswordIcon
+                      onToggle={(e) => {
+                        e.preventDefault();
+                        this.setState({ isPassword: !this.state.isPassword });
+                      }}
+                    />
                   </div>
-                  { focusPassword ?
-                    <div className="Signup-separateColor" /> :
-                    <div className="Signup-separate" /> }
+                  <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
                   <label htmlFor className={passwordAnimation}>Password</label>
                 </div>
                 <button className="Signup-button">
