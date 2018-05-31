@@ -52,6 +52,9 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       activeCurrent: value,
     });
   }
+  countJobByType(array, type) {
+    return array.filter((item) => item.type_job === type).length;
+  }
   render() {
     const SHOWEDIT = true;
     const {
@@ -59,9 +62,9 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       activeCurrent,
       myJobResourceEndPoint,
     } = this.state;
-    const goingJobNumber = myJobResourceEndPoint.filter((item) => item.type_job === 'going').length;
-    const pendingJobNumber = myJobResourceEndPoint.filter((item) => item.type_job === 'pending').length;
-    const expiredJobNumber = myJobResourceEndPoint.filter((item) => item.type_job === 'expired').length;
+    const goingJobNumber = this.countJobByType(myJobResourceEndPoint, 'going');
+    const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, 'pending');
+    const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, 'expired');
     const myJobList = [];
     const textArray = [
       `${goingJobNumber} On-going jobs`,
