@@ -7,12 +7,10 @@ import Sponsored from 'components/Sponsored/Loadable';
 import CategoryList from 'components/CategoryList/Loadable';
 import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
 
-export default class HomePage extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class HomePage extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      isLoading: false,
-    };
+    this.state = { isLoading: false };
   }
 
   componentDidMount() {
@@ -34,9 +32,6 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
   }
 
   render() {
-    const {
-      isLoading,
-    } = this.state;
     return (
       <div>
         <Header />
@@ -49,7 +44,7 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
             <JobList />
             <JobList />
             <JobList />
-            { isLoading ? null : <LoadingJobsList /> }
+            { this.state.isLoading ? null : <LoadingJobsList /> }
           </div>
           <div className="HomePageContainer-sidebarContainer">
             <Subscribe />
