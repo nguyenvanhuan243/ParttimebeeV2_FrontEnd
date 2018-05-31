@@ -10,8 +10,6 @@ export default class Signup extends PureComponent { // eslint-disable-line react
   constructor() {
     super();
     this.state = {
-      isLoading: true,
-      isSubmited: false,
       success: false,
       danger: false,
       focusEmail: false,
@@ -19,20 +17,8 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       showEmailAnimation: false,
       isPassword: true,
     };
-    this.onSubmit = this.onSubmit.bind(this);
   }
-  // After 0.1s then Signup component will be rendered.
-  componentWillMount() {
-    setTimeout(
-      () => {
-        this.setState({
-          isLoading: !this.state.isLoading,
-        });
-      },
-      100
-    );
-  }
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${this.email.value}&password=${this.password.value}`;
     axios.post(url).then((response) => {
@@ -99,7 +85,6 @@ export default class Signup extends PureComponent { // eslint-disable-line react
   }
   render() {
     const {
-      isLoading,
       success,
       danger,
       focusEmail,
@@ -109,10 +94,6 @@ export default class Signup extends PureComponent { // eslint-disable-line react
       isPassword,
     } = this.state;
     const passwordType = isPassword ? 'password' : 'text';
-
-    if (isLoading) {
-      return null;
-    }
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
