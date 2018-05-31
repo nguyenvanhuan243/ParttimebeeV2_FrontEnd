@@ -3,7 +3,7 @@ import React, { PureComponent, PropTypes } from 'react';
 export default class ShowMoreIcon extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const {
-      marginTop = '3',
+      marginTop = 3,
     } = this.props;
     return (
       <svg style={{ marginTop }} height="6" width="10" viewBox="0 0 10 6">
@@ -14,5 +14,5 @@ export default class ShowMoreIcon extends PureComponent { // eslint-disable-line
 }
 
 ShowMoreIcon.propTypes = {
-  marginTop: PropTypes.string,
+  marginTop: PropTypes.number,
 };

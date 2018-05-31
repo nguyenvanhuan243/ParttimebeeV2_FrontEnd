@@ -34,6 +34,6 @@ export default class CategoryItem extends PureComponent { // eslint-disable-line
 }
 CategoryItem.propTypes = {
   text: PropTypes.string,
-  iconType: PropTypes.string,
+  iconType: PropTypes.object,
 };
 

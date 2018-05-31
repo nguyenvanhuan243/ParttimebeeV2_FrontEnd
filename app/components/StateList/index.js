@@ -1,14 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { PureComponent } from 'react';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
 import CategoryItem from 'components/CategoryList/CategoryItem/Loadable';
@@ -165,7 +154,11 @@ export default class StateList extends PureComponent { // eslint-disable-line re
       showMore,
     } = this.state;
     const listStateArray = [];
-    limit.map((item) => listStateArray.push(<CategoryItem text={item.text} iconType={item.iconType} />));
+    limit.map((item) => listStateArray.push(<CategoryItem
+      key={item.text}
+      text={item.text}
+      iconType={item.iconType}
+    />));
     return (
       <div>
         <div className="StateList-title">
@@ -175,7 +168,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
           { listStateArray }
           <button className="StateList-button" onClick={() => this.handleShowMore()}>
             <div className="StateList-buttonContainer">
-              <ShowMoreIcon marginTop={'7'} />
+              <ShowMoreIcon marginTop={7} />
               <div className="StateList-buttonText">
                 { showMore ? 'VIEW LESS' : 'VIEW MORE...' }
               </div>

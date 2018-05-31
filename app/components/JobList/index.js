@@ -53,6 +53,7 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
     }
     listFilterd.map((item) =>
       listItem.push(<JobItem
+        key={item.id}
         href={`${config.BASE_URL}/job-detail/${item.id}`}
         title={item.title}
         showImage={showImage}
@@ -99,6 +100,6 @@ JobList.propTypes = {
   showEdit: PropTypes.bool,
   showDelete: PropTypes.bool,
   showImage: PropTypes.bool,
-  onDeleteConfirmation: PropTypes.func.isRequired,
+  onDeleteConfirmation: PropTypes.func,
   jobType: PropTypes.string,
 };
