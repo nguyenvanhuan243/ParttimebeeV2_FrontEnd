@@ -23,65 +23,43 @@ export default class Signup extends PureComponent { // eslint-disable-line react
     const url = `${config.API_BASE_URL}/users?email=${this.email.value}&password=${this.password.value}`;
     axios.post(url).then((response) => {
       if (response.status === 201) {
-        this.setState({
-          success: true,
-        });
+        this.setState({ success: true });
       }
     }).catch((error) => {
       if (error.response.status === 422) {
-        this.setState({
-          danger: true,
-        });
+        this.setState({ danger: true });
       }
     });
   }
   handleTogglePassword(e) {
     e.preventDefault();
-    this.setState({
-      isPassword: !this.state.isPassword,
-    });
+    this.setState({ isPassword: !this.state.isPassword });
   }
   handleFocusEmail() {
-    this.setState({
-      focusEmail: true,
-    });
+    this.setState({ focusEmail: true });
   }
   handleFocusoutEmail() {
-    this.setState({
-      focusEmail: false,
-    });
+    this.setState({ focusEmail: false });
   }
   handleOnchangeEmail(e) {
     if (e.target.value === '') {
-      this.setState({
-        showEmailAnimation: false,
-      });
+      this.setState({ showEmailAnimation: false });
     } else {
-      this.setState({
-        showEmailAnimation: true,
-      });
+      this.setState({ showEmailAnimation: true });
     }
   }
   handleOnchangePassword(e) {
     if (e.target.value === '') {
-      this.setState({
-        showPasswordAnimation: false,
-      });
+      this.setState({ showPasswordAnimation: false });
     } else {
-      this.setState({
-        showPasswordAnimation: true,
-      });
+      this.setState({ showPasswordAnimation: true });
     }
   }
   handleFocusPassword() {
-    this.setState({
-      focusPassword: true,
-    });
+    this.setState({ focusPassword: true });
   }
   handleFocusOutPassword() {
-    this.setState({
-      focusPassword: false,
-    });
+    this.setState({ focusPassword: false });
   }
   render() {
     const {
@@ -114,15 +92,13 @@ export default class Signup extends PureComponent { // eslint-disable-line react
         </div>
         <div className="Signup-form">
           <div>
-            {
-              success ?
-                <Alert color="success">
-                  Your account has been registered, Please check email to confirm it.
-                </Alert> : null
-            }
-            { (danger && !success) ? <Alert color="danger">
+            { success &&
+              <Alert color="success">
+                Your account has been registered, Please check email to confirm it.
+              </Alert> }
+            { (danger && !success) && <Alert color="danger">
               This email is used by a other user, Please use email has not been registered!
-            </Alert> : null }
+            </Alert> }
             <form onSubmit={this.onSubmit}>
               <div className="Signup-inputCustom">
                 <div className="Signup-emailContainer">
