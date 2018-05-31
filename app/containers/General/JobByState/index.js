@@ -12,7 +12,7 @@ export default class JobByState extends PureComponent { // eslint-disable-line r
       <div>
         <Header />
         <div className="JobByState">
-          <div className="JobByState-categoryList">
+          <div className="HomePageContainer-categoryList">
             <CategoryList />
           </div>
           <div className="JobByState-jobListContainer">

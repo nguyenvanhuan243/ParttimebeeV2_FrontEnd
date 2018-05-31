@@ -20,17 +20,16 @@ export default class CategoryList extends PureComponent { // eslint-disable-line
   componentDidMount() {
     window.addEventListener('scroll', () => {
       const el = document.getElementsByClassName('HomePageContainer-categoryList')[0];
-      const sticky = el.offsetTop;
+      const sticky = el && el.offsetTop;
       if (window.pageYOffset >= sticky) {
-        this.setState({
-          hasSticky: true,
-        });
+        this.setState({ hasSticky: true });
       } else {
-        this.setState({
-          hasSticky: false,
-        });
+        this.setState({ hasSticky: false });
       }
     });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll');
   }
   render() {
     const {
