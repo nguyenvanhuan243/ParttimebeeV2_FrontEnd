@@ -22,6 +22,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       showDeleteConfirmationPopup: false,
       activeCurrent: 'on-goging',
       myJobResourceEndPoint: [],
+      activeJob: 'all',
     };
   }
   componentWillMount() {
@@ -32,20 +33,21 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     }));
   }
   getActiveJob(active) {
-    let activeJob = '';
     if (active.includes('On-going')) {
-      activeJob = 'going';
-      return activeJob;
+      this.setState({
+        activeJob: 'going',
+      });
     }
     if (active.includes('Pending')) {
-      activeJob = 'pending';
-      return activeJob;
+      this.setState({
+        activeJob: 'pending',
+      });
     }
     if (active.includes('Expired')) {
-      activeJob = 'expired';
-      return activeJob;
+      this.setState({
+        activeJob: 'expired',
+      });
     }
-    return activeJob;
   }
   handleDeleteConfirmationPopup() {
     this.setState({
@@ -56,6 +58,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     this.setState({
       activeCurrent: value,
     });
+    this.getActiveJob(value);
   }
   countJobByType(array, type) {
     return array.filter((item) => item.type_job === type).length;
@@ -66,6 +69,7 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
       showDeleteConfirmationPopup,
       activeCurrent,
       myJobResourceEndPoint,
+      activeJob,
     } = this.state;
     const goingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.GOING);
     const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.PENDING);
@@ -83,7 +87,9 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     return (
       <div className="MyJobs">
         <div className="MyJobs-deleteConfirmationPopup">
-          { showDeleteConfirmationPopup ? <DeleteConfirmationPopup closeFunc={() => this.handleDeleteConfirmationPopup()} /> : null }
+          { showDeleteConfirmationPopup ? <DeleteConfirmationPopup
+            closeFunc={() => this.handleDeleteConfirmationPopup()}
+          /> : null }
         </div>
         <Header />
         <div className="MyJobs-bodyContainer">
@@ -105,39 +111,48 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
                 </div> : 'Available Jobs' }
             </div>
             <div className="MyJobs-jobList">
-              <JobList
-                onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
-                showDelete={myProfile}
-                showEdit={myProfile}
-                showCity={employerProfile}
-                showView={employerProfile}
-                showShare={employerProfile}
-                title={'On-going'}
-                showImage={false}
-                jobType={'going'}
-              />
-              <JobList
-                onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
-                showDelete={myProfile}
-                showEdit={myProfile}
-                showCity={employerProfile}
-                showView={employerProfile}
-                showShare={employerProfile}
-                title={'Pending'}
-                showImage={false}
-                jobType={'pending'}
-              />
-              <JobList
-                onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
-                showDelete={myProfile}
-                showEdit={myProfile}
-                showCity={employerProfile}
-                showView={employerProfile}
-                showShare={employerProfile}
-                title={'Expired'}
-                showImage={false}
-                jobType={'expired'}
-              />
+              {
+                (activeJob === 'all' || activeJob === 'going') ?
+                  <JobList
+                    onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                    showDelete={myProfile}
+                    showEdit={myProfile}
+                    showCity={employerProfile}
+                    showView={employerProfile}
+                    showShare={employerProfile}
+                    title={'On-going'}
+                    showImage={false}
+                    jobType={'going'}
+                  /> : null
+              }
+              {
+                (activeJob === 'all' || activeJob === 'pending') ?
+                  <JobList
+                    onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                    showDelete={myProfile}
+                    showEdit={myProfile}
+                    showCity={employerProfile}
+                    showView={employerProfile}
+                    showShare={employerProfile}
+                    title={'Pending'}
+                    showImage={false}
+                    jobType={'pending'}
+                  /> : null
+              }
+              {
+                (activeJob === 'all' || activeJob === 'expired') ?
+                  <JobList
+                    onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                    showDelete={myProfile}
+                    showEdit={myProfile}
+                    showCity={employerProfile}
+                    showView={employerProfile}
+                    showShare={employerProfile}
+                    title={'Expired'}
+                    showImage={false}
+                    jobType={'expired'}
+                  /> : null
+              }
             </div>
             <div className="MyJobs-sideBar">
               <ShareThisProfile />
