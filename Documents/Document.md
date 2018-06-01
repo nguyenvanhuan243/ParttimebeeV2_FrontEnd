@@ -6,3 +6,18 @@
 Use `--save` to save version in package file.
 + Reactstrap: `npm install reactstrap --save`
 + Bootstrap: `npm install bootstrap@4.0.0 --save`
+
+3. How to start react boilerplate in production.
+cd home/parttimebee: Run `npm run build`
+vi /opt/nginx/conf/nginx.conf
+add this code
+  location / {
+    proxy_pass http://159.65.1.5:3001;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+install pm2: `npm install pm2 -g`
+Run `pm2 start server/index.js`
+Tut: https://github.com/Unitech/pm2
