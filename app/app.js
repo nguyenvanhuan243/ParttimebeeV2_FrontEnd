@@ -99,10 +99,7 @@ import 'components/ShareThisProfile/styles.css';
 
 // My jobs
 import 'containers/MyJobs/MyJobs/styles.css';
-import 'containers/MyJobs/MyJobsExpiredSingle/styles.css';
 import 'containers/MyJobs/MyJobsNoJobs/styles.css';
-import 'containers/MyJobs/MyJobsOnGoingSingle/styles.css';
-import 'containers/MyJobs/MyJobsPendingSingle/styles.css';
 import 'containers/MyJobs/MyJobsDeleteConfirmationPopup/styles.css';
 import 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/styles.css';
 import 'containers/MyJobs/MyJobsExpiredSingleRepost/styles.css';
