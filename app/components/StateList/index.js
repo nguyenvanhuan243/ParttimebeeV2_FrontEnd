@@ -149,10 +149,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
     }
   }
   render() {
-    const {
-      limit,
-      showMore,
-    } = this.state;
+    const { limit, showMore } = this.state;
     const listStateArray = [];
     limit.map((item) => listStateArray.push(<CategoryItem
       key={item.text}
@@ -161,17 +158,13 @@ export default class StateList extends PureComponent { // eslint-disable-line re
     />));
     return (
       <div>
-        <div className="StateList-title">
-          BROWSE STATES
-        </div>
+        <div className="StateList-title"> BROWSE STATES </div>
         <div>
           { listStateArray }
           <button className="StateList-button" onClick={() => this.handleShowMore()}>
             <div className="StateList-buttonContainer">
               <ShowMoreIcon marginTop={7} />
-              <div className="StateList-buttonText">
-                { showMore ? 'VIEW LESS' : 'VIEW MORE...' }
-              </div>
+              <div className="StateList-buttonText"> { showMore ? 'VIEW LESS' : 'VIEW MORE...' } </div>
             </div>
           </button>
         </div>

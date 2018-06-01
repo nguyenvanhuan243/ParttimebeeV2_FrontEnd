@@ -26,9 +26,7 @@ export default class Subscribe extends PureComponent {
               autoCorrect="off"
             />
             <button className="Subscribe-button">
-              <div className="Subscribe-buttonText">
-                SUBSCRIBE
-              </div>
+              <div className="Subscribe-buttonText"> SUBSCRIBE </div>
             </button>
           </form>
         </div>

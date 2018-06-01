@@ -1,14 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
 import axios from 'axios';
@@ -42,14 +31,10 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
               </div>
               <div className="DeleteConfirmationPopup-buttonContainer">
                 <button className="DeleteConfirmationPopup-cancelButton">
-                  <span className="DeleteConfirmationPopup-cancelButtonText">
-                    Cancel
-                  </span>
+                  <span className="DeleteConfirmationPopup-cancelButtonText"> Cancel </span>
                 </button>
                 <button onClick={() => this.handleDelete()} className="DeleteConfirmationPopup-deleteButton">
-                  <span className="DeleteConfirmationPopup-deleteButtonText">
-                    Delete
-                  </span>
+                  <span className="DeleteConfirmationPopup-deleteButtonText"> Delete </span>
                 </button>
               </div>
             </div>
