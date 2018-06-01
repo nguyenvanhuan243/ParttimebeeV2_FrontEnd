@@ -21,3 +21,8 @@ add this code
 install pm2: `npm install pm2 -g`
 Run `pm2 start server/index.js`
 Tut: https://github.com/Unitech/pm2
+
+Why using pm2 tool?
+Because we can start react boilerplate with  `npm run start:prod`. However, we stop terminal
+then server will stop.
+=> We need to use pm2 to start server ALLWAYS ON.
