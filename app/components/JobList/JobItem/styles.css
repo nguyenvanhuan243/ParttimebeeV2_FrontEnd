@@ -25,7 +25,9 @@
   color: #000000;
   margin-top: 8px;
 }
-
+.JobItem-hover {
+  background-color: #f8f8f8;
+}
 .JobItem-href {
   text-decoration: none;
   height: 32px;

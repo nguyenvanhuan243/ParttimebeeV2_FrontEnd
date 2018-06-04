@@ -2,17 +2,27 @@ import React, { PureComponent, PropTypes } from 'react';
 import ViewIcon from 'components/Icons/View/Loadable';
 import ShareIcon from 'components/Icons/Share/Loadable';
 import DeleteIcon from 'components/Icons/Delete/Loadable';
+import classNames from 'classnames';
 import config from '../../../../config';
 
 export default class JobItem extends PureComponent {
+  constructor() {
+    super();
+    this.state = { hover: false };
+  }
   render() {
     const {
       showCity = true, showView = true, showShare = true, showEdit = false, showDelete = false,
       showImage = true, title = '', href = '', onClickJobItem = () => {},
     } = this.props;
+    const hoverClass = classNames('JobItem', { 'JobItem-hover': this.state.hover });
     return (
       <div>
-        <div className="JobItem">
+        <div
+          className={hoverClass}
+          onMouseEnter={() => this.setState({ hover: true })}
+          onMouseLeave={() => this.setState({ hover: false })}
+        >
           { showImage && <a className="JobItem-href" href={href}> <div className="JobItem-image" /> </a> }
           <div className="JobItem-content">
             <div className="JobItem-contentTitle">
