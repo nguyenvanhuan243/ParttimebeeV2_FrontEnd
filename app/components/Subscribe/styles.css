@@ -107,4 +107,9 @@ input.Subscribe-emailFormCustom::placeholder {
   text-align: left;
   color: #999999;
   text-indent: 11px;
+  outline: none !important;
+}
+
+input.Subscribe-emailFormCustom:focus {
+  outline: none;
 }
