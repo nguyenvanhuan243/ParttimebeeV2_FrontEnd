@@ -55,7 +55,6 @@ a.JobItem-href:hover {
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  /* -webkit-text-stroke: 1px #979797; */
 }
 .JobItem-contentJobState {
   width: 99px;
