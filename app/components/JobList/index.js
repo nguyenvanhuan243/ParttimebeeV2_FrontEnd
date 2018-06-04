@@ -6,7 +6,7 @@ import config from '../../../config';
 export default class JobList extends PureComponent {
   constructor() {
     super();
-    this.state = { dataResourceEndPoint: [] };
+    this.state = { dataResourceEndPoint: [], limit: 5 };
   }
   componentWillMount() {
     const hasMyjob = location.pathname.includes('myjobs');
@@ -19,7 +19,8 @@ export default class JobList extends PureComponent {
       this.setState({ dataResourceEndPoint: res.data });
     });
   }
-  handleShowMore() {
+  handleShowMore(listFilterd) {
+    this.setState({ limit: listFilterd.length });
   }
   render() {
     const {
@@ -35,7 +36,7 @@ export default class JobList extends PureComponent {
       onDeleteConfirmation = () => {},
       jobType = 'going',
     } = this.props;
-    const { dataResourceEndPoint = [] } = this.state;
+    const { dataResourceEndPoint = [], limit } = this.state;
     const hasMyjob = location.pathname.includes('myjobs');
     const hasProfile = location.pathname.includes('my-profile');
     const listItem = [];
@@ -45,7 +46,7 @@ export default class JobList extends PureComponent {
     } else {
       listFilterd = dataResourceEndPoint;
     }
-    listFilterd.map((item) =>
+    listFilterd.slice(0, limit).map((item) =>
       listItem.push(<JobItem
         key={item.id}
         href={`${config.BASE_URL}/job-detail/${item.id}`}
@@ -66,7 +67,7 @@ export default class JobList extends PureComponent {
             <div className="JobList-titleText"> { title } </div>
           </div>
           { listItem }
-          <button className="JobList-buttonContainer" onClick={() => this.handleShowMore()}>
+          <button className="JobList-buttonContainer" onClick={() => this.handleShowMore(listFilterd)}>
             <div className="JobList-showMore">
               <ShowMoreIcon />
               <div className="JobList-showMoreText"> SHOW 88 MORE </div>
