@@ -1,33 +1,24 @@
 import React, { PureComponent, PropTypes } from 'react';
-export default class JobDetailHeader extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class JobDetailHeader extends PureComponent {
   render() {
     const {
-      title = 'Presentable Chinese Female Crew - KL/Selangor',
-      companyName = 'Company Name',
+      title = '',
+      companyName = 'Company Name Here',
       state = 'KUALALUMPUR',
       city = 'PUTRAJAYA',
     } = this.props;
     return (
       <div className="JobDetailHeader">
-        <div className="JobDetailHeader-image">
-        </div>
+        <div className="JobDetailHeader-image" />
         <div className="JobDetailHeader-info">
-          <div className="JobDetailHeader-title">
-            { title }
-          </div>
-          <div className="JobDetailHeader-companyName">
-            { companyName }
-          </div>
+          <div className="JobDetailHeader-title"> { title } </div>
+          <div className="JobDetailHeader-companyName"> { companyName } </div>
           <div className="JobDetailHeader-address">
             <div className="JobDetailHeader-addressState">
-              <div className="JobDetailHeader-addressStateText">
-                { state }
-              </div>
+              <div className="JobDetailHeader-addressStateText"> { state } </div>
             </div>
             <div className="JobDetailHeader-addressCity">
-              <div className="JobDetailHeader-addressCityText">
-                { city }
-              </div>
+              <div className="JobDetailHeader-addressCityText"> { city } </div>
             </div>
           </div>
         </div>

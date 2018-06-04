@@ -1,13 +1,14 @@
 .JobDetailHeader {
-  display: flex; 
+  display: flex;
+  height: 86px;
 }
-
 
 .JobDetailHeader-info {
   margin-left: 15px;
 }
 
 .JobDetailHeader-image {
+  margin-top: 6px;
   width: 80px;
   height: 80px;
   background-color: #d8d8d8;
@@ -25,7 +26,6 @@
 }
 
 .JobDetailHeader-companyName {
-  width: 120px;
   height: 20px;
   font-size: 13px;
   font-weight: normal;
@@ -35,7 +35,7 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  -webkit-text-stroke: 1px #979797;
+  margin-bottom: 10px;
 }
 
 .JobDetailHeader-address {
@@ -60,7 +60,8 @@
 }
 
 .JobDetailHeader-addressStateText {
-  
+  width: 81px;
+  height: 16px;
   font-size: 11px;
   font-weight: normal;
   font-style: normal;
@@ -69,12 +70,15 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  padding-left: 9px;
-  padding-top: 4px;
+  margin-left: 9px;
+  margin-right: 9px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .JobDetailHeader-addressCityText {
-  
+  width: 65px;
+  height: 16px;
   font-size: 11px;
   font-weight: normal;
   font-style: normal;
@@ -83,6 +87,8 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  padding-left: 9px;
-  padding-top: 4px;
+  margin-left: 9px;
+  margin-right: 9px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
