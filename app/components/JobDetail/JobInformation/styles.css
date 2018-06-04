@@ -27,6 +27,7 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  margin-bottom: 10px;
 }
 .JobInformation-category {  
   font-size: 13px;
@@ -36,7 +37,8 @@
   line-height: 1.54;
   letter-spacing: normal;
   text-align: left;
-  color: #000000;  
+  color: #000000;
+  margin-bottom: 10px;  
 }
 .JobInformation-salary {
   font-size: 13px;
@@ -47,10 +49,10 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  margin-bottom: 20px;
 }
 
 .JobInformation-postedDate {
-  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -59,6 +61,7 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  margin-bottom: 10px;
 }
 
 .JobInformation-jobView {
@@ -70,6 +73,7 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  margin-bottom: 50px;
 }
 .JobInformation-leftDescription {
   width: 345px;
