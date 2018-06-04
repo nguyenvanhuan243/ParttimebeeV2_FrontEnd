@@ -25,15 +25,12 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
     this.setState({ showDeleteProfile: !this.state.showDeleteProfile });
   }
   render() {
-    const {
-      selectedOption,
-      showDeleteProfile,
-    } = this.state;
+    const { selectedOption, showDeleteProfile } = this.state;
     const { closePopupFunc = () => {} } = this.props;
 
     return (
       <div>
-        { showDeleteProfile ? <DeleteConfirmation type={'ACCOUNT'} closeFunc={closePopupFunc} /> : null}
+        { showDeleteProfile && <DeleteConfirmation type={'ACCOUNT'} closeFunc={closePopupFunc} /> }
         { !showDeleteProfile ?
           <div className="AskReasonPopup">
             <button className="AskReasonPopup-closeButton" onClick={closePopupFunc}>

@@ -4,7 +4,7 @@ import ShareIcon from 'components/Icons/Share/Loadable';
 import DeleteIcon from 'components/Icons/Delete/Loadable';
 import config from '../../../../config';
 
-export default class JobItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class JobItem extends PureComponent {
   render() {
     const {
       showCity = true,

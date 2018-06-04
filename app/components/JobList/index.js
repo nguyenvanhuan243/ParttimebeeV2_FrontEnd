@@ -3,12 +3,10 @@ import JobItem from 'components/JobList/JobItem/Loadable';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
 import axios from 'axios';
 import config from '../../../config';
-export default class JobList extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class JobList extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      dataResourceEndPoint: [],
-    };
+    this.state = { dataResourceEndPoint: [] };
   }
   componentWillMount() {
     const hasMyjob = location.pathname.includes('myjobs');
@@ -18,9 +16,7 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
     const urlCurrentUser = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
     const urlRequest = (currentUser && (hasMyjob || hasProfile)) ? urlCurrentUser : url;
     axios.get(urlRequest).then((res) => {
-      this.setState({
-        dataResourceEndPoint: res.data,
-      });
+      this.setState({ dataResourceEndPoint: res.data });
     });
   }
   handleShowMore() {
@@ -39,9 +35,7 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
       onDeleteConfirmation = () => {},
       jobType = 'going',
     } = this.props;
-    const {
-      dataResourceEndPoint = [],
-    } = this.state;
+    const { dataResourceEndPoint = [] } = this.state;
     const hasMyjob = location.pathname.includes('myjobs');
     const hasProfile = location.pathname.includes('my-profile');
     const listItem = [];
@@ -66,22 +60,16 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
       />));
     return (
       <div>
-        { showHeading ? <div className="JobList-showHeading">
-          { text}
-        </div> : null }
+        { showHeading && <div className="JobList-showHeading">{ text} </div> }
         <div className="JobList">
           <div className="JobList-title">
-            <div className="JobList-titleText">
-              { title }
-            </div>
+            <div className="JobList-titleText"> { title } </div>
           </div>
           { listItem }
           <button className="JobList-buttonContainer" onClick={() => this.handleShowMore()}>
             <div className="JobList-showMore">
               <ShowMoreIcon />
-              <div className="JobList-showMoreText">
-                SHOW 88 MORE
-              </div>
+              <div className="JobList-showMoreText"> SHOW 88 MORE </div>
             </div>
           </button>
         </div>
@@ -89,7 +77,6 @@ export default class JobList extends PureComponent { // eslint-disable-line reac
     );
   }
 }
-
 JobList.propTypes = {
   text: PropTypes.string,
   showHeading: PropTypes.bool,
