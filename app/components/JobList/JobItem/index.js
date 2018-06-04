@@ -29,13 +29,13 @@ export default class JobItem extends PureComponent {
                 </div> }
               { showView &&
                 <div className="JobItem-contentViewContainer">
-                  <div className="JobItem-contentViewIcon"> <ViewIcon /> </div>
-                  <div className="JobItem-contentViewNumber"> <span> 888 </span> </div>
+                  <ViewIcon />
+                  <div className="JobItem-contentViewNumber"> 888 </div>
                 </div> }
               { showShare &&
                 <div className="JobItem-contentShareContainer">
-                  <div className="JobItem-contentShareIcon"> <ShareIcon /> </div>
-                  <div className="JobItem-contentShareText"> SHARE </div>
+                  <ShareIcon />
+                  <span className="JobItem-contentShareText"> SHARE </span>
                 </div> }
               { showDelete &&
                 <button onClick={onClickJobItem} className="JobItem-deleteIcon">
