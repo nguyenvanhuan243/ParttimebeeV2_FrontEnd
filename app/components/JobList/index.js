@@ -6,7 +6,7 @@ import config from '../../../config';
 export default class JobList extends PureComponent {
   constructor() {
     super();
-    this.state = { dataResourceEndPoint: [], limit: 5 };
+    this.state = { dataResourceEndPoint: [], limit: 5, showMore: true };
   }
   componentWillMount() {
     const hasMyjob = location.pathname.includes('myjobs');
@@ -17,6 +17,12 @@ export default class JobList extends PureComponent {
     const urlRequest = (currentUser && (hasMyjob || hasProfile)) ? urlCurrentUser : url;
     axios.get(urlRequest).then((res) => {
       this.setState({ dataResourceEndPoint: res.data });
+    });
+  }
+  handleShowMore(listFilterd) {
+    this.setState({
+      limit: listFilterd.length,
+      showMore: false,
     });
   }
   render() {
@@ -33,7 +39,7 @@ export default class JobList extends PureComponent {
       onDeleteConfirmation = () => {},
       jobType = 'going',
     } = this.props;
-    const { dataResourceEndPoint = [], limit } = this.state;
+    const { dataResourceEndPoint = [], limit, showMore } = this.state;
     const hasMyjob = location.pathname.includes('myjobs');
     const hasProfile = location.pathname.includes('my-profile');
     const listItem = [];
@@ -64,12 +70,13 @@ export default class JobList extends PureComponent {
             <div className="JobList-titleText"> { title } </div>
           </div>
           { listItem }
-          <button className="JobList-buttonContainer" onClick={() => this.setState({ limit: listFilterd.length })}>
-            <div className="JobList-showMore">
-              <ShowMoreIcon />
-              <div className="JobList-showMoreText"> SHOW 88 MORE </div>
-            </div>
-          </button>
+          { listFilterd.length >= 5 && showMore ?
+            <button className="JobList-buttonContainer" onClick={() => this.handleShowMore(listFilterd)}>
+              <div className="JobList-showMore">
+                <ShowMoreIcon />
+                <div className="JobList-showMoreText"> SHOW {listFilterd.length - 5} MORE </div>
+              </div>
+            </button> : null }
         </div>
       </div>
     );
