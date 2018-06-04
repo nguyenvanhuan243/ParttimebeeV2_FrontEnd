@@ -19,9 +19,6 @@ export default class JobList extends PureComponent {
       this.setState({ dataResourceEndPoint: res.data });
     });
   }
-  handleShowMore(listFilterd) {
-    this.setState({ limit: listFilterd.length });
-  }
   render() {
     const {
       text = '',
@@ -67,7 +64,7 @@ export default class JobList extends PureComponent {
             <div className="JobList-titleText"> { title } </div>
           </div>
           { listItem }
-          <button className="JobList-buttonContainer" onClick={() => this.handleShowMore(listFilterd)}>
+          <button className="JobList-buttonContainer" onClick={() => this.setState({ limit: listFilterd.length })}>
             <div className="JobList-showMore">
               <ShowMoreIcon />
               <div className="JobList-showMoreText"> SHOW 88 MORE </div>
