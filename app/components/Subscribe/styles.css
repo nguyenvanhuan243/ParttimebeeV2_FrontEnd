@@ -95,6 +95,10 @@
   margin-bottom: 9px;
 }
 
+input.Subscribe-emailFormCustom {
+  padding-left: 11px !important;
+}
+
 input.Subscribe-emailFormCustom::placeholder {
   width: 62px;
   height: 20px;
@@ -106,7 +110,7 @@ input.Subscribe-emailFormCustom::placeholder {
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  text-indent: 11px;
+  /* text-indent: 11px; */
   outline: none !important;
 }
 
