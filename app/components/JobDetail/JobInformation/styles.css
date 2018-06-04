@@ -86,7 +86,6 @@
 }
 
 .ReportButon {
-  /* width: 105px; */
   height: 24px;
   border-radius: 3px;
   background-color: #ffffff;
@@ -98,11 +97,8 @@
   padding: 0px;
 }
 
-.ReportButon-icon {
-  margin-left: 9px;
-}
-
 .ReportButon-text {
+  height: 16px;
   font-size: 11px;
   font-weight: normal;
   font-style: normal;
@@ -111,8 +107,9 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
+  cursor: pointer;
   margin-left: 6px;
   margin-top: 4px;
-  cursor: pointer;
-  display: inline;
+  margin-bottom: 4px;
+  margin-right: 9px;
 }

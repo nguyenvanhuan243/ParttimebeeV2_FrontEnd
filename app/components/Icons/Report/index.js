@@ -1,7 +1,9 @@
 import React from 'react';
 
+const ReportIconStyle = { marginLeft: 9, marginTop: 4, marginBottom: 4 };
 const ReportIcon = () => (
   <svg
+    style={ReportIconStyle}
     version="1.1"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     x="0px"

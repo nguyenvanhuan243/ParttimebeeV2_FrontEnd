@@ -14,7 +14,7 @@ export default class JobInformation extends PureComponent {
           <Whatsapp />
           <Email />
           <button onClick={handleShowPopup} className="ReportButon">
-            <div className="ReportButon-icon"> <ReportIcon /> </div>
+            <ReportIcon />
             <div className="ReportButon-text"> REPORT JOB </div>
           </button>
         </div>
