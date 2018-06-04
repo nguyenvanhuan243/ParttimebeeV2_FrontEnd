@@ -3,6 +3,7 @@
   background-color: #ffffff;
   border-top: solid 1px #e8e8e8;
   display: flex;
+  cursor: pointer;
 }
 .JobItem-image {
   width: 80px;
@@ -136,6 +137,9 @@ a.JobItem-href:hover {
   margin-left: 15px;
   margin-right: 15px;
   cursor: pointer;
+}
+.JobItem-contentShareContainerHover {
+  background-color: #e8e8e8;
 }
 
 .JobItem-deleteIcon {
