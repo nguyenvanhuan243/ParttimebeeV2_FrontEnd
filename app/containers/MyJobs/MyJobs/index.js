@@ -10,12 +10,8 @@ import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadabl
 import axios from 'axios';
 import config from '../../../../config';
 
-const JOB_TYPE = {
-  GOING: 'going',
-  PENDING: 'pending',
-  EXPIRED: 'expired',
-};
-export default class MyJobs extends Component { // eslint-disable-line react/prefer-stateless-function
+const JOB_TYPE = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
+export default class MyJobs extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,36 +24,24 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
   componentWillMount() {
     const currentUser = localStorage.currentUser;
     const url = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
-    axios.get(url).then((response) => this.setState({
-      myJobResourceEndPoint: response.data,
-    }));
+    axios.get(url).then((response) => this.setState({ myJobResourceEndPoint: response.data }));
   }
   getActiveJob(active) {
     if (active.includes('On-going')) {
-      this.setState({
-        activeJob: 'going',
-      });
+      this.setState({ activeJob: 'going' });
     }
     if (active.includes('Pending')) {
-      this.setState({
-        activeJob: 'pending',
-      });
+      this.setState({ activeJob: 'pending' });
     }
     if (active.includes('Expired')) {
-      this.setState({
-        activeJob: 'expired',
-      });
+      this.setState({ activeJob: 'expired' });
     }
   }
   handleDeleteConfirmationPopup() {
-    this.setState({
-      showDeleteConfirmationPopup: !this.state.showDeleteConfirmationPopup,
-    });
+    this.setState({ showDeleteConfirmationPopup: !this.state.showDeleteConfirmationPopup });
   }
   handleActive(value) {
-    this.setState({
-      activeCurrent: value,
-    });
+    this.setState({ activeCurrent: value });
     this.getActiveJob(value);
   }
   countJobByType(array, type) {
@@ -87,9 +71,9 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
     return (
       <div className="MyJobs">
         <div className="MyJobs-deleteConfirmationPopup">
-          { showDeleteConfirmationPopup ? <DeleteConfirmationPopup
+          { showDeleteConfirmationPopup && <DeleteConfirmationPopup
             closeFunc={() => this.handleDeleteConfirmationPopup()}
-          /> : null }
+          /> }
         </div>
         <Header />
         <div className="MyJobs-bodyContainer">
@@ -101,13 +85,9 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
               { myProfile ?
                 <div className="MyJobsComponent-container">
                   <div className="MyJobsComponent-title">
-                    <span className="MyJobsComponent-titleText">
-                      My Jobs
-                    </span>
+                    <span className="MyJobsComponent-titleText"> My Jobs </span>
                   </div>
-                  <div className="MyJobsComponent-content">
-                    { myJobList }
-                  </div>
+                  <div className="MyJobsComponent-content"> { myJobList } </div>
                 </div> : 'Available Jobs' }
             </div>
             <div className="MyJobs-jobList">
@@ -156,12 +136,8 @@ export default class MyJobs extends Component { // eslint-disable-line react/pre
             </div>
             <div className="MyJobs-sideBar">
               <ShareThisProfile />
-              <div className="MyJobs-googleAds250276">
-                <GoogleAdsense />
-              </div>
-              <div>
-                <Footer />
-              </div>
+              <div className="MyJobs-googleAds250276"> <GoogleAdsense /> </div>
+              <div> <Footer /> </div>
             </div>
           </div>
         </div>

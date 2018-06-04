@@ -36,20 +36,13 @@ export default class HomePage extends PureComponent {
       <div>
         <Header />
         <div className="HomePageContainer">
-          <div className="HomePageContainer-categoryList">
-            <CategoryList />
-          </div>
+          <div className="HomePageContainer-categoryList"> <CategoryList /> </div>
           <div className="HomePageContainer-jobListContainer">
-            <JobList />
-            <JobList />
-            <JobList />
-            <JobList />
+            <JobList /> <JobList /> <JobList /> <JobList />
             { this.state.isLoading ? null : <LoadingJobsList /> }
           </div>
           <div className="HomePageContainer-sidebarContainer">
-            <Subscribe />
-            <Sponsored />
-            <Footer />
+            <Subscribe /> <Sponsored /> <Footer />
           </div>
         </div>
       </div>

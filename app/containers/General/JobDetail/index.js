@@ -12,13 +12,10 @@ import classNames from 'classnames';
 import axios from 'axios';
 import config from '../../../../config';
 
-export default class JobDetail extends Component { // eslint-disable-line react/prefer-stateless-function
+export default class JobDetail extends Component {
   constructor() {
     super();
-    this.state = {
-      showPopup: false,
-      jobItem: {},
-    };
+    this.state = { showPopup: false, jobItem: {} };
   }
 
   // Get a specify user with id
@@ -26,23 +23,16 @@ export default class JobDetail extends Component { // eslint-disable-line react/
     const jobId = location.pathname.match(/\d+/)[0];
     const url = `${config.API_BASE_URL}/jobs/${jobId}`;
     axios.get(url).then((response) => {
-      this.setState({
-        jobItem: response.data,
-      });
+      this.setState({ jobItem: response.data });
     });
   }
 
   showReportPopup() {
-    this.setState({
-      showPopup: !this.state.showPopup,
-    });
+    this.setState({ showPopup: !this.state.showPopup });
   }
 
   render() {
-    const {
-      showPopup = false,
-      jobItem = {},
-    } = this.state;
+    const { showPopup = false, jobItem = {} } = this.state;
     const className = classNames('JobDetail-reportJobPopup',
       { 'JobDetail-showReportPopup': showPopup }
     );
