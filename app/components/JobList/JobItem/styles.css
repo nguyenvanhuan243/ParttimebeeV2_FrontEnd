@@ -15,7 +15,6 @@
   margin-left: 15px;
 }
 .JobItem-contentTitle {
-  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -30,7 +29,6 @@
 .JobItem-href {
   text-decoration: none;
   height: 32px;
-  
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -49,7 +47,6 @@ a.JobItem-href:hover {
 }
 
 .JobItem-contentCompanyName {
-  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -58,7 +55,7 @@ a.JobItem-href:hover {
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  -webkit-text-stroke: 1px #979797;
+  /* -webkit-text-stroke: 1px #979797; */
 }
 .JobItem-contentJobState {
   width: 99px;
