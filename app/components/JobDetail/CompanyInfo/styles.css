@@ -19,9 +19,11 @@ a.CompanyInfo-href:hover {
   height: 40px;
   background-color: #d8d8d8;
   border-radius: 30px;
+  margin-top: 2px;
 }
 
 .CompanyInfo-text {
+  height: 42px;
   display:grid;
   margin-left: 10px;
   height: 42px;
@@ -33,9 +35,12 @@ a.CompanyInfo-href:hover {
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
+  /* font-family: Roboto; */
 }
 
 .CompanyInfo-container {
-  margin-left: 16px;
-  margin-top: 10px;
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
 }

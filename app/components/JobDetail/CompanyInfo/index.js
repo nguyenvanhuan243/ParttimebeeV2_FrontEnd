@@ -1,4 +1,5 @@
 import React from 'react';
+import ArrowIcon from 'components/Icons/Arrow/Loadable';
 import config from '../../../../config';
 
 const CompanyInfo = () => (
@@ -7,9 +8,10 @@ const CompanyInfo = () => (
       <div className="CompanyInfo-container">
         <div className="CompanyInfo-image" />
         <div className="CompanyInfo-text">
-          <div className="CompanyInfo-text1"> View company info </div>
-          <div className="CompanyInfo-text2"> and all jobs by this employe </div>
+          <div>View company info </div>
+          <div>and all jobs by this employer </div>
         </div>
+        <ArrowIcon />
       </div>
     </div>
   </a>
