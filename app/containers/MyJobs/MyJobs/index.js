@@ -11,6 +11,7 @@ import axios from 'axios';
 import config from '../../../../config';
 
 const JOB_TYPE = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
+const currentUser = localStorage.currentUser;
 export default class MyJobs extends Component {
   constructor() {
     super();
@@ -22,7 +23,6 @@ export default class MyJobs extends Component {
     };
   }
   componentWillMount() {
-    const currentUser = localStorage.currentUser;
     const url = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
     axios.get(url).then((response) => this.setState({ myJobResourceEndPoint: response.data }));
   }
@@ -48,7 +48,6 @@ export default class MyJobs extends Component {
     return array.filter((item) => item.type_job === type).length;
   }
   render() {
-    const SHOWEDIT = true;
     const {
       showDeleteConfirmationPopup,
       activeCurrent,
@@ -78,7 +77,7 @@ export default class MyJobs extends Component {
         <Header />
         <div className="MyJobs-bodyContainer">
           <div className="MyJobs-MyJobsBanner">
-            <EmployerProfileBanner showEdit={SHOWEDIT} />
+            <EmployerProfileBanner showEdit={!employerProfile} />
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
