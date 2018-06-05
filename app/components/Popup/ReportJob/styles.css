@@ -46,7 +46,6 @@
   cursor: pointer !important;
 }
 
-
 .ReportJobPopup-closeButton {
   width: 40px;
   height: 40px;
@@ -144,17 +143,9 @@
   color: #ffffff;
 }
 
-input[type="radio"]:checked {
-  border-radius: solid 4px #ffaa00 !important;
-}
-
-input.ReportJobPopup-radio {
-  border-radius: solid 4px #ffaa00 !important;
-}
-
 .ReportJobPopup-radioCustom {
-  width: 10px !important;
-  height: 10px !important;
+  width: 10px;
+  height: 10px;
   border: solid 1px #e7e7e7;
   border-radius: 100%;
   margin-top: 5px;
