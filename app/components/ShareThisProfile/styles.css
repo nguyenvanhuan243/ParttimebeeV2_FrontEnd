@@ -16,8 +16,10 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  padding-top: 14px;
+  padding-top: 13px;
+  padding-bottom: 13px;
   padding-left: 16px;
+  padding-right: 11px;
 }
 
 .ShareThisProfile-separate {
