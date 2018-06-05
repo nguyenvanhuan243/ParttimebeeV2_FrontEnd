@@ -24,28 +24,40 @@ export default class ReportJobPopup extends PureComponent {
                 <form>
                   <div>
                     <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Spam" checked={selectedOption === 'Spam'} />
-                      <span className="ReportJobPopup-inputText"> Spam </span>
+                      <input id="1" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Spam" checked={selectedOption === 'Spam'} />
+                      <label htmlFor="1">
+                        <span className="ReportJobPopup-inputText"> Spam</span>
+                      </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Duplicate" checked={selectedOption === 'Duplicate'} />
-                      <span className="ReportJobPopup-inputText"> Duplicate </span>
+                      <input id="2" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Duplicate" checked={selectedOption === 'Duplicate'} />
+                      <label htmlFor="2">
+                        <span className="ReportJobPopup-inputText"> Duplicate</span>
+                      </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Inappropriate" checked={selectedOption === 'Inappropriate'} />
-                      <span className="ReportJobPopup-inputText"> Inappropriate </span>
+                      <input id="3" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Inappropriate" checked={selectedOption === 'Inappropriate'} />
+                      <label htmlFor="3">
+                        <span className="ReportJobPopup-inputText"> Inappropriate</span>
+                      </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Needs editing" checked={selectedOption === 'Needs editing'} />
-                      <span className="ReportJobPopup-inputText"> Needs editing </span>
+                      <input id="4" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Needs editing" checked={selectedOption === 'Needs editing'} />
+                      <label htmlFor="4">
+                        <span className="ReportJobPopup-inputText"> Needs editing</span>
+                      </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Self promotion" checked={selectedOption === 'Self promotion'} />
-                      <span className="ReportJobPopup-inputText"> Self promotion </span>
+                      <input id="5" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Self promotion" checked={selectedOption === 'Self promotion'} />
+                      <label htmlFor="5">
+                        <span className="ReportJobPopup-inputText"> Self promotion</span>
+                      </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
-                      <input className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Not working" checked={selectedOption === 'Not working'} />
-                      <span className="ReportJobPopup-inputText"> Not working </span>
+                      <input id="6" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Not working" checked={selectedOption === 'Not working'} />
+                      <label htmlFor="6">
+                        <span className="ReportJobPopup-inputText"> Not working</span>
+                      </label>
                     </fieldset>
                     <button className="ReportJobPopup-submitReport">
                       <div className="ReportJobPopup-submitReportText"> SUBMIT </div>
