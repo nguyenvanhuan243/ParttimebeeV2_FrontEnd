@@ -16,7 +16,17 @@ export default class RelatedJobList extends PureComponent { // eslint-disable-li
   renderRelatedJob() {
     const { dataResourceEndPoint = [] } = this.state;
     const lastElement = dataResourceEndPoint[dataResourceEndPoint.length - 1];
-    return dataResourceEndPoint.map((item) => <Item key={item.id} showSeparate={item !== lastElement} href={`${config.BASE_URL}/job-detail/${item.id}`} title={item.title} companyName={item.companyName} />);
+    return dataResourceEndPoint.map((item) => (
+      <Item
+        key={item.id}
+        showSeparate={item !== lastElement}
+        href={`${config.BASE_URL}/job-detail/${item.id}`}
+        title={item.title}
+        companyName={item.companyName}
+        changePaddingTop={item.id === dataResourceEndPoint[0].id}
+        changePaddingBottom={item.id === lastElement.id}
+      />)
+    );
   }
   render() {
     return (
