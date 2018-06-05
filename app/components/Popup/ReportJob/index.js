@@ -48,7 +48,7 @@ export default class ReportJobPopup extends PureComponent {
                       <span className="ReportJobPopup-inputText"> Not working </span>
                     </fieldset>
                     <button className="ReportJobPopup-submitReport">
-                      <div className="ReportJobPopup-submitReportText"> Submit </div>
+                      <div className="ReportJobPopup-submitReportText"> SUBMIT </div>
                     </button>
                   </div>
                 </form>
