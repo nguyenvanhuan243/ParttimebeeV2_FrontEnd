@@ -142,6 +142,10 @@
   color: #ffffff;
 }
 
+input[type="radio"]:checked {
+  content: url('https://www.colorcombos.com/images/colors/FFAA00.png');
+}
+
 input.ReportJobPopup-radio {
   border-radius: solid 4px #ffaa00 !important;
 }
