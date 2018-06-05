@@ -1,5 +1,4 @@
 .JobItem {
-  height: 108px;
   background-color: #ffffff;
   border-top: solid 1px #e8e8e8;
   display: flex;
@@ -123,7 +122,6 @@ a.JobItem-href:hover {
   margin-left: 15px;
   outline: none !important;
   cursor: pointer;
-  padding-left: 11px;
   padding-right: 4px;
 }
 
