@@ -34,7 +34,6 @@
 
 .ReportJobPopup-inputText {
   margin-left: 10px;
-  width: 34px;
   height: 20px !important;
   font-size: 13px;
   font-weight: normal;
@@ -130,7 +129,9 @@
   width: 10px;
   height: 10px;
   border: solid 1px #e7e7e7;
+  display: none;
 }
+
 
 .ReportJobPopup-submitReportText {
   font-size: 11px;
@@ -144,9 +145,26 @@
 }
 
 input[type="radio"]:checked {
-  content: url('https://www.colorcombos.com/images/colors/FFAA00.png');
+  border-radius: solid 4px #ffaa00 !important;
 }
 
 input.ReportJobPopup-radio {
   border-radius: solid 4px #ffaa00 !important;
+}
+
+.ReportJobPopup-radioCustom {
+  width: 10px !important;
+  height: 10px !important;
+  border: solid 1px #e7e7e7;
+  border-radius: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.ReportJobPopup-selected {
+  border: solid 4px #ffaa00;
+}
+
+.ReportJobPopup-displayFlex {
+  display: flex;
 }

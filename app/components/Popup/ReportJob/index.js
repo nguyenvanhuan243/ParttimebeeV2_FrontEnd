@@ -25,37 +25,43 @@ export default class ReportJobPopup extends PureComponent {
                   <div>
                     <fieldset className="ReportJobPopup-fieldset">
                       <input id="1" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Spam" checked={selectedOption === 'Spam'} />
-                      <label htmlFor="1">
+                      <label htmlFor="1" className="ReportJobPopup-displayFlex">
+                        <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Spam' ? 'ReportJobPopup-selected' : null}`} />
                         <span className="ReportJobPopup-inputText"> Spam</span>
                       </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
                       <input id="2" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Duplicate" checked={selectedOption === 'Duplicate'} />
-                      <label htmlFor="2">
+                      <label htmlFor="2" className="ReportJobPopup-displayFlex">
+                        <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Duplicate' ? 'ReportJobPopup-selected' : null}`} />
                         <span className="ReportJobPopup-inputText"> Duplicate</span>
                       </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
                       <input id="3" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Inappropriate" checked={selectedOption === 'Inappropriate'} />
-                      <label htmlFor="3">
+                      <label htmlFor="3" className="ReportJobPopup-displayFlex">
+                        <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Inappropriate' ? 'ReportJobPopup-selected' : null}`} />
                         <span className="ReportJobPopup-inputText"> Inappropriate</span>
                       </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
                       <input id="4" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Needs editing" checked={selectedOption === 'Needs editing'} />
-                      <label htmlFor="4">
+                      <label htmlFor="4" className="ReportJobPopup-displayFlex">
+                        <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Needs editing' ? 'ReportJobPopup-selected' : null}`} />
                         <span className="ReportJobPopup-inputText"> Needs editing</span>
                       </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
                       <input id="5" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Self promotion" checked={selectedOption === 'Self promotion'} />
-                      <label htmlFor="5">
+                      <label htmlFor="5" className="ReportJobPopup-displayFlex">
+                        <div className={`ReportJobPopup-radioCustom ${selectedOption === 'Self promotion' ? 'ReportJobPopup-selected' : null}`} />
                         <span className="ReportJobPopup-inputText"> Self promotion</span>
                       </label>
                     </fieldset>
                     <fieldset className="ReportJobPopup-fieldset">
                       <input id="6" className="ReportJobPopup-radio" onChange={this.handleOptionChange} type="radio" value="Not working" checked={selectedOption === 'Not working'} />
-                      <label htmlFor="6">
+                      <label htmlFor="6" className="ReportJobPopup-displayFlex">
+                        <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Not working' ? 'ReportJobPopup-selected' : null}`} />
                         <span className="ReportJobPopup-inputText"> Not working</span>
                       </label>
                     </fieldset>
