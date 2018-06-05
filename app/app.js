@@ -64,7 +64,7 @@ import 'components/PostJobForm/styles.css';
 
 // Related jobs
 import 'components/JobDetail/RelatedJobList/styles.css';
-import 'components/JobDetail/RelatedJobList/RelatedJobItem/styles.css';
+import 'components/JobDetail/RelatedJobList/Item/styles.css';
 
 // Login Register
 import 'components/LoginRegister/Signup/styles.css';

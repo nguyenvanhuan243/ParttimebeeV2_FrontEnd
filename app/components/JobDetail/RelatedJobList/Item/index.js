@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 
-export default class RelatedJobItem extends PureComponent {
+export default class Item extends PureComponent {
   render() {
     const {
       title = 'JOB TITLE HERE',
@@ -24,7 +24,7 @@ export default class RelatedJobItem extends PureComponent {
     );
   }
 }
-RelatedJobItem.propTypes = {
+Item.propTypes = {
   title: PropTypes.string,
   companyName: PropTypes.string,
   href: PropTypes.string,
