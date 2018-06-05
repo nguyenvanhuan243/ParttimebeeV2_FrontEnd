@@ -4,30 +4,19 @@ import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
 import config from '../../../config';
 
-export default class Header extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class Header extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      expandAvatar: false,
-    };
+    this.state = { expandAvatar: false };
   }
   onLogout() {
     localStorage.removeItem('currentUser');
     window.location.replace(`${config.BASE_URL}`);
   }
-  handleExpandAvatar() {
-    this.setState({
-      expandAvatar: !this.state.expandAvatar,
-    });
-  }
   render() {
-    const {
-      expandAvatar,
-    } = this.state;
-    const notLoginStyle = {
-      marginLeft: localStorage.currentUser ? '0' : '56',
-    };
+    const { expandAvatar } = this.state;
     const logoutStatus = location.pathname.includes('logout');
+    const notLoginStyle = { marginLeft: localStorage.currentUser ? '0' : '56' };
     const logoutClassName = classname('Header-postJob', { 'Header-logout': logoutStatus });
     return (
       <div>
@@ -35,9 +24,7 @@ export default class Header extends PureComponent { // eslint-disable-line react
           <div className="Header-container">
             <div className="Header-searchForm">
               <form className="SearchForm">
-                <div className="SearchIcon">
-                  <SearchIcon />
-                </div>
+                <div className="SearchIcon"> <SearchIcon /> </div>
                 <input className="SearchForm-customInput" placeholder="Search job..." />
               </form>
             </div>
@@ -47,12 +34,10 @@ export default class Header extends PureComponent { // eslint-disable-line react
             <div style={notLoginStyle} className="Header-postJobContainer">
               <a className="Header-href" href={`${config.BASE_URL}/user/signup`}>
                 <div className={logoutClassName}>
-                  <span className="Header-postJobText">
-                    POSTJOB
-                  </span>
+                  <span className="Header-postJobText"> POSTJOB </span>
                 </div>
               </a>
-              { localStorage.currentUser && <button onClick={() => this.handleExpandAvatar()} className="Header-loggedAvatar"></button> }
+              { localStorage.currentUser && <button onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })} className="Header-loggedAvatar"></button> }
             </div>
           </div>
         </div>
