@@ -19,7 +19,7 @@ const TermsPage = () => (
           </div>
           <div className="TermsPage-section3"> Will these Terms ever change? </div>
           <div className="TermsPage-section4">
-            We are constantly trying to improve our Services, so these Terms may need to change along with the Services. We reserve the right to change the Terms at any<br></br> time, but if we do, we will bring it to your attention by placing a notice on the producthunt.com website, by sending you an email, and/or by some other means.<br></br><br></br>
+            We are constantly trying to improve our Services, so these Terms may need to change along with the Services. We reserve the right to change the Terms <br></br> at any time, but if we do, we will bring it to your attention by placing a notice on the producthunt.com website, by sending you an email, and/or by some other means.<br></br><br></br>
             If you don’t agree with the new Terms, you are free to reject them; unfortunately, that means you will no longer be able to use the Services. If you use the <br></br> Services in any way after a change to the Terms is effective, that means you agree to all of the changes.<br></br><br></br>
             Except for changes by us as described here, no other amendment or modification of these Terms will be effective unless in writing and signed by both you and us.
           </div>
