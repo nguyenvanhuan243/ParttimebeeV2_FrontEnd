@@ -6,7 +6,7 @@ import { Alert } from 'reactstrap';
 import classNames from 'classnames';
 import config from '../../../../config';
 
-export default class Signup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class Signup extends PureComponent {
   constructor() {
     super();
     this.state = {
@@ -46,15 +46,7 @@ export default class Signup extends PureComponent { // eslint-disable-line react
     }
   }
   render() {
-    const {
-      success,
-      danger,
-      focusEmail,
-      focusPassword,
-      showEmailAnimation,
-      showPasswordAnimation,
-      isPassword,
-    } = this.state;
+    const { success, danger, focusEmail, focusPassword, showEmailAnimation, showPasswordAnimation, isPassword } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
@@ -67,12 +59,8 @@ export default class Signup extends PureComponent { // eslint-disable-line react
     return (
       <div className="Signup">
         <DashlineIcon />
-        <div className="Signup-title">
-          Start posting jobs on Parttime Bee!
-        </div>
-        <div className="Signup-abstract">
-          It’s Free!
-        </div>
+        <div className="Signup-title"> Start posting jobs on Parttime Bee! </div>
+        <div className="Signup-abstract"> It’s Free! </div>
         <div className="Signup-form">
           <div>
             { success &&
@@ -119,9 +107,7 @@ export default class Signup extends PureComponent { // eslint-disable-line react
                   <label htmlFor className={passwordAnimation}>Password</label>
                 </div>
                 <button className="Signup-button">
-                  <div className="Signup-buttonText">
-                    Sign up FREE
-                  </div>
+                  <div className="Signup-buttonText"> Sign up FREE </div>
                 </button>
               </div>
             </form>

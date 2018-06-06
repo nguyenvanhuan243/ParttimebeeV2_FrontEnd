@@ -4,13 +4,10 @@ import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPass
 import axios from 'axios';
 import config from '../../../../config';
 
-export default class Login extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class Login extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      success: false,
-      danger: false,
-    };
+    this.state = { success: false, danger: false };
     this.onSubmit = this.onSubmit.bind(this);
   }
   onSubmit(e) {
@@ -36,9 +33,7 @@ export default class Login extends PureComponent { // eslint-disable-line react/
     return (
       <div className="Login">
         <DashlineIcon />
-        <div className="Login-title">
-          Great to see you again!
-        </div>
+        <div className="Login-title"> Great to see you again! </div>
         <div className="Login-form">
           <div className="Login-container">
             <form onSubmit={this.onSubmit}>
@@ -50,9 +45,7 @@ export default class Login extends PureComponent { // eslint-disable-line react/
                   ref={(ref) => (this.email = ref)}
                 />
                 <div className="Login-separate" />
-                <div className="Login-placeHolderTop">
-                  Password
-                </div>
+                <div className="Login-placeHolderTop"> Password </div>
                 <div className="Login-inputPassContainer">
                   <input
                     className="Login-inputHover"
@@ -64,9 +57,7 @@ export default class Login extends PureComponent { // eslint-disable-line react/
                 </div>
                 <div className="Login-separateColor" />
                 <button className="Login-button">
-                  <div className="Login-buttonText">
-                    Login
-                  </div>
+                  <div className="Login-buttonText"> Login </div>
                 </button>
               </div>
             </form>
