@@ -42,7 +42,6 @@ import MyJobsDeleteConfirmationPopup from 'containers/MyJobs/MyJobsDeleteConfirm
 import MyJobsDeleteConfirmationToastBox from 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/Loadable';
 // POST JOBS
 import PostJob from 'containers/PostJob/PostJob/Loadable';
-import PreView from 'containers/PostJob/PreView/Loadable';
 import EditJob from 'containers/PostJob/EditJob/Loadable';
 import FirstTimePostJob from 'containers/PostJob/FirstTimePostJob/Loadable';
 import SearchResult from 'containers/PostJob/SearchResult/Loadable';
@@ -104,7 +103,6 @@ export default function App() {
         {/* POST JOBS */}
         <Route exact path="/test/postjobs-first-time-post-job" component={FirstTimePostJob} />
         <Route exact path="/test/postjobs-post-job" component={PostJob} />
-        <Route exact path="/test/postjobs-preview" component={PreView} />
         <Route exact path="/test/postjobs-edit-job" component={EditJob} />
         <Route exact path="/test/postjobs-search-result" component={SearchResult} />
         <Route exact path="/test/postjobs-no-search-result" component={NoSearchResult} />
