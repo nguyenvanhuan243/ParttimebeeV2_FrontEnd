@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
+import axios from 'axios';
+import config from '../../../../config';
 
 export default class EditAndPost extends Component {
   constructor() {
@@ -13,6 +15,21 @@ export default class EditAndPost extends Component {
       focusOnCity: false,
       focusOnDescription: false,
     };
+  }
+  onSubmit = (e) => {
+    e.preventDefault();
+    const url = `${config.API_BASE_URL}/jobs`;
+    axios.post(url, {
+      title: this.title.value,
+      category: this.category.value,
+      description: this.description.value,
+      salary: this.salary.value,
+      salaryType: this.salaryType.value,
+      salaryState: this.salaryState.value,
+      city: this.city.value,
+      user_id: localStorage.currentUser,
+    });
+    location.reload();
   }
   render() {
     const {
@@ -44,13 +61,14 @@ export default class EditAndPost extends Component {
                   <div className="EditAndPost-lableSalaryState"> City (optional) </div>
                 </div>
                 <div className="EditAndPost-inputContainer">
-                  <form>
+                  <form onSubmit={this.onSubmit}>
                     <div className="EditAndPost-inputTitle">
                       <input
                         className="EditAndPost-customInput"
-                        laceholder="Title"
+                        placeholder="Title"
                         onFocus={() => this.setState({ focusOnTitle: true })}
                         onBlur={() => this.setState({ focusOnTitle: false })}
+                        ref={(ref) => (this.title = ref)}
                       />
                     </div>
                     <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
@@ -58,6 +76,7 @@ export default class EditAndPost extends Component {
                       className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
                       onFocus={() => this.setState({ focusOnCategory: true })}
                       onBlur={() => this.setState({ focusOnCategory: false })}
+                      ref={(ref) => (this.category = ref)}
                     >
                       <option> Home </option>
                       <option> Event </option>
@@ -73,6 +92,7 @@ export default class EditAndPost extends Component {
                         placeholder="Description"
                         onFocus={() => this.setState({ focusOnDescription: true })}
                         onBlur={() => this.setState({ focusOnDescription: false })}
+                        ref={(ref) => (this.description = ref)}
                       />
                     </div>
                     <div className={`${focusOnDescription ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
@@ -80,8 +100,10 @@ export default class EditAndPost extends Component {
                       <input
                         className="EditAndPost-customInput"
                         placeholder="RM19.00"
+                        type="number"
                         onFocus={() => this.setState({ focusOnSalary: true })}
                         onBlur={() => this.setState({ focusOnSalary: false })}
+                        ref={(ref) => (this.salary = ref)}
                       />
                     </div>
                     <div className={`${focusOnSalary ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
@@ -89,6 +111,7 @@ export default class EditAndPost extends Component {
                       className={`${focusOnSalaryType ? 'EditAndPost-inputSalaryTypeSelected' : 'EditAndPost-inputSalaryType'}`}
                       onFocus={() => this.setState({ focusOnSalaryType: true })}
                       onBlur={() => this.setState({ focusOnSalaryType: false })}
+                      ref={(ref) => (this.salaryType = ref)}
                     >
                       <option> Per hour </option>
                       <option> Per day </option>
@@ -99,6 +122,7 @@ export default class EditAndPost extends Component {
                         className={`${focusOnSalaryState ? 'EditAndPost-inputSalaryStateSelected' : 'EditAndPost-inputSalaryState'}`}
                         onFocus={() => this.setState({ focusOnSalaryState: true })}
                         onBlur={() => this.setState({ focusOnSalaryState: false })}
+                        ref={(ref) => (this.salaryState = ref)}
                       >
                         <option> Johor </option>
                         <option> Kuala Lumpur </option>
@@ -111,6 +135,7 @@ export default class EditAndPost extends Component {
                         placeholder="inputCity"
                         onFocus={() => this.setState({ focusOnCity: true })}
                         onBlur={() => this.setState({ focusOnCity: false })}
+                        ref={(ref) => (this.city = ref)}
                       />
                     </div>
                     <div className={`${focusOnCity ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
