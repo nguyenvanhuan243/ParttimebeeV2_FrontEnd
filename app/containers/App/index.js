@@ -41,7 +41,6 @@ import MyJobsExpiredSingleRepostToastBox from 'containers/MyJobs/MyJobsExpiredSi
 import MyJobsDeleteConfirmationPopup from 'containers/MyJobs/MyJobsDeleteConfirmationPopup/Loadable';
 import MyJobsDeleteConfirmationToastBox from 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/Loadable';
 // POST JOBS
-import PostJob from 'containers/PostJob/PostJob/Loadable';
 import EditJob from 'containers/PostJob/EditJob/Loadable';
 import FirstTimePostJob from 'containers/PostJob/FirstTimePostJob/Loadable';
 import SearchResult from 'containers/PostJob/SearchResult/Loadable';

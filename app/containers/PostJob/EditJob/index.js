@@ -1,14 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 
@@ -25,15 +14,9 @@ export default class EditJob extends Component { // eslint-disable-line react/pr
             <div className="EditJob-form">
               <div className="EditJob-formContainer">
                 <div className="EditJob-lableContainer">
-                  <div className="EditJob-lableTitle">
-                    Title
-                  </div>
-                  <div className="EditJob-lableCategory">
-                    Job Category
-                  </div>
-                  <div className="EditJob-lableDescription">
-                    Job Description
-                  </div>
+                  <div className="EditJob-lableTitle"> Title </div>
+                  <div className="EditJob-lableCategory"> Job Category </div>
+                  <div className="EditJob-lableDescription"> Job Description </div>
                   <div className="EditJob-lableSalary">
                     Salary
                   </div>
