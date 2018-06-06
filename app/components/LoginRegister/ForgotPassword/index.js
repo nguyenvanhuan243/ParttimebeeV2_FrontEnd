@@ -1,15 +1,54 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import classNames from 'classnames';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
-import FormComponent from 'components/LoginRegister/GeneralComponent/Form/Loadable';
 
-const ForgotPassword = () => (
-  <div className="ForgotPassword">
-    <DashlineIcon />
-    <div className="ForgotPassword-title"> Forgot your password? </div>
-    <div className="ForgotPassword-abstract"> We`ll send you an email with a reset link. </div>
-    <div className="ForgotPassword-form">
-      <FormComponent buttonText="Reset password" showPasswordInput={false} />
-    </div>
-  </div>
-);
-export default ForgotPassword;
+export default class ForgotPassword extends PureComponent {
+  constructor() {
+    super();
+    this.state = { focusEmail: false, showEmailAnimation: false };
+  }
+  handleOnchangeEmail(e) {
+    if (e.target.value === '') {
+      this.setState({ showEmailAnimation: false });
+    } else {
+      this.setState({ showEmailAnimation: true });
+    }
+  }
+  render() {
+    const { focusEmail, showEmailAnimation } = this.state;
+    const emailAnimation = classNames('Signup-inputLabel', {
+      'Signup-inputAnimation': showEmailAnimation,
+      'Signup-animationColor': focusEmail,
+    });
+    return (
+      <div className="ForgotPassword">
+        <DashlineIcon />
+        <div className="ForgotPassword-title"> Forgot your password? </div>
+        <div className="ForgotPassword-abstract"> We`ll send you an email with a reset link. </div>
+        <div className="Signup-form">
+          <form onSubmit={this.onSubmit}>
+            <div className="Signup-inputCustom">
+              <div className="Signup-emailContainer">
+                <input
+                  className="Signup-inputHoverEmail"
+                  type="text"
+                  placeholder="Email"
+                  ref={(ref) => (this.email = ref)}
+                  onFocus={() => this.setState({ focusEmail: true })}
+                  onBlur={() => this.setState({ focusEmail: false })}
+                  onChange={(e) => this.handleOnchangeEmail(e)}
+                />
+                <label htmlFor className={emailAnimation}>Email</label>
+                <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
+              </div>
+              <button className="Signup-button">
+                <div className="Signup-buttonText"> Reset password </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
+}
+
