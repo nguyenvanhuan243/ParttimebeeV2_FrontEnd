@@ -10,7 +10,7 @@ import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadabl
 import axios from 'axios';
 import config from '../../../../config';
 
-const JOB_TYPE = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
+const TYPE_JOB = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
 const currentUser = localStorage.currentUser;
 export default class MyJobs extends Component {
   constructor() {
@@ -45,7 +45,7 @@ export default class MyJobs extends Component {
     this.getActiveJob(value);
   }
   countJobByType(array, type) {
-    return array.filter((item) => item.job_type === type).length;
+    return array.filter((item) => item.TYPE_JOB === type).length;
   }
   render() {
     const {
@@ -54,9 +54,9 @@ export default class MyJobs extends Component {
       myJobResourceEndPoint,
       activeJob,
     } = this.state;
-    const goingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.GOING);
-    const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.PENDING);
-    const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.EXPIRED);
+    const goingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.GOING);
+    const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.PENDING);
+    const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.EXPIRED);
     const myJobList = [];
     const textArray = [
       `${goingJobNumber} On-going jobs`,
