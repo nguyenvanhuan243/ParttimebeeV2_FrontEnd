@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
+import axios from 'axios';
 import config from '../../../../config';
 
 export default class ForgotPassword extends PureComponent {
@@ -10,6 +11,9 @@ export default class ForgotPassword extends PureComponent {
   }
   onSubmit = (e) => {
     e.preventDefault();
+    axios.post(`${config.API_BASE_URL}/users/reset-password`, {
+      email: this.email.value,
+    });
     location.replace(`${config.BASE_URL}/user/forgot-password-incoming`);
   }
   handleOnchangeEmail(e) {
