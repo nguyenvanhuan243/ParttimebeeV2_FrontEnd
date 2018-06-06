@@ -101,7 +101,6 @@ export default function App() {
         <Route exact path="/test/myjobs/myjobs-delete-confirmation-toast-box" component={MyJobsDeleteConfirmationToastBox} />
         {/* POST JOBS */}
         <Route exact path="/test/postjobs-first-time-post-job" component={FirstTimePostJob} />
-        <Route exact path="/test/postjobs-post-job" component={PostJob} />
         <Route exact path="/test/postjobs-edit-job" component={EditJob} />
         <Route exact path="/test/postjobs-search-result" component={SearchResult} />
         <Route exact path="/test/postjobs-no-search-result" component={NoSearchResult} />
