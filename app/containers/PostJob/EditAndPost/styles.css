@@ -114,6 +114,18 @@
 
 .EditAndPost-inputCategory {
   margin-top: 54px;
+  width: 160px;
+  height: 30px;
+  border-radius: 3px;
+  border: solid 1px #e8e8e8;
+}
+
+.EditAndPost-inputCategorySelected {
+  margin-top: 54px;
+  width: 160px;
+  height: 30px;
+  border-radius: 3px;
+  outline: 1px solid #FA0 !important;
 }
 
 .EditAndPost-inputDescription {
@@ -126,10 +138,34 @@
 
 .EditAndPost-inputSalaryType {
   margin-top: 30px;
+  width: 160px;
+  height: 30px;
+  border-radius: 3px;
+  border: solid 1px #e8e8e8;
+}
+
+.EditAndPost-inputSalaryTypeSelected {
+  margin-top: 30px;
+  width: 160px;
+  height: 30px;
+  border-radius: 3px;
+  outline: solid 1px #FA0 !important;
 }
 
 .EditAndPost-inputSalaryState {
   margin-top: 30px;
+  width: 160px;
+  height: 30px;
+  border-radius: 3px;
+  border: solid 1px #e8e8e8;
+}
+
+.EditAndPost-inputSalaryStateSelected {
+  margin-top: 30px;
+  width: 160px;
+  height: 30px;
+  border-radius: 3px;
+  outline: solid 1px #FA0;
 }
 
 .EditAndPost-inputCity {

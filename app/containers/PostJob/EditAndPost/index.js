@@ -6,7 +6,10 @@ export default class EditAndPost extends Component {
     super();
     this.state = {
       focusOnTitle: false,
+      focusOnCategory: false,
       focusOnSalary: false,
+      focusOnSalaryType: false,
+      focusOnSalaryState: false,
       focusOnCity: false,
       focusOnDescription: false,
     };
@@ -14,7 +17,10 @@ export default class EditAndPost extends Component {
   render() {
     const {
       focusOnTitle,
+      focusOnCategory,
       focusOnSalary,
+      focusOnSalaryType,
+      focusOnSalaryState,
       focusOnCity,
       focusOnDescription,
     } = this.state;
@@ -48,10 +54,18 @@ export default class EditAndPost extends Component {
                       />
                     </div>
                     <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
-                    <select className="EditAndPost-inputCategory">
-                      <option> Category 1 </option>
-                      <option> Category 1 </option>
-                      <option> Category 1 </option>
+                    <select
+                      className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
+                      onFocus={() => this.setState({ focusOnCategory: true })}
+                      onBlur={() => this.setState({ focusOnCategory: false })}
+                    >
+                      <option> Home </option>
+                      <option> Event </option>
+                      <option> Education </option>
+                      <option> Retails </option>
+                      <option> Food </option>
+                      <option> Administrative </option>
+                      <option> Others </option>
                     </select>
                     <div className="EditAndPost-inputDescription">
                       <textarea
@@ -71,16 +85,24 @@ export default class EditAndPost extends Component {
                       />
                     </div>
                     <div className={`${focusOnSalary ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
-                    <div className="EditAndPost-inputSalaryType">
-                      <select>
-                        <option> Category 1 </option>
-                        <option> Category 1 </option>
-                        <option> Category 1 </option>
-                      </select>
-                    </div>
-                    <div className="EditAndPost-inputSalaryState">
-                      <select>
-                        <option> Category 1 </option>
+                    <select
+                      className={`${focusOnSalaryType ? 'EditAndPost-inputSalaryTypeSelected' : 'EditAndPost-inputSalaryType'}`}
+                      onFocus={() => this.setState({ focusOnSalaryType: true })}
+                      onBlur={() => this.setState({ focusOnSalaryType: false })}
+                    >
+                      <option> Per hour </option>
+                      <option> Per day </option>
+                      <option> Per month </option>
+                    </select>
+                    <div>
+                      <select
+                        className={`${focusOnSalaryState ? 'EditAndPost-inputSalaryStateSelected' : 'EditAndPost-inputSalaryState'}`}
+                        onFocus={() => this.setState({ focusOnSalaryState: true })}
+                        onBlur={() => this.setState({ focusOnSalaryState: false })}
+                      >
+                        <option> Johor </option>
+                        <option> Kuala Lumpur </option>
+                        <option> Melaka </option>
                       </select>
                     </div>
                     <div className="EditAndPost-inputCity">
