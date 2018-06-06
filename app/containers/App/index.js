@@ -71,8 +71,8 @@ export default function App() {
         <Route exact path="/test/user/signup" component={Signup} />
         <Route exact path="/test/user/login" component={Login} />
         <Route exact path="/test/user/forgot-password" component={ForgotPassword} />
-        <Route exact path="/test/user/forgot-password-incoming" component={ForgotPasswordIncoming} />
         <Route exact path="/test/user/email-reset-password" component={EmailResetPassword} />
+        <Route exact path="/test/user/forgot-password-incoming" component={ForgotPasswordIncoming} />
         <Route exact path="/test/user/click-email1" component={ClickEmail1} />
         <Route exact path="/test/user/click-email2" component={ClickEmail2} />
         <Route exact path="/test/user/email-updated-password" component={EmailUpdatedPassword} />
