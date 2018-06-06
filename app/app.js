@@ -110,7 +110,7 @@ import 'containers/MyJobs/MyJobsPendingSingleEdit/styles.css';
 import 'containers/MyJobs/MyJobsPendingSingleEditToastBox/styles.css';
 
 // Post jobs
-import 'containers/PostJob/EditJob/styles.css';
+import 'containers/PostJob/EditAndPost/styles.css';
 import 'containers/PostJob/FirstTimePostJob/styles.css';
 import 'containers/PostJob/SearchResult/styles.css';
 

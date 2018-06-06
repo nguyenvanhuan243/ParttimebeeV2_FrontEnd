@@ -42,7 +42,7 @@ import MyJobsDeleteConfirmationPopup from 'containers/MyJobs/MyJobsDeleteConfirm
 import MyJobsDeleteConfirmationToastBox from 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/Loadable';
 
 // POST JOBS
-import EditJob from 'containers/PostJob/EditJob/Loadable';
+import EditJob from 'containers/PostJob/EditAndPost/Loadable';
 import FirstTimePostJob from 'containers/PostJob/FirstTimePostJob/Loadable';
 import SearchResult from 'containers/PostJob/SearchResult/Loadable';
 

@@ -1,11 +1,11 @@
-.EditJob {
+.EditAndPost {
   width: 1100px;
   margin: 0 auto;
   padding-top: 30px;
   margin-bottom: 30px;
 }
 
-.EditJob-title {
+.EditAndPost-title {
   width: 97px;
   height: 32px;
   font-size: 26px;
@@ -18,12 +18,12 @@
   color: #000000;
 }
 
-.EditJob-content {
+.EditAndPost-content {
   display: flex;
   margin-top: 30px;
 }
 
-.EditJob-form {
+.EditAndPost-form {
   width: 750px;
   height: 729px;
   border-radius: 3px;
@@ -32,12 +32,12 @@
   margin-right: 20px;
 }
 
-.EditJob-formContainer {
+.EditAndPost-formContainer {
   display: flex;
   margin: 20px;
 }
 
-.EditJob-sideBarTitle {
+.EditAndPost-sideBarTitle {
   width: 330px;
   height: 20px;
   font-size: 13px;
@@ -51,7 +51,7 @@
 }
 
 
-.EditJob-sideBarAbstract {
+.EditAndPost-sideBarAbstract {
   width: 330px;
   height: 40px;
   font-size: 13px;
@@ -64,7 +64,7 @@
   color: #999999;
 }
 
-.EditJob-lableContainer {
+.EditAndPost-lableContainer {
   margin-right: 20px;
   width: 120px;
   font-size: 13px;
@@ -76,73 +76,73 @@
   text-align: left;
   color: #999999;
 }
-.EditJob-lableTitle {
+.EditAndPost-lableTitle {
   margin-bottom: 64px;
 }
 
-.EditJob-lableCategory {
+.EditAndPost-lableCategory {
   margin-bottom: 36px;
 }
 
-.EditJob-lableDescription {
+.EditAndPost-lableDescription {
   margin-bottom: 255px;
 }
 
-.EditJob-lableSalary {
+.EditAndPost-lableSalary {
   margin-bottom: 40px;
 }
 
-.EditJob-lableSalaryType {
+.EditAndPost-lableSalaryType {
   margin-bottom: 40px;
 }
 
-.EditJob-lableSalaryState {
+.EditAndPost-lableSalaryState {
   margin-bottom: 35px;
 }
 
-.EditJob-separateActive {
+.EditAndPost-separateActive {
   width: 570px;
   height: 1px;
   background-color: #ffaa00;
   margin-top: 4px;
 }
 
-.EditJob-separate {
+.EditAndPost-separate {
   width: 570px;
   height: 1px;
   background-color: #d8d8d8;
 }
 
-.EditJob-inputCategory {
+.EditAndPost-inputCategory {
   margin-top: 54px;
 }
 
-.EditJob-inputDescription {
+.EditAndPost-inputDescription {
   margin-top: 30px;
 }
 
-.EditJob-inputSalary {
+.EditAndPost-inputSalary {
   margin-top: 54px;
 }
 
-.EditJob-inputSalaryType {
+.EditAndPost-inputSalaryType {
   margin-top: 30px;
 }
 
-.EditJob-inputSalaryState {
+.EditAndPost-inputSalaryState {
   margin-top: 30px;
 }
 
-.EditJob-inputCity {
+.EditAndPost-inputCity {
   margin-top: 30px;
 }
 
-.EditJob-buttonContainer {
+.EditAndPost-buttonContainer {
   margin-top: 30px;
   margin-left: 368px;
   display: flex;
 }
-.EditJob-buttonPreview {
+.EditAndPost-buttonPreview {
   width: 90px;
   height: 34px;
   border-radius: 3px;
@@ -152,7 +152,7 @@
   margin-right: 16px !important;
   cursor: pointer;
 }
-.EditJob-buttonPostjob {
+.EditAndPost-buttonPostjob {
   width: 96px;
   height: 34px;
   border-radius: 3px;
@@ -162,14 +162,14 @@
   cursor: pointer;
 }
 
-.EditJob-textAria {
+.EditAndPost-textAria {
   width: 568px;
   height: 216px;
   outline: none !important;
   resize: none;
 }
 
-.EditJob-customInput {
+.EditAndPost-customInput {
   width: 570px !important;
   outline: none !important;
 }
