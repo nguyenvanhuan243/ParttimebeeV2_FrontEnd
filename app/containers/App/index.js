@@ -45,7 +45,6 @@ import PostJob from 'containers/PostJob/PostJob/Loadable';
 import PreView from 'containers/PostJob/PreView/Loadable';
 import EditJob from 'containers/PostJob/EditJob/Loadable';
 import FirstTimePostJob from 'containers/PostJob/FirstTimePostJob/Loadable';
-import PostJobConfirmed from 'containers/PostJob/PostJobConfirmed/Loadable';
 import SearchResult from 'containers/PostJob/SearchResult/Loadable';
 import NoSearchResult from 'containers/PostJob/NoSearchResult/Loadable';
 
@@ -107,7 +106,6 @@ export default function App() {
         <Route exact path="/test/postjobs-post-job" component={PostJob} />
         <Route exact path="/test/postjobs-preview" component={PreView} />
         <Route exact path="/test/postjobs-edit-job" component={EditJob} />
-        <Route exact path="/test/postjobs-post-job-confirmed" component={PostJobConfirmed} />
         <Route exact path="/test/postjobs-search-result" component={SearchResult} />
         <Route exact path="/test/postjobs-no-search-result" component={NoSearchResult} />
         <Route component={NotFoundPage} />

@@ -116,7 +116,6 @@ import 'containers/PostJob/SearchResult/styles.css';
 import 'containers/PostJob/NoSearchResult/styles.css';
 import 'containers/PostJob/PostJob/styles.css';
 import 'containers/PostJob/PreView/styles.css';
-import 'containers/PostJob/PostJobConfirmed/styles.css';
 
 // MY PROFILE.
 import 'containers/MyProfile/EditProfile/styles.css';
