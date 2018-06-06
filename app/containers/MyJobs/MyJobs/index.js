@@ -45,7 +45,7 @@ export default class MyJobs extends Component {
     this.getActiveJob(value);
   }
   countJobByType(array, type) {
-    return array.filter((item) => item.type_job === type).length;
+    return array.filter((item) => item.job_type === type).length;
   }
   render() {
     const {
