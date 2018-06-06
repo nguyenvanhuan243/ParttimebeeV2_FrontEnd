@@ -40,11 +40,11 @@ import MyJobsPendingSingleEditToastBox from 'containers/MyJobs/MyJobsPendingSing
 import MyJobsExpiredSingleRepostToastBox from 'containers/MyJobs/MyJobsExpiredSingleRepostToastBox/Loadable';
 import MyJobsDeleteConfirmationPopup from 'containers/MyJobs/MyJobsDeleteConfirmationPopup/Loadable';
 import MyJobsDeleteConfirmationToastBox from 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/Loadable';
+
 // POST JOBS
 import EditJob from 'containers/PostJob/EditJob/Loadable';
 import FirstTimePostJob from 'containers/PostJob/FirstTimePostJob/Loadable';
 import SearchResult from 'containers/PostJob/SearchResult/Loadable';
-import NoSearchResult from 'containers/PostJob/NoSearchResult/Loadable';
 
 // MY PROFILES
 import EditProfile from 'containers/MyProfile/EditProfile/Loadable';
@@ -103,7 +103,6 @@ export default function App() {
         <Route exact path="/test/postjobs-first-time-post-job" component={FirstTimePostJob} />
         <Route exact path="/test/postjobs-edit-job" component={EditJob} />
         <Route exact path="/test/postjobs-search-result" component={SearchResult} />
-        <Route exact path="/test/postjobs-no-search-result" component={NoSearchResult} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
