@@ -1,11 +1,16 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
+import config from '../../../../config';
 
 export default class ForgotPassword extends PureComponent {
   constructor() {
     super();
     this.state = { focusEmail: false, showEmailAnimation: false };
+  }
+  onSubmit = (e) => {
+    e.preventDefault();
+    location.replace(`${config.BASE_URL}/user/forgot-password-incoming`);
   }
   handleOnchangeEmail(e) {
     if (e.target.value === '') {
@@ -31,7 +36,7 @@ export default class ForgotPassword extends PureComponent {
               <div className="Signup-emailContainer">
                 <input
                   className="Signup-inputHoverEmail"
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   ref={(ref) => (this.email = ref)}
                   onFocus={() => this.setState({ focusEmail: true })}
