@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 
-export default class EditAndPost extends Component { // eslint-disable-line react/prefer-stateless-function
+export default class EditAndPost extends Component {
+  constructor() {
+    super();
+    this.state = {
+      focusOnTitle: false,
+      focusOnSalary: false,
+      focusOnCity: false,
+      focusOnDescription: false,
+    };
+  }
   render() {
+    const {
+      focusOnTitle,
+      focusOnSalary,
+      focusOnCity,
+      focusOnDescription,
+    } = this.state;
     return (
       <div>
         <Header />
@@ -25,22 +40,37 @@ export default class EditAndPost extends Component { // eslint-disable-line reac
                 <div className="EditAndPost-inputContainer">
                   <form>
                     <div className="EditAndPost-inputTitle">
-                      <input className="EditAndPost-customInput" placeholder="Title" />
+                      <input
+                        className="EditAndPost-customInput"
+                        laceholder="Title"
+                        onFocus={() => this.setState({ focusOnTitle: true })}
+                        onBlur={() => this.setState({ focusOnTitle: false })}
+                      />
                     </div>
-                    <div className="EditAndPost-separateActive"></div>
+                    <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
                     <select className="EditAndPost-inputCategory">
                       <option> Category 1 </option>
                       <option> Category 1 </option>
                       <option> Category 1 </option>
                     </select>
                     <div className="EditAndPost-inputDescription">
-                      <textarea className="EditAndPost-textAria" placeholder="Description" />
+                      <textarea
+                        className="EditAndPost-textAria"
+                        placeholder="Description"
+                        onFocus={() => this.setState({ focusOnDescription: true })}
+                        onBlur={() => this.setState({ focusOnDescription: false })}
+                      />
                     </div>
-                    <div className="EditAndPost-separate"></div>
+                    <div className={`${focusOnDescription ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
                     <div className="EditAndPost-inputSalary">
-                      <input className="EditAndPost-customInput" placeholder="Salary" />
+                      <input
+                        className="EditAndPost-customInput"
+                        placeholder="RM19.00"
+                        onFocus={() => this.setState({ focusOnSalary: true })}
+                        onBlur={() => this.setState({ focusOnSalary: false })}
+                      />
                     </div>
-                    <div className="EditAndPost-separate"></div>
+                    <div className={`${focusOnSalary ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
                     <div className="EditAndPost-inputSalaryType">
                       <select>
                         <option> Category 1 </option>
@@ -54,9 +84,14 @@ export default class EditAndPost extends Component { // eslint-disable-line reac
                       </select>
                     </div>
                     <div className="EditAndPost-inputCity">
-                      <input className="EditAndPost-customInput" placeholder="inputCity" />
+                      <input
+                        className="EditAndPost-customInput"
+                        placeholder="inputCity"
+                        onFocus={() => this.setState({ focusOnCity: true })}
+                        onBlur={() => this.setState({ focusOnCity: false })}
+                      />
                     </div>
-                    <div className="EditAndPost-separate"></div>
+                    <div className={`${focusOnCity ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
                     <div className="EditAndPost-buttonContainer">
                       <button className="EditAndPost-buttonPreview"> Preview </button>
                       <button className="EditAndPost-buttonPostjob"> Post job </button>
