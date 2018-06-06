@@ -32,7 +32,7 @@ export default class Header extends PureComponent {
               <LogoIcon />
             </div>
             <div style={notLoginStyle} className="Header-postJobContainer">
-              <a className="Header-href" href={`${config.BASE_URL}/user/signup`}>
+              <a className="Header-href" href={`${config.BASE_URL}/postjobs-post-job`}>
                 <div className={logoutClassName}>
                   <span className="Header-postJobText"> POSTJOB </span>
                 </div>
