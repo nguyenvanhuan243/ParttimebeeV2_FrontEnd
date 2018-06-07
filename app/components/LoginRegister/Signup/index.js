@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
-import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
+// import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
 import { Alert } from 'reactstrap';
 import classNames from 'classnames';
 import config from '../../../../config';
@@ -72,9 +72,9 @@ export default class Signup extends PureComponent {
             </Alert> }
             <form onSubmit={this.onSubmit}>
               <div className="Signup-inputCustom">
-                <div className="Signup-emailContainer">
+                <div>
                   <input
-                    className="Signup-inputHoverEmail"
+                    className="Signup-removeOutline"
                     type="email"
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
@@ -85,26 +85,24 @@ export default class Signup extends PureComponent {
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
-                <div className="Signup-passwordContainer">
-                  <div className="Signup-inputPasswordContainer">
-                    <input
-                      className="Signup-inputHover"
-                      type={isPassword ? 'password' : 'text'}
-                      placeholder="Password"
-                      ref={(ref) => (this.password = ref)}
-                      onFocus={() => this.setState({ focusPassword: true })}
-                      onBlur={() => this.setState({ focusPassword: false })}
-                      onChange={(e) => this.handleOnchangePassword(e)}
-                    />
-                    <ShowPasswordIcon
-                      onToggle={(e) => {
-                        e.preventDefault();
-                        this.setState({ isPassword: !this.state.isPassword });
-                      }}
-                    />
-                  </div>
-                  <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
+                <div>
+                  <input
+                    className="Signup-removeOutline"
+                    type={isPassword ? 'password' : 'text'}
+                    placeholder="Password"
+                    ref={(ref) => (this.password = ref)}
+                    onFocus={() => this.setState({ focusPassword: true })}
+                    onBlur={() => this.setState({ focusPassword: false })}
+                    onChange={(e) => this.handleOnchangePassword(e)}
+                  />
+                  {/* <ShowPasswordIcon
+                    onToggle={(e) => {
+                      e.preventDefault();
+                      this.setState({ isPassword: !this.state.isPassword });
+                    }}
+                  /> */}
                   <label htmlFor className={passwordAnimation}>Password</label>
+                  <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
                 <button className="Signup-button">
                   <div className="Signup-buttonText"> Sign up FREE </div>
