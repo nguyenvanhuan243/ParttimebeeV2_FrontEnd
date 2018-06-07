@@ -75,7 +75,7 @@ export default class Signup extends PureComponent {
                 <div className="Signup-emailContainer">
                   <input
                     className="Signup-inputHoverEmail"
-                    type="text"
+                    type="email"
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
