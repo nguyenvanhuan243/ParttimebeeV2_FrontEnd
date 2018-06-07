@@ -1,6 +1,6 @@
 .Signup {
   width: 1388px;
-  padding-top: 49px;
+  padding-top: 50px;
   margin: 0 auto;
   text-align: center;
 }
@@ -104,12 +104,14 @@ button.Signup-button {
 }
 
 .Signup-separate {
+  width: 400px;
   height: 1px;
   background-color: #e8e8e8;
   margin-top: 3px;
 }
 
 .Signup-separateColor {
+  width: 400px;
   height: 1px;
   background-color: #ffaa00;
 }
