@@ -173,19 +173,6 @@ input.Signup-inputHoverEmail {
   width: 400px;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  padding-left: 0px;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  padding-left: 0px;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  padding-left: 0px;
-}
-:-moz-placeholder { /* Firefox 18- */
-  padding-left: 0px;
-}
-
 .Signup-inputLabel {
   opacity: 0;
   transform-origin: left top;
