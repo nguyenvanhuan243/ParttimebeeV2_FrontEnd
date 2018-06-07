@@ -1,36 +1,23 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
+import React from 'react';
 
-import React, { PureComponent } from 'react';
-
-export default class Logo extends PureComponent { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    return (
-      <svg
-        version="1.1"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        width="39px"
-        height="47px"
-        viewBox="0 0 39 47"
-        enableBackground="new 0 0 39 47"
-        xmlSpace="preserve"
-      >
-        <image
-          width={39}
-          height={47}
-          x={0}
-          y={0}
-          xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAvCAMAAABXLiNqAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+const Logo = () => (
+  <svg
+    version="1.1"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    width="39px"
+    height="47px"
+    viewBox="0 0 39 47"
+    enableBackground="new 0 0 39 47"
+    xmlSpace="preserve"
+  >
+    <image
+      width={39}
+      height={47}
+      x={0}
+      y={0}
+      xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAvCAMAAABXLiNqAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
       AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABvFBMVEUAAAA/Ozc9OTY8ODc8
       OTY8ODY8ODc8OTY9OTc8PDhVVVVHOTk8OTY7ODY8ODdCOjo9PT08ODY8ODc8PDz///88OTY8ODY7
       Ozc8OTY9Ojc8OTc9OjhJSTc7ODY8OTc7Ozs+PjY/Ojo7OTc9ODg8OTY+OTlBOzs8Ojg7OTY8OTdF
@@ -52,8 +39,7 @@ export default class Logo extends PureComponent { // eslint-disable-line react/p
       +eIX6ADwAaDmWMoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDUtMDdUMjA6MTY6MDgtMDc6MDBV
       1vLpAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTA1LTA3VDIwOjE2OjA4LTA3OjAwJItKVQAAAABJ
       RU5ErkJggg=="
-        />
-      </svg>
-    );
-  }
-}
+    />
+  </svg>
+);
+export default Logo;

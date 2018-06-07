@@ -1,26 +1,10 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React, { PureComponent, PropTypes } from 'react';
 
-export default class ShowPasswordIcon extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class ShowPasswordIcon extends PureComponent {
   render() {
-    const {
-      onToggle = () => {},
-    } = this.props;
-    const buttonStyle = {
-      cursor: 'pointer',
-    };
+    const { onToggle = () => {} } = this.props;
     return (
-      <button style={buttonStyle} onClick={onToggle}>
+      <button style={{ cursor: 'pointer' }} onClick={onToggle}>
         <svg
           version="1.1"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -52,7 +36,6 @@ export default class ShowPasswordIcon extends PureComponent { // eslint-disable-
     );
   }
 }
-
 ShowPasswordIcon.propTypes = {
   onToggle: PropTypes.func.isRequired,
 };
