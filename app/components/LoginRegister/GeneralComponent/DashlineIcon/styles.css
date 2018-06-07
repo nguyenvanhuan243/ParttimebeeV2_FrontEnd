@@ -12,3 +12,11 @@
   margin-top: 7px;
   object-fit: contain;
 }
+
+.DashlineIcon-container {
+  background-position: 100px;
+}
+.DashlineIcon-logo {
+  position: absolute;
+  margin-top: -23px;
+}
