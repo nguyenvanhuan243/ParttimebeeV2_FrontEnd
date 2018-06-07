@@ -16,20 +16,29 @@ export default class Signup extends PureComponent {
       focusPassword: false,
       showEmailAnimation: false,
       isPassword: true,
+      shakeEffect: false,
     };
   }
   onSubmit = (e) => {
+    const email = this.email.value;
+    const password = this.password.value;
     e.preventDefault();
-    const url = `${config.API_BASE_URL}/users?email=${this.email.value}&password=${this.password.value}`;
-    axios.post(url).then((response) => {
-      if (response.status === 201) {
-        this.setState({ success: true });
-      }
-    }).catch((error) => {
-      if (error.response.status === 422) {
-        this.setState({ danger: true });
-      }
-    });
+    const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
+    if (email && password) {
+      axios.post(url).then((response) => {
+        if (response.status === 201) {
+          this.setState({ success: true });
+        }
+      }).catch((error) => {
+        if (error.response.status === 422) {
+          this.setState({ danger: true });
+        }
+      });
+    } else {
+      this.setState({
+        shakeEffect: !this.state.shakeEffect,
+      });
+    }
   }
   handleOnchangeEmail(e) {
     if (e.target.value === '') {
@@ -46,7 +55,7 @@ export default class Signup extends PureComponent {
     }
   }
   render() {
-    const { success, danger, focusEmail, focusPassword, showEmailAnimation, showPasswordAnimation, isPassword } = this.state;
+    const { success, danger, focusEmail, focusPassword, showEmailAnimation, showPasswordAnimation, isPassword, shakeEffect } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
@@ -54,6 +63,9 @@ export default class Signup extends PureComponent {
     const passwordAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showPasswordAnimation,
       'Signup-animationColor': focusPassword,
+    });
+    const signUpClassname = classNames('Signup-inputCustom', {
+      'Signup-effectShake': shakeEffect,
     });
 
     return (
@@ -71,7 +83,7 @@ export default class Signup extends PureComponent {
               This email is used by a other user, Please use email has not been registered!
             </Alert> }
             <form onSubmit={this.onSubmit}>
-              <div className="Signup-inputCustom">
+              <div className={signUpClassname}>
                 <div>
                   <input
                     className="Signup-removeOutline"
