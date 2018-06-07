@@ -24,6 +24,9 @@ export default class Signup extends PureComponent {
     const password = this.password.value;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
+    this.setState({
+      shakeEffect: !this.state.shakeEffect,
+    });
     if (email && password) {
       axios.post(url).then((response) => {
         if (response.status === 201) {
@@ -33,10 +36,6 @@ export default class Signup extends PureComponent {
         if (error.response.status === 422) {
           this.setState({ danger: true });
         }
-      });
-    } else {
-      this.setState({
-        shakeEffect: !this.state.shakeEffect,
       });
     }
   }
