@@ -19,6 +19,7 @@
   margin: 0 auto;
   margin-top: 24px;
 }
+
 .Signup-emailValidate {
   width: 200px;
   height: 34px;
@@ -32,6 +33,25 @@
   text-align: left;
   color: #000000;
 }
+
+.Signup-passwordValidate {
+  width: 200px;
+  height: 17px;
+  font-family: NanumPen;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.Signup-validateContainer {
+  display: grid;
+}
+
 .Signup-abstract {
   height: 22px;
   font-size: 15px;
