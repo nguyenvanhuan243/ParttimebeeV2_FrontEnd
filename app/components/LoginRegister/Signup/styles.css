@@ -207,3 +207,7 @@ input.Signup-removeOutline {
   margin-top: -20px;
   margin-left: 380px;
 }
+
+.Signup-emailContainer {
+  margin-bottom: 20px;
+}

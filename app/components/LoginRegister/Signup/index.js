@@ -89,7 +89,7 @@ export default class Signup extends PureComponent {
             </Alert> }
             <form onSubmit={this.onSubmit}>
               <div className={signUpClassname}>
-                <div>
+                <div className="Signup-emailContainer">
                   <input
                     className="Signup-removeOutline"
                     type="email"
