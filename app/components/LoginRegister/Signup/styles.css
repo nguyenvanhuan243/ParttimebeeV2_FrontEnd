@@ -179,6 +179,7 @@ input.Signup-inputHover {
 input.Signup-removeOutline {
   outline: none;
   width: 400px;
+  padding-left: 2px;
 }
 
 .Signup-inputLabel {
