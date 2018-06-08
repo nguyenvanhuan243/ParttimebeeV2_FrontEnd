@@ -17,6 +17,7 @@ export default class Signup extends PureComponent {
       showEmailAnimation: false,
       isPassword: true,
       shakeEffect: false,
+      passwordValue: '',
     };
   }
   onSubmit = (e) => {
@@ -34,7 +35,8 @@ export default class Signup extends PureComponent {
           this.setState({ danger: true });
         }
       });
-    } else {
+    }
+    if (!email && !password) {
       this.setState({
         shakeEffect: !this.state.shakeEffect,
       });
@@ -48,6 +50,9 @@ export default class Signup extends PureComponent {
     }
   }
   handleOnchangePassword(e) {
+    this.setState({
+      passwordValue: e.target.value,
+    });z
     if (e.target.value === '') {
       this.setState({ showPasswordAnimation: false });
     } else {
@@ -55,7 +60,7 @@ export default class Signup extends PureComponent {
     }
   }
   render() {
-    const { success, danger, focusEmail, focusPassword, showEmailAnimation, showPasswordAnimation, isPassword, shakeEffect } = this.state;
+    const { success, danger, focusEmail, focusPassword, showEmailAnimation, showPasswordAnimation, isPassword, shakeEffect, passwordValue } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
@@ -128,6 +133,7 @@ export default class Signup extends PureComponent {
             </span>
             <span className="Signup-passwordValidate">
               { focusPassword ? 'Type 6 characters or more.' : null }
+              { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
             </span>
           </div>
         </div>
