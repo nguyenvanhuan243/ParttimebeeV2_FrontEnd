@@ -3,8 +3,9 @@ import React, { PureComponent, PropTypes } from 'react';
 export default class ShowPasswordIcon extends PureComponent {
   render() {
     const { onToggle = () => {} } = this.props;
+    const style = { cursor: 'pointer', padding: '0px', outline: 'none' };
     return (
-      <button style={{ cursor: 'pointer' }} onClick={onToggle}>
+      <button style={style} onClick={onToggle} >
         <svg
           version="1.1"
           xmlnsXlink="http://www.w3.org/1999/xlink"
