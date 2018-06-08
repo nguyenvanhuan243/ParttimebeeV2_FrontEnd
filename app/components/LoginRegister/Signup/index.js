@@ -52,7 +52,7 @@ export default class Signup extends PureComponent {
   handleOnchangePassword(e) {
     this.setState({
       passwordValue: e.target.value,
-    });z
+    });
     if (e.target.value === '') {
       this.setState({ showPasswordAnimation: false });
     } else {
