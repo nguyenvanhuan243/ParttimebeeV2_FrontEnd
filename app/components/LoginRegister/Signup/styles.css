@@ -200,3 +200,9 @@ input.Signup-removeOutline {
 .Signup-animationColor {
   color: #ffaa00;
 }
+
+.Signup-showPasswordIcon {
+  position: absolute;
+  margin-top: -26px;
+  margin-left: 380px;
+}

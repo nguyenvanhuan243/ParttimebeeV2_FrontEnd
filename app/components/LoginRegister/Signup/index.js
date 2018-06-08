@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
-// import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
+import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
 import { Alert } from 'reactstrap';
 import classNames from 'classnames';
 import config from '../../../../config';
@@ -112,12 +112,14 @@ export default class Signup extends PureComponent {
                     onBlur={() => this.setState({ focusPassword: false })}
                     onChange={(e) => this.handleOnchangePassword(e)}
                   />
-                  {/* <ShowPasswordIcon
-                    onToggle={(e) => {
-                      e.preventDefault();
-                      this.setState({ isPassword: !this.state.isPassword });
-                    }}
-                  /> */}
+                  { passwordValue.length ? <div className="Signup-showPasswordIcon">
+                    <ShowPasswordIcon
+                      onToggle={(e) => {
+                        e.preventDefault();
+                        this.setState({ isPassword: !this.state.isPassword });
+                      }}
+                    />
+                  </div> : null }
                   <label htmlFor className={passwordAnimation}>Password</label>
                   <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
