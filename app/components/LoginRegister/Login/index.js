@@ -15,6 +15,8 @@ export default class Login extends PureComponent {
       focusPassword: false,
       showEmailAnimation: false,
       isPassword: true,
+      shakeEffect: false,
+      passwordValue: '',
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -45,6 +47,9 @@ export default class Login extends PureComponent {
     }
   }
   handleOnchangePassword(e) {
+    this.setState({
+      passwordValue: e.target.value,
+    });
     if (e.target.value === '') {
       this.setState({ showPasswordAnimation: false });
     } else {
@@ -52,7 +57,15 @@ export default class Login extends PureComponent {
     }
   }
   render() {
-    const { focusEmail, focusPassword, showEmailAnimation, showPasswordAnimation, isPassword } = this.state;
+    const {
+      focusEmail,
+      focusPassword,
+      showEmailAnimation,
+      showPasswordAnimation,
+      isPassword,
+      shakeEffect,
+      passwordValue,
+    } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
@@ -61,6 +74,9 @@ export default class Login extends PureComponent {
       'Signup-inputAnimation': showPasswordAnimation,
       'Signup-animationColor': focusPassword,
     });
+    const signUpClassname = classNames('Signup-inputCustom', {
+      'Signup-effectShake': shakeEffect,
+    });
     return (
       <div className="Login">
         <DashlineIcon />
@@ -68,10 +84,10 @@ export default class Login extends PureComponent {
         <div className="Login-form">
           <div className="Login-container">
             <form onSubmit={this.onSubmit}>
-              <div className="Signup-inputCustom">
+              <div className={signUpClassname}>
                 <div className="Signup-emailContainer">
                   <input
-                    className="Signup-inputHoverEmail"
+                    className="Signup-removeOutline"
                     type="email"
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
@@ -82,32 +98,41 @@ export default class Login extends PureComponent {
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
-                <div className="Signup-passwordContainer">
-                  <div className="Signup-inputPasswordContainer">
-                    <input
-                      className="Signup-inputHover"
-                      type={isPassword ? 'password' : 'text'}
-                      placeholder="Password"
-                      ref={(ref) => (this.password = ref)}
-                      onFocus={() => this.setState({ focusPassword: true })}
-                      onBlur={() => this.setState({ focusPassword: false })}
-                      onChange={(e) => this.handleOnchangePassword(e)}
-                    />
+                <div>
+                  <input
+                    className="Signup-removeOutline"
+                    type={isPassword ? 'password' : 'text'}
+                    placeholder="Password"
+                    ref={(ref) => (this.password = ref)}
+                    onFocus={() => this.setState({ focusPassword: true })}
+                    onBlur={() => this.setState({ focusPassword: false })}
+                    onChange={(e) => this.handleOnchangePassword(e)}
+                  />
+                  { passwordValue.length ? <div className="Signup-showPasswordIcon">
                     <ShowPasswordIcon
                       onToggle={(e) => {
                         e.preventDefault();
                         this.setState({ isPassword: !this.state.isPassword });
                       }}
                     />
-                  </div>
-                  <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
+                  </div> : null }
                   <label htmlFor className={passwordAnimation}>Password</label>
+                  <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
                 <button className="Signup-button">
-                  <div className="Signup-buttonText"> Login </div>
+                  <div className="Signup-buttonText"> Sign up FREE </div>
                 </button>
               </div>
             </form>
+          </div>
+          <div className="Signup-validateContainer">
+            <span className="Signup-emailValidate">
+              { focusEmail ? 'We’ll send an email to this address for verification.' : null }
+            </span>
+            <span className="Signup-passwordValidate">
+              { focusPassword ? 'Type 6 characters or more.' : null }
+              { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
+            </span>
           </div>
         </div>
         <div className="Login-passwordContainer">

@@ -39,6 +39,7 @@
 .Login-form {
   margin-left: 522px;
   margin-top: 52px;
+  display: flex;
 }
 
 .Login-passwordContainer {
