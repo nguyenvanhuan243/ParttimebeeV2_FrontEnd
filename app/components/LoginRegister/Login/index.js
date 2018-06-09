@@ -127,7 +127,7 @@ export default class Login extends PureComponent {
                   <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
                 <button className="Signup-button">
-                  <div className="Signup-buttonText"> Sign up FREE </div>
+                  <div className="Signup-buttonText"> Login </div>
                 </button>
               </div>
             </form>
