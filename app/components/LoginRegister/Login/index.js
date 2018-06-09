@@ -21,6 +21,8 @@ export default class Login extends PureComponent {
     this.onSubmit = this.onSubmit.bind(this);
   }
   onSubmit(e) {
+    const email = this.email.value;
+    const password = this.password.value;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/sessions?email=${this.email.value}&password=${this.password.value}`;
     axios.post(url).then((response) => {
@@ -38,6 +40,11 @@ export default class Login extends PureComponent {
         });
       }
     });
+    if (!email && !password) {
+      this.setState({
+        shakeEffect: !this.state.shakeEffect,
+      });
+    }
   }
   handleOnchangeEmail(e) {
     if (e.target.value === '') {
