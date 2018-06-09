@@ -29,6 +29,7 @@ export default class Signup extends PureComponent {
       axios.post(url).then((response) => {
         if (response.status === 201) {
           this.setState({ success: true });
+          localStorage.setItem('currentUser', response.data.id);
         }
       }).catch((error) => {
         if (error.response.status === 422) {
