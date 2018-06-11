@@ -45,7 +45,7 @@ export default class JobList extends PureComponent {
     const listItem = [];
     let listFilterd = [];
     if (hasMyjob || hasProfile) {
-      listFilterd = dataResourceEndPoint.filter((item) => item.type_job === (jobType));
+      listFilterd = dataResourceEndPoint.filter((item) => item.job_type === (jobType));
     } else {
       listFilterd = dataResourceEndPoint;
     }
