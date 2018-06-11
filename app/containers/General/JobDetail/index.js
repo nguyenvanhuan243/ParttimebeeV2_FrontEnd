@@ -53,14 +53,20 @@ export default class JobDetail extends Component {
                 city={jobItem.city}
               />
               <div className="JobDetail-jobInformation">
-                <JobInformation handleShowPopup={() => this.showReportPopup()} />
+                <JobInformation
+                  handleShowPopup={() => this.showReportPopup()}
+                  jobId={jobItem.id}
+                  category={jobItem.category}
+                  salary={jobItem.salary}
+                  createdDay={jobItem.created_at}
+                  view={10}
+                />
               </div>
               <div className="JobDetail-descriptionTitle">
                 JOB DESCRIPTION
-                { jobItem.title }
               </div>
               <div className="JobDetail-description">
-                <JobDescription />
+                <JobDescription text={jobItem.description} />
               </div>
               <div className="JobDetail-rectangleGoogleAds">
                 <GoogleAdsense adsWidth={468} adsHeight={60} />
