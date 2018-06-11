@@ -30,7 +30,7 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
                   'Are you sure to delete this account?' }
               </div>
               <div className="DeleteConfirmationPopup-buttonContainer">
-                <button className="DeleteConfirmationPopup-cancelButton">
+                <button onClick={closeFunc} className="DeleteConfirmationPopup-cancelButton">
                   <span className="DeleteConfirmationPopup-cancelButtonText"> Cancel </span>
                 </button>
                 <button onClick={() => this.handleDelete()} className="DeleteConfirmationPopup-deleteButton">
