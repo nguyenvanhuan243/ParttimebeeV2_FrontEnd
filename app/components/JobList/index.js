@@ -19,6 +19,11 @@ export default class JobList extends PureComponent {
       this.setState({ dataResourceEndPoint: res.data });
     });
   }
+  setJobId(jobId) {
+    const { onDeleteConfirmation = () => {} } = this.props;
+    onDeleteConfirmation();
+    localStorage.setItem('jobId', jobId);
+  }
   handleShowMore(listFilterd) {
     this.setState({
       limit: listFilterd.length,
@@ -36,7 +41,6 @@ export default class JobList extends PureComponent {
       showEdit = false,
       showDelete = false,
       showImage = true,
-      onDeleteConfirmation = () => {},
       jobType = 'going',
     } = this.props;
     const { dataResourceEndPoint = [], limit, showMore } = this.state;
@@ -55,7 +59,7 @@ export default class JobList extends PureComponent {
         href={`${config.BASE_URL}/job-detail/${item.id}`}
         title={item.title}
         showImage={showImage}
-        onClickJobItem={onDeleteConfirmation}
+        onClickJobItem={() => this.setJobId(item.id)}
         showDelete={showDelete}
         showEdit={showEdit}
         showView={showView}

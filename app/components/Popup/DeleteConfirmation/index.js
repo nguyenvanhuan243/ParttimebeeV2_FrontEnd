@@ -5,7 +5,7 @@ import config from '../../../../config';
 
 export default class DeleteConfirmationPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   handleDelete() {
-    const jobId = 22;
+    const jobId = localStorage.jobId;
     const url = `${config.API_BASE_URL}/jobs/${jobId}}`;
     axios.delete(url);
     window.location.reload();
