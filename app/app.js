@@ -60,6 +60,7 @@ import 'components/JobDetail/JobInformation/SocialButton/Facebook/styles.css';
 import 'components/JobDetail/JobInformation/SocialButton/Whatsapp/styles.css';
 import 'components/EditProfile/Form/styles.css';
 import 'components/EditProfile/Alert/styles.css';
+import 'components/JobDetail/CreatedJobAlert/styles.css';
 
 // Related jobs
 import 'components/JobDetail/RelatedJobList/styles.css';

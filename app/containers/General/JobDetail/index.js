@@ -8,6 +8,7 @@ import RelatedJobList from 'components/JobDetail/RelatedJobList/Loadable';
 import CompanyInfo from 'components/JobDetail/CompanyInfo/Loadable';
 import GoogleAdsense from 'components/GoogleAdsense/Loadable';
 import ReportJobPopup from 'components/Popup/ReportJob/Loadable';
+import CreatedJobAlert from 'components/JobDetail/CreatedJobAlert/Loadable';
 import classNames from 'classnames';
 import axios from 'axios';
 import config from '../../../../config';
@@ -85,6 +86,9 @@ export default class JobDetail extends Component {
               </div>
               <div className="JobDetail-Footer">
                 <Footer />
+              </div>
+              <div>
+                <CreatedJobAlert />
               </div>
             </div>
           </div>
