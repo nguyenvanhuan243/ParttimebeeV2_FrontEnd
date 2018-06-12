@@ -1,23 +1,11 @@
 import React, { PureComponent, PropTypes } from 'react';
 import JobItem from 'components/JobList/JobItem/Loadable';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
-import axios from 'axios';
 import config from '../../../config';
 export default class JobList extends PureComponent {
   constructor() {
     super();
-    this.state = { dataResourceEndPoint: [], limit: 5, showMore: true };
-  }
-  componentWillMount() {
-    const hasMyjob = location.pathname.includes('myjobs');
-    const hasProfile = location.pathname.includes('my-profile');
-    const currentUser = localStorage.currentUser;
-    const url = `${config.API_BASE_URL}/jobs`;
-    const urlCurrentUser = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
-    const urlRequest = (currentUser && (hasMyjob || hasProfile)) ? urlCurrentUser : url;
-    axios.get(urlRequest).then((res) => {
-      this.setState({ dataResourceEndPoint: res.data });
-    });
+    this.state = { limit: 5, showMore: true };
   }
   setJobId(jobId) {
     const { onDeleteConfirmation = () => {} } = this.props;
@@ -42,8 +30,9 @@ export default class JobList extends PureComponent {
       showDelete = false,
       showImage = true,
       jobType = 'going',
+      dataResourceEndPoint = [],
     } = this.props;
-    const { dataResourceEndPoint = [], limit, showMore } = this.state;
+    const { limit, showMore } = this.state;
     const hasMyjob = location.pathname.includes('myjobs');
     const hasProfile = location.pathname.includes('my-profile');
     const listItem = [];
@@ -99,4 +88,5 @@ JobList.propTypes = {
   showImage: PropTypes.bool,
   onDeleteConfirmation: PropTypes.func,
   jobType: PropTypes.string,
+  dataResourceEndPoint: PropTypes.func.isRequired,
 };
