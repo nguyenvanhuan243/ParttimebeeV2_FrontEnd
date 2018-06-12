@@ -14,6 +14,7 @@ export default class JobItem extends PureComponent {
     const {
       showCity = true, showView = true, showShare = true, showEdit = false, showDelete = false,
       showImage = true, title = '', href = '', onClickJobItem = () => {}, showCompanyName = true,
+      viewNumber = 0,
     } = this.props;
     const hoverClass = classNames('JobItem', { 'JobItem-hover': this.state.hover });
     const hoverShareClass = classNames('JobItem-contentShareContainer',
@@ -42,7 +43,7 @@ export default class JobItem extends PureComponent {
               { showView &&
                 <div className="JobItem-contentViewContainer">
                   <ViewIcon />
-                  <div className="JobItem-contentViewNumber"> 888 </div>
+                  <div className="JobItem-contentViewNumber"> { viewNumber } </div>
                 </div> }
               { showShare &&
                 <div className={hoverShareClass}>
@@ -77,5 +78,6 @@ JobItem.propTypes = {
   title: PropTypes.string,
   href: PropTypes.string,
   showCompanyName: PropTypes.bool,
+  viewNumber: PropTypes.number,
 };
 
