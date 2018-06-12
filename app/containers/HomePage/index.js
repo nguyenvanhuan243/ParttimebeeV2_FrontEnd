@@ -51,16 +51,17 @@ export default class HomePage extends PureComponent {
     const {
       dataArray = [],
     } = this.state;
+    const dataFilted = dataArray.filter((item) => item.job_type !== 'preview');
     return (
       <div>
         <Header />
         <div className="HomePageContainer">
           <div className="HomePageContainer-categoryList"> <CategoryList /> </div>
           { dataArray.length === 0 ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
-            <JobList dataResourceEndPoint={dataArray} />
-            <JobList dataResourceEndPoint={dataArray} />
-            <JobList dataResourceEndPoint={dataArray} />
-            <JobList dataResourceEndPoint={dataArray} />
+            <JobList dataResourceEndPoint={dataFilted} />
+            <JobList dataResourceEndPoint={dataFilted} />
+            <JobList dataResourceEndPoint={dataFilted} />
+            <JobList dataResourceEndPoint={dataFilted} />
             { this.state.isLoading ? null : <LoadingJobsList /> }
           </div> }
           <div className="HomePageContainer-sidebarContainer">

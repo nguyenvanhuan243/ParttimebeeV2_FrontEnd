@@ -20,6 +20,9 @@ export default class EditAndPost extends Component {
     };
   }
   onSubmit = (e) => {
+    const {
+      buttonIsSubmited,
+    } = this.state;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/jobs`;
     axios.post(url, {
@@ -31,8 +34,12 @@ export default class EditAndPost extends Component {
       salaryState: this.salaryState.value,
       city: this.city.value,
       user_id: localStorage.currentUser,
+      button_is_submited: buttonIsSubmited,
+    }).then((response) => {
+      location.replace(`${config.BASE_URL}/job-detail/${response.data.id}${buttonIsSubmited === 'Preview' ? '?preview' : null}`);
+    }).catch((error) => {
+      console.log(error);
     });
-    location.reload();
   }
   render() {
     const {
@@ -151,13 +158,13 @@ export default class EditAndPost extends Component {
                     <div className="EditAndPost-buttonContainer">
                       <button
                         className="EditAndPost-buttonPreview"
-                        onClick={this.setState({ buttonIsSubmited: 'Post' })}
+                        onClick={() => this.setState({ buttonIsSubmited: 'Post' })}
                       >
                         Preview
                       </button>
                       <button
                         className="EditAndPost-buttonPostjob"
-                        onClick={this.setState({ buttonIsSubmited: 'Preview' })}
+                        onClick={() => this.setState({ buttonIsSubmited: 'Preview' })}
                       >
                         Post job
                       </button>
