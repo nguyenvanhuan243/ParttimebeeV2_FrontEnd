@@ -44,7 +44,6 @@ import MyJobsDeleteConfirmationToastBox from 'containers/MyJobs/MyJobsDeleteConf
 // POST JOBS
 import EditJob from 'containers/PostJob/EditAndPost/Loadable';
 import FirstTimePostJob from 'containers/PostJob/FirstTimePostJob/Loadable';
-import SearchResult from 'containers/PostJob/SearchResult/Loadable';
 
 // MY PROFILES
 import EditProfile from 'containers/MyProfile/EditProfile/Loadable';
@@ -103,7 +102,6 @@ export default function App() {
         <Route exact path="/test/postjobs-first-time-post-job" component={FirstTimePostJob} />
         <Route exact path="/test/postjobs-edit-job" component={EditJob} />
         <Route exact path="/test/postjobs-post-job" component={EditJob} />
-        <Route exact path="/test/postjobs-search-result" component={SearchResult} />\
         <Route component={NotFoundPage} />
       </Switch>
     </div>
