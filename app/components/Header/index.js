@@ -15,7 +15,7 @@ export default class Header extends PureComponent {
   }
   onSubmit = (e) => {
     e.preventDefault();
-    location.replace(`${config.BASE_URL}?search=${this.search.value}`);
+    location.replace(`${location.href}?search=${this.search.value}`);
   }
   render() {
     const { expandAvatar } = this.state;
