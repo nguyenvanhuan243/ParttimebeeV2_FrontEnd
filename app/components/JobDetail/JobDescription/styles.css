@@ -1,5 +1,6 @@
 .JobDescription {
-  height: 380px;
+  width: 750px;
+  height: 454px;
   border-radius: 3px;
   background-color: #ffffff;
   border: solid 1px #e8e8e8;
@@ -16,4 +17,50 @@
   text-align: left;
   color: #000000;
   margin: 20px;
+}
+
+.JobDescription-editButton {
+  width: 90px;
+  height: 34px;
+  border-radius: 3px;
+  border: solid 1px #e8e8e8;
+  margin: 0;
+  margin-left: 528px !important;
+  margin-right: 16px !important;
+  cursor: pointer;
+}
+
+.JobDescription-postButton {
+  width: 96px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  margin: 0;
+  cursor: pointer;
+}
+
+.JobDescription-editButtonText {
+  width: 57px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #999999;
+}
+
+.JobDescription-postButtonText {
+  width: 63px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
 }
