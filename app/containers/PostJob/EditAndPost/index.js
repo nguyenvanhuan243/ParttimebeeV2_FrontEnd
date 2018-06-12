@@ -158,13 +158,13 @@ export default class EditAndPost extends Component {
                     <div className="EditAndPost-buttonContainer">
                       <button
                         className="EditAndPost-buttonPreview"
-                        onClick={() => this.setState({ buttonIsSubmited: 'Post' })}
+                        onClick={() => this.setState({ buttonIsSubmited: 'Preview' })}
                       >
                         Preview
                       </button>
                       <button
                         className="EditAndPost-buttonPostjob"
-                        onClick={() => this.setState({ buttonIsSubmited: 'Preview' })}
+                        onClick={() => this.setState({ buttonIsSubmited: 'Post' })}
                       >
                         Post job
                       </button>
