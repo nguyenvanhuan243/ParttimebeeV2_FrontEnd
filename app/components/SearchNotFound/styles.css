@@ -1,0 +1,38 @@
+.SearchNotFound-notFoundIcon {
+  /* width: 580px; */
+  margin-left: 276px;
+  margin-right: 275px;
+  margin-top: 30px;
+}
+
+.SearchNotFound-title {
+  width: 183px;
+  height: 32px;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+  margin-left: 209px;
+  margin-right: 208px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.SearchNotFound-abstract {
+  width: 277px;
+  height: 22px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  text-align: center;
+  color: #999999;
+  margin-left: 161.5px;
+}

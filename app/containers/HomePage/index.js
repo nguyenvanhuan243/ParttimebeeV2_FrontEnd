@@ -6,6 +6,7 @@ import Subscribe from 'components/Subscribe/Loadable';
 import Sponsored from 'components/Sponsored/Loadable';
 import CategoryList from 'components/CategoryList/Loadable';
 import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
+import SearchNotFound from 'components/SearchNotFound/Loadable';
 import axios from 'axios';
 import config from '../../../config';
 
@@ -55,13 +56,13 @@ export default class HomePage extends PureComponent {
         <Header />
         <div className="HomePageContainer">
           <div className="HomePageContainer-categoryList"> <CategoryList /> </div>
-          <div className="HomePageContainer-jobListContainer">
+          { dataArray.length === 0 ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
             <JobList dataResourceEndPoint={dataArray} />
             <JobList dataResourceEndPoint={dataArray} />
             <JobList dataResourceEndPoint={dataArray} />
             <JobList dataResourceEndPoint={dataArray} />
             { this.state.isLoading ? null : <LoadingJobsList /> }
-          </div>
+          </div> }
           <div className="HomePageContainer-sidebarContainer">
             <Subscribe /> <Sponsored /> <Footer />
           </div>
