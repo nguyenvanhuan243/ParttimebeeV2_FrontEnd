@@ -13,6 +13,10 @@ export default class Header extends PureComponent {
     localStorage.removeItem('currentUser');
     window.location.replace(`${config.BASE_URL}`);
   }
+  onSubmit = (e) => {
+    e.preventDefault();
+    location.replace(`${config.BASE_URL}?search=${this.search.value}`);
+  }
   render() {
     const { expandAvatar } = this.state;
     const logoutStatus = location.pathname.includes('logout');
@@ -23,11 +27,12 @@ export default class Header extends PureComponent {
         <div className="Header">
           <div className="Header-container">
             <div className="Header-searchForm">
-              <form className="SearchForm">
+              <form onSubmit={this.onSubmit} className="SearchForm">
                 <div className="SearchIcon"> <SearchIcon /> </div>
                 <input
                   className="SearchForm-customInput"
                   placeholder="Search job..."
+                  ref={(ref) => (this.search = ref)}
                 />
               </form>
             </div>
