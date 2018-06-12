@@ -38,6 +38,10 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  width: 220px;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
 }
 
 .RelatedJobItem-companyName {
