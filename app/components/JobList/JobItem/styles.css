@@ -24,6 +24,10 @@
   text-align: left;
   color: #000000;
   margin-top: 8px;
+  width: 470px;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
 }
 .JobItem-hover {
   background-color: #f8f8f8;
