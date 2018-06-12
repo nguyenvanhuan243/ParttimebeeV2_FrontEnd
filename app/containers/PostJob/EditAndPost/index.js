@@ -36,7 +36,7 @@ export default class EditAndPost extends Component {
       user_id: localStorage.currentUser,
       button_is_submited: buttonIsSubmited,
     }).then((response) => {
-      location.replace(`${config.BASE_URL}/job-detail/${response.data.id}${buttonIsSubmited === 'Preview' ? '?preview' : null}`);
+      location.replace(`${config.BASE_URL}/job-detail/${response.data.id}${buttonIsSubmited === 'Preview' ? '?preview' : ''}`);
     }).catch((error) => {
       console.log(error);
     });
