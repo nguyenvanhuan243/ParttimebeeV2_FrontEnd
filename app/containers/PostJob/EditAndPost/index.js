@@ -16,6 +16,7 @@ export default class EditAndPost extends Component {
       focusOnCity: false,
       focusOnDescription: false,
       showAlert: true,
+      buttonIsSubmited: 'Post',
     };
   }
   onSubmit = (e) => {
@@ -148,8 +149,18 @@ export default class EditAndPost extends Component {
                     </div>
                     <div className={`${focusOnCity ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
                     <div className="EditAndPost-buttonContainer">
-                      <button className="EditAndPost-buttonPreview"> Preview </button>
-                      <button className="EditAndPost-buttonPostjob"> Post job </button>
+                      <button
+                        className="EditAndPost-buttonPreview"
+                        onClick={this.setState({ buttonIsSubmited: 'Post' })}
+                      >
+                        Preview
+                      </button>
+                      <button
+                        className="EditAndPost-buttonPostjob"
+                        onClick={this.setState({ buttonIsSubmited: 'Preview' })}
+                      >
+                        Post job
+                      </button>
                     </div>
                   </form>
                 </div>
