@@ -15,6 +15,7 @@ export default class EditAndPost extends Component {
       focusOnSalaryState: false,
       focusOnCity: false,
       focusOnDescription: false,
+      showAlert: true,
     };
   }
   onSubmit = (e) => {
@@ -49,9 +50,9 @@ export default class EditAndPost extends Component {
           <div className="EditAndPost-title">
             Edit job
           </div>
-          <div className="EditAndPost-importantAlert">
-            <ImportantAlert />
-          </div>
+          { this.state.showAlert && <div className="EditAndPost-importantAlert">
+            <ImportantAlert closeFunc={() => this.setState({ showAlert: false })} />
+          </div> }
           <div className="EditAndPost-content">
             <div className="EditAndPost-form">
               <div className="EditAndPost-formContainer">
