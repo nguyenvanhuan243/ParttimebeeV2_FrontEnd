@@ -208,3 +208,8 @@
   width: 570px !important;
   outline: none !important;
 }
+
+.EditAndPost-importantAlert {
+  margin-top: 30px;
+   margin-bottom: 20px;
+}

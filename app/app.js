@@ -113,6 +113,7 @@ import 'containers/MyJobs/MyJobsPendingSingleEditToastBox/styles.css';
 import 'containers/PostJob/EditAndPost/styles.css';
 import 'containers/PostJob/FirstTimePostJob/styles.css';
 import 'containers/PostJob/SearchResult/styles.css';
+import 'containers/PostJob/ImportantAlert/styles.css';
 
 // MY PROFILE.
 import 'containers/MyProfile/EditProfile/styles.css';

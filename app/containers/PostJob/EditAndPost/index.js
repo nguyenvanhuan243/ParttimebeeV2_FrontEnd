@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
+import ImportantAlert from 'containers/PostJob/ImportantAlert/Loadable';
 import axios from 'axios';
 import config from '../../../../config';
 
@@ -47,6 +48,9 @@ export default class EditAndPost extends Component {
         <div className="EditAndPost">
           <div className="EditAndPost-title">
             Edit job
+          </div>
+          <div className="EditAndPost-importantAlert">
+            <ImportantAlert />
           </div>
           <div className="EditAndPost-content">
             <div className="EditAndPost-form">

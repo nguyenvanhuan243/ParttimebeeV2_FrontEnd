@@ -1,0 +1,21 @@
+.ImportantAlert {
+  width: 750px;
+  height: 161px;
+  border-radius: 4px;
+  background-color: #fffbe6;
+  border: solid 1px #ffe58f;
+}
+
+.ImportantAlert-iconContainer {
+  display: flex;
+}
+
+.ImportantAlert-icon {
+  margin-left: 24px;
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+.ImportantAlert-importantText {
+  margin-top: 17px;
+}
