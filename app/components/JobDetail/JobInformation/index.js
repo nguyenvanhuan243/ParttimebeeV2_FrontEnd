@@ -12,7 +12,7 @@ export default class JobInformation extends PureComponent {
       category = '',
       salary = 0,
       createdDay = '',
-      view = 0,
+      views = 0,
     } = this.props;
     return (
       <div className="JobInformation">
@@ -44,7 +44,7 @@ export default class JobInformation extends PureComponent {
               <span className="JobInformation-textBold"> { createdDay }</span>
             </div>
             <div className="JobInformation-jobView"> Job Views:
-              <span className="JobInformation-textBold"> { view }</span>
+              <span className="JobInformation-textBold"> { views }</span>
             </div>
           </div>
         </div>
@@ -59,6 +59,6 @@ JobInformation.propTypes = {
   category: PropTypes.string,
   salary: PropTypes.number,
   createdDay: PropTypes.string,
-  view: PropTypes.number,
+  views: PropTypes.number,
 };
 

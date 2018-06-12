@@ -23,9 +23,11 @@ export default class JobDetail extends Component {
   componentWillMount() {
     const jobId = location.pathname.match(/\d+/)[0];
     const url = `${config.API_BASE_URL}/jobs/${jobId}`;
+    const viewNumberUrl = `${config.API_BASE_URL}/jobs/${jobId}/increase-view`;
     axios.get(url).then((response) => {
       this.setState({ jobItem: response.data });
     });
+    axios.get(viewNumberUrl);
   }
 
   showReportPopup() {
@@ -59,7 +61,7 @@ export default class JobDetail extends Component {
                   category={jobItem.category}
                   salary={jobItem.salary}
                   createdDay={jobItem.created_at}
-                  view={10}
+                  views={jobItem.views}
                 />
               </div>
               <div className="JobDetail-descriptionTitle">
