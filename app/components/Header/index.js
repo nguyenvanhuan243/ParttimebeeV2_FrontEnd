@@ -25,7 +25,10 @@ export default class Header extends PureComponent {
             <div className="Header-searchForm">
               <form className="SearchForm">
                 <div className="SearchIcon"> <SearchIcon /> </div>
-                <input className="SearchForm-customInput" placeholder="Search job..." />
+                <input
+                  className="SearchForm-customInput"
+                  placeholder="Search job..."
+                />
               </form>
             </div>
             <div className="Header-logo">
