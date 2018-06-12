@@ -74,6 +74,7 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnTitle: true })}
                         onBlur={() => this.setState({ focusOnTitle: false })}
                         ref={(ref) => (this.title = ref)}
+                        required
                       />
                     </div>
                     <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
@@ -98,6 +99,7 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnDescription: true })}
                         onBlur={() => this.setState({ focusOnDescription: false })}
                         ref={(ref) => (this.description = ref)}
+                        required
                       />
                     </div>
                     <div className={`${focusOnDescription ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
@@ -109,6 +111,7 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnSalary: true })}
                         onBlur={() => this.setState({ focusOnSalary: false })}
                         ref={(ref) => (this.salary = ref)}
+                        required
                       />
                     </div>
                     <div className={`${focusOnSalary ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
