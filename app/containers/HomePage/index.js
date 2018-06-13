@@ -51,7 +51,7 @@ export default class HomePage extends PureComponent {
     const {
       dataArray = [],
     } = this.state;
-    const dataFilted = dataArray.filter((item) => item.job_type !== 'preview');
+    const dataFilted = dataArray.filter((item) => item.job_type === 'going');
     return (
       <div>
         <Header />
