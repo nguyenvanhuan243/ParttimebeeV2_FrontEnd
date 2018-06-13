@@ -8,9 +8,7 @@ export default class JobDescription extends PureComponent { // eslint-disable-li
     const buttonRendered = (location.search === '?preview');
     return (
       <div className="JobDescription">
-        <div className="JobDescription-content">
-          { text }
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: text }} className="JobDescription-content" />
         { buttonRendered ?
           <div>
             <button className="JobDescription-editButton">

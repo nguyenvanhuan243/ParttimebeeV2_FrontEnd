@@ -30,7 +30,7 @@ export default class EditAndPost extends Component {
     axios.post(url, {
       title: this.title.value,
       category: this.category.value,
-      description: this.description.ref,
+      description: this.description.editor.innerHTML,
       salary: this.salary.value,
       salaryType: this.salaryType.value,
       salaryState: this.salaryState.value,
@@ -107,7 +107,7 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnDescription: true })}
                         onBlur={() => this.setState({ focusOnDescription: false })}
                         placeholder="Description"
-                        ref={(ref) => (this.description = ref)}
+                        editorRef={(ref) => (this.description = ref)}
                         wrapperClassName="EditAndPost-wrapper"
                         editorClassName="EditAndPost-editor"
                         onEditorStateChange={this.onEditorStateChange}
