@@ -1,7 +1,7 @@
 import React from 'react';
-import FacebookIcon from 'components/ShareThisProfile/Icons/FacebookIcon/Loadable';
-import WhatsAppIcon from 'components/ShareThisProfile/Icons/WhatsAppIcon/Loadable';
-import EmailIcon from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
+import Facebook from 'components/ShareThisProfile/Icons/FacebookIcon/Loadable';
+import WhatsApp from 'components/ShareThisProfile/Icons/WhatsAppIcon/Loadable';
+import Email from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 
 const ShareThisProfile = () => (
   <div className="ShareThisProfile">
@@ -9,13 +9,13 @@ const ShareThisProfile = () => (
     <div className="ShareThisProfile-separate" />
     <div className="ShareThisProfile-buttonContainer">
       <button onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${location.href}`)} className="ShareThisProfile-facebook">
-        <FacebookIcon />
+        <Facebook />
       </button>
       <button onClick={() => window.open('https://web.whatsapp.com')} className="ShareThisProfile-whatsapp">
-        <WhatsAppIcon />
+        <WhatsApp />
       </button>
       <button onClick={() => window.open('mailto: parttimebee.my@gmail.com')} className="ShareThisProfile-email">
-        <EmailIcon />
+        <Email />
       </button>
     </div>
   </div>
