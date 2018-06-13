@@ -1,8 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react';
 import Facebook from 'components/JobDetail/JobInformation/SocialButton/Facebook/Loadable';
-import Whatsapp from 'components/JobDetail/JobInformation/SocialButton/Whatsapp/Loadable';
+import WhatsApp from 'components/JobDetail/JobInformation/SocialButton/Whatsapp/Loadable';
 import Email from 'components/JobDetail/JobInformation/SocialButton/Email/Loadable';
 import ReportIcon from 'components/Icons/Report/Loadable';
+import config from '../../../../config';
+
 
 export default class JobInformation extends PureComponent {
   render() {
@@ -14,12 +16,29 @@ export default class JobInformation extends PureComponent {
       createdDay = '',
       views = 0,
     } = this.props;
+    const Id = location.pathname.match(/\d+/)[0];
+    const jobUrl = `${config.BASE_URL}/job-detail/${Id}`;
     return (
       <div className="JobInformation">
         <div className="JobInformation-socialButton">
-          <Facebook />
-          <Whatsapp />
-          <Email />
+          <button
+            onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${jobUrl}`)}
+            className="JobInformation-facebook"
+          >
+            <Facebook />
+          </button>
+          <button
+            onClick={() => window.open('https://web.whatsapp.com')}
+            className="JobInformation-whatsapp"
+          >
+            <WhatsApp />
+          </button>
+          <button
+            onClick={() => window.open('mailto: parttimebee.my@gmail.com')}
+            className="JobInformation-email"
+          >
+            <Email />
+          </button>
           <button onClick={handleShowPopup} className="ReportButon">
             <ReportIcon />
             <div className="ReportButon-text"> REPORT JOB </div>

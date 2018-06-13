@@ -121,3 +121,21 @@
 .JobInformation-textBold {
   font-weight: bold;
 }
+
+.JobInformation-facebook {
+  cursor: pointer;
+  outline: none !important;
+  padding: 0px !important;
+}
+
+.JobInformation-whatsapp {
+  cursor: pointer;
+  outline: none !important;
+  padding: 0px !important;
+}
+
+.JobInformation-email {
+  cursor: pointer;
+  outline: none !important;
+  padding: 0px !important;
+}
