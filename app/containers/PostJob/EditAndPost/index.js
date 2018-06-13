@@ -104,9 +104,10 @@ export default class EditAndPost extends Component {
                     </select>
                     <div className="EditAndPost-inputDescription">
                       <Editor
+                        placeholder="Description"
                         ref={(ref) => (this.description = ref)}
-                        wrapperClassName="demo-wrapper"
-                        editorClassName="demo-editor"
+                        wrapperClassName="EditAndPost-wrapper"
+                        editorClassName="EditAndPost-editor"
                         onEditorStateChange={this.onEditorStateChange}
                         toolbar={{
                           inline: { inDropdown: true },
