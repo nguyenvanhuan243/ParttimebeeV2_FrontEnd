@@ -104,6 +104,8 @@ export default class EditAndPost extends Component {
                     </select>
                     <div className="EditAndPost-inputDescription">
                       <Editor
+                        onFocus={() => this.setState({ focusOnDescription: true })}
+                        onBlur={() => this.setState({ focusOnDescription: false })}
                         placeholder="Description"
                         ref={(ref) => (this.description = ref)}
                         wrapperClassName="EditAndPost-wrapper"
