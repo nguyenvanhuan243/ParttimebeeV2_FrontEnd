@@ -213,3 +213,12 @@
   margin-top: 30px;
    margin-bottom: 20px;
 }
+
+.demo-wrapper {
+  width: 570px !important;
+}
+
+.demo-editor {
+  height: 140px !important;
+  overflow-y: auto !important;
+}

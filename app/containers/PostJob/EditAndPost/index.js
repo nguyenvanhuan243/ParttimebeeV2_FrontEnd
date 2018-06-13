@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import ImportantAlert from 'containers/PostJob/ImportantAlert/Loadable';
 import axios from 'axios';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { Editor } from 'react-draft-wysiwyg';
 import config from '../../../../config';
 
 export default class EditAndPost extends Component {
@@ -28,7 +30,7 @@ export default class EditAndPost extends Component {
     axios.post(url, {
       title: this.title.value,
       category: this.category.value,
-      description: this.description.value,
+      description: this.description.ref,
       salary: this.salary.value,
       salaryType: this.salaryType.value,
       salaryState: this.salaryState.value,
@@ -101,13 +103,29 @@ export default class EditAndPost extends Component {
                       <option> Others </option>
                     </select>
                     <div className="EditAndPost-inputDescription">
-                      <textarea
-                        className="EditAndPost-textAria"
-                        placeholder="Description"
-                        onFocus={() => this.setState({ focusOnDescription: true })}
-                        onBlur={() => this.setState({ focusOnDescription: false })}
+                      <Editor
                         ref={(ref) => (this.description = ref)}
-                        required
+                        wrapperClassName="demo-wrapper"
+                        editorClassName="demo-editor"
+                        onEditorStateChange={this.onEditorStateChange}
+                        toolbar={{
+                          inline: { inDropdown: true },
+                          list: { inDropdown: true },
+                          textAlign: { inDropdown: true },
+                          link: { inDropdown: true },
+                          history: { inDropdown: true },
+                          fontFamily: {
+                          },
+                          embedded: {
+                            className: undefined,
+                            component: undefined,
+                            popupClassName: undefined,
+                            defaultSize: {
+                              height: 'auto',
+                              width: 'auto',
+                            },
+                          },
+                        }}
                       />
                     </div>
                     <div className={`${focusOnDescription ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
