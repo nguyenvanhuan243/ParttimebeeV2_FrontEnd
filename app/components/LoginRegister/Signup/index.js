@@ -32,7 +32,7 @@ export default class Signup extends PureComponent {
           localStorage.setItem('currentUser', response.data.id);
         }
       }).catch((error) => {
-        if (error.response.status === 422) {
+        if (error.status === 422) {
           this.setState({ danger: true });
         }
       });
