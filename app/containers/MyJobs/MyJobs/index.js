@@ -102,6 +102,7 @@ export default class MyJobs extends Component {
                     title={'On-going'}
                     showImage={false}
                     jobType={'going'}
+                    dataResourceEndPoint={myJobResourceEndPoint}
                   /> : null
               }
               {
@@ -116,6 +117,7 @@ export default class MyJobs extends Component {
                     title={'Pending'}
                     showImage={false}
                     jobType={'pending'}
+                    dataResourceEndPoint={myJobResourceEndPoint}
                   /> : null
               }
               {
@@ -130,6 +132,7 @@ export default class MyJobs extends Component {
                     title={'Expired'}
                     showImage={false}
                     jobType={'expired'}
+                    dataResourceEndPoint={myJobResourceEndPoint}
                   /> : null
               }
             </div>
