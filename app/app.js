@@ -117,11 +117,6 @@ import 'containers/PostJob/ImportantAlert/styles.css';
 
 // MY PROFILE.
 import 'containers/MyProfile/EditProfile/styles.css';
-import 'containers/MyProfile/UpdatingProfile/styles.css';
-import 'containers/MyProfile/SavingProfile/styles.css';
-import 'containers/MyProfile/UpdatedProfile/styles.css';
-import 'containers/MyProfile/DeleteProfileConfirmation/styles.css';
-import 'containers/MyProfile/DeleteProfileCompleteMessage/styles.css';
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.css';

@@ -45,13 +45,7 @@ import MyJobsDeleteConfirmationToastBox from 'containers/MyJobs/MyJobsDeleteConf
 import EditJob from 'containers/PostJob/EditAndPost/Loadable';
 import FirstTimePostJob from 'containers/PostJob/FirstTimePostJob/Loadable';
 
-// MY PROFILES
 import EditProfile from 'containers/MyProfile/EditProfile/Loadable';
-import UpdatingProfile from 'containers/MyProfile/UpdatingProfile/Loadable';
-import SavingProfile from 'containers/MyProfile/SavingProfile/Loadable';
-import UpdatedProfile from 'containers/MyProfile/UpdatedProfile/Loadable';
-import DeleteProfileConfirmation from 'containers/MyProfile/DeleteProfileConfirmation/Loadable';
-import DeleteProfileCompleteMessage from 'containers/MyProfile/DeleteProfileCompleteMessage/Loadable';
 export default function App() {
   return (
     <div>
@@ -79,11 +73,6 @@ export default function App() {
         {/* MY PROFILES */}
         <Route exact path="/test/myprofile/my-profile" component={MyJobs} />
         <Route exact path="/test/myprofile/edit-profile" component={EditProfile} />
-        <Route exact path="/test/myprofile/updating-profile" component={UpdatingProfile} />
-        <Route exact path="/test/myprofile/saving-profile" component={SavingProfile} />
-        <Route exact path="/test/myprofile/updated-profile" component={UpdatedProfile} />
-        <Route exact path="/test/myprofile/delete-profile-confirmation" component={DeleteProfileConfirmation} />
-        <Route exact path="/test/myprofile/delete-profile-complete-message" component={DeleteProfileCompleteMessage} />
         {/* MY JOBS */}
         <Route exact path="/test/myjobs/myjobs" component={MyJobs} />
         <Route exact path="/test/myjobs/myjobs-no-jobs" component={MyJobsNoJobs} />
