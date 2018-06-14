@@ -8,7 +8,16 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
     const jobId = localStorage.jobId;
     const url = `${config.API_BASE_URL}/jobs/${jobId}}`;
     axios.delete(url);
-    window.location.reload();
+    location.reload();
+  }
+  handleDeleteUser() {
+    const requestUrl = `${config.API_BASE_URL}/users/${this.props.currentUserId}`;
+    axios.delete(requestUrl).then((response) => {
+      if (response.status === 200) {
+        localStorage.removeItem('currentUser');
+      }
+      location.replace(`${config.BASE_URL}`);
+    });
   }
   render() {
     const {
@@ -33,7 +42,7 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
                 <button onClick={closeFunc} className="DeleteConfirmationPopup-cancelButton">
                   <span className="DeleteConfirmationPopup-cancelButtonText"> Cancel </span>
                 </button>
-                <button onClick={() => this.handleDelete()} className="DeleteConfirmationPopup-deleteButton">
+                <button onClick={isJobType ? () => this.handleDelete() : () => this.handleDeleteUser()} className="DeleteConfirmationPopup-deleteButton">
                   <span className="DeleteConfirmationPopup-deleteButtonText"> Delete </span>
                 </button>
               </div>
@@ -48,5 +57,6 @@ export default class DeleteConfirmationPopup extends PureComponent { // eslint-d
 DeleteConfirmationPopup.propTypes = {
   closeFunc: PropTypes.func.isRequired,
   type: PropTypes.string,
+  currentUserId: PropTypes.string,
 };
 

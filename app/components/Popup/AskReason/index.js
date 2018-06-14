@@ -1,14 +1,34 @@
 import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
 import DeleteConfirmation from 'components/Popup/DeleteConfirmation/Loadable';
+import axios from 'axios';
+import config from '../../../../config';
 
-export default class AskReasonPopup extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+const REASON = {
+  reason1: 'This account was a duplicate account.',
+  reason2: 'I had a bad experience on the platform.',
+  reason3: 'I’m no longer interested in this community.',
+  reason4: 'I’m just taking a break.',
+  reason5: 'Other',
+};
+
+export default class AskReasonPopup extends PureComponent {
   constructor() {
     super();
     this.state = {
-      selectedOption: 'Reason5',
+      selectedOption: REASON.reason5,
       showDeleteProfile: false,
     };
+  }
+  onSubmit = (e) => {
+    e.preventDefault();
+    const requestUrl = `${config.API_BASE_URL}/feedbacks`;
+    axios.post(requestUrl, {
+      user_id: localStorage.currentUser,
+      reason: this.state.selectedOption,
+      text: this.text.value,
+    });
+    this.handleSubmitForm();
   }
   handleSubmitForm() {
     const {
@@ -27,7 +47,11 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
 
     return (
       <div>
-        { showDeleteProfile && <DeleteConfirmation type={'ACCOUNT'} closeFunc={closePopupFunc} /> }
+        { showDeleteProfile && <DeleteConfirmation
+          type={'ACCOUNT'}
+          closeFunc={closePopupFunc}
+          currentUserId={localStorage.currentUser}
+        /> }
         { !showDeleteProfile ?
           <div className="AskReasonPopup">
             <button className="AskReasonPopup-closeButton" onClick={closePopupFunc}>
@@ -41,7 +65,7 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                 <div className="AskReasonPopup-selectOptionContainer">
                   <div className="AskReasonPopup-selectOptionTitle"> Reason: </div>
                   <div>
-                    <form>
+                    <form onSubmit={this.onSubmit}>
                       <div>
                         <fieldset className="AskReasonPopup-fieldset">
                           <input
@@ -49,13 +73,13 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                             className="AskReasonPopup-radio"
                             onChange={(event) => this.setState({ selectedOption: event.target.value })}
                             type="radio"
-                            value="Reason1"
-                            checked={selectedOption === 'Reason1'}
+                            value={REASON.reason1}
+                            checked={selectedOption === REASON.reason1}
                           />
                           <label htmlFor="1" className="AskReasonPopup-displayFlex">
-                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason1' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === REASON.reason1 ? 'AskReasonPopup-selected' : null}`} />
                             <span className="AskReasonPopup-inputText">
-                              This account was a duplicate account.
+                              { REASON.reason1 }
                             </span>
                           </label>
                         </fieldset>
@@ -65,13 +89,13 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                             className="AskReasonPopup-radio"
                             onChange={(event) => this.setState({ selectedOption: event.target.value })}
                             type="radio"
-                            value="Reason2"
-                            checked={selectedOption === 'Reason2'}
+                            value={REASON.reason2}
+                            checked={selectedOption === REASON.reason2}
                           />
                           <label htmlFor="2" className="AskReasonPopup-displayFlex">
-                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason2' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === REASON.reason2 ? 'AskReasonPopup-selected' : null}`} />
                             <span className="AskReasonPopup-inputText">
-                              I had a bad experience on the platform.
+                              { REASON.reason2 }
                             </span>
                           </label>
                         </fieldset>
@@ -81,13 +105,13 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                             className="AskReasonPopup-radio"
                             onChange={(event) => this.setState({ selectedOption: event.target.value })}
                             type="radio"
-                            value="Reason3"
-                            checked={selectedOption === 'Reason3'}
+                            value={REASON.reason3}
+                            checked={selectedOption === REASON.reason3}
                           />
                           <label htmlFor="3" className="AskReasonPopup-displayFlex">
-                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason3' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === REASON.reason3 ? 'AskReasonPopup-selected' : null}`} />
                             <span className="AskReasonPopup-inputText">
-                              I’m no longer interested in this community.
+                              { REASON.reason3 }
                             </span>
                           </label>
                         </fieldset>
@@ -97,13 +121,13 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                             className="AskReasonPopup-radio"
                             onChange={(event) => this.setState({ selectedOption: event.target.value })}
                             type="radio"
-                            value="Reason4"
-                            checked={selectedOption === 'Reason4'}
+                            value={REASON.reason4}
+                            checked={selectedOption === REASON.reason4}
                           />
                           <label htmlFor="4" className="AskReasonPopup-displayFlex">
-                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason4' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === REASON.reason4 ? 'AskReasonPopup-selected' : null}`} />
                             <span className="AskReasonPopup-inputText">
-                              I’m just taking a break.
+                              { REASON.reason4 }
                             </span>
                           </label>
                         </fieldset>
@@ -113,13 +137,13 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                             className="AskReasonPopup-radio"
                             onChange={(event) => this.setState({ selectedOption: event.target.value })}
                             type="radio"
-                            value="Reason5"
-                            checked={selectedOption === 'Reason5'}
+                            value={REASON.reason5}
+                            checked={selectedOption === REASON.reason5}
                           />
                           <label htmlFor="5" className="AskReasonPopup-displayFlex">
-                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason5' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === REASON.reason5 ? 'AskReasonPopup-selected' : null}`} />
                             <span className="AskReasonPopup-inputText">
-                              Other.
+                              { REASON.reason5 }
                             </span>
                           </label>
                         </fieldset>
@@ -129,7 +153,7 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                           <input
                             className="AskReasonPopup-custom"
                             placeholder="Type your feedback here…"
-                            onChange={this.handleOptionChange}
+                            ref={(ref) => (this.text = ref)}
                           />
                         </fieldset>
                         <div className="AskReasonPopup-separate" />
@@ -138,10 +162,7 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                             <b>Note:</b>  If you choose to delete your account, we will delete your profile and remove you from our mailing lists.This cannot be reversed.
                           </span>
                         </div>
-                        <button
-                          onClick={(e) => { this.handleSubmitForm(); e.preventDefault(); }}
-                          className="AskReasonPopup-submitReport"
-                        >
+                        <button className="AskReasonPopup-submitReport">
                           <div className="AskReasonPopup-submitReportText"> Submit </div>
                         </button>
                       </div>
