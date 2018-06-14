@@ -6,12 +6,9 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
   constructor() {
     super();
     this.state = {
-      selectedOption: 'Duplicate',
+      selectedOption: 'Reason5',
       showDeleteProfile: false,
     };
-  }
-  handleOptionChange = (event) => {
-    this.setState({ selectedOption: event.target.value });
   }
   handleSubmitForm() {
     const {
@@ -47,35 +44,93 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                     <form>
                       <div>
                         <fieldset className="AskReasonPopup-fieldset">
-                          <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Spam" checked={selectedOption === 'Spam'} />
-                          <span className="AskReasonPopup-inputText">
-                            This account was a duplicate account.
-                          </span>
+                          <input
+                            id="1"
+                            className="AskReasonPopup-radio"
+                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            type="radio"
+                            value="Reason1"
+                            checked={selectedOption === 'Reason1'}
+                          />
+                          <label htmlFor="1" className="AskReasonPopup-displayFlex">
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason1' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className="AskReasonPopup-inputText">
+                              This account was a duplicate account.
+                            </span>
+                          </label>
                         </fieldset>
                         <fieldset className="AskReasonPopup-fieldset">
-                          <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Duplicate" checked={selectedOption === 'Duplicate'} />
-                          <span className="AskReasonPopup-inputText">
-                            I had a bad experience on the platform.
-                          </span>
+                          <input
+                            id="2"
+                            className="AskReasonPopup-radio"
+                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            type="radio"
+                            value="Reason2"
+                            checked={selectedOption === 'Reason2'}
+                          />
+                          <label htmlFor="2" className="AskReasonPopup-displayFlex">
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason2' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className="AskReasonPopup-inputText">
+                              I had a bad experience on the platform.
+                            </span>
+                          </label>
                         </fieldset>
                         <fieldset className="AskReasonPopup-fieldset">
-                          <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Inappropriate" checked={selectedOption === 'Inappropriate'} />
-                          <span className="AskReasonPopup-inputText">
-                            I’m no longer interested in this community.
-                          </span>
+                          <input
+                            id="3"
+                            className="AskReasonPopup-radio"
+                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            type="radio"
+                            value="Reason3"
+                            checked={selectedOption === 'Reason3'}
+                          />
+                          <label htmlFor="3" className="AskReasonPopup-displayFlex">
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason3' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className="AskReasonPopup-inputText">
+                              I’m no longer interested in this community.
+                            </span>
+                          </label>
                         </fieldset>
                         <fieldset className="AskReasonPopup-fieldset">
-                          <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Needs editing" checked={selectedOption === 'Needs editing'} />
-                          <span className="AskReasonPopup-inputText"> I’m just taking a break. </span>
+                          <input
+                            id="4"
+                            className="AskReasonPopup-radio"
+                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            type="radio"
+                            value="Reason4"
+                            checked={selectedOption === 'Reason4'}
+                          />
+                          <label htmlFor="4" className="AskReasonPopup-displayFlex">
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason4' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className="AskReasonPopup-inputText">
+                              I’m just taking a break.
+                            </span>
+                          </label>
                         </fieldset>
                         <fieldset className="AskReasonPopup-fieldset">
-                          <input className="AskReasonPopup-radio" onChange={this.handleOptionChange} type="radio" value="Self promotion" checked={selectedOption === 'Self promotion'} />
-                          <span className="AskReasonPopup-inputText"> Other </span>
+                          <input
+                            id="5"
+                            className="AskReasonPopup-radio"
+                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            type="radio"
+                            value="Reason5"
+                            checked={selectedOption === 'Reason5'}
+                          />
+                          <label htmlFor="5" className="AskReasonPopup-displayFlex">
+                            <span className={`AskReasonPopup-radioCustom ${selectedOption === 'Reason5' ? 'AskReasonPopup-selected' : null}`} />
+                            <span className="AskReasonPopup-inputText">
+                              Other.
+                            </span>
+                          </label>
                         </fieldset>
                         <div className="AskReasonPopup-separate" />
                         <div className="AskReasonPopup-selectOptionTitle"> Feedback: </div>
                         <fieldset className="AskReasonPopup-fieldset">
-                          <input placeholder="Type your feedback here…" onChange={this.handleOptionChange} />
+                          <input
+                            className="AskReasonPopup-custom"
+                            placeholder="Type your feedback here…"
+                            onChange={this.handleOptionChange}
+                          />
                         </fieldset>
                         <div className="AskReasonPopup-separate" />
                         <div className="AskReasonPopup-note">
