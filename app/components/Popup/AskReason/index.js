@@ -138,7 +138,10 @@ export default class AskReasonPopup extends PureComponent { // eslint-disable-li
                             <b>Note:</b>  If you choose to delete your account, we will delete your profile and remove you from our mailing lists.This cannot be reversed.
                           </span>
                         </div>
-                        <button onClick={(e) => { this.handleSubmitForm(); e.preventDefault(); }} className="AskReasonPopup-submitReport">
+                        <button
+                          onClick={(e) => { this.handleSubmitForm(); e.preventDefault(); }}
+                          className="AskReasonPopup-submitReport"
+                        >
                           <div className="AskReasonPopup-submitReportText"> Submit </div>
                         </button>
                       </div>
