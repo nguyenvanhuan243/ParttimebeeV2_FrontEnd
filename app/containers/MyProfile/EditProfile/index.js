@@ -3,7 +3,7 @@ import Header from 'components/Header/Loadable';
 import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
 
-export default class EditProfile extends Component { // eslint-disable-line react/prefer-stateless-function
+export default class EditProfile extends Component {
   constructor() {
     super();
     this.state = {
@@ -96,39 +96,67 @@ export default class EditProfile extends Component { // eslint-disable-line reac
                   <div className="EditProfileForm-inputContainer">
                     <form>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" placeholder="http://" type="text" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          placeholder="http://"
+                          type="text"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input className="EditProfileForm-inputHoverEmail" type="aria" />
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="aria"
+                        />
                         <div className="EditProfileForm-separate" />
                       </div>
                     </form>
