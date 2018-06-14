@@ -58,7 +58,6 @@ import 'components/JobDetail/CompanyInfo/styles.css';
 import 'components/JobDetail/JobInformation/SocialButton/Email/styles.css';
 import 'components/JobDetail/JobInformation/SocialButton/Facebook/styles.css';
 import 'components/JobDetail/JobInformation/SocialButton/Whatsapp/styles.css';
-import 'components/EditProfile/Form/styles.css';
 import 'components/EditProfile/Alert/styles.css';
 import 'components/JobDetail/CreatedJobAlert/styles.css';
 import 'components/SearchNotFound/styles.css';
@@ -112,7 +111,6 @@ import 'containers/MyJobs/MyJobsPendingSingleEditToastBox/styles.css';
 
 // Post jobs
 import 'containers/PostJob/EditAndPost/styles.css';
-import 'containers/PostJob/FirstTimePostJob/styles.css';
 import 'containers/PostJob/ImportantAlert/styles.css';
 
 // MY PROFILE.
