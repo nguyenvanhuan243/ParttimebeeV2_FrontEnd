@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
+import axios from 'axios';
+import config from '../../../../config';
 
 export default class EditProfile extends Component {
   constructor() {
@@ -10,6 +12,14 @@ export default class EditProfile extends Component {
       showAskReasonPopup: false,
       isSubmited: false,
     };
+  }
+  onSubmit = () => {
+    const userId = localStorage.currentUser;
+    const requestUrl = `${config.API_BASE_URL}/users/${userId}`;
+    axios.put(requestUrl, {
+      email: this.email.value,
+      password: this.password.value,
+    });
   }
   handleAskReasonPopup() {
     this.setState({
@@ -94,11 +104,12 @@ export default class EditProfile extends Component {
                     </div>
                   </div>
                   <div className="EditProfileForm-inputContainer">
-                    <form>
+                    <form id="editForm">
                       <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
+                          ref={(ref) => (this.email = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -106,6 +117,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
+                          ref={(ref) => (this.password = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -163,6 +175,14 @@ export default class EditProfile extends Component {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="EditProfile-editContainer">
+              <button
+                className="EditProfile-editButton"
+                onClick={() => (document.getElementById('editForm').onSubmit = this.onSubmit())}
+              >
+                Edit
+              </button>
             </div>
             <div className="EditProfile-deleteMyAccount">
               <div className="EditProfile-deleteAccountContainer">

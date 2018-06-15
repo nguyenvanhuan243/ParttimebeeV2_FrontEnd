@@ -231,3 +231,17 @@ input.EditProfileForm-inputHoverEmail:focus {
   font-weight: 500 !important;
   color: #d8d8d8 !important;
 }
+
+.EditProfile-editContainer {
+  margin-top: 30px;
+}
+
+.EditProfile-editButton {
+  width: 82px;
+  height: 34px;
+  border-radius: 3px;
+  background-color: #ffaa00;
+  cursor: pointer;
+  padding: 0px !important;
+  margin: 0px !important;
+}
