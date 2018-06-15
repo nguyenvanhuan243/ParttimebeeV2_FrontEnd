@@ -31,9 +31,6 @@ import EmailUpdatedPassword from 'components/LoginRegister/EmailUpdatedPassword/
 import TermsPage from 'components/Pages/Terms/Loadable';
 import PolicyPage from 'components/Pages/Policy/Loadable';
 import AboutPage from 'components/Pages/About/Loadable';
-import MyJobsOnGoingSingleEdit from 'containers/MyJobs/MyJobsOnGoingSingleEdit/Loadable';
-import MyJobsPendingSingleEdit from 'containers/MyJobs/MyJobsPendingSingleEdit/Loadable';
-import MyJobsExpiredSingleRepost from 'containers/MyJobs/MyJobsExpiredSingleRepost/Loadable';
 import MyJobsOnGoingSingleEditToastBox from 'containers/MyJobs/MyJobsOnGoingSingleEditToastBox/Loadable';
 import MyJobsPendingSingleEditToastBox from 'containers/MyJobs/MyJobsPendingSingleEditToastBox/Loadable';
 import MyJobsExpiredSingleRepostToastBox from 'containers/MyJobs/MyJobsExpiredSingleRepostToastBox/Loadable';
@@ -72,9 +69,6 @@ export default function App() {
         <Route exact path="/myjobs/myjobs-on-going-single/:id" component={JobDetail} />
         <Route exact path="/myjobs/myjobs-pending-single/:id" component={JobDetail} />
         <Route exact path="/myjobs/myjobs-expired-single/:id" component={JobDetail} />
-        <Route exact path="/myjobs/myjobs-ongoing-single-edit" component={MyJobsOnGoingSingleEdit} />
-        <Route exact path="/myjobs/myjobs-pending-single-edit" component={MyJobsPendingSingleEdit} />
-        <Route exact path="/myjobs/myjobs-expired-single-repost" component={MyJobsExpiredSingleRepost} />
         <Route exact path="/myjobs/myjobs-on-going-single-edit-toast-box" component={MyJobsOnGoingSingleEditToastBox} />
         <Route exact path="/myjobs/myjobs-pending-single-edit-toast-box" component={MyJobsPendingSingleEditToastBox} />
         <Route exact path="/myjobs/myjobs-expired-single-repost-toast-box" component={MyJobsExpiredSingleRepostToastBox} />

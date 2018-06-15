@@ -101,11 +101,8 @@ import 'components/ShareThisProfile/styles.css';
 // My jobs
 import 'containers/MyJobs/MyJobs/styles.css';
 import 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/styles.css';
-import 'containers/MyJobs/MyJobsExpiredSingleRepost/styles.css';
 import 'containers/MyJobs/MyJobsExpiredSingleRepostToastBox/styles.css';
-import 'containers/MyJobs/MyJobsOnGoingSingleEdit/styles.css';
 import 'containers/MyJobs/MyJobsOnGoingSingleEditToastBox/styles.css';
-import 'containers/MyJobs/MyJobsPendingSingleEdit/styles.css';
 import 'containers/MyJobs/MyJobsPendingSingleEditToastBox/styles.css';
 
 // Post jobs
