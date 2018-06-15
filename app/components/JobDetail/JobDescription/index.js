@@ -1,9 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react';
 
-export default class JobDescription extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class JobDescription extends PureComponent {
   render() {
     const {
       text = '',
+      jobType = '',
     } = this.props;
     const buttonRendered = (location.search === '?preview');
     return (
@@ -22,11 +23,25 @@ export default class JobDescription extends PureComponent { // eslint-disable-li
               </span>
             </button>
           </div> : null }
+        { localStorage.currentUser && !buttonRendered ?
+          <div>
+            <button onClick={() => window.history.back()} className="JobDescription-editButton">
+              <span className="JobDescription-editButtonText">
+                BACK
+              </span>
+            </button>
+            <button className="JobDescription-postButton">
+              <span className="JobDescription-postButtonText">
+                { jobType === 'expired' ? 'RE-POST' : 'EDIT JOB' }
+              </span>
+            </button>
+          </div> : null }
       </div>
     );
   }
 }
 JobDescription.propTypes = {
   text: PropTypes.string,
+  jobType: PropTypes.string,
 };
 

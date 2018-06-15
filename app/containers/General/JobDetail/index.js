@@ -68,7 +68,10 @@ export default class JobDetail extends Component {
                 JOB DESCRIPTION
               </div>
               <div className="JobDetail-description">
-                <JobDescription text={jobItem.description} />
+                <JobDescription
+                  text={jobItem.description}
+                  jobType={jobItem.job_type}
+                />
               </div>
               <div className="JobDetail-rectangleGoogleAds">
                 <GoogleAdsense adsWidth={468} adsHeight={60} />
