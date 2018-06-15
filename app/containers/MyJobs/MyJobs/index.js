@@ -11,7 +11,7 @@ import axios from 'axios';
 import config from '../../../../config';
 
 const TYPE_JOB = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
-const currentUser = localStorage.currentUser;
+const currentUserId = localStorage.currentUser;
 export default class MyJobs extends Component {
   constructor() {
     super();
@@ -20,11 +20,14 @@ export default class MyJobs extends Component {
       activeCurrent: 'on-goging',
       myJobResourceEndPoint: [],
       activeJob: 'all',
+      currentUser: {},
     };
   }
   componentWillMount() {
-    const url = `${config.API_BASE_URL}/users/${currentUser}/jobs`;
+    const url = `${config.API_BASE_URL}/users/${currentUserId}/jobs`;
+    const currentUserUrl = `${config.API_BASE_URL}/users/${currentUserId}`;
     axios.get(url).then((response) => this.setState({ myJobResourceEndPoint: response.data }));
+    axios.get(currentUserUrl).then((response) => this.setState({ currentUser: response.data }));
   }
   getActiveJob(active) {
     if (active.includes('On-going')) {
@@ -53,6 +56,7 @@ export default class MyJobs extends Component {
       activeCurrent,
       myJobResourceEndPoint,
       activeJob,
+      currentUser,
     } = this.state;
     const goingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.GOING);
     const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.PENDING);
@@ -77,7 +81,15 @@ export default class MyJobs extends Component {
         <Header />
         <div className="MyJobs-bodyContainer">
           <div className="MyJobs-MyJobsBanner">
-            <EmployerProfileBanner showEdit={!employerProfile} />
+            <EmployerProfileBanner
+              showEdit={!employerProfile}
+              companyName={currentUser.company_name}
+              phone={currentUser.phone_number}
+              email={currentUser.email}
+              website={currentUser.website}
+              address={currentUser.address}
+              companyDescription={currentUser.company_description}
+            />
           </div>
           <div className="MyJobs-contentContainer">
             <div className="MyJobs-availableJob">
