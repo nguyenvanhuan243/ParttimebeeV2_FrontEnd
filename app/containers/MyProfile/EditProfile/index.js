@@ -219,6 +219,9 @@ export default class EditProfile extends Component {
                           ref={(ref) => (this.email = ref)}
                         />
                         <div className={separateEmailClassName} />
+                        { (alertEmail && showErrorAlert) && <div className="EditProfileForm-textError">
+                          Please enter your email
+                        </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -227,6 +230,9 @@ export default class EditProfile extends Component {
                           ref={(ref) => (this.password = ref)}
                         />
                         <div className={separatePasswordClassName} />
+                        { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                          Please enter your password
+                        </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -235,6 +241,9 @@ export default class EditProfile extends Component {
                           ref={(ref) => (this.confirmPassword = ref)}
                         />
                         <div className={separateConfirmPasswordClassName} />
+                        { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                          Please enter your confirm password
+                        </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -243,6 +252,9 @@ export default class EditProfile extends Component {
                           ref={(ref) => (this.contactName = ref)}
                         />
                         <div className={separateContactNameClassName} />
+                        { (alertContactName && showErrorAlert) && <div className="EditProfileForm-textError">
+                          Please enter your contact name
+                        </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -251,6 +263,9 @@ export default class EditProfile extends Component {
                           ref={(ref) => (this.companyName = ref)}
                         />
                         <div className={separateCompanyNameClassName} />
+                        { (alertCompanyName && showErrorAlert) && <div className="EditProfileForm-textError">
+                          Please enter your company name
+                        </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input

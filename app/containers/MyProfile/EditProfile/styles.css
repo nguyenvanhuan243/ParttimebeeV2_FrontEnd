@@ -336,3 +336,18 @@ input.EditProfileForm-inputHoverEmail:focus {
 .EditProfile-errorSeparate {
   background-color: #da552f !important;
 }
+
+.EditProfileForm-textError {
+  width: 187px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #da552f;
+  margin-top: 4px !important;
+}
