@@ -60,6 +60,7 @@ export default class EditProfile extends Component {
       this.setState({
         showSaving: true,
         showUpdated: false,
+        showErrorAlert: false,
       });
       setTimeout(() => this.setState({
         showUpdated: true,
