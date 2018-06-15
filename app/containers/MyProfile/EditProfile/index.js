@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
+import SavingIcon from 'components/Icons/Saving/Loadable';
 import axios from 'axios';
 import config from '../../../../config';
 
@@ -183,6 +184,12 @@ export default class EditProfile extends Component {
               >
                 Edit
               </button>
+              <div className="EditProfile-savingIcon">
+                <SavingIcon />
+              </div>
+              <div className="EditProfile-savingText">
+                SAVING…
+              </div>
             </div>
             <div className="EditProfile-deleteMyAccount">
               <div className="EditProfile-deleteAccountContainer">
