@@ -3,6 +3,7 @@ import Header from 'components/Header/Loadable';
 import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
 import SavingIcon from 'components/Icons/Saving/Loadable';
+import OkayIcon from 'components/Icons/Okay/Loadable';
 import axios from 'axios';
 import config from '../../../../config';
 
@@ -12,11 +13,21 @@ export default class EditProfile extends Component {
     this.state = {
       showAskReasonPopup: false,
       isSubmited: false,
+      showSaving: false,
+      showUpdated: false,
     };
   }
   onSubmit = () => {
     const userId = localStorage.currentUser;
     const requestUrl = `${config.API_BASE_URL}/users/${userId}`;
+    this.setState({
+      showSaving: true,
+      showUpdated: false,
+    });
+    setTimeout(() => this.setState({
+      showUpdated: true,
+      showSaving: false,
+    }), 2000);
     axios.put(requestUrl, {
       email: this.email.value,
       password: this.password.value,
@@ -42,6 +53,8 @@ export default class EditProfile extends Component {
     const {
       showAskReasonPopup,
       isSubmited,
+      showSaving,
+      showUpdated,
     } = this.state;
     return (
       <div>
@@ -184,12 +197,23 @@ export default class EditProfile extends Component {
               >
                 Edit
               </button>
-              <div className="EditProfile-savingIcon">
-                <SavingIcon />
-              </div>
-              <div className="EditProfile-savingText">
-                SAVING…
-              </div>
+              { showSaving ?
+                <div className="EditProfile-savingContainer">
+                  <div className="EditProfile-savingIcon">
+                    <SavingIcon />
+                  </div>
+                  <div className="EditProfile-savingText">
+                    SAVING…
+                  </div>
+                </div> : null }
+              { showUpdated ? <div className="EditProfile-oKayContainer">
+                <div className="EditProfile-oKayIcon">
+                  <OkayIcon />
+                </div>
+                <div className="EditProfile-oKayText">
+                  UPDATED!
+                </div>
+              </div> : null }
             </div>
             <div className="EditProfile-deleteMyAccount">
               <div className="EditProfile-deleteAccountContainer">

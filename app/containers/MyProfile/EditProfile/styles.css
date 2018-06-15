@@ -271,6 +271,10 @@ input.EditProfileForm-inputHoverEmail:focus {
   margin: 0px !important;
 }
 
+.EditProfile-savingContainer {
+  display: flex;
+}
+
 .EditProfile-savingIcon {
   margin-left: 30px;
   margin-top: 4px;
@@ -294,4 +298,32 @@ input.EditProfileForm-inputHoverEmail:focus {
   animation-duration: 1.4s;
   animation-iteration-count: infinite;
   animation-fill-mode: both;
+}
+
+.EditProfile-oKayContainer {
+  display: flex;
+}
+
+.EditProfile-oKayIcon {
+  margin-left: 22px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.EditProfile-oKayText {
+  margin-left: 13px;
+  margin-top: 10px;
+}
+
+.EditProfile-oKayText {
+  width: 61px;
+  height: 14px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
 }
