@@ -20,7 +20,6 @@ import JobDetail from 'containers/General/JobDetail/Loadable';
 import JobByState from 'containers/General/JobByState/Loadable';
 import EmployerAvailableJobs from 'containers/General/EmployerAvailableJobs/Loadable';
 import MyJobs from 'containers/MyJobs/MyJobs/Loadable';
-import MyJobsNoJobs from 'containers/MyJobs/MyJobsNoJobs/Loadable';
 import Signup from 'components/LoginRegister/Signup/Loadable';
 import Login from 'components/LoginRegister/Login/Loadable';
 import ForgotPassword from 'components/LoginRegister/ForgotPassword/Loadable';
@@ -71,7 +70,6 @@ export default function App() {
         <Route exact path="/test/myprofile/edit-profile" component={EditProfile} />
         {/* MY JOBS */}
         <Route exact path="/test/myjobs/myjobs" component={MyJobs} />
-        <Route exact path="/test/myjobs/myjobs-no-jobs" component={MyJobsNoJobs} />
         <Route exact path="/test/myjobs/myjobs-on-going-single/:id" component={JobDetail} />
         <Route exact path="/test/myjobs/myjobs-pending-single/:id" component={JobDetail} />
         <Route exact path="/test/myjobs/myjobs-expired-single/:id" component={JobDetail} />
