@@ -1,3 +1,27 @@
+@keyframes blink {
+  /**
+   * At the start of the animation the dot
+   * has an opacity of .2
+   */
+  0% {
+    opacity: .2;
+  }
+  /**
+   * At 20% the dot is fully visible and
+   * then fades out slowly
+   */
+  20% {
+    opacity: 1;
+  }
+  /**
+   * Until it reaches an opacity of .2 and
+   * the animation can start again
+   */
+  100% {
+    opacity: .2;
+  }
+}
+
 .EditProfile-container {
   width: 1100px;
   margin: 0 auto;
@@ -266,4 +290,8 @@ input.EditProfileForm-inputHoverEmail:focus {
   color: #999999;
   margin-top: 10px;
   margin-left: 12px;
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
 }
