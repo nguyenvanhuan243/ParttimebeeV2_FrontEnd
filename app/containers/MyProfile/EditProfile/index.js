@@ -15,23 +15,61 @@ export default class EditProfile extends Component {
       isSubmited: false,
       showSaving: false,
       showUpdated: false,
+      showErrorAlert: false,
+      alertEmail: '',
+      alertPassword: '',
+      alertConfirmPassword: '',
+      alertCompanyName: '',
+      alertContactName: '',
     };
   }
   onSubmit = () => {
     const userId = localStorage.currentUser;
     const requestUrl = `${config.API_BASE_URL}/users/${userId}`;
-    this.setState({
-      showSaving: true,
-      showUpdated: false,
-    });
-    setTimeout(() => this.setState({
-      showUpdated: true,
-      showSaving: false,
-    }), 2000);
-    axios.put(requestUrl, {
-      email: this.email.value,
-      password: this.password.value,
-    });
+    if (this.email.value === '' || this.password.value === '' || this.confirmPassword.value === '' ||
+        this.companyName.value === '' || this.contactName.value === '') {
+      this.setState({
+        showErrorAlert: true,
+      });
+      if (this.email.value === '') {
+        this.setState({ alertEmail: 'Email' });
+      } else {
+        this.setState({ alertEmail: '' });
+      }
+      if (this.password.value === '') {
+        this.setState({ alertPassword: 'Password' });
+      } else {
+        this.setState({ alertPassword: '' });
+      }
+      if (this.confirmPassword.value === '') {
+        this.setState({ alertConfirmPassword: 'Confirm Password' });
+      } else {
+        this.setState({ alertConfirmPassword: '' });
+      }
+      if (this.contactName.value === '') {
+        this.setState({ alertContactName: 'Contact Name' });
+      } else {
+        this.setState({ alertContactName: '' });
+      }
+      if (this.companyName.value === '') {
+        this.setState({ alertCompanyName: 'Company Name' });
+      } else {
+        this.setState({ alertCompanyName: '' });
+      }
+    } else {
+      this.setState({
+        showSaving: true,
+        showUpdated: false,
+      });
+      setTimeout(() => this.setState({
+        showUpdated: true,
+        showSaving: false,
+      }), 2000);
+      axios.put(requestUrl, {
+        email: this.email.value,
+        password: this.password.value,
+      });
+    }
   }
   handleAskReasonPopup() {
     this.setState({
@@ -55,6 +93,12 @@ export default class EditProfile extends Component {
       isSubmited,
       showSaving,
       showUpdated,
+      showErrorAlert,
+      alertEmail,
+      alertPassword,
+      alertConfirmPassword,
+      alertContactName,
+      alertCompanyName,
     } = this.state;
     return (
       <div>
@@ -72,9 +116,15 @@ export default class EditProfile extends Component {
             <div className="EditProfile-editProfile">
               Edit Profile
             </div>
-            <div className="EditProfile-alert">
-              <EditProfileAlert />
-            </div>
+            { showErrorAlert ? <div className="EditProfile-alert">
+              <EditProfileAlert
+                showEmail={alertEmail}
+                showPassword={alertPassword}
+                showConfirmPassword={alertConfirmPassword}
+                showContactName={alertContactName}
+                showCompanyName={alertCompanyName}
+              />
+            </div> : null }
             <div className="EditProfile-postJobForm">
               <div className="EditProfileForm">
                 <div className="EditProfileForm-avatarContainer">
@@ -139,6 +189,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
+                          ref={(ref) => (this.confirmPassword = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -146,6 +197,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
+                          ref={(ref) => (this.contactName = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -153,6 +205,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
+                          ref={(ref) => (this.companyName = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
