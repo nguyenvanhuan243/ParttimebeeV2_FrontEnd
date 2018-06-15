@@ -78,7 +78,7 @@ export default class EditProfile extends Component {
         address: this.address.value,
         phone: this.phone.value,
         website: this.website.value,
-        companyDescription: this.companyDescription.value,
+        companyDescription: this.companyDescription.editor.innerHTML,
       });
     }
   }
@@ -299,7 +299,7 @@ export default class EditProfile extends Component {
                           onFocus={() => this.setState({ focusOnDescription: true })}
                           onBlur={() => this.setState({ focusOnDescription: false })}
                           placeholder="Company Description"
-                          editorRef={(ref) => (this.description = ref)}
+                          editorRef={(ref) => (this.companyDescription = ref)}
                           wrapperClassName="EditProfileForm-wrapper"
                           editorClassName="EditProfileForm-editor"
                           onEditorStateChange={this.onEditorStateChange}

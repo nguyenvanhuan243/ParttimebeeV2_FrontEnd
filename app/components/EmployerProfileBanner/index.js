@@ -74,9 +74,7 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
             <div className="EmployerProfileBanner-companyDescription">
               Company Description
             </div>
-            <div className="EmployerProfileBanner-companyDescriptionText">
-              { companyDescription }
-            </div>
+            <div dangerouslySetInnerHTML={{ __html: companyDescription }} className="EmployerProfileBanner-companyDescriptionText" />
           </div>
           { showEdit ?
             <a className="EmployerProfileBanner-hrefText" href={`${config.BASE_URL}/myprofile/edit-profile`}>
