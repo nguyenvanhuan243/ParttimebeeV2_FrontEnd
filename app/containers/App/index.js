@@ -37,7 +37,6 @@ import MyJobsExpiredSingleRepost from 'containers/MyJobs/MyJobsExpiredSingleRepo
 import MyJobsOnGoingSingleEditToastBox from 'containers/MyJobs/MyJobsOnGoingSingleEditToastBox/Loadable';
 import MyJobsPendingSingleEditToastBox from 'containers/MyJobs/MyJobsPendingSingleEditToastBox/Loadable';
 import MyJobsExpiredSingleRepostToastBox from 'containers/MyJobs/MyJobsExpiredSingleRepostToastBox/Loadable';
-import MyJobsDeleteConfirmationPopup from 'containers/MyJobs/MyJobsDeleteConfirmationPopup/Loadable';
 import MyJobsDeleteConfirmationToastBox from 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/Loadable';
 import EditJob from 'containers/PostJob/EditAndPost/Loadable';
 import EditProfile from 'containers/MyProfile/EditProfile/Loadable';
@@ -79,11 +78,10 @@ export default function App() {
         <Route exact path="/myjobs/myjobs-on-going-single-edit-toast-box" component={MyJobsOnGoingSingleEditToastBox} />
         <Route exact path="/myjobs/myjobs-pending-single-edit-toast-box" component={MyJobsPendingSingleEditToastBox} />
         <Route exact path="/myjobs/myjobs-expired-single-repost-toast-box" component={MyJobsExpiredSingleRepostToastBox} />
-        <Route exact path="/myjobs/myjobs-delete-confirmation-popup" component={MyJobsDeleteConfirmationPopup} />
         <Route exact path="/myjobs/myjobs-delete-confirmation-toast-box" component={MyJobsDeleteConfirmationToastBox} />
         {/* POST JOBS */}
         <Route exact path="/postjobs-first-time-post-job" component={EditProfile} />
-        <Route exact path="/postjobs-edit-job" component={EditJob} />
+        <Route exact path="/postjobs-edit-job/:id" component={EditJob} />
         <Route exact path="/postjobs-post-job" component={EditJob} />
         <Route component={NotFoundPage} />
       </Switch>

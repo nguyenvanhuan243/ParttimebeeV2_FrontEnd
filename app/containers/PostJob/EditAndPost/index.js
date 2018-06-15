@@ -85,6 +85,7 @@ export default class EditAndPost extends Component {
                         onBlur={() => this.setState({ focusOnTitle: false })}
                         ref={(ref) => (this.title = ref)}
                         required
+                        value="Concac"
                       />
                     </div>
                     <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
