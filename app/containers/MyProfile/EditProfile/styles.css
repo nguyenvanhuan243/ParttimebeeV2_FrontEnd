@@ -178,6 +178,7 @@
 .EditProfileForm-container {
   margin: 20px;
   display: flex;
+  height: 700px;
 }
 
 .EditProfileForm-lableContainer {
@@ -350,4 +351,13 @@ input.EditProfileForm-inputHoverEmail:focus {
   text-align: left;
   color: #da552f;
   margin-top: 4px !important;
+}
+
+.EditProfileForm-wrapper {
+  width: 875px;
+}
+
+.EditProfileForm-editor {
+  height: 140px !important;
+  overflow-y: auto !important;
 }

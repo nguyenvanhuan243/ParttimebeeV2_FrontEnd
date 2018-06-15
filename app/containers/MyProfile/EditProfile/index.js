@@ -5,6 +5,8 @@ import AskReasonPopup from 'components/Popup/AskReason/Loadable';
 import SavingIcon from 'components/Icons/Saving/Loadable';
 import OkayIcon from 'components/Icons/Okay/Loadable';
 import classNames from 'classnames';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { Editor } from 'react-draft-wysiwyg';
 import axios from 'axios';
 import config from '../../../../config';
 
@@ -293,10 +295,32 @@ export default class EditProfile extends Component {
                         <div className="EditProfileForm-separate" />
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <input
-                          className="EditProfileForm-inputHoverEmail"
-                          type="aria"
-                          ref={(ref) => (this.companyDescription = ref)}
+                        <Editor
+                          onFocus={() => this.setState({ focusOnDescription: true })}
+                          onBlur={() => this.setState({ focusOnDescription: false })}
+                          placeholder="Company Description"
+                          editorRef={(ref) => (this.description = ref)}
+                          wrapperClassName="EditProfileForm-wrapper"
+                          editorClassName="EditProfileForm-editor"
+                          onEditorStateChange={this.onEditorStateChange}
+                          toolbar={{
+                            inline: { inDropdown: true },
+                            list: { inDropdown: true },
+                            textAlign: { inDropdown: true },
+                            link: { inDropdown: true },
+                            history: { inDropdown: true },
+                            fontFamily: {
+                            },
+                            embedded: {
+                              className: undefined,
+                              component: undefined,
+                              popupClassName: undefined,
+                              defaultSize: {
+                                height: 'auto',
+                                width: 'auto',
+                              },
+                            },
+                          }}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
