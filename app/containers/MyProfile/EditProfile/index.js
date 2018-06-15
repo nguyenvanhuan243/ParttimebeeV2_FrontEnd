@@ -4,6 +4,7 @@ import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
 import SavingIcon from 'components/Icons/Saving/Loadable';
 import OkayIcon from 'components/Icons/Okay/Loadable';
+import classNames from 'classnames';
 import axios from 'axios';
 import config from '../../../../config';
 
@@ -108,6 +109,40 @@ export default class EditProfile extends Component {
       alertContactName,
       alertCompanyName,
     } = this.state;
+    const emailLableClassName = classNames('EditProfileForm-lableItem', {
+      'EditProfile-errorLable': alertEmail,
+    });
+    const separateEmailClassName = classNames('EditProfileForm-separate', {
+      'EditProfile-errorSeparate': alertEmail,
+    });
+
+    const passwordLableClassName = classNames('EditProfileForm-lableItem', {
+      'EditProfile-errorLable': alertPassword,
+    });
+    const separatePasswordClassName = classNames('EditProfileForm-separate', {
+      'EditProfile-errorSeparate': alertPassword,
+    });
+
+    const confirmPasswordLableClassName = classNames('EditProfileForm-lableItem', {
+      'EditProfile-errorLable': alertConfirmPassword,
+    });
+    const separateConfirmPasswordClassName = classNames('EditProfileForm-separate', {
+      'EditProfile-errorSeparate': alertConfirmPassword,
+    });
+
+    const contactNameLableClassName = classNames('EditProfileForm-lableItem', {
+      'EditProfile-errorLable': alertContactName,
+    });
+    const separateContactNameClassName = classNames('EditProfileForm-separate', {
+      'EditProfile-errorSeparate': alertContactName,
+    });
+
+    const companyNameLableClassName = classNames('EditProfileForm-lableItem', {
+      'EditProfile-errorLable': alertCompanyName,
+    });
+    const separateCompanyNameClassName = classNames('EditProfileForm-separate', {
+      'EditProfile-errorSeparate': alertCompanyName,
+    });
     return (
       <div>
         <div>
@@ -147,19 +182,19 @@ export default class EditProfile extends Component {
                 </div>
                 <div className="EditProfileForm-container">
                   <div className="EditProfileForm-lableContainer">
-                    <div className="EditProfileForm-lableItem">
+                    <div className={emailLableClassName}>
                       Email
                     </div>
-                    <div className="EditProfileForm-lableItem">
+                    <div className={passwordLableClassName}>
                       Password
                     </div>
-                    <div className="EditProfileForm-lableItem">
+                    <div className={confirmPasswordLableClassName}>
                       Confirm Password
                     </div>
-                    <div className="EditProfileForm-lableItem">
+                    <div className={contactNameLableClassName}>
                       Contact Name
                     </div>
-                    <div className="EditProfileForm-lableItem">
+                    <div className={companyNameLableClassName}>
                       Company Name
                     </div>
                     <div className="EditProfileForm-lableItem">
@@ -183,7 +218,7 @@ export default class EditProfile extends Component {
                           type="email"
                           ref={(ref) => (this.email = ref)}
                         />
-                        <div className="EditProfileForm-separate" />
+                        <div className={separateEmailClassName} />
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -191,7 +226,7 @@ export default class EditProfile extends Component {
                           type="text"
                           ref={(ref) => (this.password = ref)}
                         />
-                        <div className="EditProfileForm-separate" />
+                        <div className={separatePasswordClassName} />
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -199,7 +234,7 @@ export default class EditProfile extends Component {
                           type="text"
                           ref={(ref) => (this.confirmPassword = ref)}
                         />
-                        <div className="EditProfileForm-separate" />
+                        <div className={separateConfirmPasswordClassName} />
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -207,7 +242,7 @@ export default class EditProfile extends Component {
                           type="text"
                           ref={(ref) => (this.contactName = ref)}
                         />
-                        <div className="EditProfileForm-separate" />
+                        <div className={separateContactNameClassName} />
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input
@@ -215,7 +250,7 @@ export default class EditProfile extends Component {
                           type="text"
                           ref={(ref) => (this.companyName = ref)}
                         />
-                        <div className="EditProfileForm-separate" />
+                        <div className={separateCompanyNameClassName} />
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <input

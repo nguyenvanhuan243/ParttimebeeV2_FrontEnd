@@ -249,6 +249,7 @@
 
 input.EditProfileForm-inputHoverEmail:focus {
   outline: none;
+  width: 875px !important;
 }
 
 .EditProfileForm-optionInput {
@@ -326,4 +327,12 @@ input.EditProfileForm-inputHoverEmail:focus {
   letter-spacing: normal;
   text-align: left;
   color: #999999;
+}
+
+.EditProfile-errorLable {
+  color: #da552f !important;
+}
+
+.EditProfile-errorSeparate {
+  background-color: #da552f !important;
 }
