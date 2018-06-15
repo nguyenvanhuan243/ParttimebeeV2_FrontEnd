@@ -69,6 +69,13 @@ export default class EditProfile extends Component {
       axios.put(requestUrl, {
         email: this.email.value,
         password: this.password.value,
+        confirmPassword: this.confirmPassword.value,
+        contactName: this.contactName.value,
+        companyName: this.companyName.value,
+        address: this.address.value,
+        phone: this.phone.value,
+        website: this.website.value,
+        companyDescription: this.companyDescription.value,
       });
     }
   }
@@ -173,7 +180,7 @@ export default class EditProfile extends Component {
                       <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"
-                          type="text"
+                          type="email"
                           ref={(ref) => (this.email = ref)}
                         />
                         <div className="EditProfileForm-separate" />
@@ -214,6 +221,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
+                          ref={(ref) => (this.address = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -221,6 +229,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
+                          ref={(ref) => (this.phone = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -229,6 +238,7 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           placeholder="http://"
                           type="text"
+                          ref={(ref) => (this.website = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -236,6 +246,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="aria"
+                          ref={(ref) => (this.companyDescription = ref)}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
