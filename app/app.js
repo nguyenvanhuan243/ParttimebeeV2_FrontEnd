@@ -100,7 +100,6 @@ import 'components/ShareThisProfile/styles.css';
 
 // My jobs
 import 'containers/MyJobs/MyJobs/styles.css';
-import 'containers/MyJobs/MyJobsDeleteConfirmationPopup/styles.css';
 import 'containers/MyJobs/MyJobsDeleteConfirmationToastBox/styles.css';
 import 'containers/MyJobs/MyJobsExpiredSingleRepost/styles.css';
 import 'containers/MyJobs/MyJobsExpiredSingleRepostToastBox/styles.css';
