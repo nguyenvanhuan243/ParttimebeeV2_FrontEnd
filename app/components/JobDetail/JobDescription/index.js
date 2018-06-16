@@ -1,6 +1,11 @@
 import React, { PureComponent, PropTypes } from 'react';
+import config from '../../../../config';
 
 export default class JobDescription extends PureComponent {
+  handleEditJob() {
+    const jobId = location.pathname.match(/\d+/)[0];
+    location.replace(`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`);
+  }
   render() {
     const {
       text = '',
@@ -30,7 +35,7 @@ export default class JobDescription extends PureComponent {
                 BACK
               </span>
             </button>
-            <button className="JobDescription-postButton">
+            <button onClick={() => this.handleEditJob()} className="JobDescription-postButton">
               <span className="JobDescription-postButtonText">
                 { jobType === 'expired' ? 'RE-POST' : 'EDIT JOB' }
               </span>

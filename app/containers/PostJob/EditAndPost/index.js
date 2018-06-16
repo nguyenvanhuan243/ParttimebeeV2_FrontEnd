@@ -53,6 +53,7 @@ export default class EditAndPost extends Component {
       focusOnCity,
       focusOnDescription,
     } = this.state;
+    const hasEditJob = location.pathname.includes('edit-job');
     return (
       <div>
         <Header />
@@ -176,7 +177,20 @@ export default class EditAndPost extends Component {
                       />
                     </div>
                     <div className={`${focusOnCity ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
-                    <div className="EditAndPost-buttonContainer">
+                    { hasEditJob ? <div className="EditAndPost-buttonContainer">
+                      <button
+                        className="EditAndPost-buttonPreview"
+                        onClick={() => window.history.back()}
+                      >
+                        CANCEL
+                      </button>
+                      <button
+                        className="EditAndPost-buttonPostjob"
+                        onClick={() => this.setState({ buttonIsSubmited: 'Post' })}
+                      >
+                        SAVE JOB
+                      </button>
+                    </div> : <div className="EditAndPost-buttonContainer">
                       <button
                         className="EditAndPost-buttonPreview"
                         onClick={() => this.setState({ buttonIsSubmited: 'Preview' })}
@@ -189,7 +203,7 @@ export default class EditAndPost extends Component {
                       >
                         Post job
                       </button>
-                    </div>
+                    </div> }
                   </form>
                 </div>
               </div>

@@ -97,7 +97,7 @@ import 'components/Popup/DeleteConfirmation/styles.css';
 import 'containers/General/EmployerAvailableJobs/styles.css';
 import 'components/EmployerProfileBanner/styles.css';
 import 'components/ShareThisProfile/styles.css';
-import 'containers/MyJobs/MyJobs/styles.css';
+import 'containers/MyJobs/styles.css';
 // Post jobs
 import 'containers/PostJob/EditAndPost/styles.css';
 import 'containers/PostJob/ImportantAlert/styles.css';

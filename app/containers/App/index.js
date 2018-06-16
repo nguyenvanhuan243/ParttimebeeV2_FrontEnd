@@ -19,7 +19,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import JobDetail from 'containers/General/JobDetail/Loadable';
 import JobByState from 'containers/General/JobByState/Loadable';
 import EmployerAvailableJobs from 'containers/General/EmployerAvailableJobs/Loadable';
-import MyJobs from 'containers/MyJobs/MyJobs/Loadable';
+import MyJobs from 'containers/MyJobs/Loadable';
 import Signup from 'components/LoginRegister/Signup/Loadable';
 import Login from 'components/LoginRegister/Login/Loadable';
 import ForgotPassword from 'components/LoginRegister/ForgotPassword/Loadable';

@@ -56,6 +56,7 @@ export default class JobList extends PureComponent {
         showCity={showCity}
         showCompanyName={!(hasProfile || hasMyjob)}
         viewNumber={item.views}
+        jobId={item.id}
       />));
     return (
       <div>

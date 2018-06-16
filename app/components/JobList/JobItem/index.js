@@ -15,6 +15,7 @@ export default class JobItem extends PureComponent {
       showCity = true, showView = true, showShare = true, showEdit = false, showDelete = false,
       showImage = true, title = '', href = '', onClickJobItem = () => {}, showCompanyName = true,
       viewNumber = 0,
+      jobId = 0,
     } = this.props;
     const hoverClass = classNames('JobItem', { 'JobItem-hover': this.state.hover });
     const hoverShareClass = classNames('JobItem-contentShareContainer',
@@ -55,7 +56,7 @@ export default class JobItem extends PureComponent {
                   <DeleteIcon />
                 </button> }
               { showEdit &&
-                <a href={`${config.BASE_URL}/postjobs-edit-job`} className="JobItem-contentEditContainer">
+                <a href={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`} className="JobItem-contentEditContainer">
                   <div> <ShareIcon /> </div>
                   <div className="JobItem-contentEditText"> EDIT </div>
                 </a> }
@@ -79,5 +80,6 @@ JobItem.propTypes = {
   href: PropTypes.string,
   showCompanyName: PropTypes.bool,
   viewNumber: PropTypes.number,
+  jobId: PropTypes.number,
 };
 

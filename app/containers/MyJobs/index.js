@@ -9,7 +9,7 @@ import Footer from 'components/Footer/Loadable';
 import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadable';
 import NoJobsYet from 'components/MyJobsComponent/NoJobsYet/Loadable';
 import axios from 'axios';
-import config from '../../../../config';
+import config from '../../../config';
 
 const TYPE_JOB = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
 const currentUserId = localStorage.currentUser;
