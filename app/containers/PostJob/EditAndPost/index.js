@@ -19,7 +19,25 @@ export default class EditAndPost extends Component {
       focusOnDescription: false,
       showAlert: true,
       buttonIsSubmited: 'Post',
+      jobItem: {},
+      titleValue: '',
+      CategoryValue: '',
+      SalaryValue: '',
+      SalaryTypeValue: '',
+      salaryStateValue: '',
+      cityValue: '',
     };
+  }
+  componentDidMount() {
+    const jobId = location.pathname.match(/\d+/)[0];
+    const requestUrl = `${config.API_BASE_URL}/jobs/${jobId}`;
+    axios.get(requestUrl).then(
+      (response) => {
+        this.setState({
+          jobItem: response.data,
+        });
+      }
+    );
   }
   onSubmit = (e) => {
     const {
@@ -52,6 +70,7 @@ export default class EditAndPost extends Component {
       focusOnSalaryState,
       focusOnCity,
       focusOnDescription,
+      jobItem,
     } = this.state;
     const hasEditJob = location.pathname.includes('edit-job');
     return (
@@ -86,6 +105,13 @@ export default class EditAndPost extends Component {
                         onBlur={() => this.setState({ focusOnTitle: false })}
                         ref={(ref) => (this.title = ref)}
                         required
+                        value={this.state.titleValue || jobItem.title}
+                        onChange={(e) => {
+                          this.setState({ titleValue: e.target.value });
+                          if (this.state.titleValue === '') {
+                            jobItem.title = '';
+                          }
+                        }}
                       />
                     </div>
                     <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
@@ -94,6 +120,8 @@ export default class EditAndPost extends Component {
                       onFocus={() => this.setState({ focusOnCategory: true })}
                       onBlur={() => this.setState({ focusOnCategory: false })}
                       ref={(ref) => (this.category = ref)}
+                      value={this.state.CategoryValue || jobItem.category}
+                      onChange={(e) => this.setState({ CategoryValue: e.target.value })}
                     >
                       <option> Home </option>
                       <option> Event </option>
@@ -142,6 +170,13 @@ export default class EditAndPost extends Component {
                         onBlur={() => this.setState({ focusOnSalary: false })}
                         ref={(ref) => (this.salary = ref)}
                         required
+                        value={this.state.salaryValue || jobItem.salary}
+                        onChange={(e) => {
+                          this.setState({ salaryValue: e.target.value });
+                          if (this.state.salaryValue === '') {
+                            jobItem.salary = '';
+                          }
+                        }}
                       />
                     </div>
                     <div className={`${focusOnSalary ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
@@ -150,6 +185,8 @@ export default class EditAndPost extends Component {
                       onFocus={() => this.setState({ focusOnSalaryType: true })}
                       onBlur={() => this.setState({ focusOnSalaryType: false })}
                       ref={(ref) => (this.salaryType = ref)}
+                      value={this.state.salaryTypeValue || jobItem.salary_type}
+                      onChange={(e) => this.setState({ salaryTypeValue: e.target.value })}
                     >
                       <option> Per hour </option>
                       <option> Per day </option>
@@ -161,6 +198,8 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnSalaryState: true })}
                         onBlur={() => this.setState({ focusOnSalaryState: false })}
                         ref={(ref) => (this.salaryState = ref)}
+                        value={this.state.salaryStateValue || jobItem.salary_state}
+                        onChange={(e) => this.setState({ salaryStateValue: e.target.value })}
                       >
                         <option> Johor </option>
                         <option> Kuala Lumpur </option>
@@ -174,6 +213,13 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnCity: true })}
                         onBlur={() => this.setState({ focusOnCity: false })}
                         ref={(ref) => (this.city = ref)}
+                        value={this.state.cityValue || jobItem.city}
+                        onChange={(e) => {
+                          this.setState({ cityValue: e.target.value });
+                          if (this.state.cityValue === '') {
+                            jobItem.city = '';
+                          }
+                        }}
                       />
                     </div>
                     <div className={`${focusOnCity ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
