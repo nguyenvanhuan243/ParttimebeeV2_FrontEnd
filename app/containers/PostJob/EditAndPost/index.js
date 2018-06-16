@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from 'components/Header/Loadable';
 import ImportantAlert from 'containers/PostJob/ImportantAlert/Loadable';
+import JobSavedAlert from 'components/JobSavedAlert/Loadable';
 import axios from 'axios';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { Editor } from 'react-draft-wysiwyg';
@@ -260,6 +261,7 @@ export default class EditAndPost extends Component {
                 <div> Title of the job. E.g. </div>
                 <div> Medical Sales Executive </div>
               </div>
+              <JobSavedAlert />
             </div>
           </div>
         </div>
