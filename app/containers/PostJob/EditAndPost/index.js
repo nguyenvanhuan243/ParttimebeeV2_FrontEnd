@@ -27,6 +27,7 @@ export default class EditAndPost extends Component {
       SalaryTypeValue: '',
       salaryStateValue: '',
       cityValue: '',
+      hasJobSaved: false,
     };
   }
   componentDidMount() {
@@ -44,23 +45,39 @@ export default class EditAndPost extends Component {
     const {
       buttonIsSubmited,
     } = this.state;
+    const hasEditJob = location.search.includes('edit-job');
     e.preventDefault();
-    const url = `${config.API_BASE_URL}/jobs`;
-    axios.post(url, {
-      title: this.title.value,
-      category: this.category.value,
-      description: this.description.editor.innerHTML,
-      salary: this.salary.value,
-      salaryType: this.salaryType.value,
-      salaryState: this.salaryState.value,
-      city: this.city.value,
-      user_id: localStorage.currentUser,
-      button_is_submited: buttonIsSubmited,
-    }).then((response) => {
-      location.replace(`${config.BASE_URL}/job-detail/${response.data.id}?${buttonIsSubmited === 'Preview' ? 'preview&' : ''}created&`);
-    }).catch((error) => {
-      console.log(error);
-    });
+    if (hasEditJob) {
+      const jobId = location.pathname.match(/\d+/)[0];
+      const url = `${config.API_BASE_URL}/jobs/${jobId}`;
+      this.setState({ hasJobSaved: !this.state.hasJobSaved });
+      axios.put(url, {
+        title: this.title.value,
+        category: this.category.value,
+        description: this.description.editor.innerHTML,
+        salary: this.salary.value,
+        salaryType: this.salaryType.value,
+        salaryState: this.salaryState.value,
+        city: this.city.value,
+      });
+    } else {
+      const url = `${config.API_BASE_URL}/jobs`;
+      axios.post(url, {
+        title: this.title.value,
+        category: this.category.value,
+        description: this.description.editor.innerHTML,
+        salary: this.salary.value,
+        salaryType: this.salaryType.value,
+        salaryState: this.salaryState.value,
+        city: this.city.value,
+        user_id: localStorage.currentUser,
+        button_is_submited: buttonIsSubmited,
+      }).then((response) => {
+        location.replace(`${config.BASE_URL}/job-detail/${response.data.id}?${buttonIsSubmited === 'Preview' ? 'preview&' : ''}created&`);
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   }
   render() {
     const {
@@ -72,6 +89,7 @@ export default class EditAndPost extends Component {
       focusOnCity,
       focusOnDescription,
       jobItem,
+      hasJobSaved,
     } = this.state;
     const hasEditJob = location.pathname.includes('edit-job');
     return (
@@ -261,7 +279,7 @@ export default class EditAndPost extends Component {
                 <div> Title of the job. E.g. </div>
                 <div> Medical Sales Executive </div>
               </div>
-              <JobSavedAlert />
+              { hasJobSaved && <JobSavedAlert /> }
             </div>
           </div>
         </div>
