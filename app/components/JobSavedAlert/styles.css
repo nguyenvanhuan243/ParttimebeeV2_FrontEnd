@@ -3,4 +3,31 @@
   height: 64px;
   border-radius: 3px;
   background-color: #50e37b;
+  display: flex;
+  margin-left: 155px;
+  margin-top: 705px;
+}
+
+.JobSavedAlert-icon {
+  margin-left: 20px;
+  margin-top: 21px;
+  margin-bottom: 22px;
+  margin-right: 11px;
+}
+
+.JobSavedAlert-text {
+  margin-top: 22px;
+  margin-bottom: 22px;
+  margin-right: 20px;
+  width: 123px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #ffffff;
 }
