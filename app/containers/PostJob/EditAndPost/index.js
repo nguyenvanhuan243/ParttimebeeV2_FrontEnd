@@ -3,6 +3,7 @@ import Header from 'components/Header/Loadable';
 import ImportantAlert from 'containers/PostJob/ImportantAlert/Loadable';
 import JobSavedAlert from 'components/JobSavedAlert/Loadable';
 import axios from 'axios';
+import 'w3-css/w3.css';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { Editor } from 'react-draft-wysiwyg';
 import config from '../../../../config';
@@ -30,7 +31,7 @@ export default class EditAndPost extends Component {
       hasJobSaved: false,
     };
   }
-  componentDidMount() {
+  componentWillMount() {
     const jobId = location.pathname.match(/\d+/)[0];
     const requestUrl = `${config.API_BASE_URL}/jobs/${jobId}`;
     axios.get(requestUrl).then(
@@ -48,6 +49,7 @@ export default class EditAndPost extends Component {
     const hasEditJob = location.search.includes('edit-job');
     e.preventDefault();
     if (hasEditJob) {
+      document.getElementById('EditAndPost-bottom').scrollIntoView(true);
       const jobId = location.pathname.match(/\d+/)[0];
       const url = `${config.API_BASE_URL}/jobs/${jobId}`;
       this.setState({ hasJobSaved: !this.state.hasJobSaved });
@@ -279,7 +281,9 @@ export default class EditAndPost extends Component {
                 <div> Title of the job. E.g. </div>
                 <div> Medical Sales Executive </div>
               </div>
-              { hasJobSaved && <JobSavedAlert /> }
+              <div id="EditAndPost-bottom">
+                { hasJobSaved && <JobSavedAlert /> }
+              </div>
             </div>
           </div>
         </div>

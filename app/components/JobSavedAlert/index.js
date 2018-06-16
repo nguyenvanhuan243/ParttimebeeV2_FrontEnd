@@ -1,7 +1,7 @@
 import React from 'react';
 import JobSavedIcon from 'components/Icons/JobSavedIcon/Loadable';
 const JobSavedAlert = () => (
-  <div className="JobSavedAlert">
+  <div className="JobSavedAlert w3-animate-top">
     <div className="JobSavedAlert-icon">
       <JobSavedIcon />
     </div>
