@@ -39,6 +39,7 @@ export default class JobDetail extends Component {
     const className = classNames('JobDetail-reportJobPopup',
       { 'JobDetail-showReportPopup': showPopup }
     );
+    const hasCreatedJob = location.search.includes('created');
     return (
       <div>
         <div className={className}>
@@ -98,9 +99,7 @@ export default class JobDetail extends Component {
               <div className="JobDetail-Footer">
                 <Footer />
               </div>
-              <div>
-                <CreatedJobAlert />
-              </div>
+              { hasCreatedJob && <CreatedJobAlert /> }
             </div>
           </div>
         </div>
