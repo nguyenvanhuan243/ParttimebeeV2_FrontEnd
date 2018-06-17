@@ -23,7 +23,6 @@ export default class JobList extends PureComponent {
       text = '',
       showHeading = false,
       title = 'Today, December 25',
-      showCity = true,
       showView = true,
       showShare = true,
       showEdit = false,
@@ -53,10 +52,11 @@ export default class JobList extends PureComponent {
         showEdit={showEdit}
         showView={showView}
         showShare={showShare}
-        showCity={showCity}
         showCompanyName={!(hasProfile || hasMyjob)}
         viewNumber={item.views}
         jobId={item.id}
+        state={item.salary_state}
+        city={item.city}
       />));
     return (
       <div>
@@ -82,7 +82,6 @@ JobList.propTypes = {
   text: PropTypes.string,
   showHeading: PropTypes.bool,
   title: PropTypes.string,
-  showCity: PropTypes.bool,
   showShare: PropTypes.bool,
   showView: PropTypes.bool,
   showEdit: PropTypes.bool,

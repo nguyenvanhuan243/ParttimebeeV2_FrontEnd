@@ -12,10 +12,12 @@ export default class JobItem extends PureComponent {
   }
   render() {
     const {
-      showCity = true, showView = true, showShare = true, showEdit = false, showDelete = false,
+      showView = true, showShare = true, showEdit = false, showDelete = false,
       showImage = true, title = '', href = '', onClickJobItem = () => {}, showCompanyName = true,
       viewNumber = 0,
       jobId = 0,
+      state = '',
+      city = '',
     } = this.props;
     const hoverClass = classNames('JobItem', { 'JobItem-hover': this.state.hover });
     const hoverShareClass = classNames('JobItem-contentShareContainer',
@@ -35,11 +37,15 @@ export default class JobItem extends PureComponent {
             { showCompanyName && <div className="JobItem-contentCompanyName"> Company Name Here </div> }
             <div className="JobItem-contentFooter">
               <div className="JobItem-contentJobState">
-                <div className="JobItem-contentJobStateText"> KUALALUMPUR </div>
+                <div className="JobItem-contentJobStateText">
+                  { state }
+                </div>
               </div>
-              { showCity &&
+              { (city !== '') &&
                 <div className="JobItem-contentJobCity">
-                  <div className="JobItem-contentJobCityText"> PUTRAJAYA </div>
+                  <div className="JobItem-contentJobCityText">
+                    { city }
+                  </div>
                 </div> }
               { showView &&
                 <div className="JobItem-contentViewContainer">
@@ -69,7 +75,6 @@ export default class JobItem extends PureComponent {
 }
 
 JobItem.propTypes = {
-  showCity: PropTypes.bool,
   showView: PropTypes.bool,
   showShare: PropTypes.bool,
   showEdit: PropTypes.bool,
@@ -81,5 +86,7 @@ JobItem.propTypes = {
   showCompanyName: PropTypes.bool,
   viewNumber: PropTypes.number,
   jobId: PropTypes.number,
+  state: PropTypes.string,
+  city: PropTypes.string,
 };
 
