@@ -10,11 +10,12 @@ import OthersIcon from 'components/Icons/Category/Others/Loadable';
 import StateList from 'components/StateList/Loadable';
 import classNames from 'classnames';
 
-export default class CategoryList extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class CategoryList extends PureComponent {
   constructor() {
     super();
     this.state = {
       hasSticky: false,
+      selectedInput: 'Home',
     };
   }
   componentDidMount() {
@@ -34,19 +35,51 @@ export default class CategoryList extends PureComponent { // eslint-disable-line
   render() {
     const {
       hasSticky,
+      selectedInput,
     } = this.state;
     const CategoryListClass = classNames({
       'CategoryList-sticky': hasSticky,
     });
+    const categoryList = [
+      {
+        text: 'Home',
+        icon: <HomeIcon />,
+      },
+      {
+        text: 'Event',
+        icon: <EventIcon />,
+      },
+      {
+        text: 'Education',
+        icon: <EducationIcon />,
+      },
+      {
+        text: 'Retails',
+        icon: <RetailsIcon />,
+      },
+      {
+        text: 'Food',
+        icon: <FoodIcon />,
+      },
+      {
+        text: 'Administrative',
+        icon: <AdministrativeIcon />,
+      },
+      {
+        text: 'Others',
+        icon: <OthersIcon />,
+      },
+    ];
+    const CategoryArray = [];
+    categoryList.map((item) => CategoryArray.push(<CategoryItem
+      text={item.text}
+      iconType={item.icon}
+      onClickFunc={() => this.setState({ selectedInput: item.text })}
+      selected={selectedInput === item.text}
+    />));
     return (
       <div className={CategoryListClass}>
-        <CategoryItem text="Home" iconType={<HomeIcon />} />
-        <CategoryItem text="Event" iconType={<EventIcon />} />
-        <CategoryItem text="Education" iconType={<EducationIcon />} />
-        <CategoryItem text="Retails" iconType={<RetailsIcon />} />
-        <CategoryItem text="Food" iconType={<FoodIcon />} />
-        <CategoryItem text="Administrative" iconType={<AdministrativeIcon />} />
-        <CategoryItem text="Others" iconType={<OthersIcon />} />
+        { CategoryArray }
         <StateList />
       </div>
     );
