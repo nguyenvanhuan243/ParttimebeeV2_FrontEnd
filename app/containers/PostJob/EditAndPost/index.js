@@ -32,7 +32,7 @@ export default class EditAndPost extends Component {
     };
   }
   componentWillMount() {
-    const jobId = location.pathname.match(/\d+/)[0];
+    const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
     const requestUrl = `${config.API_BASE_URL}/jobs/${jobId}`;
     axios.get(requestUrl).then(
       (response) => {
@@ -50,7 +50,7 @@ export default class EditAndPost extends Component {
     e.preventDefault();
     if (hasEditJob) {
       document.getElementById('EditAndPost-bottom').scrollIntoView(true);
-      const jobId = location.pathname.match(/\d+/)[0];
+      const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
       const url = `${config.API_BASE_URL}/jobs/${jobId}`;
       this.setState({ hasJobSaved: !this.state.hasJobSaved });
       axios.put(url, {

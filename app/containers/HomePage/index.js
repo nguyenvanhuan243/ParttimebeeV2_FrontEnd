@@ -7,15 +7,20 @@ import Sponsored from 'components/Sponsored/Loadable';
 import CategoryList from 'components/CategoryList/Loadable';
 import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
 import SearchNotFound from 'components/SearchNotFound/Loadable';
+import ReactLoading from 'react-loading';
 import axios from 'axios';
 import config from '../../../config';
 
 export default class HomePage extends PureComponent {
   constructor() {
     super();
-    this.state = { isLoading: false, dataArray: [] };
+    this.state = {
+      isLoading: false,
+      dataArray: [],
+      filterLoading: false,
+      selectedCategory: 'Home',
+    };
   }
-
   componentWillMount() {
     const queryString = location.search.substring(8);
     let url = '';
@@ -38,7 +43,7 @@ export default class HomePage extends PureComponent {
         setTimeout(
           () => this.setState({
             isLoading: true,
-          }), 3000);
+          }), 1000);
       }
     });
   }
@@ -50,17 +55,21 @@ export default class HomePage extends PureComponent {
   render() {
     const {
       dataArray = [],
+      filterLoading,
+      selectedCategory,
     } = this.state;
-    const dataFilted = dataArray.filter((item) => item.job_type === 'going');
+    let dataFilted = [];
+    dataFilted = dataArray.filter((item) => item.job_type === 'going');
+    dataFilted = dataFilted.filter((item) => item.category === selectedCategory);
     return (
       <div>
         <Header />
+        <div className="HomePageContainer-reloading">
+          { filterLoading && <ReactLoading type={'spokes'} height={100} width={100} /> }
+        </div>
         <div className="HomePageContainer">
           <div className="HomePageContainer-categoryList"> <CategoryList /> </div>
           { dataArray.length === 0 ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
-            <JobList dataResourceEndPoint={dataFilted} />
-            <JobList dataResourceEndPoint={dataFilted} />
-            <JobList dataResourceEndPoint={dataFilted} />
             <JobList dataResourceEndPoint={dataFilted} />
             { this.state.isLoading ? null : <LoadingJobsList /> }
           </div> }

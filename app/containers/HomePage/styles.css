@@ -20,3 +20,10 @@
   display: block;
   margin-top: 30px;
 }
+
+.HomePageContainer-reloading {
+  position:fixed;
+  z-index: 4px;
+  top:40%;
+  left:50%
+}
