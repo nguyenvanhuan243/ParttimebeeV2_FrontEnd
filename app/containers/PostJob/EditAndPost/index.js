@@ -222,8 +222,21 @@ export default class EditAndPost extends Component {
                         onChange={(e) => this.setState({ salaryStateValue: e.target.value })}
                       >
                         <option> Johor </option>
-                        <option> Kuala Lumpur </option>
-                        <option> Melaka </option>
+                        <option> Kedah </option>
+                        <option> Kelantan </option>
+                        <option>Kuala Lumpur</option>
+                        <option>Labuan</option>
+                        <option>Melaka</option>
+                        <option>Negeri Sembilan</option>
+                        <option>Pahang</option>
+                        <option>Perak</option>
+                        <option>Perlis</option>
+                        <option>Pulau Pinang</option>
+                        <option>Putrajaya</option>
+                        <option>Sabah</option>
+                        <option>Sarawak</option>
+                        <option>Selangor</option>
+                        <option>Terengganu</option>
                       </select>
                     </div>
                     <div className="EditAndPost-inputCity">
