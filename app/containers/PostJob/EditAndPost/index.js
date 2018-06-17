@@ -126,7 +126,7 @@ export default class EditAndPost extends Component {
                         onBlur={() => this.setState({ focusOnTitle: false })}
                         ref={(ref) => (this.title = ref)}
                         required
-                        value={this.state.titleValue || jobItem.title}
+                        value={this.state.titleValue || (jobItem && jobItem.title)}
                         onChange={(e) => {
                           this.setState({ titleValue: e.target.value });
                           if (this.state.titleValue === '') {
@@ -141,7 +141,7 @@ export default class EditAndPost extends Component {
                       onFocus={() => this.setState({ focusOnCategory: true })}
                       onBlur={() => this.setState({ focusOnCategory: false })}
                       ref={(ref) => (this.category = ref)}
-                      value={this.state.CategoryValue || jobItem.category}
+                      value={this.state.CategoryValue || (jobItem && jobItem.category)}
                       onChange={(e) => this.setState({ CategoryValue: e.target.value })}
                     >
                       <option> Home </option>
@@ -160,7 +160,6 @@ export default class EditAndPost extends Component {
                         editorRef={(ref) => (this.description = ref)}
                         wrapperClassName="EditAndPost-wrapper"
                         editorClassName="EditAndPost-editor"
-                        onEditorStateChange={this.onEditorStateChange}
                         toolbar={{
                           inline: { inDropdown: true },
                           list: { inDropdown: true },
@@ -191,7 +190,7 @@ export default class EditAndPost extends Component {
                         onBlur={() => this.setState({ focusOnSalary: false })}
                         ref={(ref) => (this.salary = ref)}
                         required
-                        value={this.state.salaryValue || jobItem.salary}
+                        value={this.state.salaryValue || (jobItem && jobItem.salary)}
                         onChange={(e) => {
                           this.setState({ salaryValue: e.target.value });
                           if (this.state.salaryValue === '') {
@@ -206,7 +205,7 @@ export default class EditAndPost extends Component {
                       onFocus={() => this.setState({ focusOnSalaryType: true })}
                       onBlur={() => this.setState({ focusOnSalaryType: false })}
                       ref={(ref) => (this.salaryType = ref)}
-                      value={this.state.salaryTypeValue || jobItem.salary_type}
+                      value={this.state.salaryTypeValue || (jobItem && jobItem.salary_type)}
                       onChange={(e) => this.setState({ salaryTypeValue: e.target.value })}
                     >
                       <option> Per hour </option>
@@ -219,7 +218,7 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnSalaryState: true })}
                         onBlur={() => this.setState({ focusOnSalaryState: false })}
                         ref={(ref) => (this.salaryState = ref)}
-                        value={this.state.salaryStateValue || jobItem.salary_state}
+                        value={this.state.salaryStateValue || (jobItem && jobItem.salary_state)}
                         onChange={(e) => this.setState({ salaryStateValue: e.target.value })}
                       >
                         <option> Johor </option>
@@ -234,7 +233,7 @@ export default class EditAndPost extends Component {
                         onFocus={() => this.setState({ focusOnCity: true })}
                         onBlur={() => this.setState({ focusOnCity: false })}
                         ref={(ref) => (this.city = ref)}
-                        value={this.state.cityValue || jobItem.city}
+                        value={this.state.cityValue || (jobItem && jobItem.city)}
                         onChange={(e) => {
                           this.setState({ cityValue: e.target.value });
                           if (this.state.cityValue === '') {
