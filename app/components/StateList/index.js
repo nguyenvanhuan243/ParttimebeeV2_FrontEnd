@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
 import CategoryItem from 'components/CategoryList/CategoryItem/Loadable';
 import KualaLumpurIcon from 'components/Icons/State/KualaLumpur/Loadable';
@@ -150,9 +150,11 @@ export default class StateList extends PureComponent { // eslint-disable-line re
     }
   }
   handleSelectedInput(text) {
+    localStorage.setItem('selectedStateItem', text);
     this.setState({
       selectedInput: text,
     });
+    this.props.onHandleSelectedState();
   }
   render() {
     const { limit, showMore, selectedInput } = this.state;
@@ -180,4 +182,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
     );
   }
 }
+StateList.propTypes = {
+  onHandleSelectedState: PropTypes.func.isRequired,
+};
 

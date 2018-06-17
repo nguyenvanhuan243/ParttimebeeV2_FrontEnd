@@ -8,6 +8,7 @@ import CategoryList from 'components/CategoryList/Loadable';
 import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
 import SearchNotFound from 'components/SearchNotFound/Loadable';
 import ReactLoading from 'react-loading';
+import StateList from 'components/StateList/Loadable';
 import axios from 'axios';
 import config from '../../../config';
 
@@ -19,6 +20,7 @@ export default class HomePage extends PureComponent {
       dataArray: [],
       filterLoading: false,
       selectedCategory: 'Home',
+      selectedState: '',
     };
   }
   componentWillMount() {
@@ -32,20 +34,6 @@ export default class HomePage extends PureComponent {
     axios.get(url).then((response) => this.setState({
       dataArray: response.data,
     }));
-  }
-
-  componentDidMount() {
-    const pageHeight = document.documentElement.offsetHeight;
-    const windowHeight = window.innerHeight;
-    const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && (document.documentElement.scrollTop || 0));
-    window.addEventListener('scroll', () => {
-      if (pageHeight === windowHeight + scrollPosition) {
-        setTimeout(
-          () => this.setState({
-            isLoading: true,
-          }), 1000);
-      }
-    });
   }
 
   componentWillUnmount() {
@@ -66,6 +54,32 @@ export default class HomePage extends PureComponent {
         });
       }, 1000
     );
+    setTimeout(
+      () => this.setState({
+        isLoading: true,
+      }), 1000
+    );
+  }
+
+  handleSelectedState() {
+    this.setState({
+      selectedState: localStorage.selectedStateItem,
+    });
+    this.setState({
+      filterLoading: !this.state.filterLoading,
+    });
+    setTimeout(
+      () => {
+        this.setState({
+          filterLoading: !this.state.filterLoading,
+        });
+      }, 1000
+    );
+    setTimeout(
+      () => this.setState({
+        isLoading: true,
+      }), 1000
+    );
   }
 
   render() {
@@ -73,10 +87,14 @@ export default class HomePage extends PureComponent {
       dataArray = [],
       filterLoading,
       selectedCategory,
+      selectedState,
     } = this.state;
     let dataFilted = [];
     dataFilted = dataArray.filter((item) => item.job_type === 'going');
     dataFilted = dataFilted.filter((item) => item.category === selectedCategory);
+    if (selectedState) {
+      dataFilted = dataFilted.filter((item) => item.salary_state === selectedState);
+    }
     return (
       <div>
         <Header />
@@ -89,10 +107,13 @@ export default class HomePage extends PureComponent {
         </div>
         <div className="HomePageContainer">
           <div className="HomePageContainer-categoryList">
-            <CategoryList onHandleSelectedCategory={() => this.handleChangeSelectedCategory()} />
+            <CategoryList
+              onHandleSelectedCategory={() => this.handleChangeSelectedCategory()}
+            />
+            <StateList onHandleSelectedState={() => this.handleSelectedState()} />
           </div>
           { (dataFilted.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
-            { !filterLoading && <JobList dataResourceEndPoint={dataFilted} /> }
+            { !filterLoading ? <JobList dataResourceEndPoint={dataFilted} /> : <div className="HomePageContainer-none" /> }
             { this.state.isLoading ? null : <LoadingJobsList /> }
           </div> }
           <div className="HomePageContainer-sidebarContainer">

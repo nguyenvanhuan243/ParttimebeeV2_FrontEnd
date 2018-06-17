@@ -7,7 +7,6 @@ import RetailsIcon from 'components/Icons/Category/Retails/Loadable';
 import FoodIcon from 'components/Icons/Category/Food/Loadable';
 import AdministrativeIcon from 'components/Icons/Category/Administrative/Loadable';
 import OthersIcon from 'components/Icons/Category/Others/Loadable';
-import StateList from 'components/StateList/Loadable';
 // import classNames from 'classnames';
 
 export default class CategoryList extends PureComponent {
@@ -89,7 +88,6 @@ export default class CategoryList extends PureComponent {
     return (
       <div>
         { CategoryArray }
-        <StateList />
       </div>
     );
   }
