@@ -44,6 +44,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
         },
       ],
       showMore: false,
+      selectedInput: '',
     };
   }
   handleShowMore() {
@@ -148,13 +149,20 @@ export default class StateList extends PureComponent { // eslint-disable-line re
       });
     }
   }
+  handleSelectedInput(text) {
+    this.setState({
+      selectedInput: text,
+    });
+  }
   render() {
-    const { limit, showMore } = this.state;
+    const { limit, showMore, selectedInput } = this.state;
     const listStateArray = [];
     limit.map((item) => listStateArray.push(<CategoryItem
       key={item.text}
       text={item.text}
       iconType={item.iconType}
+      onClickFunc={() => this.handleSelectedInput(item.text)}
+      selected={selectedInput === item.text}
     />));
     return (
       <div>
