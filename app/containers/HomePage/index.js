@@ -34,6 +34,11 @@ export default class HomePage extends PureComponent {
     axios.get(url).then((response) => this.setState({
       dataArray: response.data,
     }));
+    setTimeout(
+      () => this.setState({
+        isLoading: true,
+      }), 1000
+    );
   }
 
   componentWillUnmount() {
