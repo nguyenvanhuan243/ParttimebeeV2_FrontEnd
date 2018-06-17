@@ -78,7 +78,7 @@
 }
 
 .EmployerProfileBanner-mailText {
-  width: 91px;
+  min-width: 91px;
   height: 20px;
   font-size: 13px;
   font-weight: 500;
@@ -129,7 +129,7 @@
 }
 
 .EmployerProfileBanner-companyDescription {
-  width: 150px;
+  min-width: 150px;
   height: 20px;
   font-size: 13px;
   font-weight: bold;

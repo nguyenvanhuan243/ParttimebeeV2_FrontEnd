@@ -41,7 +41,7 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
           </div>
           <div className="EmployerProfileBanner-contentContainer">
             <div className="EmployerProfileBanner-title">
-              { companyName }
+              { companyName.toUpperCase() }
             </div>
             <div className="EmployerProfileBanner-infoContainer">
               <div className="EmployerProfileBanner-phoneContainer">
@@ -72,7 +72,7 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
             <div className="EmployerProfileBanner-separate">
             </div>
             <div className="EmployerProfileBanner-companyDescription">
-              Company Description
+              COMPANY DESCRIPTION
             </div>
             <div dangerouslySetInnerHTML={{ __html: companyDescription }} className="EmployerProfileBanner-companyDescriptionText" />
           </div>
