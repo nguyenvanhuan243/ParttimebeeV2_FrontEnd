@@ -52,6 +52,22 @@ export default class HomePage extends PureComponent {
     window.removeEventListener('scroll', () => this.handleScroll());
   }
 
+  handleChangeSelectedCategory() {
+    this.setState({
+      selectedCategory: localStorage.selectedCategoryItem,
+    });
+    this.setState({
+      filterLoading: !this.state.filterLoading,
+    });
+    setTimeout(
+      () => {
+        this.setState({
+          filterLoading: !this.state.filterLoading,
+        });
+      }, 1000
+    );
+  }
+
   render() {
     const {
       dataArray = [],
@@ -65,12 +81,18 @@ export default class HomePage extends PureComponent {
       <div>
         <Header />
         <div className="HomePageContainer-reloading">
-          { filterLoading && <ReactLoading type={'spokes'} height={100} width={100} /> }
+          { filterLoading && <ReactLoading
+            type={'spokes'}
+            height={50}
+            width={50}
+          /> }
         </div>
         <div className="HomePageContainer">
-          <div className="HomePageContainer-categoryList"> <CategoryList /> </div>
-          { dataArray.length === 0 ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
-            <JobList dataResourceEndPoint={dataFilted} />
+          <div className="HomePageContainer-categoryList">
+            <CategoryList onHandleSelectedCategory={() => this.handleChangeSelectedCategory()} />
+          </div>
+          { (dataFilted.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
+            { !filterLoading && <JobList dataResourceEndPoint={dataFilted} /> }
             { this.state.isLoading ? null : <LoadingJobsList /> }
           </div> }
           <div className="HomePageContainer-sidebarContainer">

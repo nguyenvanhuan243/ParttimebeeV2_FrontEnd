@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import CategoryItem from 'components/CategoryList/CategoryItem/Loadable';
 import HomeIcon from 'components/Icons/Category/Home/Loadable';
 import EventIcon from 'components/Icons/Category/Event/Loadable';
@@ -13,9 +13,10 @@ import StateList from 'components/StateList/Loadable';
 export default class CategoryList extends PureComponent {
   constructor() {
     super();
+    localStorage.setItem('selectedCategoryItem', 'Home');
     this.state = {
       hasSticky: false,
-      selectedInput: 'Home',
+      selectedInput: localStorage.selectedCategoryItem,
     };
   }
   // componentDidMount() {
@@ -32,6 +33,14 @@ export default class CategoryList extends PureComponent {
   // componentWillUnmount() {
   //   window.removeEventListener('scroll');
   // }
+
+  handleSelectedInput = (text) => {
+    localStorage.setItem('selectedCategoryItem', text);
+    this.setState({
+      selectedInput: localStorage.selectedCategoryItem,
+    });
+    this.props.onHandleSelectedCategory();
+  }
   render() {
     const {
       // hasSticky,
@@ -74,7 +83,7 @@ export default class CategoryList extends PureComponent {
     categoryList.map((item) => CategoryArray.push(<CategoryItem
       text={item.text}
       iconType={item.icon}
-      onClickFunc={() => this.setState({ selectedInput: item.text })}
+      onClickFunc={() => this.handleSelectedInput(item.text)}
       selected={selectedInput === item.text}
     />));
     return (
@@ -85,4 +94,7 @@ export default class CategoryList extends PureComponent {
     );
   }
 }
+CategoryList.propTypes = {
+  onHandleSelectedCategory: PropTypes.func.isRequired,
+};
 
