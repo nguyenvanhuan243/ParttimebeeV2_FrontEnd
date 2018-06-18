@@ -9,6 +9,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import config from '../../../../config';
 
 const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
+const hasEditJob = location.search.includes('edit-job');
 export default class EditAndPost extends Component {
   constructor() {
     super();
@@ -44,7 +45,6 @@ export default class EditAndPost extends Component {
     const {
       buttonIsSubmited,
     } = this.state;
-    const hasEditJob = location.search.includes('edit-job');
     e.preventDefault();
     if (hasEditJob) {
       document.getElementById('EditAndPost-bottom').scrollIntoView(true);
@@ -90,7 +90,6 @@ export default class EditAndPost extends Component {
       jobItem,
       hasJobSaved,
     } = this.state;
-    const hasEditJob = location.pathname.includes('edit-job');
     return (
       <div>
         <Header />
