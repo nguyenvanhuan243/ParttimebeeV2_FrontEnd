@@ -121,7 +121,7 @@ export default class MyJobs extends Component {
                   /> : null
               }
               {
-                (activeJob === 'all' || activeJob === 'pending') ?
+                ((activeJob === 'all' || activeJob === 'pending') && localStorage.currentUser) ?
                   <JobList
                     onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
                     showDelete={myProfile}
@@ -136,7 +136,7 @@ export default class MyJobs extends Component {
                   /> : null
               }
               {
-                (activeJob === 'all' || activeJob === 'expired') ?
+                ((activeJob === 'all' || activeJob === 'expired') && localStorage.currentUser) ?
                   <JobList
                     onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
                     showDelete={myProfile}
