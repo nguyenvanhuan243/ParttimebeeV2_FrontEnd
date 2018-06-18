@@ -74,7 +74,6 @@ import 'components/LoginRegister/Login/styles.css';
 import 'components/LoginRegister/ForgotPassword/styles.css';
 import 'components/LoginRegister/ForgotPasswordIncoming/styles.css';
 import 'components/LoginRegister/EmailResetPassword/styles.css';
-import 'components/LoginRegister/ClickEmail1/styles.css';
 import 'components/LoginRegister/ClickEmail2/styles.css';
 import 'components/LoginRegister/GeneralComponent/DashlineIcon/styles.css';
 import 'components/LoginRegister/GeneralComponent/Form/styles.css';
