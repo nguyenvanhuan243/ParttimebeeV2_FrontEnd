@@ -7,6 +7,10 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+.Facebook-hover {
+  background-color: #3b5998 !important;
+}
 .Facebook-icon {
   margin-bottom: 8px;
   margin-top: 4px;
@@ -23,9 +27,13 @@
   font-stretch: normal;
   line-height: 1.45;
   letter-spacing: normal;
-  text-align: left;
   color: #3b5998;
+  text-align: left;
   margin-left: 10px;
   padding-top: 9px;
   padding-bottom: 9px;
+}
+
+.Facebook-textHover {
+  color: #ffffff !important;
 }
