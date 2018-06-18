@@ -18,6 +18,7 @@ export default class JobItem extends PureComponent {
       jobId = 0,
       state = '',
       city = '',
+      companyName = 'Company Name Here',
     } = this.props;
     const hoverClass = classNames('JobItem', { 'JobItem-hover': this.state.hover });
     const hoverShareClass = classNames('JobItem-contentShareContainer',
@@ -34,7 +35,8 @@ export default class JobItem extends PureComponent {
             <div className="JobItem-contentTitle">
               <a className="JobItem-href" href={href}> { title } </a>
             </div>
-            { showCompanyName && <div className="JobItem-contentCompanyName"> Company Name Here </div> }
+            { showCompanyName &&
+              <div className="JobItem-contentCompanyName">{ companyName }</div> }
             <div className="JobItem-contentFooter">
               <div className="JobItem-contentJobState">
                 <div className="JobItem-contentJobStateText">
@@ -88,5 +90,6 @@ JobItem.propTypes = {
   jobId: PropTypes.number,
   state: PropTypes.string,
   city: PropTypes.string,
+  companyName: PropTypes.string,
 };
 

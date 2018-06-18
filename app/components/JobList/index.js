@@ -57,6 +57,7 @@ export default class JobList extends PureComponent {
         jobId={item.id}
         state={item.salary_state}
         city={item.city}
+        companyName={item.company_name}
       />));
     return (
       <div>

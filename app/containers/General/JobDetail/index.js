@@ -40,7 +40,7 @@ export default class JobDetail extends Component {
   }
 
   render() {
-    const { showPopup = false, jobItem = {}, user } = this.state;
+    const { showPopup = false, jobItem = {} } = this.state;
     const className = classNames('JobDetail-reportJobPopup',
       { 'JobDetail-showReportPopup': showPopup }
     );
@@ -56,7 +56,7 @@ export default class JobDetail extends Component {
             <div className="JobDetail-containerContent">
               <JobDetailHeader
                 title={jobItem.title}
-                companyName={user.company_name}
+                companyName={jobItem.company_name}
                 state={jobItem.salary_state}
                 city={jobItem.city}
               />
