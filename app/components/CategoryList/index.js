@@ -80,6 +80,7 @@ export default class CategoryList extends PureComponent {
     ];
     const CategoryArray = [];
     categoryList.map((item) => CategoryArray.push(<CategoryItem
+      key={item.text.toString()}
       text={item.text}
       iconType={item.icon}
       onClickFunc={() => this.handleSelectedInput(item.text)}
