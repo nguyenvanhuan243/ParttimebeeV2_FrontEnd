@@ -92,10 +92,11 @@ export default class ForgotPassword extends PureComponent {
     const signUpClassname = classNames('Signup-inputCustom', {
       'Signup-effectShake': shakeEffect,
     });
+    const changePasswordText = changePasswordIsClicked ? 'Password Updated' : 'Change Password';
     return (
       <div className="ForgotPassword">
         <DashlineIcon />
-        <div className="ForgotPassword-title"> { isChangePassword ? 'Change Password' : 'Forgot your password' }  </div>
+        <div className="ForgotPassword-title"> { isChangePassword ? changePasswordText : 'Forgot your password' }  </div>
         { !isChangePassword &&
           <div className="ForgotPassword-abstract"> We`ll send you an email with a reset link. </div> }
         <div className="Signup-form">
@@ -135,12 +136,14 @@ export default class ForgotPassword extends PureComponent {
                         }}
                       />
                     </div> : null }
-                    <label htmlFor className={passwordAnimation}>Password</label>
-                    <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
+                    { !changePasswordIsClicked && <label htmlFor className={passwordAnimation}>Password</label> }
+                    { changePasswordIsClicked && <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} /> }
                   </div> }
-                <button className="Signup-button">
+                { !changePasswordIsClicked ? <button className="Signup-button">
                   <div className="Signup-buttonText"> { isChangePassword ? 'Change Password' : 'Reset Password' }  </div>
-                </button>
+                </button> : <button className="Signup-button">
+                  <div className="Signup-buttonText"> Back to MY PROFILE  </div>
+                </button> }
               </div>
             </form>
           </div>
