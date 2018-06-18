@@ -19,6 +19,7 @@ export default class JobItem extends PureComponent {
       state = '',
       city = '',
       companyName = 'Company Name Here',
+      showCity = true,
     } = this.props;
     const hoverClass = classNames('JobItem', { 'JobItem-hover': this.state.hover });
     const hoverShareClass = classNames('JobItem-contentShareContainer',
@@ -43,7 +44,7 @@ export default class JobItem extends PureComponent {
                   { state && state.toUpperCase() }
                 </div>
               </div>
-              { (city !== '') &&
+              { (city !== '' && showCity) &&
                 <div className="JobItem-contentJobCity">
                   <div className="JobItem-contentJobCityText">
                     { city && city.toUpperCase() }
@@ -82,6 +83,7 @@ JobItem.propTypes = {
   showEdit: PropTypes.bool,
   showDelete: PropTypes.bool,
   showImage: PropTypes.bool,
+  showCity: PropTypes.bool,
   onClickJobItem: PropTypes.func.isRequired,
   title: PropTypes.string,
   href: PropTypes.string,
