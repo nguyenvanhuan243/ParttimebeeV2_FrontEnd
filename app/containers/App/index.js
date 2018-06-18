@@ -24,9 +24,6 @@ import Signup from 'components/LoginRegister/Signup/Loadable';
 import Login from 'components/LoginRegister/Login/Loadable';
 import ForgotPassword from 'components/LoginRegister/ForgotPassword/Loadable';
 import ForgotPasswordIncoming from 'components/LoginRegister/ForgotPasswordIncoming/Loadable';
-import EmailResetPassword from 'components/LoginRegister/EmailResetPassword/Loadable';
-import ClickEmail2 from 'components/LoginRegister/ClickEmail2/Loadable';
-import EmailUpdatedPassword from 'components/LoginRegister/EmailUpdatedPassword/Loadable';
 import TermsPage from 'components/Pages/Terms/Loadable';
 import PolicyPage from 'components/Pages/Policy/Loadable';
 import AboutPage from 'components/Pages/About/Loadable';
@@ -47,11 +44,8 @@ export default function App() {
         <Route exact path="/user/signup" component={Signup} />
         <Route exact path="/user/login" component={Login} />
         <Route exact path="/user/forgot-password" component={ForgotPassword} />
-        <Route exact path="/user/email-reset-password" component={EmailResetPassword} />
         <Route exact path="/user/forgot-password-incoming" component={ForgotPasswordIncoming} />
         <Route exact path="/user/change-password" component={ForgotPassword} />
-        <Route exact path="/user/click-email2" component={ClickEmail2} />
-        <Route exact path="/user/email-updated-password" component={EmailUpdatedPassword} />
         {/* Pages */}
         <Route exact path="/pages/terms" component={TermsPage} />
         <Route exact path="/pages/policy" component={PolicyPage} />

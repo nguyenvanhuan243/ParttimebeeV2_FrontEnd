@@ -15,11 +15,15 @@ export default class ForgotPassword extends PureComponent {
       isPassword: true,
       passwordValue: '',
       focusPassword: false,
+      changePasswordIsClicked: false,
     };
   }
   onSubmit = (e) => {
     const hasChangePasswordRoute = location.pathname.includes('change-password');
     if (hasChangePasswordRoute) {
+      this.setState({
+        changePasswordIsClicked: true,
+      });
       e.preventDefault();
       axios.post(`${config.API_BASE_URL}/users/update-password`, {
         token: location.search.substring(7),
@@ -75,6 +79,7 @@ export default class ForgotPassword extends PureComponent {
       passwordValue,
       showPasswordAnimation,
       focusPassword,
+      changePasswordIsClicked,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -112,15 +117,16 @@ export default class ForgotPassword extends PureComponent {
                     <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
                   </div> :
                   <div>
-                    <input
-                      className="Signup-removeOutline"
-                      type={isPassword ? 'password' : 'text'}
-                      placeholder="Password"
-                      ref={(ref) => (this.password = ref)}
-                      onFocus={() => this.setState({ focusPassword: true })}
-                      onBlur={() => this.setState({ focusPassword: false })}
-                      onChange={(e) => this.handleOnchangePassword(e)}
-                    />
+                    { !changePasswordIsClicked &&
+                      <input
+                        className="Signup-removeOutline"
+                        type={isPassword ? 'password' : 'text'}
+                        placeholder="Password"
+                        ref={(ref) => (this.password = ref)}
+                        onFocus={() => this.setState({ focusPassword: true })}
+                        onBlur={() => this.setState({ focusPassword: false })}
+                        onChange={(e) => this.handleOnchangePassword(e)}
+                      /> }
                     { passwordValue.length ? <div className="Signup-showPasswordIcon">
                       <ShowPasswordIcon
                         onToggle={(e) => {
