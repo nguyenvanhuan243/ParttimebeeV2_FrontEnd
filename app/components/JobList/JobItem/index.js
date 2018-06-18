@@ -40,13 +40,13 @@ export default class JobItem extends PureComponent {
             <div className="JobItem-contentFooter">
               <div className="JobItem-contentJobState">
                 <div className="JobItem-contentJobStateText">
-                  { state }
+                  { state && state.toUpperCase() }
                 </div>
               </div>
               { (city !== '') &&
                 <div className="JobItem-contentJobCity">
                   <div className="JobItem-contentJobCityText">
-                    { city }
+                    { city && city.toUpperCase() }
                   </div>
                 </div> }
               { showView &&
