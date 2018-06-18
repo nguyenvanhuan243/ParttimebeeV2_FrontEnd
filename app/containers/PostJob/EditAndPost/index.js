@@ -36,9 +36,7 @@ export default class EditAndPost extends Component {
     const requestUrl = `${config.API_BASE_URL}/jobs/${jobId}`;
     axios.get(requestUrl).then(
       (response) => {
-        this.setState({
-          jobItem: response.data,
-        });
+        this.setState({ jobItem: response.data.job });
       }
     );
   }
