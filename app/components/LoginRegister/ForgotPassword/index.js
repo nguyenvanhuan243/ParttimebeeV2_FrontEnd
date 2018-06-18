@@ -18,18 +18,27 @@ export default class ForgotPassword extends PureComponent {
     };
   }
   onSubmit = (e) => {
-    const email = this.email.value;
-    e.preventDefault();
-    axios.post(`${config.API_BASE_URL}/users/reset-password`, {
-      email,
-    });
-    if (email) {
-      location.replace(`${config.BASE_URL}/user/forgot-password-incoming`);
-    }
-    if (!email) {
-      this.setState({
-        shakeEffect: !this.state.shakeEffect,
+    const hasChangePasswordRoute = location.pathname.includes('change-password');
+    if (hasChangePasswordRoute) {
+      e.preventDefault();
+      axios.post(`${config.API_BASE_URL}/users/update-password`, {
+        token: location.search.substring(7),
+        newPassword: this.password.value,
       });
+    } else {
+      const email = this.email.value;
+      e.preventDefault();
+      axios.post(`${config.API_BASE_URL}/users/reset-password`, {
+        email,
+      });
+      if (email) {
+        location.replace(`${config.BASE_URL}/user/forgot-password-incoming`);
+      }
+      if (!email) {
+        this.setState({
+          shakeEffect: !this.state.shakeEffect,
+        });
+      }
     }
   }
   handleOnchangeEmail(e) {
