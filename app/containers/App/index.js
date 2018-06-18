@@ -50,7 +50,7 @@ export default function App() {
         <Route exact path="/user/forgot-password" component={ForgotPassword} />
         <Route exact path="/user/email-reset-password" component={EmailResetPassword} />
         <Route exact path="/user/forgot-password-incoming" component={ForgotPasswordIncoming} />
-        <Route exact path="/user/click-email1" component={ClickEmail1} />
+        <Route exact path="/user/change-password" component={ClickEmail1} />
         <Route exact path="/user/click-email2" component={ClickEmail2} />
         <Route exact path="/user/email-updated-password" component={EmailUpdatedPassword} />
         {/* Pages */}
