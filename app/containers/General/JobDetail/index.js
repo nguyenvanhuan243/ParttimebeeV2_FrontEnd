@@ -16,7 +16,11 @@ import config from '../../../../config';
 export default class JobDetail extends Component {
   constructor() {
     super();
-    this.state = { showPopup: false, jobItem: {} };
+    this.state = {
+      showPopup: false,
+      jobItem: {},
+      userId: 0,
+    };
   }
 
   // Get a specify user with id
@@ -25,7 +29,8 @@ export default class JobDetail extends Component {
     const url = `${config.API_BASE_URL}/jobs/${jobId}`;
     const viewNumberUrl = `${config.API_BASE_URL}/jobs/${jobId}/increase-view`;
     axios.get(url).then((response) => {
-      this.setState({ jobItem: response.data });
+      this.setState({ jobItem: response.data.job });
+      this.setState({ userId: response.data.user_id });
     });
     axios.get(viewNumberUrl);
   }
@@ -84,7 +89,7 @@ export default class JobDetail extends Component {
                 </div>
               </div>
               <div className="JobDetail-sideBarCompanyInfo">
-                <CompanyInfo />
+                <CompanyInfo userId={this.state.userId} />
               </div>
               <div className="JobDetail-separateBelow">
                 <div className="JobDetail-separate">

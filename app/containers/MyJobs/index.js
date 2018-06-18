@@ -12,7 +12,8 @@ import axios from 'axios';
 import config from '../../../config';
 
 const TYPE_JOB = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
-const currentUserId = localStorage.currentUser;
+const userIdFromPathName = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
+const currentUserId = localStorage.currentUser || userIdFromPathName;
 export default class MyJobs extends Component {
   constructor() {
     super();
