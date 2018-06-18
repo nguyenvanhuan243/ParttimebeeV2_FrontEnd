@@ -6,7 +6,8 @@ export default class Subscribe extends PureComponent {
     this.state = { emailValue: '' };
   }
   render() {
-    const requestUrl = 'https://azwebmall.us16.list-manage.com/subscribe/post?u=b7ad0359586fb6fdfbd8378ca&amp;id=ce67653993';
+    // const requestUrl = 'https://azwebmall.us16.list-manage.com/subscribe/post?u=b7ad0359586fb6fdfbd8378ca&amp;id=ce67653993';
+    const requestUrl = 'https://parttimebee.us17.list-manage.com/subscribe?u=4d666b9bc0056835bd8deb2ce&id=c454a1fe82';
     return (
       <div className="Subscribe">
         <div className="Subscribe-titleContainer">Subscribe</div>
@@ -34,3 +35,5 @@ export default class Subscribe extends PureComponent {
     );
   }
 }
+
+// Access to this link: https://us17.admin.mailchimp.com/lists/designer/?id=5821
