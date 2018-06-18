@@ -25,7 +25,7 @@ export default class JobDetail extends Component {
 
   // Get a specify user with id
   componentWillMount() {
-    const jobId = location.pathname.match(/\d+/)[0];
+    const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
     const url = `${config.API_BASE_URL}/jobs/${jobId}`;
     const viewNumberUrl = `${config.API_BASE_URL}/jobs/${jobId}/increase-view`;
     axios.get(url).then((response) => {
@@ -40,7 +40,11 @@ export default class JobDetail extends Component {
   }
 
   render() {
-    const { showPopup = false, jobItem = {} } = this.state;
+    const {
+      showPopup = false,
+      jobItem = {},
+      user = {},
+    } = this.state;
     const className = classNames('JobDetail-reportJobPopup',
       { 'JobDetail-showReportPopup': showPopup }
     );
@@ -89,7 +93,7 @@ export default class JobDetail extends Component {
                 </div>
               </div>
               <div className="JobDetail-sideBarCompanyInfo">
-                <CompanyInfo userId={this.state.user.id} />
+                <CompanyInfo userId={user && user.id} />
               </div>
               <div className="JobDetail-separateBelow">
                 <div className="JobDetail-separate">

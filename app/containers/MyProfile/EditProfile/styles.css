@@ -285,7 +285,6 @@ input.EditProfileForm-inputHoverEmail:focus {
 .EditProfile-savingText {
   width: 55px;
   height: 14px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -341,7 +340,6 @@ input.EditProfileForm-inputHoverEmail:focus {
 .EditProfileForm-textError {
   width: 187px;
   height: 20px;
-  font-family: Roboto;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

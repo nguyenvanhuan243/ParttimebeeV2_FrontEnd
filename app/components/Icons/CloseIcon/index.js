@@ -48,5 +48,5 @@ export default class CloseIcon extends PureComponent {
 }
 CloseIcon.propTypes = {
   size: PropTypes.number,
-  closeFunc: PropTypes.func.isRequired,
+  closeFunc: PropTypes.func,
 };
