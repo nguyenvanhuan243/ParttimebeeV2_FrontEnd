@@ -63,7 +63,7 @@ a.JobItem-href:hover {
   color: #999999;
 }
 .JobItem-contentJobState {
-  width: 99px;
+  min-width: 99px;
   height: 24px;
   border-radius: 3px;
   background-color: #f8f8f8;
@@ -84,7 +84,7 @@ a.JobItem-href:hover {
   margin-right: 9px;
 }
 .JobItem-contentJobCity {
-  width: 83px;
+  min-width: 83px;
   height: 24px;
   border-radius: 3px;
   background-color: #f8f8f8;
