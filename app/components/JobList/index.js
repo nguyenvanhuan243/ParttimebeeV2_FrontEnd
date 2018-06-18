@@ -89,5 +89,5 @@ JobList.propTypes = {
   showImage: PropTypes.bool,
   onDeleteConfirmation: PropTypes.func,
   jobType: PropTypes.string,
-  dataResourceEndPoint: PropTypes.func.isRequired,
+  dataResourceEndPoint: PropTypes.array.isRequired,
 };
