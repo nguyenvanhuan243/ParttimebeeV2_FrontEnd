@@ -8,6 +8,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { Editor } from 'react-draft-wysiwyg';
 import config from '../../../../config';
 
+const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
 export default class EditAndPost extends Component {
   constructor() {
     super();
@@ -32,7 +33,6 @@ export default class EditAndPost extends Component {
     };
   }
   componentWillMount() {
-    const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
     const requestUrl = `${config.API_BASE_URL}/jobs/${jobId}`;
     axios.get(requestUrl).then(
       (response) => {
@@ -48,7 +48,6 @@ export default class EditAndPost extends Component {
     e.preventDefault();
     if (hasEditJob) {
       document.getElementById('EditAndPost-bottom').scrollIntoView(true);
-      const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
       const url = `${config.API_BASE_URL}/jobs/${jobId}`;
       this.setState({ hasJobSaved: !this.state.hasJobSaved });
       axios.put(url, {
@@ -222,19 +221,19 @@ export default class EditAndPost extends Component {
                         <option> Johor </option>
                         <option> Kedah </option>
                         <option> Kelantan </option>
-                        <option>Kuala Lumpur</option>
-                        <option>Labuan</option>
-                        <option>Melaka</option>
-                        <option>Negeri Sembilan</option>
-                        <option>Pahang</option>
-                        <option>Perak</option>
-                        <option>Perlis</option>
-                        <option>Pulau Pinang</option>
-                        <option>Putrajaya</option>
-                        <option>Sabah</option>
-                        <option>Sarawak</option>
-                        <option>Selangor</option>
-                        <option>Terengganu</option>
+                        <option> Kuala Lumpur </option>
+                        <option> Labuan </option>
+                        <option> Melaka </option>
+                        <option> Negeri Sembilan </option>
+                        <option> Pahang </option>
+                        <option> Perak </option>
+                        <option> Perlis </option>
+                        <option> Pulau Pinang </option>
+                        <option> Putrajaya </option>
+                        <option> Sabah </option>
+                        <option> Sarawak </option>
+                        <option> Selangor </option>
+                        <option> Terengganu </option>
                       </select>
                     </div>
                     <div className="EditAndPost-inputCity">
