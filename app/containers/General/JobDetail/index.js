@@ -19,7 +19,7 @@ export default class JobDetail extends Component {
     this.state = {
       showPopup: false,
       jobItem: {},
-      userId: 0,
+      user: {},
     };
   }
 
@@ -30,7 +30,7 @@ export default class JobDetail extends Component {
     const viewNumberUrl = `${config.API_BASE_URL}/jobs/${jobId}/increase-view`;
     axios.get(url).then((response) => {
       this.setState({ jobItem: response.data.job });
-      this.setState({ userId: response.data.user_id });
+      this.setState({ user: response.data.user });
     });
     axios.get(viewNumberUrl);
   }
@@ -40,7 +40,7 @@ export default class JobDetail extends Component {
   }
 
   render() {
-    const { showPopup = false, jobItem = {} } = this.state;
+    const { showPopup = false, jobItem = {}, user } = this.state;
     const className = classNames('JobDetail-reportJobPopup',
       { 'JobDetail-showReportPopup': showPopup }
     );
@@ -56,7 +56,7 @@ export default class JobDetail extends Component {
             <div className="JobDetail-containerContent">
               <JobDetailHeader
                 title={jobItem.title}
-                companyName={jobItem.companyName}
+                companyName={user.company_name}
                 state={jobItem.salary_state}
                 city={jobItem.city}
               />
@@ -89,7 +89,7 @@ export default class JobDetail extends Component {
                 </div>
               </div>
               <div className="JobDetail-sideBarCompanyInfo">
-                <CompanyInfo userId={this.state.userId} />
+                <CompanyInfo userId={this.state.user.id} />
               </div>
               <div className="JobDetail-separateBelow">
                 <div className="JobDetail-separate">
