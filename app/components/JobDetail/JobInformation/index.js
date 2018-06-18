@@ -3,6 +3,7 @@ import Facebook from 'components/JobDetail/JobInformation/SocialButton/Facebook/
 import WhatsApp from 'components/JobDetail/JobInformation/SocialButton/Whatsapp/Loadable';
 import Email from 'components/JobDetail/JobInformation/SocialButton/Email/Loadable';
 import ReportIcon from 'components/Icons/Report/Loadable';
+import moment from 'moment';
 import config from '../../../../config';
 
 
@@ -60,7 +61,7 @@ export default class JobInformation extends PureComponent {
           </div>
           <div className="JobInformation-rightDescription">
             <div className="JobInformation-postedDate"> Posted Date:
-              <span className="JobInformation-textBold"> { createdDay }</span>
+              <span className="JobInformation-textBold"> { createdDay && moment(createdDay).format('MMM D') } </span>
             </div>
             <div className="JobInformation-jobView"> Job Views:
               <span className="JobInformation-textBold"> { views }</span>
