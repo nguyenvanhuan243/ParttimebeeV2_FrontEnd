@@ -15,10 +15,14 @@ export default class JobDetailHeader extends PureComponent {
           <div className="JobDetailHeader-companyName"> { companyName } </div>
           <div className="JobDetailHeader-address">
             <div className="JobDetailHeader-addressState">
-              <div className="JobDetailHeader-addressStateText"> { state } </div>
+              <div className="JobDetailHeader-addressStateText">
+                { state && state.toUpperCase() }
+              </div>
             </div>
             <div className="JobDetailHeader-addressCity">
-              <div className="JobDetailHeader-addressCityText"> { city } </div>
+              <div className="JobDetailHeader-addressCityText">
+                { city && city.toUpperCase() }
+              </div>
             </div>
           </div>
         </div>

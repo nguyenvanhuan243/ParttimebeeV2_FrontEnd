@@ -57,7 +57,7 @@ export default class JobDetail extends Component {
               <JobDetailHeader
                 title={jobItem.title}
                 companyName={jobItem.companyName}
-                state={jobItem.state}
+                state={jobItem.salary_state}
                 city={jobItem.city}
               />
               <div className="JobDetail-jobInformation">
