@@ -252,7 +252,7 @@ export default class EditProfile extends Component {
                       <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"
-                          type="text"
+                          type="password"
                           ref={(ref) => (this.password = ref)}
                           value={this.state.passwordValue || (user && user.password)}
                           onChange={(e) => {
@@ -270,7 +270,7 @@ export default class EditProfile extends Component {
                       <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"
-                          type="text"
+                          type="password"
                           ref={(ref) => (this.confirmPassword = ref)}
                           value={confirmPasswordValue || (user && user.password)}
                           onChange={(e) => {
