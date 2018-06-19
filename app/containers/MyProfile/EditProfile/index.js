@@ -14,21 +14,20 @@ export default class EditProfile extends Component {
   constructor() {
     super();
     this.state = {
-      showAskReasonPopup: false,
       isSubmited: false,
       showSaving: false,
       showUpdated: false,
       showErrorAlert: false,
+      showAskReasonPopup: false,
       alertEmail: '',
       alertPassword: '',
-      alertConfirmPassword: '',
       alertCompanyName: '',
       alertContactName: '',
+      alertConfirmPassword: '',
     };
   }
   onSubmit = () => {
-    const userId = localStorage.currentUser;
-    const requestUrl = `${config.API_BASE_URL}/users/${userId}`;
+    const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
     if (this.email.value === '' || this.password.value === '' || this.confirmPassword.value === '' ||
         this.companyName.value === '' || this.contactName.value === '') {
       this.setState({
@@ -85,11 +84,6 @@ export default class EditProfile extends Component {
   handleAskReasonPopup() {
     this.setState({
       showAskReasonPopup: !this.state.showAskReasonPopup,
-    });
-  }
-  handleSubmitForm() {
-    this.setState({
-      isSubmited: true,
     });
   }
   handleDeleteProfile() {
@@ -152,7 +146,7 @@ export default class EditProfile extends Component {
             <AskReasonPopup
               closeAskReasonFunc={() => this.handleAskReasonPopup()}
               closePopupFunc={() => { this.handleDeleteProfile(); }}
-              onSubmitFormFunc={() => this.handleSubmitForm()}
+              onSubmitFormFunc={() => this.setState({ isSubmited: true })}
             /> : null }
         </div>
         <div>
