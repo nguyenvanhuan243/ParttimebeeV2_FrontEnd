@@ -19,17 +19,18 @@ export default class CategoryItem extends PureComponent { // eslint-disable-line
     const {
       isHoverd,
     } = this.state;
-    const CategoryItemClassName = classNames('CategoryItem-container w3-ripple', {
-      'CategoryItem-hover': isHoverd, 'CategoryItem-selected': selected,
+    const categoryItemClassName = classNames('CategoryItem', {
+      'CategoryItem-hover': isHoverd,
+      'CategoryItem-selected': selected,
     });
     return (
       <button
-        className={CategoryItemClassName}
+        className="CategoryItem-container w3-ripple"
         onMouseEnter={() => this.setState({ isHoverd: !this.state.isHoverd })}
         onMouseLeave={() => this.setState({ isHoverd: !this.state.isHoverd })}
         onClick={onClickFunc}
       >
-        <div className="CategoryItem">
+        <div className={categoryItemClassName}>
           <div className="CategoryItem-icon">
             { iconType }
           </div>
