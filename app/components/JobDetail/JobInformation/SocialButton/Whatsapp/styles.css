@@ -7,7 +7,10 @@
   margin-right: 10px;
   cursor: pointer;
 }
-
+.Whatsapp-hover {
+  background-color: #43d854 !important;
+  border: solid 1px #43d854 !important;
+}
 .Whatsapp-icon {
   margin-left: 11px;
   margin-top: 4px;
@@ -29,4 +32,8 @@
   margin-left: 10px;
   margin-top: 9px;
   color:#43d854;
+}
+
+.Whatsapp-textHover {
+  color:#ffffff !important;
 }
