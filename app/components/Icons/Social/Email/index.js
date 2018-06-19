@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
-const EmailIcon = () => (
+export default class EmailIcon extends PureComponent {
+  render() {
+    return this.props.hover ? <EmailHover /> : <EmailNormal />;
+  }
+}
+
+EmailIcon.propTypes = {
+  hover: PropTypes.bool,
+};
+
+const EmailNormal = () => (
   <svg
     version="1.1"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -29,4 +39,24 @@ const EmailIcon = () => (
     />
   </svg>
 );
-export default EmailIcon;
+
+const EmailHover = () => (
+  <svg
+    width="16px"
+    height="16px"
+    viewBox="0 0 16 16"
+    version="1.1"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+  >
+    <g
+      transform="translate(-12.000000, -9.000000) translate(12.000000, 9.000000)"
+      fill="#FFF"
+      fillRule="nonzero"
+      stroke="none"
+      strokeWidth={1}
+    >
+      <path d="M1.44 5.354c.19.123.761.49 1.716 1.1.954.611 1.685 1.081 2.193 1.41l.355.236c.182.122.332.22.452.294.12.075.265.158.436.251.17.093.33.162.481.209.15.046.29.07.419.07h.016c.129 0 .268-.024.419-.07a2.63 2.63 0 0 0 .481-.209c.17-.093.316-.176.436-.25.12-.076.27-.173.452-.295.18-.12.3-.2.355-.235l3.918-2.512c.407-.262.747-.58 1.02-.95.274-.37.411-.76.411-1.167 0-.34-.133-.63-.398-.873A1.35 1.35 0 0 0 13.661 2H1.339c-.43 0-.76.134-.992.402C.116 2.67 0 3.004 0 3.406c0 .325.154.676.46 1.055.307.379.634.676.98.893z" />
+      <path d="M14.163 6.198A173.93 173.93 0 0 0 9.994 9.12c-.318.237-.576.422-.774.555a4.758 4.758 0 0 1-.79.406c-.33.138-.637.207-.921.207h-.017c-.285 0-.592-.069-.921-.207a4.76 4.76 0 0 1-.791-.406 19.825 19.825 0 0 1-.774-.555c-.754-.559-2.14-1.532-4.16-2.92-.319-.215-.6-.46-.846-.737v6.722c0 .372.131.691.393.956.263.266.578.398.946.398h12.322c.368 0 .683-.132.946-.398.262-.265.393-.584.393-.956V5.462c-.24.27-.519.516-.837.736z" />
+    </g>
+  </svg>
+);
