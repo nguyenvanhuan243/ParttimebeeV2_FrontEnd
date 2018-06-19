@@ -2,18 +2,13 @@ import React, { PureComponent } from 'react';
 import EmailIcon from 'components/Icons/Social/Email/Loadable';
 import classNames from 'classnames';
 
-
 export default class Email extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      hover: false,
-    };
+    this.state = { hover: false };
   }
   render() {
-    const {
-      hover,
-    } = this.state;
+    const { hover } = this.state;
     const emailTextClassName = classNames('Email-text', {
       'Email-textHover': hover,
     });
