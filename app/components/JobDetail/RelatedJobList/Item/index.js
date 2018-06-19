@@ -8,9 +8,9 @@ export default class Item extends PureComponent {
   }
   render() {
     const {
+      href = '',
       title = 'JOB TITLE HERE',
       companyName = 'Company Name',
-      href = '',
       showSeparate = true,
       changePaddingTop = false,
       changePaddingBottom = false,
