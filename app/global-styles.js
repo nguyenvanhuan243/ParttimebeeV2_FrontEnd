@@ -9,7 +9,7 @@ injectGlobal`
   }
 
   body {
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif !important;
   }
 
   body.fontLoaded {
