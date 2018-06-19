@@ -34,15 +34,28 @@ export default class HomePage extends PureComponent {
     axios.get(url).then((response) => this.setState({
       dataArray: response.data,
     }));
-    setTimeout(
-      () => this.setState({
-        isLoading: true,
-      }), 1000
-    );
+    this.handleLoading();
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', () => this.handleScroll());
+  }
+
+  handleLoading() {
+    setTimeout(
+      () => this.setState({
+        isLoading: true,
+      }), 300
+    );
+  }
+  handleFilterLoading() {
+    setTimeout(
+      () => {
+        this.setState({
+          filterLoading: !this.state.filterLoading,
+        });
+      }, 300
+    );
   }
 
   handleChangeSelectedCategory() {
@@ -52,18 +65,8 @@ export default class HomePage extends PureComponent {
     this.setState({
       filterLoading: !this.state.filterLoading,
     });
-    setTimeout(
-      () => {
-        this.setState({
-          filterLoading: !this.state.filterLoading,
-        });
-      }, 1000
-    );
-    setTimeout(
-      () => this.setState({
-        isLoading: true,
-      }), 1000
-    );
+    this.handleFilterLoading();
+    this.handleLoading();
   }
 
   handleSelectedState() {
@@ -78,13 +81,9 @@ export default class HomePage extends PureComponent {
         this.setState({
           filterLoading: !this.state.filterLoading,
         });
-      }, 1000
+      }, 500
     );
-    setTimeout(
-      () => this.setState({
-        isLoading: true,
-      }), 1000
-    );
+    this.handleLoading();
   }
 
   render() {
