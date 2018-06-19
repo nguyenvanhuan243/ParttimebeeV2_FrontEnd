@@ -9,27 +9,25 @@
   color: #000000;
   cursor: pointer;
   padding: 0px !important;
-  margin: 0px !important;
   outline: none !important;
+  margin-bottom: 4px !important; 
 }
 
 .CategoryItem {
   width: 230px;
-  height: 34px;
-  margin-bottom: 4px;
+  height: 32px;
   display: flex;
   object-fit: contain;
 }
 
 .CategoryItem-hover {
-  border-radius: 3px;
-  border: solid 1px #e8e8e8;
+  outline: solid 1px #e8e8e8;
 }
 
 .CategoryItem-selected {
   border-radius: 3px;
   background-color: #ffffff;
-  border: solid 1px #e8e8e8;
+  outline: solid 1px #e8e8e8;
   font-weight: bold;
   font-size: 13px;
   font-style: normal;
@@ -41,7 +39,7 @@
 }
 
 .CategoryItem-icon {
-  padding: 5px;
+  padding: 4px;
   padding-right: 10px !important;
 }
 
