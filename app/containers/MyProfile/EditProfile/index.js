@@ -10,6 +10,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import axios from 'axios';
 import config from '../../../../config';
 
+const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
 export default class EditProfile extends Component {
   constructor() {
     super();
@@ -24,10 +25,23 @@ export default class EditProfile extends Component {
       alertCompanyName: '',
       alertContactName: '',
       alertConfirmPassword: '',
+      user: {},
+      emailValue: '',
+      contactNameValue: '',
+      companyNameValue: '',
+      addressValue: '',
+      phoneValue: '',
+      websiteValue: '',
     };
   }
+  componentWillMount() {
+    axios.get(requestUrl).then((response) => {
+      this.setState({
+        user: response.data,
+      });
+    });
+  }
   onSubmit = () => {
-    const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
     if (this.email.value === '' || this.password.value === '' || this.confirmPassword.value === '' ||
         this.companyName.value === '' || this.contactName.value === '') {
       this.setState({
@@ -94,16 +108,25 @@ export default class EditProfile extends Component {
   }
   render() {
     const {
-      showAskReasonPopup,
+      user,
+      emailValue,
       isSubmited,
       showSaving,
       showUpdated,
-      showErrorAlert,
       alertEmail,
       alertPassword,
-      alertConfirmPassword,
+      passwordValue,
+      confirmPasswordValue,
+      contactNameValue,
+      companyNameValue,
+      addressValue,
+      phoneValue,
+      websiteValue,
+      showErrorAlert,
       alertContactName,
       alertCompanyName,
+      showAskReasonPopup,
+      alertConfirmPassword,
     } = this.state;
     const emailLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertEmail,
@@ -213,6 +236,13 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           type="email"
                           ref={(ref) => (this.email = ref)}
+                          value={emailValue || (user && user.email)}
+                          onChange={(e) => {
+                            this.setState({ emailValue: e.target.value });
+                            if (emailValue === '') {
+                              user.email = '';
+                            }
+                          }}
                         />
                         <div className={separateEmailClassName} />
                         { (alertEmail && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -224,6 +254,13 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
                           ref={(ref) => (this.password = ref)}
+                          value={this.state.passwordValue || (user && user.password)}
+                          onChange={(e) => {
+                            this.setState({ passwordValue: e.target.value });
+                            if (passwordValue === '') {
+                              user.password = '';
+                            }
+                          }}
                         />
                         <div className={separatePasswordClassName} />
                         { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -235,6 +272,13 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
                           ref={(ref) => (this.confirmPassword = ref)}
+                          value={confirmPasswordValue || (user && user.password)}
+                          onChange={(e) => {
+                            this.setState({ confirmPasswordValue: e.target.value });
+                            if (confirmPasswordValue === '') {
+                              user.password = '';
+                            }
+                          }}
                         />
                         <div className={separateConfirmPasswordClassName} />
                         { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -246,6 +290,13 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
                           ref={(ref) => (this.contactName = ref)}
+                          value={contactNameValue || (user && user.contact_name)}
+                          onChange={(e) => {
+                            this.setState({ contactNameValue: e.target.value });
+                            if (contactNameValue === '') {
+                              user.contact_name = '';
+                            }
+                          }}
                         />
                         <div className={separateContactNameClassName} />
                         { (alertContactName && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -257,6 +308,13 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
                           ref={(ref) => (this.companyName = ref)}
+                          value={companyNameValue || (user && user.company_name)}
+                          onChange={(e) => {
+                            this.setState({ contactNameValue: e.target.value });
+                            if (companyNameValue === '') {
+                              user.company_name = '';
+                            }
+                          }}
                         />
                         <div className={separateCompanyNameClassName} />
                         { (alertCompanyName && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -268,6 +326,13 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
                           ref={(ref) => (this.address = ref)}
+                          value={addressValue || (user && user.address)}
+                          onChange={(e) => {
+                            this.setState({ addressValue: e.target.value });
+                            if (addressValue === '') {
+                              user.address = '';
+                            }
+                          }}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -276,6 +341,13 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
                           ref={(ref) => (this.phone = ref)}
+                          value={phoneValue || (user && user.phone_number)}
+                          onChange={(e) => {
+                            this.setState({ phoneValue: e.target.value });
+                            if (phoneValue === '') {
+                              user.phone_number = '';
+                            }
+                          }}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
@@ -285,6 +357,13 @@ export default class EditProfile extends Component {
                           placeholder="http://"
                           type="text"
                           ref={(ref) => (this.website = ref)}
+                          value={websiteValue || (user && user.website)}
+                          onChange={(e) => {
+                            this.setState({ websiteValue: e.target.value });
+                            if (websiteValue === '') {
+                              user.website = '';
+                            }
+                          }}
                         />
                         <div className="EditProfileForm-separate" />
                       </div>
