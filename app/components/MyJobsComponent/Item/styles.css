@@ -7,7 +7,7 @@
 }
 
 .Item-active {
-  width: 114px;
+  min-width: 114px;
   height: 28px;
   border-radius: 3px;
   background-color: #e8e8e8;
