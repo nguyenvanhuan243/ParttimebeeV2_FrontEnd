@@ -7,7 +7,6 @@ import RetailsIcon from 'components/Icons/Category/Retails/Loadable';
 import FoodIcon from 'components/Icons/Category/Food/Loadable';
 import AdministrativeIcon from 'components/Icons/Category/Administrative/Loadable';
 import OthersIcon from 'components/Icons/Category/Others/Loadable';
-// import classNames from 'classnames';
 
 export default class CategoryList extends PureComponent {
   constructor() {
@@ -18,20 +17,6 @@ export default class CategoryList extends PureComponent {
       selectedInput: localStorage.selectedCategoryItem,
     };
   }
-  // componentDidMount() {
-  //   window.addEventListener('scroll', () => {
-  //     const el = document.getElementsByClassName('HomePageContainer-categoryList')[0];
-  //     const sticky = el && el.offsetTop;
-  //     if (window.pageYOffset >= sticky) {
-  //       this.setState({ hasSticky: true });
-  //     } else {
-  //       this.setState({ hasSticky: false });
-  //     }
-  //   });
-  // }
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll');
-  // }
 
   handleSelectedInput = (text) => {
     localStorage.setItem('selectedCategoryItem', text);
@@ -42,12 +27,8 @@ export default class CategoryList extends PureComponent {
   }
   render() {
     const {
-      // hasSticky,
       selectedInput,
     } = this.state;
-    // const CategoryListClass = classNames({
-    //   'CategoryList-sticky': hasSticky,
-    // });
     const categoryList = [
       {
         text: 'Home',
