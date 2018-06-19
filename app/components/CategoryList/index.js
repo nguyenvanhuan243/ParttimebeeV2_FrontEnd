@@ -35,7 +35,7 @@ export default class CategoryList extends PureComponent {
         icon: <HomeIcon />,
       },
       {
-        text: 'Event',
+        text: 'Event & Exhibition',
         icon: <EventIcon />,
       },
       {
@@ -43,11 +43,11 @@ export default class CategoryList extends PureComponent {
         icon: <EducationIcon />,
       },
       {
-        text: 'Retails',
+        text: 'Retails & Sales',
         icon: <RetailsIcon />,
       },
       {
-        text: 'Food',
+        text: 'Food & Beverages',
         icon: <FoodIcon />,
       },
       {
