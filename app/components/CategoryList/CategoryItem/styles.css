@@ -41,14 +41,13 @@
 }
 
 .CategoryItem-icon {
-  margin-left: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding: 5px;
+  padding-right: 10px !important;
 }
 
 .CategoryItem-text {
-  margin-top: 7px;
-  margin-left: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 button.CategoryItem-container:hover {
