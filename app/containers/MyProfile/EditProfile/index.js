@@ -293,7 +293,7 @@ export default class EditProfile extends Component {
                           ref={(ref) => (this.companyName = ref)}
                           value={companyNameValue || (user && user.company_name)}
                           onChange={(e) => {
-                            this.setState({ contactNameValue: e.target.value });
+                            this.setState({ companyNameValue: e.target.value });
                             if (companyNameValue === '') {
                               user.company_name = '';
                             }
