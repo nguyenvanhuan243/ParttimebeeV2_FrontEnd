@@ -129,39 +129,25 @@ export default class EditProfile extends Component {
       alertConfirmPassword,
     } = this.state;
     const emailLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertEmail,
-    });
+      'EditProfile-errorLable': alertEmail });
     const separateEmailClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertEmail,
-    });
-
+      'EditProfile-errorSeparate': alertEmail });
     const passwordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertPassword,
-    });
+      'EditProfile-errorLable': alertPassword });
     const separatePasswordClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertPassword,
-    });
-
+      'EditProfile-errorSeparate': alertPassword });
     const confirmPasswordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertConfirmPassword,
-    });
+      'EditProfile-errorLable': alertConfirmPassword });
     const separateConfirmPasswordClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertConfirmPassword,
-    });
-
+      'EditProfile-errorSeparate': alertConfirmPassword });
     const contactNameLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertContactName,
-    });
+      'EditProfile-errorLable': alertContactName });
     const separateContactNameClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertContactName,
-    });
-
+      'EditProfile-errorSeparate': alertContactName });
     const companyNameLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertCompanyName,
-    });
+      'EditProfile-errorLable': alertCompanyName });
     const separateCompanyNameClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertCompanyName,
-    });
+      'EditProfile-errorSeparate': alertCompanyName });
     return (
       <div>
         <div>
