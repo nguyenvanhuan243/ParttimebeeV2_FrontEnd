@@ -11,7 +11,7 @@ export default class Header extends PureComponent {
   }
   onLogout() {
     localStorage.removeItem('currentUser');
-    window.location.replace(`${config.BASE_URL}`);
+    location.replace(`${config.BASE_URL}`);
   }
   onSubmit = (e) => {
     e.preventDefault();

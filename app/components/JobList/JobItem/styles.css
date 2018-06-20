@@ -78,10 +78,11 @@ a.JobItem-href:hover {
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 9px;
-  margin-right: 9px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  text-align: center;
 }
 .JobItem-contentJobCity {
   min-width: 83px;
@@ -101,10 +102,11 @@ a.JobItem-href:hover {
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 9px;
-  margin-right: 9px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  text-align: center;
 }
 
 .JobItem-contentFooter {
