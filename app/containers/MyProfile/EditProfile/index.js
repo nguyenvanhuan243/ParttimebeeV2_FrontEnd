@@ -175,18 +175,11 @@ export default class EditProfile extends Component {
             </div> : null }
             <div className="EditProfile-postJobForm">
               <div className="EditProfileForm">
-                <div className="EditProfileForm-avatarContainer">
-                  <div className="EditProfileForm-avatar">
-                    Avatar
-                  </div>
-                  <div className="EditProfileForm-image">
-                  </div>
-                  <div className="EditProfileForm-editAvatar">
-                    Edit avatar
-                  </div>
-                </div>
                 <div className="EditProfileForm-container">
                   <div className="EditProfileForm-lableContainer">
+                    <div className="EditProfileForm-lableItem">
+                      Avatar
+                    </div>
                     <div className={emailLableClassName}>
                       Email
                     </div>
@@ -217,6 +210,10 @@ export default class EditProfile extends Component {
                   </div>
                   <div className="EditProfileForm-inputContainer">
                     <form id="editForm">
+                      <div className="EditProfileForm-avatarContainer">
+                        <div className="EditProfileForm-image" />
+                        <div className="EditProfileForm-editAvatar">Edit avatar</div>
+                      </div>
                       <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"

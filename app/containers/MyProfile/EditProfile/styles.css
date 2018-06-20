@@ -207,9 +207,6 @@
 
 .EditProfileForm-avatarContainer {
   display: flex;
-  height: 60px;
-  margin-top: 20px;
-  margin-left: 20px;
 }
 
 .EditProfileForm-editAvatar {
