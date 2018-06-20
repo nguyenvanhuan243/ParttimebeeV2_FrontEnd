@@ -9,6 +9,8 @@ import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
 import SearchNotFound from 'components/SearchNotFound/Loadable';
 import ReactLoading from 'react-loading';
 import StateList from 'components/StateList/Loadable';
+import { groupBy, values } from 'lodash';
+import moment from 'moment';
 import axios from 'axios';
 import config from '../../../config';
 
@@ -85,6 +87,15 @@ export default class HomePage extends PureComponent {
     );
     this.handleLoading();
   }
+  renderAfterGroupBy(array) {
+    return values(array).map((item, index) => (
+      <JobList
+        key={index.toString()}
+        title={moment(item[0].created_at).format('dddd, MMMM DD')}
+        dataResourceEndPoint={item}
+      />
+    ));
+  }
 
   render() {
     const {
@@ -93,12 +104,14 @@ export default class HomePage extends PureComponent {
       selectedCategory,
       selectedState,
     } = this.state;
-    let dataFilted = [];
-    dataFilted = dataArray.filter((item) => item.job_type === 'going');
-    dataFilted = dataFilted.filter((item) => item.category === selectedCategory);
+    let dataFiltered = [];
+    dataFiltered = dataArray.filter((item) => item.job_type === 'going');
+    dataFiltered = dataFiltered.filter((item) => item.category === selectedCategory);
     if (selectedState) {
-      dataFilted = dataFilted.filter((item) => item.salary_state === selectedState);
+      dataFiltered = dataFiltered.filter((item) => item.salary_state === selectedState);
     }
+    const groupByCreatedAt = groupBy(dataFiltered,
+      (itemFiltered) => itemFiltered.created_at.substring(0, 10));
     return (
       <div>
         <Header />
@@ -116,24 +129,10 @@ export default class HomePage extends PureComponent {
             />
             <StateList onHandleSelectedState={() => this.handleSelectedState()} />
           </div>
-          { (dataFilted.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
+          { (dataFiltered.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
             { !filterLoading ?
               <span>
-                <JobList
-                  dataResourceEndPoint={dataFilted}
-                />
-                <JobList
-                  dataResourceEndPoint={dataFilted}
-                />
-                <JobList
-                  dataResourceEndPoint={dataFilted}
-                />
-                <JobList
-                  dataResourceEndPoint={dataFilted}
-                />
-                <JobList
-                  dataResourceEndPoint={dataFilted}
-                />
+                { this.renderAfterGroupBy(groupByCreatedAt) }
               </span> :
               <div className="HomePageContainer-none" /> }
             { this.state.isLoading ? null : <LoadingJobsList /> }
