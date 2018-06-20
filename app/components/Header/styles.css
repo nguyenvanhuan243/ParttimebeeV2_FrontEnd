@@ -66,15 +66,8 @@ a.Header-postJobText:hover {
   display: flex;  
 }
 
-.SearchIcon {
-  margin-left: 11px;
-  padding-top: 4.9px;
-}
-
 .SearchForm-customInput {
   margin-top: 2px;
-  margin-left: 4px;
-  
   font-size: 13px;
   font-weight: normal;
   font-style: normal;

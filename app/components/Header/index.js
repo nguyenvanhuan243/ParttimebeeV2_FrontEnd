@@ -25,7 +25,7 @@ export default class Header extends PureComponent {
           <div className="Header-container">
             <div className="Header-searchForm">
               <form onSubmit={this.onSubmit} className="SearchForm">
-                <div className="SearchIcon"> <SearchIcon /> </div>
+                <SearchIcon />
                 <input
                   className="SearchForm-customInput"
                   placeholder="Search job..."
