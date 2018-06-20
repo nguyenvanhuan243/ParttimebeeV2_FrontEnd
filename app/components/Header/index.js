@@ -42,7 +42,7 @@ export default class Header extends PureComponent {
             <div style={notLoginStyle} className="Header-postJobContainer">
               <a className="Header-href" href={localStorage.currentUser ? `${config.BASE_URL}/postjobs-post-job` : `${config.BASE_URL}/user/login`}>
                 <div className={logoutClassName}>
-                  <span className="Header-postJobText"> POSTJOB </span>
+                  <div className="Header-postJobText"> POSTJOB </div>
                 </div>
               </a>
               { localStorage.currentUser && <button onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })} className="Header-loggedAvatar"></button> }

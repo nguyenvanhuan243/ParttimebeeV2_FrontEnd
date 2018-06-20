@@ -38,20 +38,24 @@
   background-color: #ffaa00;
   margin-top: 17px;
   text-align: center;
-  padding-top: 2px;
 }
 
 .Header-postJobText {
   width: 53px;
-  height: 16px !important;
+  height: 16px;
   font-size: 11px;
+  font-family: Roboto;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.45;
+  line-height: 16px;
   letter-spacing: 0.2px;
   color: #ffffff;
   text-decoration: none !important;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 a.Header-postJobText:hover {
