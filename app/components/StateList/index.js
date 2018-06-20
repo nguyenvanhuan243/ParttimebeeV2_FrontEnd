@@ -173,7 +173,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
           { listStateArray }
           <button className="StateList-button" onClick={() => this.handleShowMore()}>
             <div className="StateList-buttonContainer">
-              <ShowMoreIcon marginTop={7} />
+              <ShowMoreIcon />
               <div className="StateList-buttonText"> { showMore ? 'VIEW LESS' : 'VIEW MORE...' } </div>
             </div>
           </button>
