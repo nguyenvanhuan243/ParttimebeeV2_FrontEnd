@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import classname from 'classnames';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
 import config from '../../../config';
@@ -19,9 +18,7 @@ export default class Header extends PureComponent {
   }
   render() {
     const { expandAvatar } = this.state;
-    const logoutStatus = location.pathname.includes('logout');
     const notLoginStyle = { marginLeft: localStorage.currentUser ? '0' : '56' };
-    const logoutClassName = classname('Header-postJob', { 'Header-logout': logoutStatus });
     return (
       <div>
         <div className="Header">
@@ -41,7 +38,7 @@ export default class Header extends PureComponent {
             </div>
             <div style={notLoginStyle} className="Header-postJobContainer">
               <a className="Header-href" href={localStorage.currentUser ? `${config.BASE_URL}/postjobs-post-job` : `${config.BASE_URL}/user/login`}>
-                <div className={logoutClassName}>
+                <div className="Header-postJob">
                   <div className="Header-postJobText"> POSTJOB </div>
                 </div>
               </a>
