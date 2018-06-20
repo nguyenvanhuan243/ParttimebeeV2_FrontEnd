@@ -119,11 +119,21 @@ export default class HomePage extends PureComponent {
           { (dataFilted.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
             { !filterLoading ?
               <span>
-                <JobList dataResourceEndPoint={dataFilted} />
-                <JobList dataResourceEndPoint={dataFilted} />
-                <JobList dataResourceEndPoint={dataFilted} />
-                <JobList dataResourceEndPoint={dataFilted} />
-                <JobList dataResourceEndPoint={dataFilted} />
+                <JobList
+                  dataResourceEndPoint={dataFilted}
+                />
+                <JobList
+                  dataResourceEndPoint={dataFilted}
+                />
+                <JobList
+                  dataResourceEndPoint={dataFilted}
+                />
+                <JobList
+                  dataResourceEndPoint={dataFilted}
+                />
+                <JobList
+                  dataResourceEndPoint={dataFilted}
+                />
               </span> :
               <div className="HomePageContainer-none" /> }
             { this.state.isLoading ? null : <LoadingJobsList /> }
