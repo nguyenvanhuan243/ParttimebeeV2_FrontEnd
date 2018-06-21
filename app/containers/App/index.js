@@ -17,8 +17,6 @@ import HomePage from 'containers/HomePage/Loadable';
 import LoadingJobs from 'containers/General/LoadingJobs/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import JobDetail from 'containers/General/JobDetail/Loadable';
-import JobByState from 'containers/General/JobByState/Loadable';
-import EmployerAvailableJobs from 'containers/General/EmployerAvailableJobs/Loadable';
 import MyJobs from 'containers/MyJobs/Loadable';
 import Signup from 'components/LoginRegister/Signup/Loadable';
 import Login from 'components/LoginRegister/Login/Loadable';
@@ -37,9 +35,7 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/loading-jobs" component={LoadingJobs} />
         <Route exact path="/job-detail/:id" component={JobDetail} />
-        <Route exact path="/job-by-state" component={JobByState} />
         <Route exact path="/employer-profile/:id" component={MyJobs} />
-        <Route exact path="/employer-available-jobs" component={EmployerAvailableJobs} />
         {/* Login / Register */}
         <Route exact path="/user/signup" component={Signup} />
         <Route exact path="/user/login" component={Login} />

@@ -47,7 +47,6 @@ import 'components/MyJobsComponent/Item/styles.css';
 import 'components/MyJobsComponent/NoJobsYet/styles.css';
 import 'containers/HomePage/styles.css';
 import 'containers/General/JobDetail/styles.css';
-import 'containers/General/JobByState/styles.css';
 import 'components/Subscribe/styles.css';
 import 'components/Sponsored/styles.css';
 import 'containers/NotFoundPage/styles.css';
@@ -91,7 +90,6 @@ import 'components/Popup/AskReason/styles.css';
 import 'components/Popup/DeleteConfirmation/styles.css';
 
 // Employer Profile
-import 'containers/General/EmployerAvailableJobs/styles.css';
 import 'components/EmployerProfileBanner/styles.css';
 import 'components/ShareThisProfile/styles.css';
 import 'containers/MyJobs/styles.css';
