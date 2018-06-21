@@ -10,6 +10,7 @@ import SearchNotFound from 'components/SearchNotFound/Loadable';
 import ReactLoading from 'react-loading';
 import StateList from 'components/StateList/Loadable';
 import { groupBy, values } from 'lodash';
+import ScrollEvent from 'react-onscroll';
 import moment from 'moment';
 import axios from 'axios';
 import config from '../../../config';
@@ -23,6 +24,8 @@ export default class HomePage extends PureComponent {
       filterLoading: false,
       selectedCategory: 'Home',
       selectedState: '',
+      limit: 2,
+      scrollLoadingJob: false,
     };
   }
   componentWillMount() {
@@ -39,8 +42,22 @@ export default class HomePage extends PureComponent {
     this.handleLoading();
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', () => this.handleScroll());
+  handleScroll = () => {
+    const windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight;
+    const body = document.body;
+    const html = document.documentElement;
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    const windowBottom = windowHeight + window.pageYOffset;
+    if (windowBottom >= docHeight) {
+      setTimeout(
+        () => {
+          this.setState({
+            limit: this.state.limit + 1,
+            scrollLoadingJob: true,
+          });
+        }, 1,
+      );
+    }
   }
 
   handleLoading() {
@@ -71,6 +88,10 @@ export default class HomePage extends PureComponent {
     this.handleLoading();
   }
 
+  handleScrollCallback = () => {
+    this.handleScroll();
+  }
+
   handleSelectedState() {
     this.setState({
       selectedState: localStorage.selectedStateItem,
@@ -87,13 +108,14 @@ export default class HomePage extends PureComponent {
     );
     this.handleLoading();
   }
+
   renderAfterGroupBy(object) {
     return values(object).map((item, index) => (
-      <JobList
+      this.state.limit > index ? <JobList
         key={index.toString()}
         title={moment(item[0].created_at).format('dddd, MMMM DD')}
         dataResourceEndPoint={item}
-      />
+      /> : null
     ));
   }
 
@@ -103,6 +125,7 @@ export default class HomePage extends PureComponent {
       filterLoading,
       selectedCategory,
       selectedState,
+      scrollLoadingJob,
     } = this.state;
     let dataFiltered = [];
     dataFiltered = dataArray.filter((item) => item.job_type === 'going');
@@ -115,6 +138,7 @@ export default class HomePage extends PureComponent {
     return (
       <div>
         <Header />
+        <ScrollEvent handleScrollCallback={this.handleScrollCallback} />
         <div className="HomePageContainer-reloading">
           { filterLoading && <ReactLoading
             type={'spokes'}
@@ -135,7 +159,7 @@ export default class HomePage extends PureComponent {
                 { this.renderAfterGroupBy(groupByCreatedAt) }
               </span> :
               <div className="HomePageContainer-none" /> }
-            { this.state.isLoading ? null : <LoadingJobsList /> }
+            { scrollLoadingJob ? <LoadingJobsList /> : null }
           </div> }
           <div className="HomePageContainer-sidebarContainer">
             <Subscribe /> <Sponsored /> <Footer />
