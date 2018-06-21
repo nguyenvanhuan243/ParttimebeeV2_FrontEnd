@@ -30,6 +30,7 @@ export default class HomePage extends PureComponent {
     };
   }
   componentWillMount() {
+    localStorage.setItem('selectedStateItem', '');
     const queryString = location.search.substring(8);
     let url = '';
     if (queryString) {
@@ -160,9 +161,8 @@ export default class HomePage extends PureComponent {
           { (dataFiltered.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
             { !filterLoading &&
               <div className="HomePageContainer-jobBy">
-                Jobs in {localStorage.selectedStateItem}
-              </div>
-            }
+                Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem} Category
+              </div> }
             { !filterLoading ?
               <span>
                 { this.renderAfterGroupBy(groupByCreatedAt) }
