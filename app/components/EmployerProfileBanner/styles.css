@@ -153,6 +153,11 @@
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
+  display: flex;
+}
+
+.EmployerProfileBanner-overFlow {
+  overflow-y: hidden;
 }
 
 .EmployerProfileBanner-hrefText {
@@ -177,7 +182,6 @@ a.EmployerProfileBanner-hrefText:Hover {
 .EmployerProfileBanner-editButtonText {
   width: 24px;
   height: 16px;
-  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;
@@ -188,4 +192,13 @@ a.EmployerProfileBanner-hrefText:Hover {
   color: #ffffff;
   padding-left: 16px;
   padding-top: 7px;
+}
+
+.EmployerProfileBanner-readMoreButton {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 140px;
+  color: #ffaa00;
+  cursor: pointer;
+  outline: none !important;
 }

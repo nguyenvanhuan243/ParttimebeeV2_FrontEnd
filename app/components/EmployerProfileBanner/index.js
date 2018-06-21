@@ -34,6 +34,9 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
     const className = classNames('EmployerProfileBanner',
       { 'EmployerProfileBanner-readMore': showReadMore }
     );
+    const classNamecompanyDescription = classNames('EmployerProfileBanner-companyDescriptionText', {
+      'EmployerProfileBanner-overFlow': !showReadMore,
+    });
     return (
       <div className={className}>
         <div className="EmployerProfileBanner-container">
@@ -74,7 +77,15 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
             <div className="EmployerProfileBanner-companyDescription">
               COMPANY DESCRIPTION
             </div>
-            <div dangerouslySetInnerHTML={{ __html: companyDescription }} className="EmployerProfileBanner-companyDescriptionText" />
+            <div className={classNamecompanyDescription}>
+              <div dangerouslySetInnerHTML={{ __html: companyDescription }} />
+              { !showReadMore && <button
+                onClick={() => this.handleReadMore()}
+                className="EmployerProfileBanner-readMoreButton"
+              >
+                Read more
+              </button> }
+            </div>
           </div>
           { showEdit ?
             <a className="EmployerProfileBanner-hrefText" href={`${config.BASE_URL}/myprofile/edit-profile`}>
