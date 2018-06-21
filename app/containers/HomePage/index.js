@@ -26,6 +26,7 @@ export default class HomePage extends PureComponent {
       selectedState: '',
       limit: 2,
       scrollLoadingJob: false,
+      arrayLength: 0,
     };
   }
   componentWillMount() {
@@ -52,10 +53,11 @@ export default class HomePage extends PureComponent {
       setTimeout(
         () => {
           this.setState({
-            limit: this.state.limit + 1,
+            limit: this.state.limit + 2,
             scrollLoadingJob: true,
+            arrayLength: this.state.limit,
           });
-        }, 1,
+        }, 1000,
       );
     }
   }
@@ -126,6 +128,7 @@ export default class HomePage extends PureComponent {
       selectedCategory,
       selectedState,
       scrollLoadingJob,
+      arrayLength,
     } = this.state;
     let dataFiltered = [];
     dataFiltered = dataArray.filter((item) => item.job_type === 'going');
@@ -135,6 +138,7 @@ export default class HomePage extends PureComponent {
     }
     const groupByCreatedAt = groupBy(dataFiltered,
       (itemFiltered) => itemFiltered.created_at.substring(0, 10));
+    const loadingLimited = arrayLength >= values(groupByCreatedAt).length;
     return (
       <div>
         <Header />
@@ -159,7 +163,7 @@ export default class HomePage extends PureComponent {
                 { this.renderAfterGroupBy(groupByCreatedAt) }
               </span> :
               <div className="HomePageContainer-none" /> }
-            { scrollLoadingJob ? <LoadingJobsList /> : null }
+            { scrollLoadingJob && !loadingLimited ? <LoadingJobsList /> : null }
           </div> }
           <div className="HomePageContainer-sidebarContainer">
             <Subscribe /> <Sponsored /> <Footer />
