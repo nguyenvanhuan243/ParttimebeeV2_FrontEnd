@@ -87,8 +87,8 @@ export default class HomePage extends PureComponent {
     );
     this.handleLoading();
   }
-  renderAfterGroupBy(array) {
-    return values(array).map((item, index) => (
+  renderAfterGroupBy(object) {
+    return values(object).map((item, index) => (
       <JobList
         key={index.toString()}
         title={moment(item[0].created_at).format('dddd, MMMM DD')}
