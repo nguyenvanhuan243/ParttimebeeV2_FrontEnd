@@ -16,6 +16,20 @@
   margin-right: 20px;
 }
 
+.HomePageContainer-jobBy {
+  width: 194px;
+  height: 32px;
+  margin-bottom: 11px;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
 .HomePageContainer-sidebarContainer {
   display: block;
   margin-top: 30px;

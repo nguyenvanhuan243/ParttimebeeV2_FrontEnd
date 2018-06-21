@@ -158,6 +158,11 @@ export default class HomePage extends PureComponent {
             <StateList onHandleSelectedState={() => this.handleSelectedState()} />
           </div>
           { (dataFiltered.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
+            { !filterLoading &&
+              <div className="HomePageContainer-jobBy">
+                Jobs in {localStorage.selectedStateItem}
+              </div>
+            }
             { !filterLoading ?
               <span>
                 { this.renderAfterGroupBy(groupByCreatedAt) }
