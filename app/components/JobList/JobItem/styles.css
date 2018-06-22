@@ -63,7 +63,6 @@ a.JobItem-href:hover {
   color: #999999;
 }
 .JobItem-contentJobState {
-  min-width: 99px;
   height: 24px;
   border-radius: 3px;
   background-color: #f8f8f8;
