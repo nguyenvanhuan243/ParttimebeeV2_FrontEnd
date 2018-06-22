@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LoadingJobsItem = () => (
-  <div className="LoadingJobsItem">
+  <div className="LoadingJobsItem animated-background">
     <div className="LoadingJobsItem-container">
       <div className="LoadingJobsItem-image" />
       <div className="LoadingJobsItem-rectangle">
