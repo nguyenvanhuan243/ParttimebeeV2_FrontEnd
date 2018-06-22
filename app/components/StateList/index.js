@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
+import ViewLessIcon from 'components/Icons/ViewLess/Loadable';
 import CategoryItem from 'components/CategoryList/CategoryItem/Loadable';
 import KualaLumpurIcon from 'components/Icons/State/KualaLumpur/Loadable';
 import JohorIcon from 'components/Icons/State/Johor/Loadable';
@@ -173,7 +174,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
           { listStateArray }
           <button className="StateList-button" onClick={() => this.handleShowMore()}>
             <div className="StateList-buttonContainer">
-              <ShowMoreIcon />
+              { showMore ? <ViewLessIcon /> : <ShowMoreIcon /> }
               <div className="StateList-buttonText"> { showMore ? 'VIEW LESS' : 'VIEW MORE...' } </div>
             </div>
           </button>
