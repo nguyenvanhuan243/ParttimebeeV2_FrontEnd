@@ -8,7 +8,12 @@ import config from '../../../../config';
 export default class JobItem extends PureComponent {
   constructor() {
     super();
-    this.state = { hover: false };
+    this.state = {
+      hover: false,
+      hoverShareButton: false,
+      hoverState: false,
+      hoverCity: false,
+    };
   }
   render() {
     const {
@@ -28,9 +33,22 @@ export default class JobItem extends PureComponent {
       onClickJobItem = () => {},
       companyName = 'Company Name Here',
     } = this.props;
-    const hoverClass = classNames('JobItem', { 'JobItem-hover': this.state.hover });
+    const {
+      hover,
+      hoverState,
+      hoverShareButton,
+      hoverCity,
+    } = this.state;
+    const hoverClass = classNames('JobItem',
+      { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity });
     const hoverShareClass = classNames('JobItem-contentShareContainer',
-      { 'JobItem-contentShareContainerHover': this.state.hover });
+      { 'JobItem-contentShareContainerHover': hoverShareButton });
+    const hoverStateClass = classNames('JobItem-contentJobState', {
+      'JobItem-contentJobStateHover': hoverState,
+    });
+    const hoverCityClass = classNames('JobItem-contentJobCity', {
+      'JobItem-contentJobCityHover': hoverCity,
+    });
     return (
       <div>
         <div
@@ -46,13 +64,21 @@ export default class JobItem extends PureComponent {
             { showCompanyName &&
               <div className="JobItem-contentCompanyName">{ companyName }</div> }
             <div className="JobItem-contentFooter">
-              <div className="JobItem-contentJobState">
+              <div
+                className={hoverStateClass}
+                onMouseEnter={() => this.setState({ hoverState: true })}
+                onMouseLeave={() => this.setState({ hoverState: false })}
+              >
                 <div className="JobItem-contentJobStateText">
                   { state && state.toUpperCase() }
                 </div>
               </div>
               { (city !== '' && showCity) &&
-                <div className="JobItem-contentJobCity">
+                <div
+                  className={hoverCityClass}
+                  onMouseEnter={() => this.setState({ hoverCity: true })}
+                  onMouseLeave={() => this.setState({ hoverCity: false })}
+                >
                   <div className="JobItem-contentJobCityText">
                     { city && city.toUpperCase() }
                   </div>
@@ -63,7 +89,11 @@ export default class JobItem extends PureComponent {
                   <div className="JobItem-contentViewNumber"> { viewNumber } </div>
                 </div> }
               { showShare &&
-                <div className={hoverShareClass}>
+                <div
+                  className={hoverShareClass}
+                  onMouseEnter={() => this.setState({ hoverShareButton: true })}
+                  onMouseLeave={() => this.setState({ hoverShareButton: false })}
+                >
                   <ShareIcon />
                   <span className="JobItem-contentShareText"> SHARE </span>
                 </div> }

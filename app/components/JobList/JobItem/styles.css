@@ -1,5 +1,5 @@
 .JobItem {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   border-top: solid 1px #e8e8e8;
   display: flex;
   cursor: pointer;
@@ -30,7 +30,7 @@
   text-overflow: ellipsis;
 }
 .JobItem-hover {
-  background-color: #f8f8f8;
+  background-color: #f8f8f8 !important;
 }
 .JobItem-href {
   text-decoration: none;
@@ -68,6 +68,11 @@ a.JobItem-href:hover {
   background-color: #f8f8f8;
   border: solid 1px #e8e8e8;
 }
+
+.JobItem-contentJobStateHover {
+  background-color: #e8e8e8;
+  border: solid 1px #e8e8e8;
+}
 .JobItem-contentJobStateText {
   font-size: 11px;
   font-weight: normal;
@@ -90,6 +95,11 @@ a.JobItem-href:hover {
   background-color: #f8f8f8;
   border: solid 1px #e8e8e8;
   margin-left: 8px;
+}
+
+.JobItem-contentJobCityHover {
+  background-color: #e8e8e8;
+  border: solid 1px #e8e8e8;
 }
 
 .JobItem-contentJobCityText {
