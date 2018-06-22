@@ -26,3 +26,6 @@ Why using pm2 tool?
 Because we can start react boilerplate with  `npm run start:prod`. However, we stop terminal
 then server will stop.
 => We need to use pm2 to start server ALLWAYS ON.
+
+<!-- How to make animation effect the same with facebook -->
+<!-- Tut: https://codepen.io/brucevang/pen/qZOPwR -->
