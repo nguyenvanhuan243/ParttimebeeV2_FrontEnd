@@ -57,6 +57,6 @@
   animation-name: placeHolderShimmer;
   animation-timing-function: linear;
   background: #8B1F1F;
-  background: linear-gradient(to right, #d8d8d8 8%, #F0F0F0 18%, #d8d8d8 33%);
+  background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
   position: relative;
 }
