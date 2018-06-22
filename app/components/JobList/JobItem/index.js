@@ -39,20 +39,20 @@ export default class JobItem extends PureComponent {
       hoverShareButton,
       hoverCity,
     } = this.state;
-    const hoverClass = classNames('JobItem',
+    const hoverClassName = classNames('JobItem',
       { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity });
-    const hoverShareClass = classNames('JobItem-contentShareContainer',
+    const hoverShareClassName = classNames('JobItem-contentShareContainer',
       { 'JobItem-contentShareContainerHover': hoverShareButton });
-    const hoverStateClass = classNames('JobItem-contentJobState', {
+    const hoverStateClassName = classNames('JobItem-contentJobState', {
       'JobItem-contentJobStateHover': hoverState,
     });
-    const hoverCityClass = classNames('JobItem-contentJobCity', {
+    const hoverCityClassName = classNames('JobItem-contentJobCity', {
       'JobItem-contentJobCityHover': hoverCity,
     });
     return (
       <div>
         <div
-          className={hoverClass}
+          className={hoverClassName}
           onMouseEnter={() => this.setState({ hover: true })}
           onMouseLeave={() => this.setState({ hover: false })}
         >
@@ -65,7 +65,7 @@ export default class JobItem extends PureComponent {
               <div className="JobItem-contentCompanyName">{ companyName }</div> }
             <div className="JobItem-contentFooter">
               <div
-                className={hoverStateClass}
+                className={hoverStateClassName}
                 onMouseEnter={() => this.setState({ hoverState: true })}
                 onMouseLeave={() => this.setState({ hoverState: false })}
               >
@@ -75,7 +75,7 @@ export default class JobItem extends PureComponent {
               </div>
               { (city !== '' && showCity) &&
                 <div
-                  className={hoverCityClass}
+                  className={hoverCityClassName}
                   onMouseEnter={() => this.setState({ hoverCity: true })}
                   onMouseLeave={() => this.setState({ hoverCity: false })}
                 >
@@ -90,7 +90,7 @@ export default class JobItem extends PureComponent {
                 </div> }
               { showShare &&
                 <div
-                  className={hoverShareClass}
+                  className={hoverShareClassName}
                   onMouseEnter={() => this.setState({ hoverShareButton: true })}
                   onMouseLeave={() => this.setState({ hoverShareButton: false })}
                 >
