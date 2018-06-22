@@ -51,7 +51,7 @@
 }
 
 .animated-background {
-  animation-duration: 20s;
+  animation-duration: 6s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-name: placeHolderShimmer;

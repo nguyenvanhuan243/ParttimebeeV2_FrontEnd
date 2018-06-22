@@ -58,7 +58,7 @@ export default class HomePage extends PureComponent {
             scrollLoadingJob: true,
             arrayLength: this.state.limit,
           });
-        }, 1000,
+        }, 10,
       );
     }
   }
