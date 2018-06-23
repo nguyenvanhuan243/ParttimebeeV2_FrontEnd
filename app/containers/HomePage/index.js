@@ -27,6 +27,8 @@ export default class HomePage extends PureComponent {
       limit: 2,
       scrollLoadingJob: false,
       arrayLength: 0,
+      readyToRender: false,
+      mountLoading: false,
     };
   }
   componentWillMount() {
@@ -42,6 +44,16 @@ export default class HomePage extends PureComponent {
       dataArray: response.data,
     }));
     this.handleLoading();
+    setTimeout(
+      () => this.setState({
+        mountLoading: true,
+      }), 50
+    );
+    setTimeout(
+      () => this.setState({
+        readyToRender: true,
+      }), 1500,
+    );
   }
 
   handleScroll = () => {
@@ -130,6 +142,7 @@ export default class HomePage extends PureComponent {
       selectedState,
       scrollLoadingJob,
       arrayLength,
+      readyToRender,
     } = this.state;
     let dataFiltered = [];
     dataFiltered = dataArray.filter((item) => item.job_type === 'going');
@@ -158,8 +171,9 @@ export default class HomePage extends PureComponent {
             />
             <StateList onHandleSelectedState={() => this.handleSelectedState()} />
           </div>
-          { (dataFiltered.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
+          { (dataFiltered.length === 0 && !filterLoading && readyToRender) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
             { filterLoading && <LoadingJobsList /> }
+            { !readyToRender && <LoadingJobsList /> }
             { (!filterLoading && (localStorage.selectedCategoryItem !== 'Home')) &&
               <div className="HomePageContainer-jobBy">
                 Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem} Category
