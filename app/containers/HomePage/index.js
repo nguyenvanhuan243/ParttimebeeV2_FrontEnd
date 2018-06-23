@@ -7,7 +7,7 @@ import Sponsored from 'components/Sponsored/Loadable';
 import CategoryList from 'components/CategoryList/Loadable';
 import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
 import SearchNotFound from 'components/SearchNotFound/Loadable';
-import ReactLoading from 'react-loading';
+// import ReactLoading from 'react-loading';
 import StateList from 'components/StateList/Loadable';
 import { groupBy, values } from 'lodash';
 import ScrollEvent from 'react-onscroll';
@@ -144,13 +144,13 @@ export default class HomePage extends PureComponent {
       <div>
         <Header />
         <ScrollEvent handleScrollCallback={this.handleScrollCallback} />
-        <div className="HomePageContainer-reloading">
+        {/* <div className="HomePageContainer-reloading">
           { filterLoading && <ReactLoading
             type={'spokes'}
             height={50}
             width={50}
           /> }
-        </div>
+        </div> */}
         <div className="HomePageContainer">
           <div className="HomePageContainer-categoryList">
             <CategoryList
@@ -159,6 +159,7 @@ export default class HomePage extends PureComponent {
             <StateList onHandleSelectedState={() => this.handleSelectedState()} />
           </div>
           { (dataFiltered.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
+            { filterLoading && <LoadingJobsList /> }
             { (!filterLoading && (localStorage.selectedCategoryItem !== 'Home')) &&
               <div className="HomePageContainer-jobBy">
                 Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem} Category
