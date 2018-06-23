@@ -14,6 +14,7 @@ export default class JobItem extends PureComponent {
       hoverShareButton: false,
       hoverState: false,
       hoverCity: false,
+      showAddThis: false,
     };
   }
   render() {
@@ -39,6 +40,7 @@ export default class JobItem extends PureComponent {
       hoverState,
       hoverShareButton,
       hoverCity,
+      showAddThis,
     } = this.state;
     const hoverClassName = classNames('JobItem',
       { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity });
@@ -89,12 +91,14 @@ export default class JobItem extends PureComponent {
                   <ViewIcon />
                   <div className="JobItem-contentViewNumber"> { viewNumber } </div>
                 </div> }
-              <AddThis pubId={'ra-5b2ccdef285e6491'} />
+              {
+                showAddThis && <AddThis pubId={'ra-5b2ccdef285e6491'} />
+              }
               { showShare &&
                 <div
                   className={hoverShareClassName}
-                  onMouseEnter={() => this.setState({ hoverShareButton: true })}
-                  onMouseLeave={() => this.setState({ hoverShareButton: false })}
+                  onMouseEnter={() => this.setState({ hoverShareButton: true, showAddThis: true })}
+                  onMouseLeave={() => this.setState({ hoverShareButton: false, showAddThis: false })}
                 >
                   <ShareIcon />
                   <span className="JobItem-contentShareText"> SHARE </span>
