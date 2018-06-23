@@ -159,7 +159,7 @@ export default class HomePage extends PureComponent {
             <StateList onHandleSelectedState={() => this.handleSelectedState()} />
           </div>
           { (dataFiltered.length === 0 && !filterLoading) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
-            { !filterLoading &&
+            { (!filterLoading && (localStorage.selectedCategoryItem !== 'Home')) &&
               <div className="HomePageContainer-jobBy">
                 Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem} Category
               </div> }
