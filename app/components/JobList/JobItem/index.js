@@ -2,7 +2,9 @@ import React, { PureComponent, PropTypes } from 'react';
 import ViewIcon from 'components/Icons/View/Loadable';
 import ShareIcon from 'components/Icons/Share/Loadable';
 import DeleteIcon from 'components/Icons/Delete/Loadable';
-import AddThis from 'components/ThirdParty/AddThis/Loadable';
+import Facebook from 'components/ShareThisProfile/Icons/FacebookIcon/Loadable';
+import WhatsApp from 'components/ShareThisProfile/Icons/WhatsAppIcon/Loadable';
+import Email from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 import classNames from 'classnames';
 import config from '../../../../config';
 
@@ -15,6 +17,7 @@ export default class JobItem extends PureComponent {
       hoverState: false,
       hoverCity: false,
       showAddThis: false,
+      showSocialShare: false,
     };
   }
   render() {
@@ -40,7 +43,7 @@ export default class JobItem extends PureComponent {
       hoverState,
       hoverShareButton,
       hoverCity,
-      showAddThis,
+      showSocialShare,
     } = this.state;
     const hoverClassName = classNames('JobItem',
       { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity });
@@ -55,9 +58,10 @@ export default class JobItem extends PureComponent {
     return (
       <div>
         <div
+          id="homepage"
           className={hoverClassName}
           onMouseEnter={() => this.setState({ hover: true })}
-          onMouseLeave={() => this.setState({ hover: false })}
+          onMouseLeave={() => this.setState({ hover: false, showSocialShare: false })}
         >
           { showImage && <a className="JobItem-href" href={href}> <div className="JobItem-image" /> </a> }
           <div className="JobItem-content">
@@ -92,13 +96,23 @@ export default class JobItem extends PureComponent {
                   <div className="JobItem-contentViewNumber"> { viewNumber } </div>
                 </div> }
               {
-                showAddThis && <AddThis pubId={'ra-5b2ccdef285e6491'} />
+                showSocialShare && <div className="JobItem-socialShare">
+                  <span className="JobItem-socialShareMargin">
+                    <Facebook />
+                  </span>
+                  <span className="JobItem-socialShareMargin">
+                    <WhatsApp />
+                  </span>
+                  <span className="JobItem-socialShareMargin">
+                    <Email />
+                  </span>
+                </div>
               }
               { showShare &&
                 <div
                   className={hoverShareClassName}
-                  onMouseEnter={() => this.setState({ hoverShareButton: true, showAddThis: true })}
-                  onMouseLeave={() => this.setState({ hoverShareButton: false, showAddThis: false })}
+                  onMouseEnter={() => this.setState({ hoverShareButton: true, showSocialShare: true })}
+                  onMouseLeave={() => this.setState({ hoverShareButton: false })}
                 >
                   <ShareIcon />
                   <span className="JobItem-contentShareText"> SHARE </span>

@@ -211,3 +211,15 @@ a.JobItem-href:hover {
   margin-top: 4px;
   margin-bottom: 4px;
 }
+
+.JobItem-socialShare {
+  margin-left: 260px;
+  margin-top: -55px;
+  display: inline !important;
+  position: absolute;
+  display: flex;
+}
+
+.JobItem-socialShareMargin {
+  margin-right: 4px;
+}
