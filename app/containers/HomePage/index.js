@@ -92,7 +92,7 @@ export default class HomePage extends PureComponent {
         this.setState({
           filterLoading: !this.state.filterLoading,
         });
-      }, 300
+      }, 1000
     );
   }
 
