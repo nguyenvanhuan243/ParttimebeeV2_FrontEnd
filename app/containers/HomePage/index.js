@@ -48,7 +48,7 @@ export default class HomePage extends PureComponent {
         setTimeout(
           () => this.setState({
             readyToRender: true,
-          }), 1500,
+          }), 300,
         );
       }
     );
