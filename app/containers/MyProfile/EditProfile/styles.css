@@ -245,6 +245,12 @@
   border-radius: 30px;
 }
 
+input.EditProfileForm-image {
+  opacity: 0;
+	overflow: hidden;
+  position: absolute;
+}
+
 input.EditProfileForm-inputHoverEmail:focus {
   outline: none;
   width: 875px !important;

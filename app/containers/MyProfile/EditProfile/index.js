@@ -211,7 +211,14 @@ export default class EditProfile extends Component {
                   <div className="EditProfileForm-inputContainer">
                     <form id="editForm">
                       <div className="EditProfileForm-avatarContainer">
-                        <div className="EditProfileForm-image" />
+                        <div className="EditProfileForm-image">
+                          <img
+                            className="EditProfileForm-image"
+                            src="https://www.neolutionesport.com/wp-content/uploads/2017/03/default-avatar-knives-ninja.png"
+                            alt="Avatar"
+                          />
+                          <input className="EditProfileForm-image" type="file" />
+                        </div>
                         <div className="EditProfileForm-editAvatar">Edit avatar</div>
                       </div>
                       <div className="EditProfileForm-lableItem">
