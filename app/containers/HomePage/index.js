@@ -40,19 +40,23 @@ export default class HomePage extends PureComponent {
     } else {
       url = `${config.API_BASE_URL}/jobs`;
     }
-    axios.get(url).then((response) => this.setState({
-      dataArray: response.data,
-    }));
+    axios.get(url).then(
+      (response) => {
+        this.setState({
+          dataArray: response.data,
+        });
+        setTimeout(
+          () => this.setState({
+            readyToRender: true,
+          }), 1500,
+        );
+      }
+    );
     this.handleLoading();
     setTimeout(
       () => this.setState({
         mountLoading: true,
       }), 50
-    );
-    setTimeout(
-      () => this.setState({
-        readyToRender: true,
-      }), 1500,
     );
   }
 
