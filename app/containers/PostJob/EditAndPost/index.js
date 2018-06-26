@@ -4,15 +4,23 @@ import ImportantAlert from 'containers/PostJob/ImportantAlert/Loadable';
 import JobSavedAlert from 'components/JobSavedAlert/Loadable';
 import axios from 'axios';
 import 'w3-css/w3.css';
+import { convertFromHTML, ContentState, EditorState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { Editor } from 'react-draft-wysiwyg';
 import config from '../../../../config';
 
 const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
 const hasEditJob = location.search.includes('edit-job');
+const sampleMarkup = '<div data-contents="true"><ul class="public-DraftStyleDefault-ul" data-offset-key="fq8bp-0-0"><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-reset public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="fq8bp-0-0"><div data-offset-key="fq8bp-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="fq8bp-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="1bf1r-0-0"><div data-offset-key="1bf1r-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="1bf1r-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="3nj4q-0-0"><div data-offset-key="3nj4q-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="3nj4q-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="86qhi-0-0"><div data-offset-key="86qhi-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="86qhi-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="bp6bp-0-0"><div data-offset-key="bp6bp-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="bp6bp-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="d5rk3-0-0"><div data-offset-key="d5rk3-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="d5rk3-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li></ul></div>';
+
 export default class EditAndPost extends Component {
   constructor() {
     super();
+    const blocksFromHTML = convertFromHTML(sampleMarkup);
+    const state = ContentState.createFromBlockArray(
+      blocksFromHTML.contentBlocks,
+      blocksFromHTML.entityMap
+    );
     this.state = {
       focusOnTitle: false,
       focusOnCategory: false,
@@ -31,6 +39,7 @@ export default class EditAndPost extends Component {
       salaryStateValue: '',
       cityValue: '',
       hasJobSaved: false,
+      editorState: EditorState.createWithContent(state),
     };
   }
   componentWillMount() {
@@ -41,6 +50,7 @@ export default class EditAndPost extends Component {
       }
     );
   }
+
   onSubmit = (e) => {
     const {
       buttonIsSubmited,
@@ -64,7 +74,7 @@ export default class EditAndPost extends Component {
       axios.post(url, {
         title: this.title.value,
         category: this.category.value,
-        description: this.description.editor.innerHTML,
+        description: this.state.editorState,
         salary: this.salary.value,
         salaryType: this.salaryType.value,
         salaryState: this.salaryState.value,
@@ -78,6 +88,7 @@ export default class EditAndPost extends Component {
       });
     }
   }
+
   render() {
     const {
       focusOnTitle,
@@ -150,12 +161,14 @@ export default class EditAndPost extends Component {
                     </select>
                     <div className="EditAndPost-inputDescription">
                       <Editor
+                        editorState={this.state.editorState}
                         onFocus={() => this.setState({ focusOnDescription: true })}
                         onBlur={() => this.setState({ focusOnDescription: false })}
                         placeholder="Description"
                         editorRef={(ref) => (this.description = ref)}
                         wrapperClassName="EditAndPost-wrapper"
                         editorClassName="EditAndPost-editor"
+                        onEditorStateChange={(editorState) => this.setState({ editorState })}
                         toolbar={{
                           inline: { inDropdown: true },
                           list: { inDropdown: true },
