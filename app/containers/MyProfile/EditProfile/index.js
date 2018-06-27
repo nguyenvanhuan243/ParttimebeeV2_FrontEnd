@@ -6,6 +6,7 @@ import SavingIcon from 'components/Icons/Saving/Loadable';
 import OkayIcon from 'components/Icons/Okay/Loadable';
 import classNames from 'classnames';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { convertFromHTML, ContentState, EditorState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import axios from 'axios';
 import config from '../../../../config';
@@ -32,13 +33,18 @@ export default class EditProfile extends Component {
       addressValue: '',
       phoneValue: '',
       websiteValue: '',
+      editorState: EditorState.createEmpty(),
     };
   }
   componentWillMount() {
     axios.get(requestUrl).then((response) => {
-      this.setState({
-        user: response.data,
-      });
+      this.setState({ user: response.data });
+      const blocksFromHTML = convertFromHTML(this.state.user.company_description);
+      const state = ContentState.createFromBlockArray(
+        blocksFromHTML.contentBlocks,
+        blocksFromHTML.entityMap
+      );
+      this.setState({ editorState: EditorState.createWithContent(state) });
     });
   }
   onSubmit = () => {
@@ -359,13 +365,14 @@ export default class EditProfile extends Component {
                       </div>
                       <div className="EditProfileForm-lableItem">
                         <Editor
+                          editorState={this.state.editorState}
                           onFocus={() => this.setState({ focusOnDescription: true })}
                           onBlur={() => this.setState({ focusOnDescription: false })}
                           placeholder="Company Description"
                           editorRef={(ref) => (this.companyDescription = ref)}
                           wrapperClassName="EditProfileForm-wrapper"
                           editorClassName="EditProfileForm-editor"
-                          onEditorStateChange={this.onEditorStateChange}
+                          onEditorStateChange={(editorState) => this.setState({ editorState })}
                           toolbar={{
                             inline: { inDropdown: true },
                             list: { inDropdown: true },
