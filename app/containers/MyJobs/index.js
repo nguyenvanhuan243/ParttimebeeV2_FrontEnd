@@ -91,6 +91,7 @@ export default class MyJobs extends Component {
               website={currentUser.website}
               address={currentUser.address}
               companyDescription={currentUser.company_description}
+              urlAvatar={currentUser.url_avatar}
             />
           </div>
           <div className="MyJobs-contentContainer">

@@ -30,6 +30,7 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
       website,
       address,
       companyDescription,
+      urlAvatar = '',
     } = this.props;
     const className = classNames('EmployerProfileBanner',
       { 'EmployerProfileBanner-readMore': showReadMore }
@@ -40,8 +41,11 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
     return (
       <div className={className}>
         <div className="EmployerProfileBanner-container">
-          <div className="EmployerProfileBanner-avatar">
-          </div>
+          <img
+            className="EmployerProfileBanner-avatar"
+            alt="Avatar"
+            src={urlAvatar}
+          />
           <div className="EmployerProfileBanner-contentContainer">
             <div className="EmployerProfileBanner-title">
               { companyName && companyName.toUpperCase() }
@@ -109,5 +113,6 @@ EmployerProfileBanner.propTypes = {
   website: PropTypes.string,
   address: PropTypes.string,
   companyDescription: PropTypes.string,
+  urlAvatar: PropTypes.string,
 };
 
