@@ -88,18 +88,24 @@ export default class EditProfile extends Component {
         showUpdated: true,
         showSaving: false,
       }), 2000);
-      axios.put(requestUrl, {
-        email: this.email.value,
-        password: this.password.value,
-        confirmPassword: this.confirmPassword.value,
-        contactName: this.contactName.value,
-        companyName: this.companyName.value,
-        address: this.address.value,
-        phone: this.phone.value,
-        website: this.website.value,
-        companyDescription: this.companyDescription.editor.innerHTML,
-      });
+      axios.put(requestUrl,
+        this.buildFormData(),
+      );
     }
+  }
+  buildFormData() {
+    const formData = new FormData();
+    formData.append('profile[email]', this.email.value);
+    formData.append('profile[password]', this.password.value);
+    formData.append('profile[confirmPassword]', this.confirmPassword.value);
+    formData.append('profile[contactName]', this.contactName.value);
+    formData.append('profile[companyName]', this.companyName.value);
+    formData.append('profile[address]', this.address.value);
+    formData.append('profile[phone]', this.phone.value);
+    formData.append('profile[website]', this.website.value);
+    formData.append('profile[companyDescription]', this.companyDescription.value);
+    formData.append('profile[avatar]', this.avatar.files[0]);
+    return formData;
   }
   handleAskReasonPopup() {
     this.setState({
@@ -154,6 +160,7 @@ export default class EditProfile extends Component {
       'EditProfile-errorLable': alertCompanyName });
     const separateCompanyNameClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertCompanyName });
+    const linkAvatar = user.url_avatar ? user.url_avatar : 'https://www.neolutionesport.com/wp-content/uploads/2017/03/default-avatar-knives-ninja.png';
     return (
       <div>
         <div>
@@ -220,10 +227,14 @@ export default class EditProfile extends Component {
                         <div className="EditProfileForm-image">
                           <img
                             className="EditProfileForm-image"
-                            src="https://www.neolutionesport.com/wp-content/uploads/2017/03/default-avatar-knives-ninja.png"
+                            src={linkAvatar}
                             alt="Avatar"
                           />
-                          <input className="EditProfileForm-image" type="file" />
+                          <input
+                            className="EditProfileForm-image"
+                            type="file"
+                            ref={(ref) => (this.avatar = ref)}
+                          />
                         </div>
                         <div className="EditProfileForm-editAvatar">Edit avatar</div>
                       </div>
