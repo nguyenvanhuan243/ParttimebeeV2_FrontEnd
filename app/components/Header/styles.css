@@ -87,6 +87,13 @@ a.Header-postJobText:hover {
   outline: none !important;
   margin-left: 16px;
 }
+
+.Header-updatedAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  margin-left: -6px !important;
+}
 .Header-expandLoggedAvatarContainer {
   width: 1100px;
   margin: 0 auto;
