@@ -270,13 +270,17 @@ export default class EditAndPost extends Component {
                         className="EditAndPost-buttonPreview"
                         onClick={() => window.history.back()}
                       >
-                        CANCEL
+                        <span className="EditAndPost-buttonPreviewText">
+                          CANCEL
+                        </span>
                       </button>
                       <button
                         className="EditAndPost-buttonPostjob"
                         onClick={() => this.setState({ buttonIsSubmited: 'Post' })}
                       >
-                        SAVE JOB
+                        <span className="EditAndPost-buttonPostjobText">
+                          SAVE JOB
+                        </span>
                       </button>
                     </div> : <div className="EditAndPost-buttonContainer">
                       <button

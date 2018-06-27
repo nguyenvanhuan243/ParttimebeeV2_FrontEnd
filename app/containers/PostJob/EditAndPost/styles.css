@@ -187,6 +187,20 @@
   margin-right: 16px !important;
   cursor: pointer;
 }
+
+.EditAndPost-buttonPreviewText {
+  width: 51px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #999999;
+}
+
 .EditAndPost-buttonPostjob {
   width: 96px;
   height: 34px;
@@ -195,6 +209,19 @@
   padding: 0px !important;
   margin: 0px !important;
   cursor: pointer;
+}
+
+.EditAndPost-buttonPostjobText {
+  width: 62px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
 }
 
 .EditAndPost-textAria {
