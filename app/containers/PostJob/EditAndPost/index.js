@@ -11,16 +11,10 @@ import config from '../../../../config';
 
 const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
 const hasEditJob = location.search.includes('edit-job');
-const sampleMarkup = '<div data-contents="true"><ul class="public-DraftStyleDefault-ul" data-offset-key="fq8bp-0-0"><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-reset public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="fq8bp-0-0"><div data-offset-key="fq8bp-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="fq8bp-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="1bf1r-0-0"><div data-offset-key="1bf1r-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="1bf1r-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="3nj4q-0-0"><div data-offset-key="3nj4q-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="3nj4q-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="86qhi-0-0"><div data-offset-key="86qhi-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="86qhi-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="bp6bp-0-0"><div data-offset-key="bp6bp-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="bp6bp-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li><li class="public-DraftStyleDefault-unorderedListItem public-DraftStyleDefault-depth0 public-DraftStyleDefault-listLTR" data-block="true" data-editor="4i9dj" data-offset-key="d5rk3-0-0"><div data-offset-key="d5rk3-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="d5rk3-0-0" style="color: rgb(235, 107, 86); font-size: 18px;"><span data-text="true">Rapid knowledge growth as full stack developer and big impact on the company.</span></span></div></li></ul></div>';
 
 export default class EditAndPost extends Component {
   constructor() {
     super();
-    const blocksFromHTML = convertFromHTML(sampleMarkup);
-    const state = ContentState.createFromBlockArray(
-      blocksFromHTML.contentBlocks,
-      blocksFromHTML.entityMap
-    );
     this.state = {
       focusOnTitle: false,
       focusOnCategory: false,
@@ -39,7 +33,7 @@ export default class EditAndPost extends Component {
       salaryStateValue: '',
       cityValue: '',
       hasJobSaved: false,
-      editorState: EditorState.createWithContent(state),
+      editorState: EditorState.createEmpty(),
     };
   }
   componentWillMount() {
@@ -47,6 +41,12 @@ export default class EditAndPost extends Component {
     axios.get(requestUrl).then(
       (response) => {
         this.setState({ jobItem: response.data.job });
+        const blocksFromHTML = convertFromHTML(this.state.jobItem.description);
+        const state = ContentState.createFromBlockArray(
+          blocksFromHTML.contentBlocks,
+          blocksFromHTML.entityMap
+        );
+        this.setState({ editorState: EditorState.createWithContent(state) });
       }
     );
   }
