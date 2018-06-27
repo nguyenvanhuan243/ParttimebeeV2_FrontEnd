@@ -68,7 +68,8 @@
 }
 
 .EditProfile-deleteAccounText {
-  
+  width: 132px;
+  height: 20px;
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -77,7 +78,6 @@
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  display: inline;
 }
 
 .EditProfile-containerDeleteAccount {
@@ -276,6 +276,20 @@ input.EditProfileForm-inputHoverEmail:focus {
   margin: 0px !important;
 }
 
+.EditProfile-editButtonText {
+  width: 50px;
+  height: 20px;
+  object-fit: contain;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
+}
+ 
 .EditProfile-savingContainer {
   display: flex;
 }

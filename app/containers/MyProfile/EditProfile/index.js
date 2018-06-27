@@ -397,7 +397,9 @@ export default class EditProfile extends Component {
                 className="EditProfile-editButton"
                 onClick={() => (document.getElementById('editForm').onSubmit = this.onSubmit())}
               >
-                Edit
+                <span className="EditProfile-editButtonText">
+                  UPDATE
+                </span>
               </button>
               { showSaving ?
                 <div className="EditProfile-savingContainer">
@@ -419,9 +421,9 @@ export default class EditProfile extends Component {
             </div>
             <div className="EditProfile-deleteMyAccount">
               <div className="EditProfile-deleteAccountContainer">
-                <div className="EditProfile-deleteAccounText">
+                <span className="EditProfile-deleteAccounText">
                   DELETE MY ACCOUNT
-                </div>
+                </span>
                 <div className="EditProfile-abstract">
                   Taking a break from Parttime Bee? Youve found the right place.
                 </div>
