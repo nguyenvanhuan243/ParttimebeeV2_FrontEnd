@@ -25,7 +25,7 @@ export default class Header extends PureComponent {
   }
   render() {
     const { expandAvatar, user } = this.state;
-    const notLoginStyle = { marginLeft: localStorage.currentUser ? '0' : '56' };
+    const notLoginStyle = { marginLeft: (localStorage.currentUser && user) ? '0' : '56' };
     return (
       <div>
         <div className="Header">
@@ -44,20 +44,20 @@ export default class Header extends PureComponent {
               <LogoIcon />
             </div>
             <div style={notLoginStyle} className="Header-postJobContainer">
-              <a className="Header-href" href={localStorage.currentUser ? `${config.BASE_URL}/postjobs-post-job` : `${config.BASE_URL}/user/login`}>
+              <a className="Header-href" href={(localStorage.currentUser && user) ? `${config.BASE_URL}/postjobs-post-job` : `${config.BASE_URL}/user/login`}>
                 <div className="Header-postJob">
                   <div className="Header-postJobText"> POSTJOB </div>
                 </div>
               </a>
-              { localStorage.currentUser && <button
+              { (localStorage.currentUser && user) && <button
                 onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
                 className="Header-loggedAvatar"
               >
-                <img
+                { user.url_avatar && <img
                   alt="fdsfds"
                   src={user.url_avatar}
                   className="Header-updatedAvatar"
-                />
+                /> }
               </button> }
             </div>
           </div>

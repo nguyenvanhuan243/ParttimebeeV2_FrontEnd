@@ -41,11 +41,14 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
     return (
       <div className={className}>
         <div className="EmployerProfileBanner-container">
-          <img
-            className="EmployerProfileBanner-avatar"
-            alt="Avatar"
-            src={urlAvatar}
-          />
+          { !urlAvatar ?
+            <div className="EmployerProfileBanner-avatar" /> :
+            <img
+              className="EmployerProfileBanner-avatar"
+              alt="Avatar"
+              src={urlAvatar}
+            />
+          }
           <div className="EmployerProfileBanner-contentContainer">
             <div className="EmployerProfileBanner-title">
               { companyName && companyName.toUpperCase() }
