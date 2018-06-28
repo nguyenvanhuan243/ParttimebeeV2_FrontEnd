@@ -74,7 +74,7 @@ export default class EditAndPost extends Component {
       axios.post(url, {
         title: this.title.value,
         category: this.category.value,
-        description: this.state.editorState,
+        description: this.description.editor.innerHTML,
         salary: this.salary.value,
         salaryType: this.salaryType.value,
         salaryState: this.salaryState.value,
