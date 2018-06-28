@@ -43,11 +43,31 @@ export default class Signup extends PureComponent {
       });
     }
   }
+  handleOnBlurEmail(e) {
+    this.setState({
+      focusEmail: false,
+    });
+    if (!e.target.value) {
+      this.setState({
+        showEmailAnimation: false,
+      });
+    }
+  }
   handleOnchangeEmail(e) {
     if (e.target.value === '') {
       this.setState({ showEmailAnimation: false });
     } else {
       this.setState({ showEmailAnimation: true });
+    }
+  }
+  handleOnBlurPassword(e) {
+    this.setState({
+      focusPassword: false,
+    });
+    if (!e.target.value) {
+      this.setState({
+        showPasswordAnimation: false,
+      });
     }
   }
   handleOnchangePassword(e) {
@@ -96,8 +116,11 @@ export default class Signup extends PureComponent {
                     type="email"
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
-                    onFocus={() => this.setState({ focusEmail: true })}
-                    onBlur={() => this.setState({ focusEmail: false })}
+                    onFocus={() => this.setState({
+                      focusEmail: true,
+                      showEmailAnimation: true,
+                    })}
+                    onBlur={(e) => this.handleOnBlurEmail(e)}
                     onChange={(e) => this.handleOnchangeEmail(e)}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
@@ -109,8 +132,11 @@ export default class Signup extends PureComponent {
                     type={isPassword ? 'password' : 'text'}
                     placeholder="Password"
                     ref={(ref) => (this.password = ref)}
-                    onFocus={() => this.setState({ focusPassword: true })}
-                    onBlur={() => this.setState({ focusPassword: false })}
+                    onFocus={() => this.setState({
+                      focusPassword: true,
+                      showPasswordAnimation: true,
+                    })}
+                    onBlur={(e) => this.handleOnBlurPassword(e)}
                     onChange={(e) => this.handleOnchangePassword(e)}
                   />
                   { passwordValue.length ? <div className="Signup-showPasswordIcon">
