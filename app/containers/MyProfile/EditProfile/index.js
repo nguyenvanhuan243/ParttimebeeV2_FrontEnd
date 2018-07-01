@@ -103,7 +103,7 @@ export default class EditProfile extends Component {
     formData.append('profile[address]', this.address.value);
     formData.append('profile[phone]', this.phone.value);
     formData.append('profile[website]', this.website.value);
-    formData.append('profile[companyDescription]', this.companyDescription.value);
+    formData.append('profile[companyDescription]', this.companyDescription.editor.innerHTML);
     formData.append('profile[avatar]', this.avatar.files[0]);
     return formData;
   }
