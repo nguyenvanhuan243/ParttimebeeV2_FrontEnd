@@ -76,6 +76,8 @@
   text-align: left;
   color: #ffffff;
   margin-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .EmployerProfileBanner-mailText {
@@ -90,12 +92,13 @@
   text-align: left;
   color: #ffffff;
   margin-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .EmployerProfileBanner-webText {
   width: 135px;
   height: 20px;
-  
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
@@ -104,7 +107,9 @@
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
-  margin-left: 4px;  
+  margin-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .EmployerProfileBanner-addressText {
@@ -118,6 +123,9 @@
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 4px;
 }
 
 .EmployerProfileBanner-separate {
