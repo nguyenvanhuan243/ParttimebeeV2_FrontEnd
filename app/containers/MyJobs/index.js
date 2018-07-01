@@ -71,6 +71,10 @@ export default class MyJobs extends Component {
     ];
     const myProfile = location.pathname.includes('my-profile') || location.pathname.includes('myjobs/myjobs');
     const employerProfile = location.pathname.includes('employer-profile');
+    const marginLeftStyle = employerProfile ? '20px' : '93px';
+    const style = {
+      marginLeft: marginLeftStyle,
+    };
     myJobList.push(textArray.map((value) =>
       <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
     return (
@@ -105,7 +109,7 @@ export default class MyJobs extends Component {
                     <div className="MyJobsComponent-content"> { myJobList } </div> : null }
                 </div> : 'Available Jobs' }
             </div>
-            { myJobResourceEndPoint.length === 0 ? <div className="MyJobs-jobList"><NoJobsYet /></div> : <div className="MyJobs-jobList">
+            { myJobResourceEndPoint.length === 0 ? <div style={style} className="MyJobs-jobList"><NoJobsYet /></div> : <div style={style} className="MyJobs-jobList">
               {
                 (activeJob === 'all' || activeJob === 'going') ?
                   <JobList
@@ -119,7 +123,7 @@ export default class MyJobs extends Component {
                     showImage={employerProfile}
                     jobType={'going'}
                     dataResourceEndPoint={myJobResourceEndPoint}
-                    size={645}
+                    size={employerProfile ? 645 : 580}
                   /> : null
               }
               {
@@ -135,7 +139,7 @@ export default class MyJobs extends Component {
                     showImage={employerProfile}
                     jobType={'pending'}
                     dataResourceEndPoint={myJobResourceEndPoint}
-                    size={645}
+                    size={employerProfile ? 645 : 580}
                   /> : null
               }
               {
@@ -151,7 +155,7 @@ export default class MyJobs extends Component {
                     showImage={employerProfile}
                     jobType={'expired'}
                     dataResourceEndPoint={myJobResourceEndPoint}
-                    size={645}
+                    size={employerProfile ? 645 : 580}
                   /> : null
               }
             </div>}
