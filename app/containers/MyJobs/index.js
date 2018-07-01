@@ -132,7 +132,7 @@ export default class MyJobs extends Component {
                     showView={employerProfile}
                     showShare={employerProfile}
                     title={'Pending'}
-                    showImage={false}
+                    showImage={employerProfile}
                     jobType={'pending'}
                     dataResourceEndPoint={myJobResourceEndPoint}
                   /> : null
@@ -147,7 +147,7 @@ export default class MyJobs extends Component {
                     showView={employerProfile}
                     showShare={employerProfile}
                     title={'Expired'}
-                    showImage={false}
+                    showImage={employerProfile}
                     jobType={'expired'}
                     dataResourceEndPoint={myJobResourceEndPoint}
                   /> : null
