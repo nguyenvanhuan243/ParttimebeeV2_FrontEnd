@@ -135,6 +135,7 @@ export default class MyJobs extends Component {
                     showImage={employerProfile}
                     jobType={'pending'}
                     dataResourceEndPoint={myJobResourceEndPoint}
+                    size={645}
                   /> : null
               }
               {
@@ -150,6 +151,7 @@ export default class MyJobs extends Component {
                     showImage={employerProfile}
                     jobType={'expired'}
                     dataResourceEndPoint={myJobResourceEndPoint}
+                    size={645}
                   /> : null
               }
             </div>}
