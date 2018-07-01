@@ -30,7 +30,11 @@ export default class JobList extends PureComponent {
       showImage = true,
       jobType = 'going',
       dataResourceEndPoint = [],
+      size = 580,
     } = this.props;
+    const style = {
+      width: size,
+    };
     const { limit, showMore } = this.state;
     const hasMyjob = location.pathname.includes('myjobs');
     const hasProfile = location.pathname.includes('my-profile');
@@ -63,7 +67,7 @@ export default class JobList extends PureComponent {
     return (
       <div>
         { showHeading && <div className="JobList-showHeading">{ text} </div> }
-        <div className="JobList">
+        <div style={style} className="JobList">
           <div className="JobList-title">
             <div className="JobList-titleText"> { title } </div>
           </div>
@@ -92,4 +96,5 @@ JobList.propTypes = {
   onDeleteConfirmation: PropTypes.func,
   jobType: PropTypes.string,
   dataResourceEndPoint: PropTypes.array.isRequired,
+  size: PropTypes.number,
 };

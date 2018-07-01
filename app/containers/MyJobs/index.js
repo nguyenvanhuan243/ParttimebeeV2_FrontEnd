@@ -119,6 +119,7 @@ export default class MyJobs extends Component {
                     showImage={employerProfile}
                     jobType={'going'}
                     dataResourceEndPoint={myJobResourceEndPoint}
+                    size={645}
                   /> : null
               }
               {
