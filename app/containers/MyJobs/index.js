@@ -116,7 +116,7 @@ export default class MyJobs extends Component {
                     showView={employerProfile}
                     showShare={employerProfile}
                     title={'On-going'}
-                    showImage={false}
+                    showImage={employerProfile}
                     jobType={'going'}
                     dataResourceEndPoint={myJobResourceEndPoint}
                   /> : null
