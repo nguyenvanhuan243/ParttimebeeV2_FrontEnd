@@ -7,7 +7,6 @@ import Sponsored from 'components/Sponsored/Loadable';
 import CategoryList from 'components/CategoryList/Loadable';
 import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
 import SearchNotFound from 'components/SearchNotFound/Loadable';
-// import ReactLoading from 'react-loading';
 import StateList from 'components/StateList/Loadable';
 import { groupBy, values } from 'lodash';
 import ScrollEvent from 'react-onscroll';
@@ -130,11 +129,11 @@ export default class HomePage extends PureComponent {
 
   renderAfterGroupBy(object) {
     return values(object).map((item, index) => (
-      this.state.limit > index ? <JobList
+      this.state.limit > index && <JobList
         key={index.toString()}
         title={moment(item[0].created_at).format('dddd, MMMM DD')}
         dataResourceEndPoint={item}
-      /> : null
+      />
     ));
   }
 
@@ -161,13 +160,6 @@ export default class HomePage extends PureComponent {
       <div>
         <Header />
         <ScrollEvent handleScrollCallback={this.handleScrollCallback} />
-        {/* <div className="HomePageContainer-reloading">
-          { filterLoading && <ReactLoading
-            type={'spokes'}
-            height={50}
-            width={50}
-          /> }
-        </div> */}
         <div className="HomePageContainer">
           <div className="HomePageContainer-categoryList">
             <CategoryList
