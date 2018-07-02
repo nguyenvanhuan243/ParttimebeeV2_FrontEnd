@@ -109,56 +109,60 @@ export default class MyJobs extends Component {
                     <div className="MyJobsComponent-content"> { myJobList } </div> : null }
                 </div> : 'Available Jobs' }
             </div>
-            { myJobResourceEndPoint.length === 0 ? <div style={style} className="MyJobs-jobList"><NoJobsYet /></div> : <div style={style} className="MyJobs-jobList">
-              {
-                (activeJob === 'all' || activeJob === 'going') ?
-                  <JobList
-                    onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
-                    showDelete={myProfile}
-                    showEdit={myProfile}
-                    showCity={employerProfile}
-                    showView={employerProfile}
-                    showShare={employerProfile}
-                    title={'On-going'}
-                    showImage={employerProfile}
-                    jobType={'going'}
-                    dataResourceEndPoint={myJobResourceEndPoint}
-                    size={employerProfile ? 645 : 580}
-                  /> : null
-              }
-              {
-                ((activeJob === 'all' || activeJob === 'pending') && localStorage.currentUser) ?
-                  <JobList
-                    onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
-                    showDelete={myProfile}
-                    showEdit={myProfile}
-                    showCity={employerProfile}
-                    showView={employerProfile}
-                    showShare={employerProfile}
-                    title={'Pending'}
-                    showImage={employerProfile}
-                    jobType={'pending'}
-                    dataResourceEndPoint={myJobResourceEndPoint}
-                    size={employerProfile ? 645 : 580}
-                  /> : null
-              }
-              {
-                ((activeJob === 'all' || activeJob === 'expired') && localStorage.currentUser) ?
-                  <JobList
-                    onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
-                    showDelete={myProfile}
-                    showEdit={myProfile}
-                    showCity={employerProfile}
-                    showView={employerProfile}
-                    showShare={employerProfile}
-                    title={'Expired'}
-                    showImage={employerProfile}
-                    jobType={'expired'}
-                    dataResourceEndPoint={myJobResourceEndPoint}
-                    size={employerProfile ? 645 : 580}
-                  /> : null
-              }
-            </div>}
+            { myJobResourceEndPoint.length === 0 ?
+              <div style={style} className="MyJobs-jobList">
+                <NoJobsYet />
+              </div> :
+              <div style={style} className="MyJobs-jobList">
+                {
+                  (activeJob === 'all' || activeJob === 'going') ?
+                    <JobList
+                      onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                      showDelete={myProfile}
+                      showEdit={myProfile}
+                      showCity={employerProfile}
+                      showView={employerProfile}
+                      showShare={employerProfile}
+                      title={'On-going'}
+                      showImage={employerProfile}
+                      jobType={'going'}
+                      dataResourceEndPoint={myJobResourceEndPoint}
+                      size={employerProfile ? 645 : 580}
+                    /> : null
+                }
+                {
+                  ((activeJob === 'all' || activeJob === 'pending') && localStorage.currentUser) ?
+                    <JobList
+                      onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                      showDelete={myProfile}
+                      showEdit={myProfile}
+                      showCity={employerProfile}
+                      showView={employerProfile}
+                      showShare={employerProfile}
+                      title={'Pending'}
+                      showImage={employerProfile}
+                      jobType={'pending'}
+                      dataResourceEndPoint={myJobResourceEndPoint}
+                      size={employerProfile ? 645 : 580}
+                    /> : null
+                }
+                {
+                  ((activeJob === 'all' || activeJob === 'expired') && localStorage.currentUser) ?
+                    <JobList
+                      onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
+                      showDelete={myProfile}
+                      showEdit={myProfile}
+                      showCity={employerProfile}
+                      showView={employerProfile}
+                      showShare={employerProfile}
+                      title={'Expired'}
+                      showImage={employerProfile}
+                      jobType={'expired'}
+                      dataResourceEndPoint={myJobResourceEndPoint}
+                      size={employerProfile ? 645 : 580}
+                    /> : null
+                }
+              </div>}
             <div className="MyJobs-sideBar">
               <ShareThisProfile />
               <div className="MyJobs-googleAds250276"> <GoogleAdsense /> </div>
