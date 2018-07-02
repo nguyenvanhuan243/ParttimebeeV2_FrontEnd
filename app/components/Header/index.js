@@ -46,7 +46,7 @@ export default class Header extends PureComponent {
             <div style={notLoginStyle} className="Header-postJobContainer">
               <a className="Header-href" href={(localStorage.currentUser && user) ? `${config.BASE_URL}/postjobs-post-job` : `${config.BASE_URL}/user/login`}>
                 <div className="Header-postJob">
-                  <div className="Header-postJobText"> POSTJOB </div>
+                  <div className="Header-postJobText"> POST JOB </div>
                 </div>
               </a>
               { (localStorage.currentUser && user) && <button
