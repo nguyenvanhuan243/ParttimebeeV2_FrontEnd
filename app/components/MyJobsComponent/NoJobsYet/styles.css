@@ -23,18 +23,25 @@
   margin-bottom: 16px;
 }
 
+.NoJobsYet-linkCustom {
+  text-decoration: none !important;
+}
+
 .NoJobsYet-link {
-  width: 90px;
+  width: 94px;
   height: 30px;
   border-radius: 3px;
   background-color: #ffaa00;
   margin-left: 245px;
   margin-right: 245px;
   padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .NoJobsYet-linkHref {
-  width: 58px;
+  min-width: 58px;
   height: 16px;
   font-size: 11px;
   font-weight: bold;
