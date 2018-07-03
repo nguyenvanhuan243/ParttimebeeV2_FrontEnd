@@ -14,21 +14,22 @@
 }
 
 .CategoryItem {
-  width: 230px;
-  height: 32px;
+  width: 232px;
+  height: 34px;
   display: flex;
   object-fit: contain;
+  border: 1px solid transparent;
 }
 
 .CategoryItem-hover {
-  border-radius: 30px !important;
-  outline: solid 1px #e8e8e8;
+  border-radius: 3px !important;
+  border: solid 1px #e8e8e8;
 }
 
 .CategoryItem-selected {
   border-radius: 3px;
   background-color: #ffffff;
-  outline: solid 1px #e8e8e8;
+  border: solid 1px #e8e8e8;
   font-weight: bold;
   font-size: 13px;
   font-style: normal;
