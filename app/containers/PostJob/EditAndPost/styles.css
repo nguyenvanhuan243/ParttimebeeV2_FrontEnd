@@ -6,7 +6,7 @@
 }
 
 .EditAndPost-title {
-  width: 97px;
+  min-width: 97px;
   height: 32px;
   font-size: 26px;
   font-weight: bold;

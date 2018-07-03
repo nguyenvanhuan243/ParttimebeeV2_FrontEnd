@@ -106,7 +106,7 @@ export default class EditAndPost extends Component {
         <Header />
         <div className="EditAndPost">
           <div className="EditAndPost-title">
-            Edit job
+            Post job
           </div>
           { this.state.showAlert && <div className="EditAndPost-importantAlert">
             <ImportantAlert closeFunc={() => this.setState({ showAlert: false })} />
@@ -287,13 +287,17 @@ export default class EditAndPost extends Component {
                         className="EditAndPost-buttonPreview"
                         onClick={() => this.setState({ buttonIsSubmited: 'Preview' })}
                       >
-                        Preview
+                        <span className="EditAndPost-buttonPreviewText">
+                          Preview
+                        </span>
                       </button>
                       <button
                         className="EditAndPost-buttonPostjob"
                         onClick={() => this.setState({ buttonIsSubmited: 'Post' })}
                       >
-                        Post job
+                        <span className="EditAndPost-buttonPostjobText">
+                          Post job
+                        </span>
                       </button>
                     </div> }
                   </form>
