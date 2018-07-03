@@ -34,6 +34,7 @@ export default class EditAndPost extends Component {
       cityValue: '',
       hasJobSaved: false,
       editorState: EditorState.createEmpty(),
+      characterLeft: 45,
     };
   }
   componentWillMount() {
@@ -100,6 +101,7 @@ export default class EditAndPost extends Component {
       focusOnDescription,
       jobItem,
       hasJobSaved,
+      characterLeft,
     } = this.state;
     return (
       <div>
@@ -129,20 +131,28 @@ export default class EditAndPost extends Component {
                       <input
                         className="EditAndPost-customInput"
                         placeholder="Title"
+                        maxLength="45"
                         onFocus={() => this.setState({ focusOnTitle: true })}
                         onBlur={() => this.setState({ focusOnTitle: false })}
                         ref={(ref) => (this.title = ref)}
                         required
                         value={this.state.titleValue || (jobItem && jobItem.title)}
                         onChange={(e) => {
-                          this.setState({ titleValue: e.target.value });
+                          this.setState({
+                            titleValue: e.target.value,
+                            characterLeft: (45 - e.target.value.length),
+                          });
                           if (this.state.titleValue === '') {
                             jobItem.title = '';
                           }
                         }}
                       />
                     </div>
-                    <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
+                    <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}>
+                      <span className="EditAndPost-characterLeft">
+                        { characterLeft }
+                      </span>
+                    </div>
                     <select
                       className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
                       onFocus={() => this.setState({ focusOnCategory: true })}

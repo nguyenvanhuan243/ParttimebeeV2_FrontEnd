@@ -249,3 +249,8 @@
   height: 140px !important;
   overflow-y: auto !important;
 }
+
+.EditAndPost-characterLeft {
+  margin-left: 555px;
+  margin-top: 4px;
+}
