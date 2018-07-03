@@ -50,7 +50,7 @@ export default class Header extends PureComponent {
                 </div>
               </a>
               { (localStorage.currentUser && user) && <button
-                onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
+                onMouseEnter={() => this.setState({ expandAvatar: true })}
                 className="Header-loggedAvatar"
               >
                 { user.url_avatar && <img
@@ -63,7 +63,10 @@ export default class Header extends PureComponent {
           </div>
         </div>
         { expandAvatar ?
-          <div className="Header-expandLoggedAvatarContainer">
+          <div
+            className="Header-expandLoggedAvatarContainer"
+            onMouseLeave={() => this.setState({ expandAvatar: false })}
+          >
             <div className="Header-expandLoggedAvatar">
               <ul className="Header-ulContainer">
                 <li>
