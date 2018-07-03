@@ -3,6 +3,7 @@ import axios from 'axios';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
 import { Alert } from 'reactstrap';
+import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
 import classNames from 'classnames';
 import config from '../../../../config';
 
@@ -123,6 +124,12 @@ export default class Signup extends PureComponent {
                     onBlur={(e) => this.handleOnBlurEmail(e)}
                     onChange={(e) => this.handleOnchangeEmail(e)}
                   />
+                  <div className="Signup-invalidEmail">
+                    <InvalidEmail />
+                    <span className="Signup-invalidEmailText">
+                      Invalid Email
+                    </span>
+                  </div>
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
