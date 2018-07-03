@@ -250,6 +250,8 @@
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.1",
     "react-router-redux": "5.0.0-alpha.6",
+    "react-validation": "^3.0.7",
+    "react-validator": "^0.1.0",
     "reactstrap": "^6.0.1",
     "redux": "3.6.0",
     "redux-immutable": "4.0.0",
@@ -257,6 +259,7 @@
     "reselect": "3.0.1",
     "sanitize.css": "4.1.0",
     "styled-components": "2.0.0",
+    "validator": "^10.4.0",
     "w3-css": "^4.1.0",
     "warning": "3.0.0",
     "whatwg-fetch": "2.0.3"
