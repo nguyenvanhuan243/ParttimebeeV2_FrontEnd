@@ -9,10 +9,13 @@ import Footer from 'components/Footer/Loadable';
 import DeleteConfirmationPopup from 'components/Popup/DeleteConfirmation/Loadable';
 import NoJobsYet from 'components/MyJobsComponent/NoJobsYet/Loadable';
 import axios from 'axios';
+import { groupBy, values } from 'lodash';
+import moment from 'moment';
 import config from '../../../config';
 
 const TYPE_JOB = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
 const userIdFromPathName = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
+const employerProfile = location.pathname.includes('employer-profile');
 const currentUserId = localStorage.currentUser || userIdFromPathName;
 export default class MyJobs extends Component {
   constructor() {
@@ -52,6 +55,16 @@ export default class MyJobs extends Component {
   countJobByType(array, type) {
     return array.filter((item) => item.job_type === type).length;
   }
+  renderAfterGroupBy(object) {
+    return values(object).map((item, index) => (
+      <JobList
+        key={index.toString()}
+        title={moment(item[0].created_at).format('dddd, MMMM DD')}
+        dataResourceEndPoint={item}
+        size={employerProfile ? 645 : 580}
+      />
+    ));
+  }
   render() {
     const {
       showDeleteConfirmationPopup,
@@ -70,13 +83,16 @@ export default class MyJobs extends Component {
       `${expiredJobNumber} Expired jobs`,
     ];
     const myProfile = location.pathname.includes('my-profile') || location.pathname.includes('myjobs/myjobs');
-    const employerProfile = location.pathname.includes('employer-profile');
     const marginLeftStyle = employerProfile ? '20px' : '93px';
     const style = {
       marginLeft: marginLeftStyle,
     };
     myJobList.push(textArray.map((value) =>
       <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
+    let dataFiltered = [];
+    dataFiltered = myJobResourceEndPoint.filter((item) => item.job_type === 'going');
+    const groupByCreatedAt = groupBy(dataFiltered,
+      (itemFiltered) => itemFiltered.created_at.substring(0, 10));
     return (
       <div className="MyJobs">
         <div className="MyJobs-deleteConfirmationPopup">
@@ -109,13 +125,18 @@ export default class MyJobs extends Component {
                     <div className="MyJobsComponent-content"> { myJobList } </div> : null }
                 </div> : 'Available Jobs' }
             </div>
-            { myJobResourceEndPoint.length === 0 ?
+            { employerProfile &&
+              <div style={style} className="MyJobs-jobList">
+                { this.renderAfterGroupBy(groupByCreatedAt) }
+              </div>
+            }
+            { myJobResourceEndPoint.length === 0 && !employerProfile ?
               <div style={style} className="MyJobs-jobList">
                 <NoJobsYet />
               </div> :
               <div style={style} className="MyJobs-jobList">
                 {
-                  (activeJob === 'all' || activeJob === 'going') ?
+                  (activeJob === 'all' || activeJob === 'going') && !employerProfile ?
                     <JobList
                       onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
                       showDelete={myProfile}
@@ -131,7 +152,7 @@ export default class MyJobs extends Component {
                     /> : null
                 }
                 {
-                  ((activeJob === 'all' || activeJob === 'pending') && localStorage.currentUser) ?
+                  ((activeJob === 'all' || activeJob === 'pending') && !employerProfile && localStorage.currentUser) ?
                     <JobList
                       onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
                       showDelete={myProfile}
@@ -147,7 +168,7 @@ export default class MyJobs extends Component {
                     /> : null
                 }
                 {
-                  ((activeJob === 'all' || activeJob === 'expired') && localStorage.currentUser) ?
+                  ((activeJob === 'all' || activeJob === 'expired') && !employerProfile && localStorage.currentUser) ?
                     <JobList
                       onDeleteConfirmation={() => this.handleDeleteConfirmationPopup()}
                       showDelete={myProfile}
