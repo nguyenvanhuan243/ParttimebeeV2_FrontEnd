@@ -4,6 +4,7 @@ import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon
 import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
 import { Alert } from 'reactstrap';
 import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
+import validator from 'validator';
 import classNames from 'classnames';
 import config from '../../../../config';
 
@@ -19,6 +20,7 @@ export default class Signup extends PureComponent {
       isPassword: true,
       shakeEffect: false,
       passwordValue: '',
+      isEmail: true,
     };
   }
   onSubmit = (e) => {
@@ -60,6 +62,11 @@ export default class Signup extends PureComponent {
     } else {
       this.setState({ showEmailAnimation: true });
     }
+    if (!validator.isEmail(e.target.value)) {
+      this.setState({ isEmail: false });
+    } else {
+      this.setState({ isEmail: true });
+    }
   }
   handleOnBlurPassword(e) {
     this.setState({
@@ -95,6 +102,8 @@ export default class Signup extends PureComponent {
       'Signup-effectShake': shakeEffect,
     });
 
+    console.log(validator);
+
     return (
       <div className="Signup">
         <DashlineIcon />
@@ -124,12 +133,12 @@ export default class Signup extends PureComponent {
                     onBlur={(e) => this.handleOnBlurEmail(e)}
                     onChange={(e) => this.handleOnchangeEmail(e)}
                   />
-                  <div className="Signup-invalidEmail">
+                  { !this.state.isEmail && <div className="Signup-invalidEmail">
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">
                       Invalid Email
                     </span>
-                  </div>
+                  </div> }
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
                 </div>
