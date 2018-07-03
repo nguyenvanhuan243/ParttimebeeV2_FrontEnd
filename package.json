@@ -250,7 +250,6 @@
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.1",
     "react-router-redux": "5.0.0-alpha.6",
-    "react-validation": "^3.0.7",
     "react-validator": "^0.1.0",
     "reactstrap": "^6.0.1",
     "redux": "3.6.0",
