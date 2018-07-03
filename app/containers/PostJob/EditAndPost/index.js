@@ -164,7 +164,6 @@ export default class EditAndPost extends Component {
                         editorState={this.state.editorState}
                         onFocus={() => this.setState({ focusOnDescription: true })}
                         onBlur={() => this.setState({ focusOnDescription: false })}
-                        placeholder="Description"
                         editorRef={(ref) => (this.description = ref)}
                         wrapperClassName="EditAndPost-wrapper"
                         editorClassName="EditAndPost-editor"
