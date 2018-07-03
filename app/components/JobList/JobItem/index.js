@@ -71,16 +71,17 @@ export default class JobItem extends PureComponent {
             { showCompanyName &&
               <div className="JobItem-contentCompanyName">{ companyName }</div> }
             <div className="JobItem-contentFooter">
-              <div
-                className={hoverStateClassName}
-                onMouseEnter={() => this.setState({ hoverState: true })}
-                onMouseLeave={() => this.setState({ hoverState: false })}
-              >
-                <div className="JobItem-contentJobStateText">
-                  { state && state.toUpperCase() }
+              <div className="JobItem-stateAndCity">
+                <div
+                  className={hoverStateClassName}
+                  onMouseEnter={() => this.setState({ hoverState: true })}
+                  onMouseLeave={() => this.setState({ hoverState: false })}
+                >
+                  <div className="JobItem-contentJobStateText">
+                    { state && state.toUpperCase() }
+                  </div>
                 </div>
-              </div>
-              { (city !== '' && showCity) &&
+                { (city !== '' && showCity) &&
                 <div
                   className={hoverCityClassName}
                   onMouseEnter={() => this.setState({ hoverCity: true })}
@@ -90,6 +91,7 @@ export default class JobItem extends PureComponent {
                     { city && city.toUpperCase() }
                   </div>
                 </div> }
+              </div>
               { showView &&
                 <div className="JobItem-contentViewContainer">
                   <ViewIcon />

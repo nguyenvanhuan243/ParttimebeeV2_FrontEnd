@@ -223,3 +223,8 @@ a.JobItem-href:hover {
 .JobItem-socialShareMargin {
   margin-right: 4px;
 }
+
+.JobItem-stateAndCity {
+  display: flex;
+  width: 190px !important;
+}
