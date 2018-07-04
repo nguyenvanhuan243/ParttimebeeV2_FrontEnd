@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import Logo from 'components/LoginRegister/GeneralComponent/Logo/Loadable';
+import classNames from 'classnames';
 import config from '../../../../../config';
 
 export default class DashlineIcon extends PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -10,6 +11,10 @@ export default class DashlineIcon extends PureComponent { // eslint-disable-line
     const {
       showLogo = true,
     } = this.props;
+    const isSignUpPage = location.pathname.includes('signup');
+    const showLogoClassNames = classNames('DashlineIcon-logo', {
+      'DashlineIcon-logoSignup': isSignUpPage,
+    });
     return (
       <div className="DashlineIcon-container">
         <div className="DashlineIcon">
@@ -173,7 +178,7 @@ export default class DashlineIcon extends PureComponent { // eslint-disable-line
             </svg>
           </div>
         </div>
-        <a href={`${config.BASE_URL}`} className="DashlineIcon-logo">
+        <a href={`${config.BASE_URL}`} className={showLogoClassNames}>
           { showLogo ? <Logo /> : null }
         </a>
       </div>
