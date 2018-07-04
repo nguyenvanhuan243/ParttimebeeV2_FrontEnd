@@ -57,7 +57,7 @@ export default function App() {
         {/* POST JOBS */}
         <Route exact path="/postjobs-first-time-post-job" component={EditProfile} />
         <Route exact path="/postjobs-edit-job/:id" component={EditJob} />
-        <Route exact path="/post-jobs" component={EditJob} />
+        <Route exact path="/post-job" component={EditJob} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
