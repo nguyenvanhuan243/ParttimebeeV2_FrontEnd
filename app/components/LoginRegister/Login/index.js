@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
+// import HidePasswordIcon from 'components/LoginRegister/GeneralComponent/HidePasswordIcon/Loadable';
 import axios from 'axios';
 import classNames from 'classnames';
 import config from '../../../../config';
