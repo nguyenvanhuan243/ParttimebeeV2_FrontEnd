@@ -104,6 +104,9 @@ export default class HomePage extends PureComponent {
     });
     this.handleFilterLoading();
     this.handleLoading();
+    if (localStorage.selectedCategoryItem === 'Home') {
+      location.replace(config.BASE_URL);
+    }
   }
 
   handleScrollCallback = () => {
@@ -149,7 +152,9 @@ export default class HomePage extends PureComponent {
     } = this.state;
     let dataFiltered = [];
     dataFiltered = dataArray.filter((item) => item.job_type === 'going');
-    dataFiltered = dataFiltered.filter((item) => item.category === selectedCategory);
+    if (selectedCategory !== 'Home') {
+      dataFiltered = dataFiltered.filter((item) => item.category === selectedCategory);
+    }
     if (selectedState) {
       dataFiltered = dataFiltered.filter((item) => item.salary_state === selectedState);
     }
