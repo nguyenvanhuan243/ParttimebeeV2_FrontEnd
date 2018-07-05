@@ -102,8 +102,6 @@ export default class Signup extends PureComponent {
       'Signup-effectShake': shakeEffect,
     });
 
-    console.log(validator);
-
     return (
       <div className="Signup">
         <DashlineIcon />
