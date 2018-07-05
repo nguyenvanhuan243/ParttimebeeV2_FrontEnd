@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
+import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 
 export default class FormComponent extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
@@ -30,7 +30,7 @@ export default class FormComponent extends PureComponent { // eslint-disable-lin
                 <div className="FormComponent-passwordContainer">
                   <input className="FormComponent-inputHover" type="password" placeholder="Password" />
                   <button className="">
-                    <ShowPasswordIcon />
+                    <PasswordIcon />
                   </button>
                 </div>
                 <div className="FormComponent-separateColor" />

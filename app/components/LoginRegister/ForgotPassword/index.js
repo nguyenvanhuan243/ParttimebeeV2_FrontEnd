@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
-import ShowPasswordIcon from 'components/LoginRegister/GeneralComponent/ShowPasswordIcon/Loadable';
+import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 import axios from 'axios';
 import config from '../../../../config';
 
@@ -129,7 +129,7 @@ export default class ForgotPassword extends PureComponent {
                         onChange={(e) => this.handleOnchangePassword(e)}
                       /> }
                     { passwordValue.length ? <div className="Signup-showPasswordIcon">
-                      <ShowPasswordIcon
+                      <PasswordIcon
                         onToggle={(e) => {
                           e.preventDefault();
                           this.setState({ isPassword: !this.state.isPassword });
