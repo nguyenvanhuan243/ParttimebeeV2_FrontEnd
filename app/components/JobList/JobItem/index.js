@@ -8,7 +8,6 @@ import Email from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 import classNames from 'classnames';
 import config from '../../../../config';
 
-const jobUrl = `${config.BASE_URL}/job-detail/${localStorage.jobId}`;
 export default class JobItem extends PureComponent {
   constructor() {
     super();
@@ -67,6 +66,7 @@ export default class JobItem extends PureComponent {
     const deleteIconClassName = classNames('JobItem-deleteIcon', {
       'JobItem-colorHover': hoverDelete,
     });
+    const jobUrl = `${config.BASE_URL}/job-detail/${localStorage.jobId}`;
     return (
       <div>
         <div
