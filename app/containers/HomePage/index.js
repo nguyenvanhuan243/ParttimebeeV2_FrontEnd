@@ -18,16 +18,16 @@ export default class HomePage extends PureComponent {
   constructor() {
     super();
     this.state = {
-      isLoading: false,
-      dataArray: [],
-      filterLoading: false,
-      selectedCategory: 'Home',
-      selectedState: '',
       limit: 2,
-      scrollLoadingJob: false,
+      dataArray: [],
       arrayLength: 0,
-      readyToRender: false,
+      selectedState: '',
+      isLoading: false,
       mountLoading: false,
+      readyToRender: false,
+      filterLoading: false,
+      scrollLoadingJob: false,
+      selectedCategory: 'Home',
     };
   }
   componentWillMount() {
@@ -60,9 +60,9 @@ export default class HomePage extends PureComponent {
   }
 
   handleScroll = () => {
-    const windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight;
     const body = document.body;
     const html = document.documentElement;
+    const windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight;
     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
     const windowBottom = windowHeight + window.pageYOffset;
     if (windowBottom >= docHeight) {
