@@ -142,7 +142,7 @@ export default class Signup extends PureComponent {
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div
                     style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
-                    className="Signup-separateColor"
+                    className="Signup-separate"
                   />
                 </div>
                 <div>
@@ -160,6 +160,7 @@ export default class Signup extends PureComponent {
                   />
                   { passwordValue.length ? <div className="Signup-showPasswordIcon">
                     <PasswordIcon
+                      show={isPassword && true}
                       onToggle={(e) => {
                         e.preventDefault();
                         this.setState({ isPassword: !this.state.isPassword });
@@ -167,7 +168,10 @@ export default class Signup extends PureComponent {
                     />
                   </div> : null }
                   <label htmlFor className={passwordAnimation}>Password</label>
-                  <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
+                  <div
+                    style={{ 'background-color': focusPassword ? '#ffaa00' : '#e8e8e8' }}
+                    className="Signup-separate"
+                  />
                 </div>
                 <button className="Signup-button">
                   <div className="Signup-buttonText"> Sign up FREE </div>

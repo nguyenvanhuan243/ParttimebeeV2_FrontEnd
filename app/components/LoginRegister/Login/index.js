@@ -104,7 +104,10 @@ export default class Login extends PureComponent {
                     onChange={(e) => this.handleOnchangeEmail(e)}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
-                  <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
+                  <div
+                    style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                    className="Signup-separate"
+                  />
                 </div>
                 <div>
                   <input
@@ -126,7 +129,10 @@ export default class Login extends PureComponent {
                     />
                   </div> : null }
                   <label htmlFor className={passwordAnimation}>Password</label>
-                  <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
+                  <div
+                    style={{ 'background-color': focusPassword ? '#ffaa00' : '#e8e8e8' }}
+                    className="Signup-separate"
+                  />
                 </div>
                 <button className="Signup-button">
                   <div className="Signup-buttonText"> Login </div>
