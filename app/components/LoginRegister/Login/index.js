@@ -26,26 +26,16 @@ export default class Login extends PureComponent {
     const email = this.email.value;
     const password = this.password.value;
     e.preventDefault();
-    const url = `${config.API_BASE_URL}/sessions?email=${this.email.value}&password=${this.password.value}`;
+    const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
     axios.post(url).then((response) => {
-      if (response.status === 201) {
-        this.setState({
-          success: true,
-        });
-      }
+      this.setState({ success: response === 201 });
       localStorage.setItem('currentUser', response.data.user.id);
       window.location.replace(`${config.BASE_URL}`);
     }).catch((error) => {
-      if (error.response.status === 422) {
-        this.setState({
-          danger: true,
-        });
-      }
+      this.setState({ danger: error.response.status === 422 });
     });
     if (!email && !password) {
-      this.setState({
-        shakeEffect: !this.state.shakeEffect,
-      });
+      this.setState({ shakeEffect: !this.state.shakeEffect });
     }
   }
   handleOnchangeEmail(e) {
@@ -56,14 +46,8 @@ export default class Login extends PureComponent {
     });
   }
   handleOnchangePassword(e) {
-    this.setState({
-      passwordValue: e.target.value,
-    });
-    if (e.target.value === '') {
-      this.setState({ showPasswordAnimation: false });
-    } else {
-      this.setState({ showPasswordAnimation: true });
-    }
+    this.setState({ passwordValue: e.target.value });
+    this.setState({ showPasswordAnimation: e.target.value !== '' });
   }
   render() {
     const {
