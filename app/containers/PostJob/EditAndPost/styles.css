@@ -264,3 +264,11 @@
   text-align: right;
   color: #999999;
 }
+
+.selectParent select{
+  min-width: 100px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent url('https://image.ibb.co/jXzxHJ/group.png') no-repeat 135px;
+  padding-left: 10px;
+}

@@ -154,22 +154,24 @@ export default class EditAndPost extends Component {
                         { characterLeft }
                       </span>
                     </div>
-                    <select
-                      className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
-                      onFocus={() => this.setState({ focusOnCategory: true })}
-                      onBlur={() => this.setState({ focusOnCategory: false })}
-                      ref={(ref) => (this.category = ref)}
-                      value={this.state.CategoryValue || (jobItem && jobItem.category)}
-                      onChange={(e) => this.setState({ CategoryValue: e.target.value })}
-                    >
-                      <option> Select a category </option>
-                      <option> Event </option>
-                      <option> Education </option>
-                      <option> Retails </option>
-                      <option> Food </option>
-                      <option> Administrative </option>
-                      <option> Others </option>
-                    </select>
+                    <div className="selectParent">
+                      <select
+                        className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
+                        onFocus={() => this.setState({ focusOnCategory: true })}
+                        onBlur={() => this.setState({ focusOnCategory: false })}
+                        ref={(ref) => (this.category = ref)}
+                        value={this.state.CategoryValue || (jobItem && jobItem.category)}
+                        onChange={(e) => this.setState({ CategoryValue: e.target.value })}
+                      >
+                        <option> Select a category </option>
+                        <option> Event </option>
+                        <option> Education </option>
+                        <option> Retails </option>
+                        <option> Food </option>
+                        <option> Administrative </option>
+                        <option> Others </option>
+                      </select>
+                    </div>
                     <div className="EditAndPost-inputDescription">
                       <Editor
                         editorState={this.state.editorState}
@@ -226,20 +228,22 @@ export default class EditAndPost extends Component {
                       />
                     </div>
                     <div className={`${focusOnSalary ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
-                    <select
-                      className={`${focusOnSalaryType ? 'EditAndPost-inputSalaryTypeSelected' : 'EditAndPost-inputSalaryType'}`}
-                      onFocus={() => this.setState({ focusOnSalaryType: true })}
-                      onBlur={() => this.setState({ focusOnSalaryType: false })}
-                      ref={(ref) => (this.salaryType = ref)}
-                      value={this.state.salaryTypeValue || (jobItem && jobItem.salary_type)}
-                      onChange={(e) => this.setState({ salaryTypeValue: e.target.value })}
-                    >
-                      <option> Select salary type </option>
-                      <option> Per hour </option>
-                      <option> Per day </option>
-                      <option> Per month </option>
-                    </select>
-                    <div>
+                    <div className="selectParent">
+                      <select
+                        className={`${focusOnSalaryType ? 'EditAndPost-inputSalaryTypeSelected' : 'EditAndPost-inputSalaryType'}`}
+                        onFocus={() => this.setState({ focusOnSalaryType: true })}
+                        onBlur={() => this.setState({ focusOnSalaryType: false })}
+                        ref={(ref) => (this.salaryType = ref)}
+                        value={this.state.salaryTypeValue || (jobItem && jobItem.salary_type)}
+                        onChange={(e) => this.setState({ salaryTypeValue: e.target.value })}
+                      >
+                        <option> Select salary type </option>
+                        <option> Per hour </option>
+                        <option> Per day </option>
+                        <option> Per month </option>
+                      </select>
+                    </div>
+                    <div className="selectParent">
                       <select
                         className={`${focusOnSalaryState ? 'EditAndPost-inputSalaryStateSelected' : 'EditAndPost-inputSalaryState'}`}
                         onFocus={() => this.setState({ focusOnSalaryState: true })}
