@@ -144,6 +144,10 @@ export default class Login extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
+            <span className="Signup-emailValidate">
+              { focusEmail &&
+                'There is no user with that username. You can register right away.'}
+            </span>
             <span className="Signup-passwordValidate">
               { focusPassword ? 'Type 6 characters or more.' : null }
               { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
