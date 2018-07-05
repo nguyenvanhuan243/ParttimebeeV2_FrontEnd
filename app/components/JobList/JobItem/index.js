@@ -8,7 +8,7 @@ import Email from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 import classNames from 'classnames';
 import config from '../../../../config';
 
-const jobUrl = 'https://vinasoftdev.com';
+const jobUrl = `${config.BASE_URL}/job-detail/${localStorage.jobId}`;
 export default class JobItem extends PureComponent {
   constructor() {
     super();
@@ -39,6 +39,7 @@ export default class JobItem extends PureComponent {
       showDelete = false,
       showCompanyName = true,
       onClickJobItem = () => {},
+      onHoverJobItem = () => {},
       companyName = 'Company Name Here',
     } = this.props;
     const {
@@ -139,8 +140,11 @@ export default class JobItem extends PureComponent {
               { showShare &&
                 <div
                   className={hoverShareClassName}
-                  onMouseEnter={() => this.setState({ hoverShareButton: true, showSocialShare: true })}
                   onMouseLeave={() => this.setState({ hoverShareButton: false })}
+                  onMouseEnter={() => {
+                    this.setState({ hoverShareButton: true, showSocialShare: true });
+                    onHoverJobItem();
+                  }}
                 >
                   <ShareIcon />
                   <span className="JobItem-contentShareText"> SHARE </span>
@@ -180,6 +184,7 @@ JobItem.propTypes = {
   showImage: PropTypes.bool,
   showCity: PropTypes.bool,
   onClickJobItem: PropTypes.func.isRequired,
+  onHoverJobItem: PropTypes.func.isRequired,
   title: PropTypes.string,
   href: PropTypes.string,
   showCompanyName: PropTypes.bool,
