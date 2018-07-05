@@ -71,17 +71,17 @@ export default class Header extends PureComponent {
               <ul className="Header-ulContainer">
                 <li>
                   <a className="Header-hrefText" href={`${config.BASE_URL}/myjobs/myjobs`}>
-                    My Jobs
+                    MY JOBS
                   </a>
                 </li>
                 <li>
                   <a className="Header-hrefText" href={`${config.BASE_URL}/myprofile/my-profile`}>
-                    My Profile
+                    MY PROFILE
                   </a>
                 </li>
                 <li>
                   <a onClick={() => this.onLogout()} className="Header-hrefText" href="">
-                    Logout
+                    LOGOUT
                   </a>
                 </li>
               </ul>
