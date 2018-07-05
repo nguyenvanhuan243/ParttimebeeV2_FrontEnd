@@ -27,7 +27,7 @@ export default class EmployerProfileBanner extends PureComponent {
     const className = classNames('EmployerProfileBanner',
       { 'EmployerProfileBanner-readMore': showReadMore }
     );
-    const classNamecompanyDescription = classNames('EmployerProfileBanner-companyDescriptionText', {
+    const companyDescriptionClassNames = classNames('EmployerProfileBanner-companyDescriptionText', {
       'EmployerProfileBanner-overFlow': !showReadMore,
     });
 
@@ -77,7 +77,7 @@ export default class EmployerProfileBanner extends PureComponent {
             <div className="EmployerProfileBanner-companyDescription">
               COMPANY DESCRIPTION
             </div>
-            <div className={classNamecompanyDescription}>
+            <div className={companyDescriptionClassNames}>
               <div dangerouslySetInnerHTML={{ __html: companyDescription }} />
               { !showReadMore && <button
                 onClick={() => this.setState({ showReadMore: true })}
