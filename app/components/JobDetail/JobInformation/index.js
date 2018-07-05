@@ -6,7 +6,6 @@ import ReportIcon from 'components/Icons/Report/Loadable';
 import moment from 'moment';
 import config from '../../../../config';
 
-
 export default class JobInformation extends PureComponent {
   render() {
     const {
