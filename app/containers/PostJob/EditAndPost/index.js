@@ -35,6 +35,7 @@ export default class EditAndPost extends Component {
       hasJobSaved: false,
       editorState: EditorState.createEmpty(),
       characterLeft: 45,
+      descriptionCharacterLeft: 1000,
     };
   }
   componentWillMount() {
@@ -177,7 +178,10 @@ export default class EditAndPost extends Component {
                         editorRef={(ref) => (this.description = ref)}
                         wrapperClassName="EditAndPost-wrapper"
                         editorClassName="EditAndPost-editor"
-                        onEditorStateChange={(editorState) => this.setState({ editorState })}
+                        onEditorStateChange={(editorState) => this.setState({
+                          editorState,
+                          descriptionCharacterLeft: (1001 - this.description.editor.innerText.length),
+                        })}
                         toolbar={{
                           inline: { inDropdown: true },
                           list: { inDropdown: true },
@@ -198,7 +202,11 @@ export default class EditAndPost extends Component {
                         }}
                       />
                     </div>
-                    <div className={`${focusOnDescription ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
+                    <div className={`${focusOnDescription ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}>
+                      <span className="EditAndPost-characterLeft">
+                        { this.state.descriptionCharacterLeft }
+                      </span>
+                    </div>
                     <div className="EditAndPost-inputSalary">
                       <input
                         className="EditAndPost-customInput"
