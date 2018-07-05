@@ -139,6 +139,11 @@ a.JobItem-href:hover {
   padding-right: 4px;
 }
 
+.JobItem-contentEditContainerHover {
+  background-color: #e8e8e8;
+  text-decoration: none !important;
+}
+
 .JobItem-contentShareContainer {
   width: 73px;
   height: 24px;

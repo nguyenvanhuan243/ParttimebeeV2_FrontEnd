@@ -18,6 +18,7 @@ export default class JobItem extends PureComponent {
       hoverCity: false,
       showAddThis: false,
       showSocialShare: false,
+      hoverEdit: false,
     };
   }
   render() {
@@ -44,9 +45,10 @@ export default class JobItem extends PureComponent {
       hoverShareButton,
       hoverCity,
       showSocialShare,
+      hoverEdit,
     } = this.state;
     const hoverClassName = classNames('JobItem',
-      { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity });
+      { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity && !hoverEdit });
     const hoverShareClassName = classNames('JobItem-contentShareContainer',
       { 'JobItem-contentShareContainerHover': hoverShareButton });
     const hoverStateClassName = classNames('JobItem-contentJobState', {
@@ -54,6 +56,9 @@ export default class JobItem extends PureComponent {
     });
     const hoverCityClassName = classNames('JobItem-contentJobCity', {
       'JobItem-contentJobCityHover': hoverCity,
+    });
+    const contentEditContainerClassName = classNames('JobItem-contentEditContainer', {
+      'JobItem-contentEditContainerHover': hoverEdit,
     });
     return (
       <div>
@@ -124,7 +129,12 @@ export default class JobItem extends PureComponent {
                   <DeleteIcon />
                 </button> }
               { showEdit &&
-                <a href={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`} className="JobItem-contentEditContainer">
+                <a
+                  href={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`}
+                  className={contentEditContainerClassName}
+                  onMouseEnter={() => this.setState({ hoverEdit: true })}
+                  onMouseLeave={() => this.setState({ hoverEdit: false })}
+                >
                   <div> <ShareIcon /> </div>
                   <div className="JobItem-contentEditText"> EDIT </div>
                 </a> }
