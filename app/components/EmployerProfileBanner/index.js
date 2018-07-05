@@ -1,43 +1,36 @@
+import classNames from 'classnames';
+import WebIcon from 'components/Icons/Web/Loadable';
 import React, { PureComponent, PropTypes } from 'react';
 import PhoneIcon from 'components/Icons/Phone/Loadable';
-import WhiteEmailIcon from 'components/Icons/WhiteEmail/Loadable';
-import WebIcon from 'components/Icons/Web/Loadable';
 import AddressIcon from 'components/Icons/Address/Loadable';
-import classNames from 'classnames';
+import WhiteEmailIcon from 'components/Icons/WhiteEmail/Loadable';
 import config from '../../../config';
-export default class EmployerProfileBanner extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+export default class EmployerProfileBanner extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      showReadMore: false,
-    };
-  }
-  handleReadMore() {
-    this.setState({
-      showReadMore: !this.state.showReadMore,
-    });
-    return false;
+    this.state = { showReadMore: false };
   }
   render() {
     const {
-      showReadMore,
-    } = this.state;
-    const {
-      showEdit = false,
-      companyName,
       phone,
       email,
       website,
       address,
-      companyDescription,
+      companyName,
       urlAvatar = '',
+      showEdit = false,
+      companyDescription,
     } = this.props;
+
+    const { showReadMore } = this.state;
     const className = classNames('EmployerProfileBanner',
       { 'EmployerProfileBanner-readMore': showReadMore }
     );
     const classNamecompanyDescription = classNames('EmployerProfileBanner-companyDescriptionText', {
       'EmployerProfileBanner-overFlow': !showReadMore,
     });
+
     return (
       <div className={className}>
         <div className="EmployerProfileBanner-container">
@@ -87,7 +80,7 @@ export default class EmployerProfileBanner extends PureComponent { // eslint-dis
             <div className={classNamecompanyDescription}>
               <div dangerouslySetInnerHTML={{ __html: companyDescription }} />
               { !showReadMore && <button
-                onClick={() => this.handleReadMore()}
+                onClick={() => this.setState({ showReadMore: true })}
                 className="EmployerProfileBanner-readMoreButton"
               >
                 Read more
