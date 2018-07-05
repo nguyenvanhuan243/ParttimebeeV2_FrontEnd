@@ -161,14 +161,6 @@ button.Signup-button {
 .Signup-separate {
   width: 400px;
   height: 1px;
-  background-color: #e8e8e8;
-  margin-top: 3px;
-}
-
-.Signup-separateColor {
-  width: 400px;
-  height: 1px;
-  background-color: #ffaa00;
   margin-top: 3px;
 }
 

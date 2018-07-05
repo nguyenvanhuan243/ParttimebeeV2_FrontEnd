@@ -140,7 +140,10 @@ export default class Signup extends PureComponent {
                     </span>
                   </div> }
                   <label htmlFor className={emailAnimation}>Email</label>
-                  <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
+                  <div
+                    style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                    className="Signup-separateColor"
+                  />
                 </div>
                 <div>
                   <input
