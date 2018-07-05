@@ -9,12 +9,8 @@ export default class Email extends PureComponent {
   }
   render() {
     const { hover } = this.state;
-    const emailTextClassName = classNames('Email-text', {
-      'Email-textHover': hover,
-    });
-    const emailClassName = classNames('Email', {
-      'Email-hover': hover,
-    });
+    const emailTextClassName = classNames('Email-text', { 'Email-textHover': hover });
+    const emailClassName = classNames('Email', { 'Email-hover': hover });
     return (
       <div
         className={emailClassName}

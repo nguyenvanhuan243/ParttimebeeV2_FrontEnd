@@ -88,11 +88,11 @@ export default class JobInformation extends PureComponent {
 }
 
 JobInformation.propTypes = {
-  handleShowPopup: PropTypes.func.isRequired,
   jobId: PropTypes.number,
-  category: PropTypes.string,
-  salary: PropTypes.number,
-  createdDay: PropTypes.string,
   views: PropTypes.number,
+  salary: PropTypes.number,
+  category: PropTypes.string,
+  createdDay: PropTypes.string,
+  handleShowPopup: PropTypes.func.isRequired,
 };
 

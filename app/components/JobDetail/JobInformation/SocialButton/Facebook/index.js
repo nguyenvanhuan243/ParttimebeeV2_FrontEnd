@@ -5,34 +5,22 @@ import classNames from 'classnames';
 export default class Facebook extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      hover: false,
-    };
+    this.state = { hover: false };
   }
   render() {
-    const {
-      hover,
-    } = this.state;
-    const facebookClassName = classNames(
-      'Facebook', {
-        'Facebook-hover': hover,
-      }
-    );
-    const facebookTextClassName = classNames(
-      'Facebook-text', {
-        'Facebook-textHover': hover,
-      }
-    );
+    const { hover } = this.state;
+    const facebookClassNames = classNames('Facebook', { 'Facebook-hover': hover });
+    const facebookTextClassNames = classNames('Facebook-text', { 'Facebook-textHover': hover });
     return (
       <div
-        className={facebookClassName}
+        className={facebookClassNames}
         onMouseEnter={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false })}
       >
         <div className="Facebook-icon">
           <FacebookIcon hover={hover} />
         </div>
-        <div className={facebookTextClassName}>
+        <div className={facebookTextClassNames}>
           SHARE
         </div>
       </div>

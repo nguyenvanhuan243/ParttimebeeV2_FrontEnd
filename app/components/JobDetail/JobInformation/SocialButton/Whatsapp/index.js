@@ -7,22 +7,15 @@ export default class Whatsapp extends PureComponent {
     super();
     this.state = { hover: false };
   }
-  handleHover() {
-    this.setState({ hover: !this.state.hover });
-  }
   render() {
     const { hover = false } = this.state;
-    const whatsAppTextClassName = classNames('Whatsapp-text', {
-      'Whatsapp-textHover': hover,
-    });
-    const whatsAppClassName = classNames('Whatsapp', {
-      'Whatsapp-hover': hover,
-    });
+    const whatsAppTextClassName = classNames('Whatsapp-text', { 'Whatsapp-textHover': hover });
+    const whatsAppClassName = classNames('Whatsapp', { 'Whatsapp-hover': hover });
     return (
       <div
         className={whatsAppClassName}
-        onMouseEnter={() => this.handleHover()}
-        onMouseLeave={() => this.handleHover()}
+        onMouseEnter={() => this.setState({ hover: true })}
+        onMouseLeave={() => this.setState({ hover: false })}
       >
         <div className="Whatsapp-icon">
           <WhatsappIcon hover={hover} />
