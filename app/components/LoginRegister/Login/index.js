@@ -46,8 +46,10 @@ export default class Login extends PureComponent {
     });
   }
   handleOnchangePassword(e) {
-    this.setState({ passwordValue: e.target.value });
-    this.setState({ showPasswordAnimation: e.target.value !== '' });
+    this.setState({
+      passwordValue: e.target.value,
+      showPasswordAnimation: e.target.value !== '',
+    });
   }
   render() {
     const {
