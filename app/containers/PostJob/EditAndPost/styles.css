@@ -271,4 +271,12 @@
   -moz-appearance: none;
   background: transparent url('https://image.ibb.co/jXzxHJ/group.png') no-repeat 135px;
   padding-left: 10px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
 }
