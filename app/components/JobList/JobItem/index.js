@@ -8,6 +8,7 @@ import Email from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 import classNames from 'classnames';
 import config from '../../../../config';
 
+const jobUrl = 'https://vinasoftdev.com';
 export default class JobItem extends PureComponent {
   constructor() {
     super();
@@ -109,15 +110,30 @@ export default class JobItem extends PureComponent {
                 </div> }
               {
                 showSocialShare && <div className="JobItem-socialShare">
-                  <span className="JobItem-socialShareMargin">
-                    <Facebook />
-                  </span>
-                  <span className="JobItem-socialShareMargin">
-                    <WhatsApp />
-                  </span>
-                  <span className="JobItem-socialShareMargin">
-                    <Email />
-                  </span>
+                  <button
+                    onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${jobUrl}`)}
+                    className="JobInformation-facebook"
+                  >
+                    <span className="JobItem-socialShareMargin">
+                      <Facebook />
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => window.open('https://web.whatsapp.com')}
+                    className="JobInformation-whatsapp"
+                  >
+                    <span className="JobItem-socialShareMargin">
+                      <WhatsApp />
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => window.open('mailto: parttimebee.my@gmail.com')}
+                    className="JobInformation-email"
+                  >
+                    <span className="JobItem-socialShareMargin">
+                      <Email />
+                    </span>
+                  </button>
                 </div>
               }
               { showShare &&
