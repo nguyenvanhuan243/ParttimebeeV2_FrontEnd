@@ -162,6 +162,7 @@ button.Signup-button {
   width: 400px;
   height: 1px;
   margin-top: 3px;
+  margin-bottom: 20px;
 }
 
 input.Signup-inputHover {
@@ -183,6 +184,7 @@ input.Signup-removeOutline {
   left: 0px;
   float: left;
   margin-left: 2px;
+  margin-top: -20px;
   width: 58px;
   height: 20px;
   /* font-size: 13px; */
@@ -197,7 +199,7 @@ input.Signup-removeOutline {
 
 .Signup-inputAnimation {
   opacity: 1 !important;
-  transform: translateY(-50px) scale(0.78);
+  transform: translateY(-30px) scale(0.78);
 }
 
 .Signup-animationColor {
