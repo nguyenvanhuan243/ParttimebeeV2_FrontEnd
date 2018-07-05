@@ -28,7 +28,7 @@ export default class Signup extends PureComponent {
     const password = this.password.value;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
-    if (email && password) {
+    if (validator.isEmail(email) && password) {
       axios.post(url).then((response) => {
         if (response.status === 201) {
           this.setState({ success: true });
@@ -121,7 +121,7 @@ export default class Signup extends PureComponent {
                 <div className="Signup-emailContainer">
                   <input
                     className="Signup-removeOutline"
-                    type="email"
+                    type="text"
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.setState({
