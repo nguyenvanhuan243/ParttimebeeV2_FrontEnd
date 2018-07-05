@@ -81,8 +81,7 @@
 }
 
 .Login-haveAccountMacOs {
-  width: 204.53px !important;
-  margin-left: 84px !important;
+  font-size: 12px !important;
 }
 .Login-getStarted {
   color: #c8cf2d !important;
