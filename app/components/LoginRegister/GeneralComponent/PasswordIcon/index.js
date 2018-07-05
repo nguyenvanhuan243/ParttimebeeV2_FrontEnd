@@ -7,18 +7,18 @@ export default class PasswordIcon extends PureComponent {
     return (
       <button style={style} onClick={onToggle} >
         {
-          show ?
-            <svg
-              version="1.1"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              width="14px"
-              height="10px"
-              viewBox="0 0 14 10"
-              enableBackground="new 0 0 14 10"
-              xmlSpace="preserve"
-            >
+          <svg
+            version="1.1"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="14px"
+            height="10px"
+            viewBox="0 0 14 10"
+            enableBackground="new 0 0 14 10"
+            xmlSpace="preserve"
+          >
+            { show ?
               <image
                 width={14}
                 height={10}
@@ -33,18 +33,7 @@ export default class PasswordIcon extends PureComponent {
                 9hRAEqttqYk1ffFkFs2g3D76Kn7CuY6W8nlCcm+oescfE/0Fz8VX4bjIqA8AAAAldEVYdGRhdGU6
                 Y3JlYXRlADIwMTgtMDUtMDlUMDI6MTQ6NDktMDc6MDDSrqDXAAAAJXRFWHRkYXRlOm1vZGlmeQAy
                 MDE4LTA1LTA5VDAyOjE0OjQ5LTA3OjAwo/MYawAAAABJRU5ErkJggg=="
-              />
-            </svg> : <svg
-              version="1.1"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              width="14px"
-              height="11px"
-              viewBox="0 0 14 11"
-              enableBackground="new 0 0 14 11"
-              xmlSpace="preserve"
-            >
+              /> :
               <image
                 width={14}
                 height={11}
@@ -59,8 +48,8 @@ export default class PasswordIcon extends PureComponent {
                 2nsWKDtOOiiANGwMTJqYGFr7LdDgTX0V4OPMW1IzImoQPEw/7gwBNIxTTILaQZ/631M/f5peMPCJ
                 VWsAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDctMDRUMDc6MTg6MTMtMDc6MDBE0+bIAAAAJXRF
                 WHRkYXRlOm1vZGlmeQAyMDE4LTA3LTA0VDA3OjE4OjEzLTA3OjAwNY5edAAAAABJRU5ErkJggg=="
-              />
-            </svg>
+              /> }
+          </svg>
         }
       </button>
     );
