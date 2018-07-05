@@ -69,10 +69,6 @@ a.JobItem-href:hover {
   border: solid 1px #e8e8e8;
 }
 
-.JobItem-contentJobStateHover {
-  background-color: #e8e8e8;
-  border: solid 1px #e8e8e8;
-}
 .JobItem-contentJobStateText {
   font-size: 11px;
   font-weight: normal;
@@ -95,10 +91,6 @@ a.JobItem-href:hover {
   background-color: #f8f8f8;
   border: solid 1px #e8e8e8;
   margin-left: 8px;
-}
-
-.JobItem-contentJobCityHover {
-  background-color: #e8e8e8;
 }
 
 .JobItem-contentJobCityText {
@@ -139,11 +131,6 @@ a.JobItem-href:hover {
   padding-right: 4px;
 }
 
-.JobItem-contentEditContainerHover {
-  background-color: #e8e8e8;
-  text-decoration: none !important;
-}
-
 .JobItem-contentShareContainer {
   width: 73px;
   height: 24px;
@@ -154,9 +141,6 @@ a.JobItem-href:hover {
   margin-left: 15px;
   margin-right: 15px;
   cursor: pointer;
-}
-.JobItem-contentShareContainerHover {
-  background-color: #e8e8e8;
 }
 
 .JobItem-deleteIcon {
@@ -170,6 +154,11 @@ a.JobItem-href:hover {
   outline: none !important;
   cursor: pointer;
   margin-left: 253px;
+}
+
+.JobItem-colorHover {
+  background-color: #e8e8e8;
+  text-decoration: none !important;
 }
 .JobItem-contentEditText {
   width: 24px;

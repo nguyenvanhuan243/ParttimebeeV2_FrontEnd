@@ -19,6 +19,7 @@ export default class JobItem extends PureComponent {
       showAddThis: false,
       showSocialShare: false,
       hoverEdit: false,
+      hoverDelete: false,
     };
   }
   render() {
@@ -46,19 +47,23 @@ export default class JobItem extends PureComponent {
       hoverCity,
       showSocialShare,
       hoverEdit,
+      hoverDelete,
     } = this.state;
     const hoverClassName = classNames('JobItem',
-      { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity && !hoverEdit });
+      { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity && !hoverEdit && !hoverDelete });
     const hoverShareClassName = classNames('JobItem-contentShareContainer',
-      { 'JobItem-contentShareContainerHover': hoverShareButton });
+      { 'JobItem-colorHover': hoverShareButton });
     const hoverStateClassName = classNames('JobItem-contentJobState', {
-      'JobItem-contentJobStateHover': hoverState,
+      'JobItem-colorHover': hoverState,
     });
     const hoverCityClassName = classNames('JobItem-contentJobCity', {
-      'JobItem-contentJobCityHover': hoverCity,
+      'JobItem-colorHover': hoverCity,
     });
     const contentEditContainerClassName = classNames('JobItem-contentEditContainer', {
-      'JobItem-contentEditContainerHover': hoverEdit,
+      'JobItem-colorHover': hoverEdit,
+    });
+    const deleteIconClassName = classNames('JobItem-deleteIcon', {
+      'JobItem-colorHover': hoverDelete,
     });
     return (
       <div>
@@ -125,7 +130,12 @@ export default class JobItem extends PureComponent {
                   <span className="JobItem-contentShareText"> SHARE </span>
                 </div> }
               { showDelete &&
-                <button onClick={onClickJobItem} className="JobItem-deleteIcon">
+                <button
+                  onClick={onClickJobItem}
+                  className={deleteIconClassName}
+                  onMouseEnter={() => this.setState({ hoverDelete: true })}
+                  onMouseLeave={() => this.setState({ hoverDelete: false })}
+                >
                   <DeleteIcon />
                 </button> }
               { showEdit &&
