@@ -18,6 +18,7 @@ export default class Login extends PureComponent {
       isPassword: true,
       shakeEffect: false,
       passwordValue: '',
+      userExisted: true,
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -48,11 +49,11 @@ export default class Login extends PureComponent {
     }
   }
   handleOnchangeEmail(e) {
-    if (e.target.value === '') {
-      this.setState({ showEmailAnimation: false });
-    } else {
-      this.setState({ showEmailAnimation: true });
-    }
+    const url = `${config.API_BASE_URL}/users/check-user-exist`;
+    this.setState({ showEmailAnimation: e.target.value !== '' });
+    axios.post(url, { email: e.target.value }).then((response) => {
+      this.setState({ userExisted: response.data.success && true });
+    });
   }
   handleOnchangePassword(e) {
     this.setState({
@@ -73,6 +74,7 @@ export default class Login extends PureComponent {
       isPassword,
       shakeEffect,
       passwordValue,
+      userExisted,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -144,11 +146,9 @@ export default class Login extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            <span className="Signup-emailValidate">
-              { <span>
-                There is no user with that username. You can<a style={{ color: '#ffaa00' }} href={`${config.BASE_URL}/user/signup`}> register </a>right away.
-              </span> }
-            </span>
+            { !userExisted && <span className="Signup-emailValidate">
+              There is no user with that username. You can<a style={{ color: '#ffaa00' }} href={`${config.BASE_URL}/user/signup`}> register </a>right away.
+            </span> }
             <span className="Signup-passwordValidate">
               { focusPassword ? 'Type 6 characters or more.' : null }
               { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
