@@ -5,7 +5,6 @@ import axios from 'axios';
 import classNames from 'classnames';
 import config from '../../../../config';
 
-const loginPage = location.pathname.includes('login');
 const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 export default class Login extends PureComponent {
   constructor() {
@@ -145,9 +144,6 @@ export default class Login extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            <span className="Signup-emailValidate">
-              { focusEmail && !loginPage ? 'We’ll send an email to this address for verification.' : null }
-            </span>
             <span className="Signup-passwordValidate">
               { focusPassword ? 'Type 6 characters or more.' : null }
               { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
