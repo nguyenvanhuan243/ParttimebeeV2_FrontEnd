@@ -161,7 +161,7 @@ export default class EditAndPost extends Component {
                       value={this.state.CategoryValue || (jobItem && jobItem.category)}
                       onChange={(e) => this.setState({ CategoryValue: e.target.value })}
                     >
-                      <option> Home </option>
+                      <option> Select a category </option>
                       <option> Event </option>
                       <option> Education </option>
                       <option> Retails </option>
@@ -226,6 +226,7 @@ export default class EditAndPost extends Component {
                       value={this.state.salaryTypeValue || (jobItem && jobItem.salary_type)}
                       onChange={(e) => this.setState({ salaryTypeValue: e.target.value })}
                     >
+                      <option> Select salary type </option>
                       <option> Per hour </option>
                       <option> Per day </option>
                       <option> Per month </option>
@@ -239,6 +240,7 @@ export default class EditAndPost extends Component {
                         value={this.state.salaryStateValue || (jobItem && jobItem.salary_state)}
                         onChange={(e) => this.setState({ salaryStateValue: e.target.value })}
                       >
+                        <option> Select state </option>
                         <option> Johor </option>
                         <option> Kedah </option>
                         <option> Kelantan </option>
@@ -260,7 +262,6 @@ export default class EditAndPost extends Component {
                     <div className="EditAndPost-inputCity">
                       <input
                         className="EditAndPost-customInput"
-                        placeholder="inputCity"
                         onFocus={() => this.setState({ focusOnCity: true })}
                         onBlur={() => this.setState({ focusOnCity: false })}
                         ref={(ref) => (this.city = ref)}
