@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import config from '../../../../config';
 
 const loginPage = location.pathname.includes('login');
+const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 export default class Login extends PureComponent {
   constructor() {
     super();
@@ -85,6 +86,9 @@ export default class Login extends PureComponent {
     const signUpClassname = classNames('Signup-inputCustom', {
       'Signup-effectShake': shakeEffect,
     });
+    const loginHaveAccountClassName = classNames('Login-haveAccount', {
+      'Login-haveAccountMacOs': isMac,
+    });
     return (
       <div className="Login">
         <DashlineIcon />
@@ -156,7 +160,7 @@ export default class Login extends PureComponent {
               Forgor password?
             </a>
           </div>
-          <div className="Login-haveAccount">
+          <div className={loginHaveAccountClassName}>
             Don’t have an account? <a className="Login-getStarted" href={`${config.BASE_URL}/user/signup`}>Get started</a>
           </div>
         </div>
