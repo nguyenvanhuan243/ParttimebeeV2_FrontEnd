@@ -124,10 +124,11 @@ a.Header-postJobText:hover {
   letter-spacing: 0.5px;
   text-align: left;
   color: #999999;
+  margin-bottom: 8px;
 }
 
 a.Header-hrefText:hover {
-  text-decoration: none !important;
+  color: #999999;
 }
 
 .col-lg-4 {
@@ -142,4 +143,18 @@ a.Header-hrefText:hover {
 
 input.SearchForm-customInput:focus {
   outline: none !important;
+}
+
+.Header-separateMenu {
+  width: 80px;
+  margin-left: -4px;
+  margin-right: 14px;
+  height: 1px;
+  background-color: #e8e8e8;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.Header-paddingTop {
+  margin-top: 12px;
 }
