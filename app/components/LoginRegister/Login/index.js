@@ -116,20 +116,13 @@ export default class Login extends PureComponent {
                     onChange={(e) => this.handleOnchangePassword(e)}
                   />
                   { passwordValue.length ? <div className="Signup-showPasswordIcon">
-                    { !isPassword && <PasswordIcon
-                      show
+                    <PasswordIcon
+                      show={isPassword && true}
                       onToggle={(e) => {
                         e.preventDefault();
                         this.setState({ isPassword: !this.state.isPassword });
                       }}
-                    /> }
-                    { isPassword && <PasswordIcon
-                      show={false}
-                      onToggle={(e) => {
-                        e.preventDefault();
-                        this.setState({ isPassword: !this.state.isPassword });
-                      }}
-                    /> }
+                    />
                   </div> : null }
                   <label htmlFor className={passwordAnimation}>Password</label>
                   <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} />
