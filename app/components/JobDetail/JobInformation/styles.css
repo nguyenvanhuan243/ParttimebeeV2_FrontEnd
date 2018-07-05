@@ -99,6 +99,11 @@
   outline: none !important;
   margin: 0px;
   padding: 0px;
+  cursor: pointer;
+}
+
+.ReportButon-hover {
+  background-color: #e8e8e8;
 }
 
 .ReportButon-text {
@@ -111,7 +116,6 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  cursor: pointer;
   margin-left: 6px;
   margin-top: 4px;
   margin-bottom: 4px;

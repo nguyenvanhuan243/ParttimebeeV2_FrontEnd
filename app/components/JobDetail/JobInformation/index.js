@@ -4,20 +4,30 @@ import WhatsApp from 'components/JobDetail/JobInformation/SocialButton/Whatsapp/
 import Email from 'components/JobDetail/JobInformation/SocialButton/Email/Loadable';
 import ReportIcon from 'components/Icons/Report/Loadable';
 import moment from 'moment';
+import classNames from 'classnames';
 import config from '../../../../config';
 
 export default class JobInformation extends PureComponent {
+  constructor() {
+    super();
+    this.state = { hoverReportButton: false };
+  }
   render() {
     const {
-      handleShowPopup = () => {},
+      views = 0,
+      salary = 0,
       jobId = '',
       category = '',
-      salary = 0,
       createdDay = '',
-      views = 0,
+      handleShowPopup = () => {},
     } = this.props;
+
     const Id = location.pathname.match(/\d+/)[0];
     const jobUrl = `${config.BASE_URL}/job-detail/${Id}`;
+    const reportButonClassNames = classNames('ReportButon', {
+      'ReportButon-hover': this.state.hoverReportButton,
+    });
+
     return (
       <div className="JobInformation">
         <div className="JobInformation-socialButton">
@@ -39,7 +49,12 @@ export default class JobInformation extends PureComponent {
           >
             <Email />
           </button>
-          <button onClick={handleShowPopup} className="ReportButon">
+          <button
+            onClick={handleShowPopup}
+            className={reportButonClassNames}
+            onMouseEnter={() => this.setState({ hoverReportButton: true })}
+            onMouseLeave={() => this.setState({ hoverReportButton: false })}
+          >
             <ReportIcon />
             <div className="ReportButon-text"> REPORT JOB </div>
           </button>
