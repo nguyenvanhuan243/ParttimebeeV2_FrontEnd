@@ -37,13 +37,6 @@ export default class Login extends PureComponent {
       this.setState({ shakeEffect: !this.state.shakeEffect });
     }
   }
-  handleOnchangeEmail(e) {
-    this.setState({ showEmailAnimation: e.target.value !== '' });
-    const url = `${config.API_BASE_URL}/users/check-user-exist`;
-    axios.post(url, { email: e.target.value }).then((response) => {
-      this.setState({ userExisted: response.data.success && true });
-    });
-  }
   handleOnchangePassword(e) {
     this.setState({
       passwordValue: e.target.value,
@@ -90,8 +83,14 @@ export default class Login extends PureComponent {
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
-                    onBlur={() => this.setState({ focusEmail: false })}
-                    onChange={(e) => this.handleOnchangeEmail(e)}
+                    onBlur={(e) => {
+                      this.setState({ focusEmail: false });
+                      const url = `${config.API_BASE_URL}/users/check-user-exist`;
+                      axios.post(url, { email: e.target.value }).then((response) => {
+                        this.setState({ userExisted: response.data.success && true });
+                      });
+                    }}
+                    onChange={(e) => this.setState({ showEmailAnimation: e.target.value !== '' })}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div
