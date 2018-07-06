@@ -134,7 +134,7 @@ export default class Login extends PureComponent {
               { !userExisted &&
                 <span>
                   There is no user with that username. You can<a
-                    style={{ color: '#ffaa00' }}
+                    style={{ color: '#ffaa00', textDecoration: 'none' }}
                     href={`${config.BASE_URL}/user/signup`}
                   > register </a>right away.
                 </span>
