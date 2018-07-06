@@ -95,7 +95,7 @@ export default class Login extends PureComponent {
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div
-                    style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                    style={{ backgroundColor: focusEmail ? '#ffaa00' : '#e8e8e8' }}
                     className="Signup-separate"
                   />
                 </div>
@@ -120,7 +120,7 @@ export default class Login extends PureComponent {
                   </div> : null }
                   <label htmlFor className={passwordAnimation}>Password</label>
                   <div
-                    style={{ 'background-color': focusPassword ? '#ffaa00' : '#e8e8e8' }}
+                    style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
                     className="Signup-separate"
                   />
                 </div>
