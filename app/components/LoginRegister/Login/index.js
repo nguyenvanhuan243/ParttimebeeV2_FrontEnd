@@ -131,9 +131,16 @@ export default class Login extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            { !userExisted && <span className="Signup-emailValidate">
-              There is no user with that username. You can<a style={{ color: '#ffaa00' }} href={`${config.BASE_URL}/user/signup`}> register </a>right away.
-            </span> }
+            <span className="Signup-emailValidate">
+              { !userExisted &&
+                <span>
+                  There is no user with that username. You can<a
+                    style={{ color: '#ffaa00' }}
+                    href={`${config.BASE_URL}/user/signup`}
+                  > register </a>right away.
+                </span>
+              }
+            </span>
             <span className="Signup-passwordValidate">
               { focusPassword ? 'Type 6 characters or more.' : null }
               { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
