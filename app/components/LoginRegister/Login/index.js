@@ -38,8 +38,8 @@ export default class Login extends PureComponent {
     }
   }
   handleOnchangeEmail(e) {
-    const url = `${config.API_BASE_URL}/users/check-user-exist`;
     this.setState({ showEmailAnimation: e.target.value !== '' });
+    const url = `${config.API_BASE_URL}/users/check-user-exist`;
     axios.post(url, { email: e.target.value }).then((response) => {
       this.setState({ userExisted: response.data.success && true });
     });
