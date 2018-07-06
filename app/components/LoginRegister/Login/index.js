@@ -20,9 +20,8 @@ export default class Login extends PureComponent {
       passwordValue: '',
       userExisted: true,
     };
-    this.onSubmit = this.onSubmit.bind(this);
   }
-  onSubmit(e) {
+  onSubmit = (e) => {
     const email = this.email.value;
     const password = this.password.value;
     e.preventDefault();
