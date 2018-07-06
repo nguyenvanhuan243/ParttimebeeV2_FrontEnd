@@ -70,7 +70,6 @@ export default class JobItem extends PureComponent {
     return (
       <div>
         <div
-          id="homepage"
           className={hoverClassName}
           onMouseEnter={() => this.setState({ hover: true })}
           onMouseLeave={() => this.setState({ hover: false, showSocialShare: false })}
