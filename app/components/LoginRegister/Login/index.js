@@ -64,10 +64,10 @@ export default class Login extends PureComponent {
       'Signup-inputAnimation': showPasswordAnimation,
       'Signup-animationColor': focusPassword,
     });
-    const signUpClassname = classNames('Signup-inputCustom', {
+    const signUpClassNames = classNames('Signup-inputCustom', {
       'Signup-effectShake': shakeEffect,
     });
-    const loginHaveAccountClassName = classNames('Login-haveAccount', {
+    const loginHaveAccountClassNames = classNames('Login-haveAccount', {
       'Login-haveAccountMacOs': isMac,
     });
     return (
@@ -77,7 +77,7 @@ export default class Login extends PureComponent {
         <div className="Login-form">
           <div className="Login-container">
             <form onSubmit={this.onSubmit}>
-              <div className={signUpClassname}>
+              <div className={signUpClassNames}>
                 <div className="Signup-emailContainer">
                   <input
                     className="Signup-removeOutline"
@@ -157,7 +157,7 @@ export default class Login extends PureComponent {
               Forgor password?
             </a>
           </div>
-          <div className={loginHaveAccountClassName}>
+          <div className={loginHaveAccountClassNames}>
             Don’t have an account? <a className="Login-getStarted" href={`${config.BASE_URL}/user/signup`}>Get started</a>
           </div>
         </div>
