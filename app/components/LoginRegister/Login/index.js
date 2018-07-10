@@ -140,7 +140,7 @@ export default class Login extends PureComponent {
                 <span>
                   There is no user with that email. You can<a
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
-                    href={`${config.BASE_URL}/user/signup`}
+                    href={`${config.BASE_URL}/user/signup?email=${this.email.value}`}
                   > register </a>right away.
                 </span>
               }
