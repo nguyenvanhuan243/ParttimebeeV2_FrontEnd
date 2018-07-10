@@ -19,7 +19,7 @@ export default class Login extends PureComponent {
       shakeEffect: false,
       passwordValue: '',
       userExisted: true,
-      userEmailNotFound: '',
+      // userEmailNotFound: '',
     };
   }
   onSubmit = (e) => {
@@ -54,7 +54,7 @@ export default class Login extends PureComponent {
       shakeEffect,
       passwordValue,
       userExisted,
-      userEmailNotFound,
+      // userEmailNotFound,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -94,7 +94,7 @@ export default class Login extends PureComponent {
                     }}
                     onChange={(e) => {
                       this.setState({ showEmailAnimation: e.target.value !== '' });
-                      this.setState({ userEmailNotFound: this.email.value });
+                      /* this.setState({ userEmailNotFound: this.email.value }); */
                     }}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
@@ -138,7 +138,7 @@ export default class Login extends PureComponent {
             <span className="Signup-emailValidate">
               { !userExisted &&
                 <span>
-                  There is no user with that { userEmailNotFound }. You can<a
+                  There is no user with that email. You can<a
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
                     href={`${config.BASE_URL}/user/signup`}
                   > register </a>right away.
