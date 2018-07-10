@@ -81,7 +81,7 @@ export default class Login extends PureComponent {
                 <div className="Signup-emailContainer">
                   <input
                     className="Signup-removeOutline"
-                    type="email"
+                    type="text"
                     placeholder="Email"
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
