@@ -34,6 +34,7 @@ export default class PasswordIcon extends PureComponent {
             viewBox="0 0 14 10"
             enableBackground="new 0 0 14 10"
             xmlSpace="preserve"
+            style={{ marginBottom: '6px' }}
           >
             <image width={14} height={10} x={0} y={0} xlinkHref={xLinkHref} />
           </svg>
