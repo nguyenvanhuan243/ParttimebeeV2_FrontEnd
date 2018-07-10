@@ -8,6 +8,7 @@ import validator from 'validator';
 import classNames from 'classnames';
 import config from '../../../../config';
 
+const params = new URLSearchParams(location.search);
 export default class Signup extends PureComponent {
   constructor() {
     super();
@@ -21,6 +22,7 @@ export default class Signup extends PureComponent {
       shakeEffect: false,
       passwordValue: '',
       isEmail: true,
+      registerEmailState: params.get('email'),
     };
   }
   onSubmit = (e) => {
@@ -89,7 +91,17 @@ export default class Signup extends PureComponent {
     }
   }
   render() {
-    const { success, danger, focusEmail, focusPassword, showEmailAnimation, showPasswordAnimation, isPassword, shakeEffect, passwordValue } = this.state;
+    const {
+      success,
+      danger,
+      focusEmail,
+      focusPassword,
+      showEmailAnimation,
+      showPasswordAnimation,
+      isPassword, shakeEffect,
+      passwordValue,
+      registerEmailState,
+    } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
@@ -123,13 +135,19 @@ export default class Signup extends PureComponent {
                     className="Signup-removeOutline"
                     type="text"
                     placeholder="Email"
+                    value={registerEmailState}
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.setState({
                       focusEmail: true,
                       showEmailAnimation: true,
                     })}
                     onBlur={(e) => this.handleOnBlurEmail(e)}
-                    onChange={(e) => this.handleOnchangeEmail(e)}
+                    onChange={(e) => {
+                      this.handleOnchangeEmail(e);
+                      this.setState({
+                        registerEmailState: e.target.value,
+                      });
+                    }}
                   />
                   { !this.state.isEmail && <div className="Signup-invalidEmail">
                     <InvalidEmail />
