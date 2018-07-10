@@ -113,7 +113,7 @@ export default class Login extends PureComponent {
                     onBlur={() => this.setState({ focusPassword: false })}
                     onChange={(e) => this.handleOnchangePassword(e)}
                   />
-                  { passwordValue.length ? <div className="Signup-showPasswordIcon">
+                  <div className="Signup-showPasswordIcon">
                     <PasswordIcon
                       show={isPassword && true}
                       onToggle={(e) => {
@@ -121,7 +121,7 @@ export default class Login extends PureComponent {
                         this.setState({ isPassword: !this.state.isPassword });
                       }}
                     />
-                  </div> : null }
+                  </div>
                   <label htmlFor className={passwordAnimation}>Password</label>
                   <div
                     style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
