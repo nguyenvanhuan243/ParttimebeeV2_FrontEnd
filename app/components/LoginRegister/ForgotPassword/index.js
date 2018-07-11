@@ -3,13 +3,16 @@ import classNames from 'classnames';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 import axios from 'axios';
+import validator from 'validator';
 import config from '../../../../config';
 
 export default class ForgotPassword extends PureComponent {
   constructor() {
     super();
     this.state = {
+      userExisted: true,
       isPassword: true,
+      isEmail: true,
       passwordValue: '',
       focusEmail: false,
       shakeEffect: false,
@@ -54,7 +57,9 @@ export default class ForgotPassword extends PureComponent {
   render() {
     const isChangePassword = location.pathname.includes('change-password');
     const {
+      isEmail,
       focusEmail,
+      userExisted,
       showEmailAnimation,
       shakeEffect, isPassword,
       passwordValue,
@@ -92,7 +97,16 @@ export default class ForgotPassword extends PureComponent {
                       placeholder="Email"
                       ref={(ref) => (this.email = ref)}
                       onFocus={() => this.setState({ focusEmail: true })}
-                      onBlur={() => this.setState({ focusEmail: false })}
+                      onBlur={(e) => {
+                        this.setState({ focusEmail: false });
+                        const url = `${config.API_BASE_URL}/users/check-user-exist`;
+                        axios.post(url, { email: e.target.value }).then((response) => {
+                          this.setState({ userExisted: response.data.success });
+                        });
+                        this.setState({
+                          isEmail: validator.isEmail(e.target.value),
+                        });
+                      }}
                       onChange={(e) => this.handleOnchangeEmail(e)}
                     />
                     <label htmlFor className={emailAnimation}>Email</label>
@@ -133,7 +147,8 @@ export default class ForgotPassword extends PureComponent {
           </div>
           <div className="Signup-validateContainer">
             <span className="Signup-emailValidate">
-              { focusEmail ? 'This email is not found in our system. Please enter again.' : null }
+              { !userExisted && isEmail && 'This email is not found in our system. Please enter again.' }
+              { !isEmail && 'Please make sure you enter your email correctly!' }
             </span>
           </div>
         </div>
