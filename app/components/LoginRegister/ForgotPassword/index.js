@@ -61,8 +61,8 @@ export default class ForgotPassword extends PureComponent {
       focusEmail,
       userExisted,
       showEmailAnimation,
-      shakeEffect, isPassword,
-      passwordValue,
+      shakeEffect,
+      isPassword,
       showPasswordAnimation,
       focusPassword,
       changePasswordIsClicked,
@@ -126,14 +126,15 @@ export default class ForgotPassword extends PureComponent {
                         onBlur={() => this.setState({ focusPassword: false })}
                         onChange={(e) => this.handleOnchangePassword(e)}
                       /> }
-                    { passwordValue.length ? <div className="Signup-showPasswordIcon">
+                    <div className="Signup-showPasswordIcon">
                       <PasswordIcon
+                        show={isPassword && true}
                         onToggle={(e) => {
                           e.preventDefault();
                           this.setState({ isPassword: !this.state.isPassword });
                         }}
                       />
-                    </div> : null }
+                    </div>
                     { !changePasswordIsClicked && <label htmlFor className={passwordAnimation}>Password</label> }
                     <div
                       style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
