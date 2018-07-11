@@ -9,21 +9,19 @@ export default class ForgotPassword extends PureComponent {
   constructor() {
     super();
     this.state = {
-      focusEmail: false,
-      showEmailAnimation: false,
-      shakeEffect: false,
       isPassword: true,
       passwordValue: '',
+      focusEmail: false,
+      shakeEffect: false,
       focusPassword: false,
+      showEmailAnimation: false,
       changePasswordIsClicked: false,
     };
   }
   onSubmit = (e) => {
     const hasChangePasswordRoute = location.pathname.includes('change-password');
     if (hasChangePasswordRoute) {
-      this.setState({
-        changePasswordIsClicked: true,
-      });
+      this.setState({ changePasswordIsClicked: true });
       e.preventDefault();
       axios.post(`${config.API_BASE_URL}/users/update-password`, {
         token: location.search.substring(7),
@@ -32,16 +30,12 @@ export default class ForgotPassword extends PureComponent {
     } else {
       const email = this.email.value;
       e.preventDefault();
-      axios.post(`${config.API_BASE_URL}/users/reset-password`, {
-        email,
-      });
+      axios.post(`${config.API_BASE_URL}/users/reset-password`, { email });
       if (email) {
         location.replace(`${config.BASE_URL}/user/forgot-password-incoming`);
       }
       if (!email) {
-        this.setState({
-          shakeEffect: !this.state.shakeEffect,
-        });
+        this.setState({ shakeEffect: !this.state.shakeEffect });
       }
     }
   }
@@ -54,14 +48,8 @@ export default class ForgotPassword extends PureComponent {
     this.setState({ showEmailAnimation: !(e.target.value === '') });
   }
   handleOnchangePassword(e) {
-    this.setState({
-      passwordValue: e.target.value,
-    });
-    if (e.target.value === '') {
-      this.setState({ showPasswordAnimation: false });
-    } else {
-      this.setState({ showPasswordAnimation: true });
-    }
+    this.setState({ passwordValue: e.target.value });
+    this.setState({ showPasswordAnimation: !(e.target.value === '') });
   }
   render() {
     const isChangePassword = location.pathname.includes('change-password');
