@@ -135,7 +135,10 @@ export default class ForgotPassword extends PureComponent {
                       />
                     </div> : null }
                     { !changePasswordIsClicked && <label htmlFor className={passwordAnimation}>Password</label> }
-                    { changePasswordIsClicked && <div className={focusPassword ? 'Signup-separateColor' : 'Signup-separate'} /> }
+                    <div
+                      style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
+                      className="Signup-separate"
+                    />
                   </div> }
                 { !changePasswordIsClicked ? <button className="Signup-button">
                   <div className="Signup-buttonText"> { isChangePassword ? 'Change Password' : 'Reset Password' }  </div>
