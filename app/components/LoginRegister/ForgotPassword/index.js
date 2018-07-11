@@ -46,19 +46,12 @@ export default class ForgotPassword extends PureComponent {
     }
   }
   handleOnchangeEmail(e) {
-    const email = this.email.value;
-    if (!email) {
+    if (!e.target.value) {
       this.setState({
         shakeEffect: !this.state.shakeEffect,
       });
     }
-    if (email) {
-      if (e.target.value === '') {
-        this.setState({ showEmailAnimation: false });
-      } else {
-        this.setState({ showEmailAnimation: true });
-      }
-    }
+    this.setState({ showEmailAnimation: !(e.target.value === '') });
   }
   handleOnchangePassword(e) {
     this.setState({
