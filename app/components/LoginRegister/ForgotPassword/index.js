@@ -6,6 +6,7 @@ import axios from 'axios';
 import validator from 'validator';
 import config from '../../../../config';
 
+const params = new URLSearchParams(location.search);
 export default class ForgotPassword extends PureComponent {
   constructor() {
     super();
@@ -27,7 +28,7 @@ export default class ForgotPassword extends PureComponent {
       this.setState({ changePasswordIsClicked: true });
       e.preventDefault();
       axios.post(`${config.API_BASE_URL}/users/update-password`, {
-        token: location.search.substring(7),
+        token: params.get('token'),
         newPassword: this.password.value,
       });
     } else {
