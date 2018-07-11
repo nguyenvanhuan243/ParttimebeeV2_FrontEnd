@@ -115,7 +115,10 @@ export default class ForgotPassword extends PureComponent {
                       onChange={(e) => this.handleOnchangeEmail(e)}
                     />
                     <label htmlFor className={emailAnimation}>Email</label>
-                    <div className={focusEmail ? 'Signup-separateColor' : 'Signup-separate'} />
+                    <div
+                      style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                      className="Signup-separate"
+                    />
                   </div> :
                   <div>
                     { !changePasswordIsClicked &&
