@@ -29,9 +29,6 @@ export default class Signup extends PureComponent {
       registerEmailState: params.get('email'),
     };
   }
-  componentWillMount() {
-    this.timer = null;
-  }
   onSubmit = (e) => {
     const email = this.email.value;
     const password = this.password.value;
@@ -48,9 +45,10 @@ export default class Signup extends PureComponent {
         this.setState({ danger: error.status === 422 });
       });
     }
-    if ((!email && !password) || password.length < 6 || userExisted) {
-      this.setState({ shakeEffect: !this.state.shakeEffect });
+    if (!email || !password || password.length < 6 || userExisted) {
+      this.setState({ shakeEffect: true });
     }
+    setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
   handleOnBlurEmail(e) {
     this.setState({ focusEmail: false, showEmailAnimation: e.target.value });
