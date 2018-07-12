@@ -74,7 +74,8 @@ export default class Signup extends PureComponent {
       focusPassword,
       showEmailAnimation,
       showPasswordAnimation,
-      isPassword, shakeEffect,
+      isPassword,
+      shakeEffect,
       passwordValue,
       registerEmailState,
     } = this.state;
@@ -113,10 +114,7 @@ export default class Signup extends PureComponent {
                     placeholder="Email"
                     value={registerEmailState}
                     ref={(ref) => (this.email = ref)}
-                    onFocus={() => this.setState({
-                      focusEmail: true,
-                      showEmailAnimation: true,
-                    })}
+                    onFocus={(e) => this.setState({ focusEmail: true, showEmailAnimation: e.target.value })}
                     onBlur={(e) => this.handleOnBlurEmail(e)}
                     onChange={(e) => {
                       this.handleOnchangeEmail(e);
@@ -141,16 +139,13 @@ export default class Signup extends PureComponent {
                     type={isPassword ? 'password' : 'text'}
                     placeholder="Password"
                     ref={(ref) => (this.password = ref)}
-                    onFocus={() => this.setState({
-                      focusPassword: true,
-                      showPasswordAnimation: true,
-                    })}
+                    onFocus={(e) => this.setState({ focusPassword: true, showPasswordAnimation: e.target.value })}
                     onBlur={(e) => this.handleOnBlurPassword(e)}
                     onChange={(e) => this.handleOnchangePassword(e)}
                   />
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
-                      show={isPassword && true}
+                      show={isPassword}
                       onToggle={(e) => {
                         e.preventDefault();
                         this.setState({ isPassword: !this.state.isPassword });
