@@ -31,15 +31,17 @@ export default class Login extends PureComponent {
     const password = this.password.value;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
-    axios.post(url).then((response) => {
-      this.setState({ success: response === 201 });
-      localStorage.setItem('currentUser', response.data.user.id);
-      window.location.replace(`${config.BASE_URL}`);
-    }).catch((error) => {
-      this.setState({ danger: error.response.status === 422 });
-    });
-    if (!email || !password || !this.state.userExisted) {
-      this.setState({ shakeEffect: !this.state.shakeEffect });
+    if (validator.isEmail(email) && password.length >= 6) {
+      axios.post(url).then((response) => {
+        this.setState({ success: response === 201 });
+        localStorage.setItem('currentUser', response.data.user.id);
+        window.location.replace(`${config.BASE_URL}`);
+      }).catch((error) => {
+        this.setState({ danger: error.response.status === 422 });
+      });
+    }
+    if (!email || !password || !this.state.userExisted || password.length < 6) {
+      this.setState({ shakeEffect: true });
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
@@ -143,10 +145,11 @@ export default class Login extends PureComponent {
                     />
                   </div>
                   <label htmlFor className={passwordAnimation}>Password</label>
-                  <div
+                  { (passwordValue.length >= 6 || passwordValue.length === 0) && <div
                     style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
                     className="Signup-separate"
-                  />
+                  /> }
+                  { passwordValue.length < 6 && passwordValue.length > 0 && <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" /> }
                 </div>
                 <button className="Signup-button">
                   <div className="Signup-buttonText"> Login </div>
@@ -161,7 +164,7 @@ export default class Login extends PureComponent {
                 <span>
                   There is no user with that email. You can<a
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
-                    href={`${config.BASE_URL}/user/signup?email=${this.email.value}`}
+                    href={`${config.BASE_URL}/user/signup?email=${this.email && this.email.value}`}
                   > register </a>right away.
                 </span>
               }
