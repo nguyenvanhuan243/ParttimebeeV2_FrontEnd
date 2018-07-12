@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 import axios from 'axios';
+import validator from 'validator';
 import classNames from 'classnames';
 import config from '../../../../config';
 
@@ -12,6 +13,7 @@ export default class Login extends PureComponent {
     this.state = {
       success: false,
       danger: false,
+      isEmail: true,
       focusEmail: false,
       focusPassword: false,
       showEmailAnimation: false,
@@ -45,6 +47,7 @@ export default class Login extends PureComponent {
   }
   render() {
     const {
+      isEmail,
       focusEmail,
       focusPassword,
       showEmailAnimation,
@@ -85,10 +88,16 @@ export default class Login extends PureComponent {
                     onFocus={() => this.setState({ focusEmail: true })}
                     onBlur={(e) => {
                       this.setState({ focusEmail: false });
-                      const url = `${config.API_BASE_URL}/users/check-user-exist`;
-                      axios.post(url, { email: e.target.value }).then((response) => {
-                        this.setState({ userExisted: response.data.success && true });
-                      });
+                      const email = e.target.value;
+                      if (!validator.isEmail(email)) {
+                        this.setState({ isEmail: false });
+                      } else {
+                        const url = `${config.API_BASE_URL}/users/check-user-exist`;
+                        axios.post(url, { email: e.target.value }).then((response) => {
+                          this.setState({ userExisted: response.data.success && true });
+                        });
+                        this.setState({ isEmail: true });
+                      }
                     }}
                     onChange={(e) => this.setState({ showEmailAnimation: e.target.value !== '' })}
                   />
@@ -131,7 +140,8 @@ export default class Login extends PureComponent {
           </div>
           <div className="Signup-validateContainer">
             <span className="Signup-emailValidate">
-              { !userExisted &&
+              { !isEmail && <span>This is not a valid email address.</span> }
+              { !userExisted && isEmail &&
                 <span>
                   There is no user with that email. You can<a
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
