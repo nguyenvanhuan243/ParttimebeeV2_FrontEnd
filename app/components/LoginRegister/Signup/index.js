@@ -30,7 +30,7 @@ export default class Signup extends PureComponent {
     const password = this.password.value;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
-    if (validator.isEmail(email) && password) {
+    if (validator.isEmail(email) && password.length >= 6) {
       axios.post(url).then((response) => {
         if (response.status === 201) {
           this.setState({ success: true });
