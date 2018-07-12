@@ -5,6 +5,7 @@ import { Alert } from 'reactstrap';
 import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
 import validator from 'validator';
 import classNames from 'classnames';
+import TickIcon from 'components/Icons/TickIcon/Loadable';
 import axios from 'axios';
 import config from '../../../../config';
 
@@ -23,6 +24,7 @@ export default class Signup extends PureComponent {
       shakeEffect: false,
       passwordValue: '',
       isEmail: true,
+      userExisted: true,
       timeOut: () => {},
       registerEmailState: params.get('email'),
     };
@@ -58,7 +60,13 @@ export default class Signup extends PureComponent {
     const value = e.target.value;
     this.setState({
       showEmailAnimation: value,
-      timeOut: setTimeout(() => this.setState({ isEmail: validator.isEmail(value) }), WAIT_INTERVAL),
+      timeOut: setTimeout(() => {
+        this.setState({ isEmail: validator.isEmail(value) });
+        const url = `${config.API_BASE_URL}/users/check-user-exist`;
+        axios.post(url, { email: value }).then((response) => {
+          this.setState({ userExisted: response.data.success });
+        });
+      }, WAIT_INTERVAL),
     });
   }
   handleOnBlurPassword(e) {
@@ -78,6 +86,7 @@ export default class Signup extends PureComponent {
       success,
       danger,
       focusEmail,
+      userExisted,
       focusPassword,
       showEmailAnimation,
       showPasswordAnimation,
@@ -132,6 +141,12 @@ export default class Signup extends PureComponent {
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">
                       Invalid Email :(
+                    </span>
+                  </div> }
+                  { !userExisted && this.state.isEmail && <div className="Signup-looksGoodEmail">
+                    <TickIcon />
+                    <span className="Signup-looksGoodText">
+                      looks good!
                     </span>
                   </div> }
                   <label htmlFor className={emailAnimation}>Email</label>
