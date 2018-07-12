@@ -33,6 +33,7 @@
   text-align: left;
   color: #000000;
   margin-top: -10px;
+  margin-left: 8px;
 }
 
 .Signup-passwordValidate {
@@ -222,6 +223,12 @@ input.Signup-removeOutline {
   margin-left: 305px;
 }
 
+.Signup-registeredEmail {
+  position: absolute;
+  margin-top: -25px;
+  margin-left: 320px;
+}
+
 .Signup-invalidEmailText {
   width: 78px;
   height: 17px;
@@ -239,7 +246,7 @@ input.Signup-removeOutline {
 .Signup-looksGoodEmail {
   position: absolute;
   margin-top: -25px;
-  margin-left: 320px;
+  margin-left: 325px;
 }
 
 .Signup-looksGoodText {

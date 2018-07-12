@@ -143,6 +143,11 @@ export default class Signup extends PureComponent {
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">Invalid Email :(</span>
                   </div> }
+                  { isEmail && userExisted &&
+                  <div className="Signup-registeredEmail">
+                    <InvalidEmail />
+                    <span className="Signup-invalidEmailText">is registered</span>
+                  </div> }
                   { !userExisted && isEmail &&
                   <div className="Signup-looksGoodEmail">
                     <TickIcon />
@@ -186,6 +191,16 @@ export default class Signup extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
+            { userExisted && isEmail &&
+              <div className="Signup-emailValidate">
+                <span>
+                  Looks like you already have an account. You can<a
+                    style={{ color: '#ffaa00', textDecoration: 'none' }}
+                    href={`${config.BASE_URL}/user/login?email=${this.email && this.email.value}`}
+                  > login from here </a>
+                </span>
+              </div>
+            }
             <span className="Signup-emailValidate">
               { focusEmail && !userExisted ? 'We’ll send an email to this address for verification.' : null }
             </span>

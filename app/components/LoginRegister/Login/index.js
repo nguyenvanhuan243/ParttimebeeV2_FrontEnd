@@ -6,6 +6,7 @@ import validator from 'validator';
 import classNames from 'classnames';
 import config from '../../../../config';
 
+const params = new URLSearchParams(location.search);
 const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 export default class Login extends PureComponent {
   constructor() {
@@ -22,6 +23,7 @@ export default class Login extends PureComponent {
       passwordValue: '',
       userExisted: true,
       emailValue: '',
+      loginEmailState: params.get('email'),
     };
   }
   onSubmit = (e) => {
@@ -58,6 +60,7 @@ export default class Login extends PureComponent {
       passwordValue,
       userExisted,
       emailValue,
+      loginEmailState,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -86,6 +89,7 @@ export default class Login extends PureComponent {
                     className="Signup-removeOutline"
                     type="text"
                     placeholder="Email"
+                    value={loginEmailState}
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
                     onBlur={(e) => {
@@ -102,7 +106,10 @@ export default class Login extends PureComponent {
                       }
                       this.setState({ emailValue: e.target.value });
                     }}
-                    onChange={(e) => this.setState({ showEmailAnimation: e.target.value !== '' })}
+                    onChange={(e) => this.setState({
+                      showEmailAnimation: e.target.value !== '',
+                      loginEmailState: e.target.value,
+                    })}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
                   { isEmail && userExisted &&
