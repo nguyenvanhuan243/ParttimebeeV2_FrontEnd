@@ -12,17 +12,17 @@ export default class Login extends PureComponent {
   constructor() {
     super();
     this.state = {
-      success: false,
+      emailValue: '',
+      passwordValue: '',
       danger: false,
       isEmail: true,
+      success: false,
+      isPassword: true,
+      userExisted: true,
       focusEmail: false,
+      shakeEffect: false,
       focusPassword: false,
       showEmailAnimation: false,
-      isPassword: true,
-      shakeEffect: false,
-      passwordValue: '',
-      userExisted: true,
-      emailValue: '',
       loginEmailState: params.get('email'),
     };
   }
@@ -45,25 +45,19 @@ export default class Login extends PureComponent {
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
-  handleOnchangePassword(e) {
-    this.setState({
-      passwordValue: e.target.value,
-      showPasswordAnimation: e.target.value !== '',
-    });
-  }
   render() {
     const {
       isEmail,
       focusEmail,
-      focusPassword,
-      showEmailAnimation,
-      showPasswordAnimation,
       isPassword,
       shakeEffect,
-      passwordValue,
       userExisted,
       emailValue,
+      passwordValue,
+      focusPassword,
       loginEmailState,
+      showEmailAnimation,
+      showPasswordAnimation,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -110,7 +104,7 @@ export default class Login extends PureComponent {
                       this.setState({ emailValue: e.target.value });
                     }}
                     onChange={(e) => this.setState({
-                      showEmailAnimation: e.target.value !== '',
+                      showEmailAnimation: e.target.value,
                       loginEmailState: e.target.value,
                     })}
                   />
@@ -133,7 +127,10 @@ export default class Login extends PureComponent {
                     ref={(ref) => (this.password = ref)}
                     onFocus={() => this.setState({ focusPassword: true })}
                     onBlur={() => this.setState({ focusPassword: false })}
-                    onChange={(e) => this.handleOnchangePassword(e)}
+                    onChange={(e) => this.setState({
+                      passwordValue: e.target.value,
+                      showPasswordAnimation: e.target.value,
+                    })}
                   />
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
