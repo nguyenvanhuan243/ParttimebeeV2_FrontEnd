@@ -187,7 +187,7 @@ export default class Signup extends PureComponent {
           </div>
           <div className="Signup-validateContainer">
             <span className="Signup-emailValidate">
-              { focusEmail ? 'We’ll send an email to this address for verification.' : null }
+              { focusEmail && !userExisted ? 'We’ll send an email to this address for verification.' : null }
             </span>
             <span className="Signup-passwordValidate">
               { focusPassword && 'Type 6 characters or more.' }
