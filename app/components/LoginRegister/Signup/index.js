@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import axios from 'axios';
 import config from '../../../../config';
 
+const WAIT_INTERVAL = 1500;
 const params = new URLSearchParams(location.search);
 export default class Signup extends PureComponent {
   constructor() {
@@ -22,8 +23,12 @@ export default class Signup extends PureComponent {
       shakeEffect: false,
       passwordValue: '',
       isEmail: true,
+      timeOut: () => {},
       registerEmailState: params.get('email'),
     };
+  }
+  componentWillMount() {
+    this.timer = null;
   }
   onSubmit = (e) => {
     const email = this.email.value;
@@ -48,10 +53,12 @@ export default class Signup extends PureComponent {
     this.setState({ focusEmail: false, showEmailAnimation: e.target.value });
   }
   handleOnchangeEmail(e) {
+    const { timeOut } = this.state;
+    clearTimeout(timeOut);
     const value = e.target.value;
     this.setState({
-      showEmailAnimation: !(value === ''),
-      isEmail: validator.isEmail(value),
+      showEmailAnimation: value,
+      timeOut: setTimeout(() => this.setState({ isEmail: validator.isEmail(value) }), WAIT_INTERVAL),
     });
   }
   handleOnBlurPassword(e) {
