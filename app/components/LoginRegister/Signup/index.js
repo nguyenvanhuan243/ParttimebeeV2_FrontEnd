@@ -85,6 +85,7 @@ export default class Signup extends PureComponent {
     const {
       success,
       danger,
+      isEmail,
       focusEmail,
       userExisted,
       focusPassword,
@@ -137,17 +138,15 @@ export default class Signup extends PureComponent {
                       this.setState({ registerEmailState: e.target.value });
                     }}
                   />
-                  { !this.state.isEmail && <div className="Signup-invalidEmail">
+                  { !isEmail &&
+                  <div className="Signup-invalidEmail">
                     <InvalidEmail />
-                    <span className="Signup-invalidEmailText">
-                      Invalid Email :(
-                    </span>
+                    <span className="Signup-invalidEmailText">Invalid Email :(</span>
                   </div> }
-                  { !userExisted && this.state.isEmail && <div className="Signup-looksGoodEmail">
+                  { !userExisted && isEmail &&
+                  <div className="Signup-looksGoodEmail">
                     <TickIcon />
-                    <span className="Signup-looksGoodText">
-                      looks good!
-                    </span>
+                    <span className="Signup-looksGoodText">looks good!</span>
                   </div> }
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div
