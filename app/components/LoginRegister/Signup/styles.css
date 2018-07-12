@@ -219,7 +219,7 @@ input.Signup-removeOutline {
 .Signup-invalidEmail {
   position: absolute;
   margin-top: -25px;
-  margin-left: 300px;
+  margin-left: 305px;
 }
 
 .Signup-invalidEmailText {

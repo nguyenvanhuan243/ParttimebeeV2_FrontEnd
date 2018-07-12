@@ -152,7 +152,7 @@ export default class Signup extends PureComponent {
                   { !this.state.isEmail && <div className="Signup-invalidEmail">
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">
-                      Invalid Email
+                      Invalid Email :(
                     </span>
                   </div> }
                   <label htmlFor className={emailAnimation}>Email</label>
