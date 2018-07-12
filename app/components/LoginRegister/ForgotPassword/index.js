@@ -7,13 +7,15 @@ import validator from 'validator';
 import config from '../../../../config';
 
 const params = new URLSearchParams(location.search);
+const isChangePassword = location.pathname.includes('change-password');
+const hasChangePasswordRoute = location.pathname.includes('change-password');
 export default class ForgotPassword extends PureComponent {
   constructor() {
     super();
     this.state = {
+      isEmail: true,
       userExisted: true,
       isPassword: true,
-      isEmail: true,
       passwordValue: '',
       focusEmail: false,
       shakeEffect: false,
@@ -23,7 +25,6 @@ export default class ForgotPassword extends PureComponent {
     };
   }
   onSubmit = (e) => {
-    const hasChangePasswordRoute = location.pathname.includes('change-password');
     if (hasChangePasswordRoute) {
       this.setState({ changePasswordIsClicked: true });
       e.preventDefault();
@@ -44,28 +45,27 @@ export default class ForgotPassword extends PureComponent {
     }
   }
   handleOnchangeEmail(e) {
-    if (!e.target.value) {
-      this.setState({
-        shakeEffect: !this.state.shakeEffect,
-      });
-    }
-    this.setState({ showEmailAnimation: !(e.target.value === '') });
+    this.setState({
+      shakeEffect: !e.target.value,
+      showEmailAnimation: e.target.value !== '',
+    });
   }
   handleOnchangePassword(e) {
-    this.setState({ passwordValue: e.target.value });
-    this.setState({ showPasswordAnimation: !(e.target.value === '') });
+    this.setState({
+      passwordValue: e.target.value,
+      showPasswordAnimation: e.target.value !== '',
+    });
   }
   render() {
-    const isChangePassword = location.pathname.includes('change-password');
     const {
       isEmail,
       focusEmail,
-      userExisted,
-      showEmailAnimation,
-      shakeEffect,
       isPassword,
-      showPasswordAnimation,
+      userExisted,
+      shakeEffect,
       focusPassword,
+      showEmailAnimation,
+      showPasswordAnimation,
       changePasswordIsClicked,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
@@ -104,9 +104,7 @@ export default class ForgotPassword extends PureComponent {
                         axios.post(url, { email: e.target.value }).then((response) => {
                           this.setState({ userExisted: response.data.success });
                         });
-                        this.setState({
-                          isEmail: validator.isEmail(e.target.value),
-                        });
+                        this.setState({ isEmail: validator.isEmail(e.target.value) });
                       }}
                       onChange={(e) => this.handleOnchangeEmail(e)}
                     />
