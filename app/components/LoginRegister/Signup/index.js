@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
-import axios from 'axios';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 import { Alert } from 'reactstrap';
 import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
 import validator from 'validator';
 import classNames from 'classnames';
+import axios from 'axios';
 import config from '../../../../config';
 
 const params = new URLSearchParams(location.search);
@@ -37,58 +37,34 @@ export default class Signup extends PureComponent {
           localStorage.setItem('currentUser', response.data.id);
         }
       }).catch((error) => {
-        if (error.status === 422) {
-          this.setState({ danger: true });
-        }
+        this.setState({ danger: error.status === 422 });
       });
     }
-    if (!email && !password) {
-      this.setState({
-        shakeEffect: !this.state.shakeEffect,
-      });
+    if ((!email && !password) || password.length < 6) {
+      this.setState({ shakeEffect: !this.state.shakeEffect });
     }
   }
   handleOnBlurEmail(e) {
-    this.setState({
-      focusEmail: false,
-    });
-    if (!e.target.value) {
-      this.setState({
-        showEmailAnimation: false,
-      });
-    }
+    this.setState({ focusEmail: false, showEmailAnimation: e.target.value });
   }
   handleOnchangeEmail(e) {
-    if (e.target.value === '') {
-      this.setState({ showEmailAnimation: false });
-    } else {
-      this.setState({ showEmailAnimation: true });
-    }
-    if (!validator.isEmail(e.target.value)) {
-      this.setState({ isEmail: false });
-    } else {
-      this.setState({ isEmail: true });
-    }
+    const value = e.target.value;
+    this.setState({
+      showEmailAnimation: !(value === ''),
+      isEmail: validator.isEmail(value),
+    });
   }
   handleOnBlurPassword(e) {
     this.setState({
       focusPassword: false,
+      showPasswordAnimation: e.target.value,
     });
-    if (!e.target.value) {
-      this.setState({
-        showPasswordAnimation: false,
-      });
-    }
   }
   handleOnchangePassword(e) {
     this.setState({
       passwordValue: e.target.value,
+      showPasswordAnimation: !(e.target.value === ''),
     });
-    if (e.target.value === '') {
-      this.setState({ showPasswordAnimation: false });
-    } else {
-      this.setState({ showPasswordAnimation: true });
-    }
   }
   render() {
     const {
@@ -144,9 +120,7 @@ export default class Signup extends PureComponent {
                     onBlur={(e) => this.handleOnBlurEmail(e)}
                     onChange={(e) => {
                       this.handleOnchangeEmail(e);
-                      this.setState({
-                        registerEmailState: e.target.value,
-                      });
+                      this.setState({ registerEmailState: e.target.value });
                     }}
                   />
                   { !this.state.isEmail && <div className="Signup-invalidEmail">
@@ -200,7 +174,7 @@ export default class Signup extends PureComponent {
               { focusEmail ? 'We’ll send an email to this address for verification.' : null }
             </span>
             <span className="Signup-passwordValidate">
-              { focusPassword ? 'Type 6 characters or more.' : null }
+              { focusPassword && 'Type 6 characters or more.' }
               { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
             </span>
           </div>
