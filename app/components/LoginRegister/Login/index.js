@@ -19,7 +19,6 @@ export default class Login extends PureComponent {
       shakeEffect: false,
       passwordValue: '',
       userExisted: true,
-      // userEmailNotFound: '',
     };
   }
   onSubmit = (e) => {
@@ -54,7 +53,6 @@ export default class Login extends PureComponent {
       shakeEffect,
       passwordValue,
       userExisted,
-      // userEmailNotFound,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -92,10 +90,7 @@ export default class Login extends PureComponent {
                         this.setState({ userExisted: response.data.success && true });
                       });
                     }}
-                    onChange={(e) => {
-                      this.setState({ showEmailAnimation: e.target.value !== '' });
-                      /* this.setState({ userEmailNotFound: this.email.value }); */
-                    }}
+                    onChange={(e) => this.setState({ showEmailAnimation: e.target.value !== '' })}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
                   <div
