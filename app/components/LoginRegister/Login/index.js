@@ -105,10 +105,12 @@ export default class Login extends PureComponent {
                     onChange={(e) => this.setState({ showEmailAnimation: e.target.value !== '' })}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
-                  <div
-                    style={{ backgroundColor: focusEmail ? '#ffaa00' : '#e8e8e8' }}
-                    className="Signup-separate"
-                  />
+                  { isEmail ?
+                    <div
+                      style={{ backgroundColor: focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                      className="Signup-separate"
+                    /> : <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />
+                  }
                 </div>
                 <div>
                   <input
