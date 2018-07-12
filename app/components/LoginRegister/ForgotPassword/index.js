@@ -33,12 +33,12 @@ export default class ForgotPassword extends PureComponent {
       });
     } else {
       const email = this.email.value;
+      const { userExisted } = this.state;
       e.preventDefault();
-      axios.post(`${config.API_BASE_URL}/users/reset-password`, { email });
-      if (email) {
+      if (validator.isEmail(email) && userExisted) {
+        axios.post(`${config.API_BASE_URL}/users/reset-password`, { email });
         location.replace(`${config.BASE_URL}/user/forgot-password-incoming`);
-      }
-      if (!email) {
+      } else {
         this.setState({ shakeEffect: !this.state.shakeEffect });
       }
     }
@@ -94,7 +94,7 @@ export default class ForgotPassword extends PureComponent {
                   <div className="Signup-emailContainer">
                     <input
                       className="Signup-removeOutline"
-                      type="email"
+                      type="text"
                       placeholder="Email"
                       ref={(ref) => (this.email = ref)}
                       onFocus={() => this.setState({ focusEmail: true })}
