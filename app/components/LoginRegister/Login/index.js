@@ -36,7 +36,7 @@ export default class Login extends PureComponent {
     }).catch((error) => {
       this.setState({ danger: error.response.status === 422 });
     });
-    if (!email && !password) {
+    if (!email || !password) {
       this.setState({ shakeEffect: !this.state.shakeEffect });
     }
   }
