@@ -21,6 +21,7 @@ export default class Login extends PureComponent {
       shakeEffect: false,
       passwordValue: '',
       userExisted: true,
+      emailValue: '',
     };
   }
   onSubmit = (e) => {
@@ -56,6 +57,7 @@ export default class Login extends PureComponent {
       shakeEffect,
       passwordValue,
       userExisted,
+      emailValue,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -98,6 +100,7 @@ export default class Login extends PureComponent {
                         });
                         this.setState({ isEmail: true });
                       }
+                      this.setState({ emailValue: e.target.value });
                     }}
                     onChange={(e) => this.setState({ showEmailAnimation: e.target.value !== '' })}
                   />
@@ -139,7 +142,7 @@ export default class Login extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            { !isEmail && <span className="Signup-emailValidate" style={{ marginTop: '10px' }}>This is not a valid email address.</span> }
+            { !isEmail && emailValue.length > 0 && <span className="Signup-emailValidate" style={{ marginTop: '10px' }}>This is not a valid email address.</span> }
             { !userExisted && isEmail &&
               <span className="Signup-emailValidate">
                 There is no user with that email. You can<a
