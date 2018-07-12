@@ -44,18 +44,7 @@ export default class ForgotPassword extends PureComponent {
       }
     }
   }
-  handleOnchangeEmail(e) {
-    this.setState({
-      shakeEffect: !e.target.value,
-      showEmailAnimation: e.target.value !== '',
-    });
-  }
-  handleOnchangePassword(e) {
-    this.setState({
-      passwordValue: e.target.value,
-      showPasswordAnimation: e.target.value !== '',
-    });
-  }
+
   render() {
     const {
       isEmail,
@@ -76,9 +65,7 @@ export default class ForgotPassword extends PureComponent {
       'Signup-inputAnimation': showPasswordAnimation,
       'Signup-animationColor': focusPassword,
     });
-    const signUpClassname = classNames('Signup-inputCustom', {
-      'Signup-effectShake': shakeEffect,
-    });
+    const signUpClassname = classNames('Signup-inputCustom', { 'Signup-effectShake': shakeEffect });
     const changePasswordText = changePasswordIsClicked ? 'Password Updated' : 'Change Password';
     return (
       <div className="ForgotPassword">
@@ -106,7 +93,7 @@ export default class ForgotPassword extends PureComponent {
                         });
                         this.setState({ isEmail: validator.isEmail(e.target.value) });
                       }}
-                      onChange={(e) => this.handleOnchangeEmail(e)}
+                      onChange={(e) => this.setState({ shakeEffect: !e.target.value, showEmailAnimation: e.target.value })}
                     />
                     <label htmlFor className={emailAnimation}>Email</label>
                     <div
@@ -123,7 +110,7 @@ export default class ForgotPassword extends PureComponent {
                         ref={(ref) => (this.password = ref)}
                         onFocus={() => this.setState({ focusPassword: true })}
                         onBlur={() => this.setState({ focusPassword: false })}
-                        onChange={(e) => this.handleOnchangePassword(e)}
+                        onChange={(e) => this.setState({ passwordValue: e.target.value, showPasswordAnimation: e.target.value })}
                       /> }
                     <div className="Signup-showPasswordIcon">
                       <PasswordIcon
