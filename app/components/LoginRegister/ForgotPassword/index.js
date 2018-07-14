@@ -14,6 +14,7 @@ export default class ForgotPassword extends PureComponent {
     super();
     this.state = {
       isEmail: true,
+      emailValue: '',
       userExisted: true,
       isPassword: true,
       passwordValue: '',
@@ -93,7 +94,11 @@ export default class ForgotPassword extends PureComponent {
                         });
                         this.setState({ isEmail: validator.isEmail(e.target.value) });
                       }}
-                      onChange={(e) => this.setState({ shakeEffect: !e.target.value, showEmailAnimation: e.target.value })}
+                      onChange={(e) => this.setState({
+                        shakeEffect: !e.target.value,
+                        showEmailAnimation: e.target.value,
+                        emailValue: e.target.value,
+                      })}
                     />
                     <label htmlFor className={emailAnimation}>Email</label>
                     <div
@@ -138,7 +143,7 @@ export default class ForgotPassword extends PureComponent {
           <div className="Signup-validateContainer">
             <span className="Signup-emailValidate">
               { !userExisted && isEmail && 'This email is not found in our system. Please enter again.' }
-              { !isEmail && 'Please make sure you enter your email correctly!' }
+              { !isEmail && this.state.emailValue.length > 0 && 'Please make sure you enter your email correctly!' }
             </span>
           </div>
         </div>
