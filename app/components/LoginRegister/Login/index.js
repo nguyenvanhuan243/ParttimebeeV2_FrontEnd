@@ -174,7 +174,7 @@ export default class Login extends PureComponent {
         </div>
         <div className="Login-passwordContainer">
           <a className="Login-forgotPassword" href={`${config.BASE_URL}/user/forgot-password`}>
-            <div style={{ minWidth: '104px', fontSize: '13px' }}>
+            <div style={{ minWidth: '105px', fontSize: '13px' }}>
               Forgor password?
             </div>
           </a>

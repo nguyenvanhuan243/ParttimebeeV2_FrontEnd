@@ -2,7 +2,6 @@
   width: 1388px;
   padding-top: 50px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .Login-dashlineIcon {
@@ -48,6 +47,7 @@
   margin-left: 520px;
   margin-top: 16px;
   display: flex;
+  width: 400px;
 }
 
 .Login-inputPassContainer {
@@ -73,9 +73,8 @@
   font-stretch: normal;
   line-height: 1.54;
   letter-spacing: normal;
-  text-align: right;
   color: #999999;
-  margin-left: 94px;
+  margin-left: 90px;
   padding-top: 4px;
   padding-bottom: 3px;
 }
