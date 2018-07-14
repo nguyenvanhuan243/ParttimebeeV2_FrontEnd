@@ -9,6 +9,7 @@
 }
 
 .Login-title {
+  width: 400px;
   height: 32px;
   font-size: 20px;
   font-weight: normal;
@@ -16,10 +17,10 @@
   font-stretch: normal;
   line-height: 1.6;
   letter-spacing: normal;
-  text-align: center;
+  /* text-align: center; */
   color: #000000;
   margin-top: 48px;
-  margin-left: 40px;
+  margin-left: 592px;
 }
 
 .Login-abstract {
@@ -44,7 +45,7 @@
 }
 
 .Login-passwordContainer {
-  margin-left: 520px;
+  margin-left: 494px;
   margin-top: 16px;
   display: flex;
   width: 400px;
