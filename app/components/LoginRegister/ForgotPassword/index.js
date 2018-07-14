@@ -53,6 +53,7 @@ export default class ForgotPassword extends PureComponent {
       isPassword,
       userExisted,
       shakeEffect,
+      emailValue,
       focusPassword,
       showEmailAnimation,
       showPasswordAnimation,
@@ -143,7 +144,7 @@ export default class ForgotPassword extends PureComponent {
           <div className="Signup-validateContainer">
             <span className="Signup-emailValidate">
               { !userExisted && isEmail && 'This email is not found in our system. Please enter again.' }
-              { !isEmail && this.state.emailValue.length > 0 && 'Please make sure you enter your email correctly!' }
+              { !isEmail && emailValue.length > 0 && 'Please make sure you enter your email correctly!' }
             </span>
           </div>
         </div>
