@@ -173,11 +173,11 @@ export default class Login extends PureComponent {
           </div>
         </div>
         <div className="Login-passwordContainer">
-          <div>
-            <a className="Login-forgotPassword" href={`${config.BASE_URL}/user/forgot-password`}>
+          <a className="Login-forgotPassword" href={`${config.BASE_URL}/user/forgot-password`}>
+            <div style={{ minWidth: '104px', fontSize: '13px' }}>
               Forgor password?
-            </a>
-          </div>
+            </div>
+          </a>
           <div className={loginHaveAccountClassNames}>
             Don’t have an account? <a className="Login-getStarted" href={`${config.BASE_URL}/user/signup`}>Get started</a>
           </div>
