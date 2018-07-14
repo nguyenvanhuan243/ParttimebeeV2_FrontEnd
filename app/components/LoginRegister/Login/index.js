@@ -156,7 +156,7 @@ export default class Login extends PureComponent {
           </div>
           <div className="Signup-validateContainer">
             <div className="Signup-emailValidate">
-              { !isEmail && emailValue.length > 0 && <span style={{ marginTop: '10px' }}>This is not a valid email address.</span> }
+              { !isEmail && emailValue.length > 0 && <div style={{ marginTop: '15px' }}>This is not a valid email address.</div> }
               { !userExisted && isEmail &&
                 <span>
                   There is no user with that email. You can<a
