@@ -22,6 +22,7 @@ export default class Login extends PureComponent {
       focusEmail: false,
       shakeEffect: false,
       focusPassword: false,
+      disposableEmail: false,
       showEmailAnimation: false,
       loginEmailState: params.get('email'),
     };
@@ -55,6 +56,7 @@ export default class Login extends PureComponent {
       emailValue,
       passwordValue,
       focusPassword,
+      disposableEmail,
       loginEmailState,
       showEmailAnimation,
       showPasswordAnimation,
@@ -101,6 +103,10 @@ export default class Login extends PureComponent {
                         });
                         this.setState({ isEmail: true });
                       }
+                      const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
+                      axios.post(disposableUrl, { email: e.target.value }).then((response) => {
+                        this.setState({ disposableEmail: response.data.success });
+                      });
                       this.setState({ emailValue: e.target.value });
                     }}
                     onChange={(e) => this.setState({
@@ -156,8 +162,8 @@ export default class Login extends PureComponent {
           </div>
           <div className="Signup-validateContainer">
             <div className="Signup-emailValidate">
-              { !isEmail && emailValue.length > 0 && <div style={{ marginTop: '15px' }}>This is not a valid email address.</div> }
-              { !userExisted && isEmail &&
+              { ((!isEmail && emailValue.length > 0) || disposableEmail) && <div style={{ marginTop: '15px' }}>This is not a valid email address.</div> }
+              { !userExisted && isEmail && !disposableEmail &&
                 <span>
                   There is no user with that email. You can<a
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
