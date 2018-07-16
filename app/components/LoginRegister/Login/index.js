@@ -30,9 +30,10 @@ export default class Login extends PureComponent {
   onSubmit = (e) => {
     const email = this.email.value;
     const password = this.password.value;
+    const { disposableEmail } = this.state;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
-    if (validator.isEmail(email) && password.length >= 6) {
+    if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
       axios.post(url).then((response) => {
         this.setState({ success: response === 201 });
         localStorage.setItem('currentUser', response.data.user.id);
@@ -105,7 +106,10 @@ export default class Login extends PureComponent {
                       }
                       const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
                       axios.post(disposableUrl, { email: e.target.value }).then((response) => {
-                        this.setState({ disposableEmail: response.data.success });
+                        this.setState({
+                          disposableEmail: response.data.success,
+                          shakeEffect: true,
+                        });
                       });
                       this.setState({ emailValue: e.target.value });
                     }}
@@ -115,13 +119,13 @@ export default class Login extends PureComponent {
                     })}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
-                  { isEmail && userExisted &&
+                  { isEmail && userExisted && !disposableEmail &&
                     <div
                       style={{ backgroundColor: focusEmail ? '#ffaa00' : '#e8e8e8' }}
                       className="Signup-separate"
                     />
                   }
-                  { (!isEmail || !userExisted) &&
+                  { ((!isEmail || !userExisted) || disposableEmail) &&
                     <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />
                   }
                 </div>
