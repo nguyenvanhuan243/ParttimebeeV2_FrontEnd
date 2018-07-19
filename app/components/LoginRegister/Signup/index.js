@@ -22,6 +22,7 @@ export default class Signup extends PureComponent {
       showEmailAnimation: false,
       isPassword: true,
       shakeEffect: false,
+      emailValue: '',
       passwordValue: '',
       isEmail: true,
       userExisted: true,
@@ -51,7 +52,11 @@ export default class Signup extends PureComponent {
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
   handleOnBlurEmail(e) {
-    this.setState({ focusEmail: false, showEmailAnimation: e.target.value });
+    this.setState({
+      focusEmail: false,
+      showEmailAnimation: e.target.value,
+      emailValue: e.target.value,
+    });
   }
   handleOnchangeEmail(e) {
     const { timeOut } = this.state;
@@ -92,6 +97,7 @@ export default class Signup extends PureComponent {
       showPasswordAnimation,
       isPassword,
       shakeEffect,
+      emailValue,
       passwordValue,
       registerEmailState,
     } = this.state;
@@ -137,7 +143,7 @@ export default class Signup extends PureComponent {
                       this.setState({ registerEmailState: e.target.value });
                     }}
                   />
-                  { !isEmail &&
+                  { !isEmail && emailValue.length > 0 &&
                   <div className="Signup-invalidEmail">
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">Invalid Email :(</span>
