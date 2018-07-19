@@ -33,7 +33,7 @@ export default class Signup extends PureComponent {
   onSubmit = (e) => {
     const email = this.email.value;
     const password = this.password.value;
-    const { userExisted } = this.state;
+    const { userExisted, isEmail } = this.state;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
     if (validator.isEmail(email) && password.length >= 6) {
@@ -46,7 +46,7 @@ export default class Signup extends PureComponent {
         this.setState({ danger: error.status === 422 });
       });
     }
-    if (!email || !password || password.length < 6 || userExisted) {
+    if (!email || !password || password.length < 6 || userExisted || !isEmail) {
       this.setState({ shakeEffect: true });
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
