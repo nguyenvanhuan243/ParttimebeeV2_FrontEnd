@@ -148,7 +148,7 @@ export default class Signup extends PureComponent {
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">Invalid Email :(</span>
                   </div> }
-                  { isEmail && userExisted &&
+                  { isEmail && userExisted && emailValue.length > 0 &&
                   <div className="Signup-registeredEmail">
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">is registered</span>
@@ -196,7 +196,7 @@ export default class Signup extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            { userExisted && isEmail &&
+            { userExisted && isEmail && emailValue.length > 0 &&
               <div className="Signup-emailValidate">
                 <span>
                   Looks like you already have an account. You can<a
