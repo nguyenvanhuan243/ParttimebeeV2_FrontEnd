@@ -146,7 +146,7 @@ export default class Signup extends PureComponent {
                   { !isEmail && emailValue.length > 0 &&
                   <div className="Signup-invalidEmail">
                     <InvalidEmail />
-                    <span className="Signup-invalidEmailText">Invalid Email :(</span>
+                    <span className="Signup-invalidEmailText">Invalid email :(</span>
                   </div> }
                   { isEmail && userExisted && emailValue.length > 0 &&
                   <div className="Signup-registeredEmail">
