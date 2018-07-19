@@ -9,7 +9,7 @@ import TickIcon from 'components/Icons/TickIcon/Loadable';
 import axios from 'axios';
 import config from '../../../../config';
 
-const WAIT_INTERVAL = 1500;
+const WAIT_INTERVAL = 500;
 const params = new URLSearchParams(location.search);
 export default class Signup extends PureComponent {
   constructor() {
