@@ -140,6 +140,7 @@ a.Signup-loginHereHref {
   height: 40px;
   border-radius: 3px;
   background-color: #ffaa00;
+  outline: none !important;
 }
 
 button.Signup-button {
