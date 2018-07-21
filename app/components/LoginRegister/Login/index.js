@@ -70,20 +70,20 @@ export default class Login extends PureComponent {
       'Signup-inputAnimation': showPasswordAnimation,
       'Signup-animationColor': focusPassword,
     });
-    const signUpClassNames = classNames('Signup-inputCustom', {
-      'Signup-effectShake': shakeEffect,
-    });
     const loginHaveAccountClassNames = classNames('Login-haveAccount', {
       'Login-haveAccountMacOs': isMac,
+    });
+    const loginFormClassNames = classNames('Login-form', {
+      'Signup-effectShake': shakeEffect,
     });
     return (
       <div className="Login">
         <DashlineIcon />
         <div className="Login-title"> Great to see you again! </div>
-        <div className="Login-form">
+        <div className={loginFormClassNames}>
           <div className="Login-container">
             <form onSubmit={this.onSubmit}>
-              <div className={signUpClassNames}>
+              <div className="Signup-inputCustom">
                 <div className="Signup-emailContainer">
                   <input
                     className="Signup-removeOutline"
