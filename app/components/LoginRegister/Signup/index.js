@@ -159,10 +159,12 @@ export default class Signup extends PureComponent {
                     <span className="Signup-looksGoodText">looks good!</span>
                   </div> }
                   <label htmlFor className={emailAnimation}>Email</label>
-                  { isEmail ? <div
-                    style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
-                    className="Signup-separate"
-                  /> : <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />
+                  { !isEmail || (isEmail && userExisted) ?
+                    <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" /> :
+                    <div
+                      style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                      className="Signup-separate"
+                    />
                   }
                 </div>
                 <div>
