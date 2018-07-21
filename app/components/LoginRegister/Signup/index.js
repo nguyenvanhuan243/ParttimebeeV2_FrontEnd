@@ -208,11 +208,11 @@ export default class Signup extends PureComponent {
               </div>
             }
             <span className="Signup-emailValidate">
-              { focusEmail && !userExisted ? 'We’ll send an email to this address for verification.' : null }
+              { focusEmail && !userExisted && 'We’ll send an email to this address for verification.' }
             </span>
             <span className="Signup-passwordValidate">
-              { focusPassword && 'Type 6 characters or more.' }
-              { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
+              { (focusPassword || (!focusPassword && passwordValue.length < 6 && passwordValue.length > 0)) &&
+                'Type 6 characters or more.' }
             </span>
           </div>
         </div>
