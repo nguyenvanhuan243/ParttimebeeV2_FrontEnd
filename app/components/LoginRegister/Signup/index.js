@@ -109,7 +109,7 @@ export default class Signup extends PureComponent {
       'Signup-inputAnimation': showPasswordAnimation,
       'Signup-animationColor': focusPassword,
     });
-    const signUpClassname = classNames('Signup-inputCustom', {
+    const signupFormClassNames = classNames('Signup-form', {
       'Signup-effectShake': shakeEffect,
     });
 
@@ -118,7 +118,7 @@ export default class Signup extends PureComponent {
         <DashlineIcon />
         <div className="Signup-title"> Start posting jobs on Parttime Bee! </div>
         <div className="Signup-abstract"> It’s Free! </div>
-        <div className="Signup-form">
+        <div className={signupFormClassNames}>
           <div>
             { success &&
               <Alert color="success">
@@ -128,7 +128,7 @@ export default class Signup extends PureComponent {
               This email is used by a other user, Please use email has not been registered!
             </Alert> }
             <form onSubmit={this.onSubmit}>
-              <div className={signUpClassname}>
+              <div className="Signup-inputCustom">
                 <div className="Signup-emailContainer">
                   <input
                     className="Signup-removeOutline"
