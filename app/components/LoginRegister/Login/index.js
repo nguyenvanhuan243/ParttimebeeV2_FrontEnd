@@ -30,7 +30,7 @@ export default class Login extends PureComponent {
   onSubmit = (e) => {
     const email = this.email.value;
     const password = this.password.value;
-    const { disposableEmail } = this.state;
+    const { disposableEmail, userExisted } = this.state;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
     if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
@@ -42,7 +42,7 @@ export default class Login extends PureComponent {
         this.setState({ danger: error.response.status === 422 });
       });
     }
-    if (!email || !password || !this.state.userExisted || password.length < 6) {
+    if (!email || !password || !userExisted || password.length < 6) {
       this.setState({ shakeEffect: true });
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
@@ -93,9 +93,8 @@ export default class Login extends PureComponent {
                     ref={(ref) => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
                     onBlur={(e) => {
-                      this.setState({ focusEmail: false });
-                      const email = e.target.value;
-                      if (!validator.isEmail(email)) {
+                      this.setState({ focusEmail: false, emailValue: e.target.value });
+                      if (!validator.isEmail(e.target.value)) {
                         this.setState({ isEmail: false });
                       } else {
                         const url = `${config.API_BASE_URL}/users/check-user-exist`;
@@ -106,12 +105,8 @@ export default class Login extends PureComponent {
                       }
                       const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
                       axios.post(disposableUrl, { email: e.target.value }).then((response) => {
-                        this.setState({
-                          disposableEmail: response.data.success,
-                          shakeEffect: true,
-                        });
+                        this.setState({ disposableEmail: response.data.success });
                       });
-                      this.setState({ emailValue: e.target.value });
                     }}
                     onChange={(e) => this.setState({
                       showEmailAnimation: e.target.value,
