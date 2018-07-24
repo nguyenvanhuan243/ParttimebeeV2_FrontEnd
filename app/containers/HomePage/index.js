@@ -34,12 +34,7 @@ export default class HomePage extends PureComponent {
   componentWillMount() {
     localStorage.setItem('selectedStateItem', '');
     const queryString = params.get('search');
-    let url = '';
-    if (queryString) {
-      url = `${config.API_BASE_URL}/searches?search=${queryString}`;
-    } else {
-      url = `${config.API_BASE_URL}/jobs`;
-    }
+    const url = `${config.API_BASE_URL}/${queryString ? `searches?search=${queryString}` : 'jobs'}`;
     axios.get(url).then(
       (response) => {
         this.setState({ dataArray: response.data });
