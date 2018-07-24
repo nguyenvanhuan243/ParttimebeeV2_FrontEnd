@@ -18,135 +18,30 @@ import PerlisIcon from 'components/Icons/State/Perlis/Loadable';
 import PenangIcon from 'components/Icons/State/Penang/Loadable';
 import TerengganuIcon from 'components/Icons/State/Terengganu/Loadable';
 import SabahIcon from 'components/Icons/State/Sabah/Loadable';
+import { take } from 'lodash';
+
+const limit = [
+  { text: 'Kuala Lumpur', iconType: <KualaLumpurIcon /> },
+  { text: 'Selangor', iconType: <SelangorIcon /> },
+  { text: 'Johor', iconType: <JohorIcon /> },
+  { text: 'Melaka', iconType: <MelakaIcon /> },
+  { text: 'Negeri', iconType: <NegeriIcon /> },
+  { text: 'Putrajaya', iconType: <PutrajayaIcon /> },
+  { text: 'Kedah', iconType: <KedahIcon /> },
+  { text: 'Kelantan', iconType: <KelantanIcon /> },
+  { text: 'Pahang', iconType: <PahangIcon /> },
+  { text: 'Labuan', iconType: <LabuanIcon /> },
+  { text: 'Perak', iconType: <PerakIcon /> },
+  { text: 'Perlis', iconType: <PerlisIcon /> },
+  { text: 'Penang', iconType: <PenangIcon /> },
+  { text: 'Terengganu', iconType: <TerengganuIcon /> },
+  { text: 'Sabah', iconType: <SabahIcon /> },
+  { text: 'Sarawak', iconType: <SarawakIcon /> },
+];
 export default class StateList extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      limit: [
-        {
-          text: 'Kuala Lumpur',
-          iconType: <KualaLumpurIcon />,
-        },
-        {
-          text: 'Selangor',
-          iconType: <SelangorIcon />,
-        },
-        {
-          text: 'Johor',
-          iconType: <JohorIcon />,
-        },
-        {
-          text: 'Melaka',
-          iconType: <MelakaIcon />,
-        },
-        {
-          text: 'Negeri',
-          iconType: <NegeriIcon />,
-        },
-      ],
-      showMore: false,
-      selectedInput: '',
-    };
-  }
-  handleShowMore() {
-    const { showMore } = this.state;
-    if (showMore) {
-      this.setState({
-        limit: [
-          {
-            text: 'Kuala Lumpur',
-            iconType: <KualaLumpurIcon />,
-          },
-          {
-            text: 'Selangor',
-            iconType: <SelangorIcon />,
-          },
-          {
-            text: 'Johor',
-            iconType: <JohorIcon />,
-          },
-          {
-            text: 'Melaka',
-            iconType: <MelakaIcon />,
-          },
-          {
-            text: 'Negeri',
-            iconType: <NegeriIcon />,
-          },
-        ],
-        showMore: !this.state.showMore,
-      });
-    } else {
-      this.setState({
-        limit: [
-          {
-            text: 'Kuala Lumpur',
-            iconType: <KualaLumpurIcon />,
-          },
-          {
-            text: 'Selangor',
-            iconType: <SelangorIcon />,
-          },
-          {
-            text: 'Johor',
-            iconType: <JohorIcon />,
-          },
-          {
-            text: 'Melaka',
-            iconType: <MelakaIcon />,
-          },
-          {
-            text: 'Negeri',
-            iconType: <NegeriIcon />,
-          },
-          {
-            text: 'Putrajaya',
-            iconType: <PutrajayaIcon />,
-          },
-          {
-            text: 'Kedah',
-            iconType: <KedahIcon />,
-          },
-          {
-            text: 'Kelantan',
-            iconType: <KelantanIcon />,
-          },
-          {
-            text: 'Pahang',
-            iconType: <PahangIcon />,
-          },
-          {
-            text: 'Labuan',
-            iconType: <LabuanIcon />,
-          },
-          {
-            text: 'Perak',
-            iconType: <PerakIcon />,
-          },
-          {
-            text: 'Perlis',
-            iconType: <PerlisIcon />,
-          },
-          {
-            text: 'Penang',
-            iconType: <PenangIcon />,
-          },
-          {
-            text: 'Terengganu',
-            iconType: <TerengganuIcon />,
-          },
-          {
-            text: 'Sabah',
-            iconType: <SabahIcon />,
-          },
-          {
-            text: 'Sarawak',
-            iconType: <SarawakIcon />,
-          },
-        ],
-        showMore: !this.state.showMore,
-      });
-    }
+    this.state = { showMore: false, selectedInput: '' };
   }
   handleSelectedInput(text) {
     localStorage.setItem('selectedStateItem', text);
@@ -154,9 +49,10 @@ export default class StateList extends PureComponent {
     this.props.onHandleSelectedState();
   }
   render() {
-    const { limit, showMore, selectedInput } = this.state;
+    const { showMore, selectedInput } = this.state;
     const listStateArray = [];
-    limit.map((item) => listStateArray.push(<CategoryItem
+    const limitArray = showMore ? limit : take(limit, 5);
+    limitArray.map((item) => listStateArray.push(<CategoryItem
       key={item.text}
       text={item.text}
       iconType={item.iconType}
@@ -168,7 +64,7 @@ export default class StateList extends PureComponent {
         <div className="StateList-title"> BROWSE STATES </div>
         <div>
           { listStateArray }
-          <button className="StateList-button" onClick={() => this.handleShowMore()}>
+          <button className="StateList-button" onClick={() => this.setState({ showMore: !this.state.showMore })}>
             <div className="StateList-buttonContainer">
               { showMore ? <ViewLessIcon /> : <ShowMoreIcon /> }
               <div className="StateList-buttonText"> { showMore ? 'VIEW LESS' : 'VIEW MORE...' } </div>
