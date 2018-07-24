@@ -14,6 +14,7 @@ import moment from 'moment';
 import axios from 'axios';
 import config from '../../../config';
 
+const params = new URLSearchParams(location.search);
 export default class HomePage extends PureComponent {
   constructor() {
     super();
@@ -32,7 +33,7 @@ export default class HomePage extends PureComponent {
   }
   componentWillMount() {
     localStorage.setItem('selectedStateItem', '');
-    const queryString = location.search.substring(8);
+    const queryString = params.get('search');
     let url = '';
     if (queryString) {
       url = `${config.API_BASE_URL}/searches?search=${queryString}`;
