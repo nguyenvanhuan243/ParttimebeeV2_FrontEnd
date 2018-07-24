@@ -2,23 +2,19 @@ import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
 import 'w3-css/w3.css';
 
-export default class CategoryItem extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class CategoryItem extends PureComponent {
   constructor() {
     super();
-    this.state = {
-      isHoverd: false,
-    };
+    this.state = { isHoverd: false };
   }
   render() {
     const {
-      text = 'Home',
-      iconType = 'HomeIcon',
       selected,
       onClickFunc,
+      text = 'Home',
+      iconType = 'HomeIcon',
     } = this.props;
-    const {
-      isHoverd,
-    } = this.state;
+    const { isHoverd } = this.state;
     const categoryItemClassName = classNames('CategoryItem', {
       'CategoryItem-hover': isHoverd,
       'CategoryItem-selected': selected,
