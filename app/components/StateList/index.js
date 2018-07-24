@@ -18,7 +18,7 @@ import PerlisIcon from 'components/Icons/State/Perlis/Loadable';
 import PenangIcon from 'components/Icons/State/Penang/Loadable';
 import TerengganuIcon from 'components/Icons/State/Terengganu/Loadable';
 import SabahIcon from 'components/Icons/State/Sabah/Loadable';
-export default class StateList extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class StateList extends PureComponent {
   constructor() {
     super();
     this.state = {
@@ -49,9 +49,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
     };
   }
   handleShowMore() {
-    const {
-      showMore,
-    } = this.state;
+    const { showMore } = this.state;
     if (showMore) {
       this.setState({
         limit: [
@@ -152,9 +150,7 @@ export default class StateList extends PureComponent { // eslint-disable-line re
   }
   handleSelectedInput(text) {
     localStorage.setItem('selectedStateItem', text);
-    this.setState({
-      selectedInput: text,
-    });
+    this.setState({ selectedInput: text });
     this.props.onHandleSelectedState();
   }
   render() {
