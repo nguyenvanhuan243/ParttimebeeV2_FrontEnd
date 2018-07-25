@@ -114,13 +114,13 @@ export default class Login extends PureComponent {
                     })}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
-                  { isEmail && userExisted && !disposableEmail &&
+                  { ((isEmail && userExisted && !disposableEmail) || emailValue.length === 0) &&
                     <div
                       style={{ backgroundColor: focusEmail ? '#ffaa00' : '#e8e8e8' }}
                       className="Signup-separate"
                     />
                   }
-                  { ((!isEmail || !userExisted) || disposableEmail) &&
+                  { ((!isEmail || !userExisted) || disposableEmail) && emailValue.length > 0 &&
                     <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />
                   }
                 </div>
