@@ -34,10 +34,10 @@ export default class Signup extends PureComponent {
   onSubmit = (e) => {
     const email = this.email.value;
     const password = this.password.value;
-    const { userExisted, isEmail } = this.state;
+    const { userExisted, isEmail, disposableEmail } = this.state;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
-    if (validator.isEmail(email) && password.length >= 6) {
+    if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
       axios.post(url).then((response) => {
         if (response.status === 201) {
           this.setState({ success: true });
@@ -47,7 +47,7 @@ export default class Signup extends PureComponent {
         this.setState({ danger: error.status === 422 });
       });
     }
-    if (!email || !password || password.length < 6 || userExisted || !isEmail) {
+    if (!email || !password || password.length < 6 || userExisted || !isEmail || disposableEmail) {
       this.setState({ shakeEffect: true });
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
