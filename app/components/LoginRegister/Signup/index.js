@@ -220,6 +220,11 @@ export default class Signup extends PureComponent {
               { focusEmail && !userExisted && isEmail &&
                 'We’ll send an email to this address for verification.'
               }
+              { disposableEmail && isEmail && !focusEmail &&
+                <div style={{ marginTop: '15px' }}>
+                  This is not valid email address.
+                </div>
+              }
             </span>
             <span className="Signup-passwordValidate">
               { (focusPassword || (!focusPassword && passwordValue.length < 6 && passwordValue.length > 0)) &&
