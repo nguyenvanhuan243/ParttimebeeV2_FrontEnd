@@ -25,6 +25,7 @@ export default class Signup extends PureComponent {
       userExisted: true,
       shakeEffect: false,
       focusPassword: false,
+      disposableEmail: false,
       showEmailAnimation: false,
       timeOut: () => {},
       registerEmailState: params.get('email'),
@@ -56,6 +57,10 @@ export default class Signup extends PureComponent {
       focusEmail: false,
       showEmailAnimation: e.target.value,
       emailValue: e.target.value,
+    });
+    const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
+    axios.post(disposableUrl, { email: e.target.value }).then((response) => {
+      this.setState({ disposableEmail: response.data.success });
     });
   }
   handleOnchangeEmail(e) {
@@ -97,6 +102,7 @@ export default class Signup extends PureComponent {
       shakeEffect,
       passwordValue,
       focusPassword,
+      disposableEmail,
       showEmailAnimation,
       registerEmailState,
       showPasswordAnimation,
@@ -153,13 +159,13 @@ export default class Signup extends PureComponent {
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">is registered</span>
                   </div> }
-                  { !userExisted && isEmail &&
+                  { !userExisted && isEmail && !disposableEmail &&
                   <div className="Signup-looksGoodEmail">
                     <TickIcon />
                     <span className="Signup-looksGoodText">looks good!</span>
                   </div> }
                   <label htmlFor className={emailAnimation}>Email</label>
-                  { (!isEmail || (isEmail && userExisted)) && emailValue.length > 0 ?
+                  { (!isEmail || (isEmail && userExisted) || disposableEmail) && emailValue.length > 0 ?
                     <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" /> :
                     <div
                       style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
@@ -200,7 +206,7 @@ export default class Signup extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            { userExisted && isEmail && emailValue.length > 0 &&
+            { userExisted && isEmail && emailValue.length > 0 && disposableEmail &&
               <div className="Signup-emailValidate">
                 <span>
                   Looks like you already have an account. You can<a
