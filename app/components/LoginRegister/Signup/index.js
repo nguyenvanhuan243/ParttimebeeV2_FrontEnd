@@ -15,17 +15,17 @@ export default class Signup extends PureComponent {
   constructor() {
     super();
     this.state = {
-      success: false,
-      danger: false,
-      focusEmail: false,
-      focusPassword: false,
-      showEmailAnimation: false,
-      isPassword: true,
-      shakeEffect: false,
       emailValue: '',
       passwordValue: '',
+      danger: false,
       isEmail: true,
+      success: false,
+      isPassword: true,
+      focusEmail: false,
       userExisted: true,
+      shakeEffect: false,
+      focusPassword: false,
+      showEmailAnimation: false,
       timeOut: () => {},
       registerEmailState: params.get('email'),
     };
@@ -87,19 +87,19 @@ export default class Signup extends PureComponent {
   }
   render() {
     const {
-      success,
       danger,
+      success,
       isEmail,
+      isPassword,
+      emailValue,
       focusEmail,
       userExisted,
+      shakeEffect,
+      passwordValue,
       focusPassword,
       showEmailAnimation,
-      showPasswordAnimation,
-      isPassword,
-      shakeEffect,
-      emailValue,
-      passwordValue,
       registerEmailState,
+      showPasswordAnimation,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
