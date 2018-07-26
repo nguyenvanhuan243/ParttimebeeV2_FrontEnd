@@ -104,10 +104,10 @@ export default class ForgotPassword extends PureComponent {
                       })}
                     />
                     <label htmlFor className={emailAnimation}>Email</label>
-                    { userExisted ? <div
+                    { (userExisted || emailValue.length === 0) ? <div
                       style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
                       className="Signup-separate"
-                    /> : <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />}
+                    /> : emailValue.length > 0 && <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />}
                   </div> :
                   <div>
                     { !changePasswordIsClicked &&
