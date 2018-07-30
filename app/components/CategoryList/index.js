@@ -14,9 +14,9 @@ export default class CategoryList extends PureComponent {
     this.state = { selectedInput: 'Home' };
   }
   handleSelectedInput = (text) => {
-    localStorage.setItem('selectedCategoryItem', text);
-    this.setState({ selectedInput: text });
     this.props.onHandleSelectedCategory();
+    this.setState({ selectedInput: text });
+    localStorage.setItem('selectedCategoryItem', text);
   }
   render() {
     const categoryList = [
@@ -30,11 +30,11 @@ export default class CategoryList extends PureComponent {
     ];
     const CategoryArray = [];
     categoryList.map((item) => CategoryArray.push(<CategoryItem
-      key={item.text.toString()}
       text={item.text}
       iconType={item.icon}
-      onClickFunc={() => this.handleSelectedInput(item.text)}
+      key={item.text.toString()}
       selected={this.state.selectedInput === item.text}
+      onClickFunc={() => this.handleSelectedInput(item.text)}
     />));
     return <div> { CategoryArray } </div>;
   }
