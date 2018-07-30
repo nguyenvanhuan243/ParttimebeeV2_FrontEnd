@@ -21,12 +21,12 @@ export default class CategoryList extends PureComponent {
   render() {
     const categoryList = [
       { text: 'Home', icon: <HomeIcon /> },
-      { text: 'Event & Exhibition', icon: <EventIcon /> },
-      { text: 'Education', icon: <EducationIcon /> },
-      { text: 'Retails & Sales', icon: <RetailsIcon /> },
-      { text: 'Food & Beverages', icon: <FoodIcon /> },
-      { text: 'Administrative', icon: <AdministrativeIcon /> },
       { text: 'Others', icon: <OthersIcon /> },
+      { text: 'Education', icon: <EducationIcon /> },
+      { text: 'Food & Beverages', icon: <FoodIcon /> },
+      { text: 'Retails & Sales', icon: <RetailsIcon /> },
+      { text: 'Event & Exhibition', icon: <EventIcon /> },
+      { text: 'Administrative', icon: <AdministrativeIcon /> },
     ];
     const CategoryArray = [];
     categoryList.map((item) => CategoryArray.push(<CategoryItem
