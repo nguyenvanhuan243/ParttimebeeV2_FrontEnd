@@ -4,8 +4,14 @@ import 'w3-css/w3.css';
 
 export default class CategoryItem extends PureComponent {
   render() {
-    const { selected, onClickFunc, text = 'Home', iconType = 'HomeIcon' } = this.props;
-    const categoryItemClassName = classNames('CategoryItem', { 'CategoryItem-selected': selected });
+    const {
+      selected,
+      onClickFunc,
+      text = 'Home',
+      iconType = 'HomeIcon',
+    } = this.props;
+    const categoryItemClassName = classNames('CategoryItem',
+      { 'CategoryItem-selected': selected });
     return (
       <button className="CategoryItem-container w3-ripple" onClick={onClickFunc}>
         <div className={categoryItemClassName}>
