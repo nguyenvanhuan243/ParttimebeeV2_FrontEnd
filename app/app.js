@@ -38,7 +38,6 @@ import 'file-loader?name=[name].[ext]!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import 'components/Header/styles.css';
-import 'components/CategoryList/styles.css';
 import 'components/CategoryList/CategoryItem/styles.css';
 import 'components/StateList/styles.css';
 import 'components/JobList/styles.css';
@@ -62,45 +61,28 @@ import 'components/EditProfile/Alert/styles.css';
 import 'components/JobDetail/CreatedJobAlert/styles.css';
 import 'components/SearchNotFound/styles.css';
 import 'components/JobSavedAlert/styles.css';
-
-// Related jobs
 import 'components/JobDetail/RelatedJobList/styles.css';
 import 'components/JobDetail/RelatedJobList/Item/styles.css';
-
-// Login Register
 import 'components/LoginRegister/Signup/styles.css';
 import 'components/LoginRegister/Login/styles.css';
 import 'components/LoginRegister/ForgotPassword/styles.css';
 import 'components/LoginRegister/ForgotPasswordIncoming/styles.css';
 import 'components/LoginRegister/GeneralComponent/DashlineIcon/styles.css';
 import 'components/LoginRegister/GeneralComponent/Form/styles.css';
-
-// Pages
 import 'components/Pages/About/styles.css';
 import 'components/Pages/Terms/styles.css';
 import 'components/Pages/Policy/styles.css';
-
-// Loading jobs
 import 'components/LoadingJobs/LoadingJobsList/styles.css';
 import 'components/LoadingJobs/LoadingJobsList/LoadingJobsItem/styles.css';
-
-// Report job popup
 import 'components/Popup/ReportJob/styles.css';
 import 'components/Popup/AskReason/styles.css';
 import 'components/Popup/DeleteConfirmation/styles.css';
-
-// Employer Profile
 import 'components/EmployerProfileBanner/styles.css';
 import 'components/ShareThisProfile/styles.css';
 import 'containers/MyJobs/styles.css';
-// Post jobs
 import 'containers/PostJob/EditAndPost/styles.css';
 import 'containers/PostJob/ImportantAlert/styles.css';
-
-// MY PROFILE.
 import 'containers/MyProfile/EditProfile/styles.css';
-
-// Bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
 import configureStore from './configureStore';
 

@@ -1,10 +1,6 @@
 import React from 'react';
-
-const style = {
-  verticalAlign: 'middle',
-};
 const AddressIcon = () => (
-  <div style={style}>
+  <div style={{ verticalAlign: 'middle' }}>
     <svg
       version="1.1"
       xmlnsXlink="http://www.w3.org/1999/xlink"
