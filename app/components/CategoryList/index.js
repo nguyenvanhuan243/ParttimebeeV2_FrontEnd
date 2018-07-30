@@ -1,12 +1,12 @@
 import React, { PureComponent, PropTypes } from 'react';
-import CategoryItem from 'components/CategoryList/CategoryItem/Loadable';
+import FoodIcon from 'components/Icons/Category/Food/Loadable';
 import HomeIcon from 'components/Icons/Category/Home/Loadable';
 import EventIcon from 'components/Icons/Category/Event/Loadable';
-import EducationIcon from 'components/Icons/Category/Education/Loadable';
-import RetailsIcon from 'components/Icons/Category/Retails/Loadable';
-import FoodIcon from 'components/Icons/Category/Food/Loadable';
-import AdministrativeIcon from 'components/Icons/Category/Administrative/Loadable';
 import OthersIcon from 'components/Icons/Category/Others/Loadable';
+import RetailsIcon from 'components/Icons/Category/Retails/Loadable';
+import EducationIcon from 'components/Icons/Category/Education/Loadable';
+import CategoryItem from 'components/CategoryList/CategoryItem/Loadable';
+import AdministrativeIcon from 'components/Icons/Category/Administrative/Loadable';
 
 export default class CategoryList extends PureComponent {
   constructor() {
