@@ -21,7 +21,7 @@
   border: 1px solid transparent;
 }
 
-.CategoryItem-hover {
+.CategoryItem:hover {
   border-radius: 3px !important;
   border: solid 1px #e8e8e8;
 }
