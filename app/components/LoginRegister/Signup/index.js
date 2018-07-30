@@ -217,9 +217,7 @@ export default class Signup extends PureComponent {
               </div>
             }
             <span className="Signup-emailValidate">
-              { focusEmail && !userExisted && isEmail &&
-                'We’ll send an email to this address for verification.'
-              }
+              { focusEmail && 'We’ll send an email to this address for verification.' }
               { disposableEmail && isEmail && !focusEmail &&
                 <div style={{ marginTop: '15px' }}>
                   This is not valid email address.
