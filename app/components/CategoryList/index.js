@@ -11,21 +11,14 @@ import OthersIcon from 'components/Icons/Category/Others/Loadable';
 export default class CategoryList extends PureComponent {
   constructor() {
     super();
-    localStorage.setItem('selectedCategoryItem', 'Home');
-    this.state = {
-      hasSticky: false,
-      selectedInput: localStorage.selectedCategoryItem,
-    };
+    this.state = { selectedInput: 'Home' };
   }
   handleSelectedInput = (text) => {
     localStorage.setItem('selectedCategoryItem', text);
-    this.setState({
-      selectedInput: localStorage.selectedCategoryItem,
-    });
+    this.setState({ selectedInput: localStorage.selectedCategoryItem });
     this.props.onHandleSelectedCategory();
   }
   render() {
-    const { selectedInput } = this.state;
     const categoryList = [
       { text: 'Home', icon: <HomeIcon /> },
       { text: 'Event & Exhibition', icon: <EventIcon /> },
@@ -41,7 +34,7 @@ export default class CategoryList extends PureComponent {
       text={item.text}
       iconType={item.icon}
       onClickFunc={() => this.handleSelectedInput(item.text)}
-      selected={selectedInput === item.text}
+      selected={this.state.selectedInput === item.text}
     />));
     return <div> { CategoryArray } </div>;
   }
