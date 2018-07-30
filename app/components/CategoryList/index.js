@@ -17,7 +17,6 @@ export default class CategoryList extends PureComponent {
       selectedInput: localStorage.selectedCategoryItem,
     };
   }
-
   handleSelectedInput = (text) => {
     localStorage.setItem('selectedCategoryItem', text);
     this.setState({
@@ -26,38 +25,15 @@ export default class CategoryList extends PureComponent {
     this.props.onHandleSelectedCategory();
   }
   render() {
-    const {
-      selectedInput,
-    } = this.state;
+    const { selectedInput } = this.state;
     const categoryList = [
-      {
-        text: 'Home',
-        icon: <HomeIcon />,
-      },
-      {
-        text: 'Event & Exhibition',
-        icon: <EventIcon />,
-      },
-      {
-        text: 'Education',
-        icon: <EducationIcon />,
-      },
-      {
-        text: 'Retails & Sales',
-        icon: <RetailsIcon />,
-      },
-      {
-        text: 'Food & Beverages',
-        icon: <FoodIcon />,
-      },
-      {
-        text: 'Administrative',
-        icon: <AdministrativeIcon />,
-      },
-      {
-        text: 'Others',
-        icon: <OthersIcon />,
-      },
+      { text: 'Home', icon: <HomeIcon /> },
+      { text: 'Event & Exhibition', icon: <EventIcon /> },
+      { text: 'Education', icon: <EducationIcon /> },
+      { text: 'Retails & Sales', icon: <RetailsIcon /> },
+      { text: 'Food & Beverages', icon: <FoodIcon /> },
+      { text: 'Administrative', icon: <AdministrativeIcon /> },
+      { text: 'Others', icon: <OthersIcon /> },
     ];
     const CategoryArray = [];
     categoryList.map((item) => CategoryArray.push(<CategoryItem
@@ -67,14 +43,8 @@ export default class CategoryList extends PureComponent {
       onClickFunc={() => this.handleSelectedInput(item.text)}
       selected={selectedInput === item.text}
     />));
-    return (
-      <div>
-        { CategoryArray }
-      </div>
-    );
+    return <div> { CategoryArray } </div>;
   }
 }
-CategoryList.propTypes = {
-  onHandleSelectedCategory: PropTypes.func.isRequired,
-};
+CategoryList.propTypes = { onHandleSelectedCategory: PropTypes.func.isRequired };
 
