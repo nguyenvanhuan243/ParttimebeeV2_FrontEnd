@@ -22,6 +22,9 @@ export default class JobItem extends PureComponent {
       hoverDelete: false,
     };
   }
+  handleClickState(state) {
+    localStorage.setItem('selectedStateItem', state);
+  }
   render() {
     const {
       title = '',
@@ -88,9 +91,9 @@ export default class JobItem extends PureComponent {
                   onMouseEnter={() => this.setState({ hoverState: true })}
                   onMouseLeave={() => this.setState({ hoverState: false })}
                 >
-                  <div className="JobItem-contentJobStateText">
+                  <button onClick={() => this.handleClickState(state)} className="JobItem-contentJobStateText">
                     { state && state.toUpperCase() }
-                  </div>
+                  </button>
                 </div>
                 { (city !== '' && showCity) &&
                 <div

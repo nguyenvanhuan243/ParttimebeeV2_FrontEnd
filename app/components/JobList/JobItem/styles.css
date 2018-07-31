@@ -83,6 +83,8 @@ a.JobItem-href:hover {
   padding-left: 9px;
   padding-right: 9px;
   text-align: center;
+  outline: none !important;
+  cursor: pointer;
 }
 .JobItem-contentJobCity {
   min-width: 83px;
