@@ -25,6 +25,10 @@ export default class JobItem extends PureComponent {
   handleClickState(state) {
     localStorage.setItem('selectedStateItem', state);
   }
+  handleClickCity(city) {
+    localStorage.setItem('selectedCityItem', city);
+    alert(city);
+  }
   render() {
     const {
       title = '',
@@ -101,9 +105,9 @@ export default class JobItem extends PureComponent {
                   onMouseEnter={() => this.setState({ hoverCity: true })}
                   onMouseLeave={() => this.setState({ hoverCity: false })}
                 >
-                  <div className="JobItem-contentJobCityText">
+                  <button onClick={() => this.handleClickCity(city)} className="JobItem-contentJobCityText">
                     { city && city.toUpperCase() }
-                  </div>
+                  </button>
                 </div> }
               </div>
               { showView &&
