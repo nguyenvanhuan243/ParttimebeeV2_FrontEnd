@@ -159,7 +159,7 @@ export default class HomePage extends PureComponent {
           { (dataFiltered.length === 0 && !filterLoading && readyToRender) ? <SearchNotFound /> : <div className="HomePageContainer-jobListContainer">
             { filterLoading && <LoadingJobsList /> }
             { !readyToRender && <LoadingJobsList /> }
-            { (!filterLoading && (localStorage.selectedCategoryItem !== 'Home')) &&
+            { (!filterLoading && !localStorage.selectedCityItem && (localStorage.selectedCategoryItem !== 'Home')) &&
               <div className="HomePageContainer-jobBy">
                 Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem} Category
               </div> }
