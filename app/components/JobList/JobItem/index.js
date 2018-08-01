@@ -27,7 +27,6 @@ export default class JobItem extends PureComponent {
   }
   handleClickCity(city) {
     localStorage.setItem('selectedCityItem', city);
-    alert(city);
   }
   render() {
     const {
