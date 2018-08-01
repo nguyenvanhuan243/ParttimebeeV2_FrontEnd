@@ -24,10 +24,12 @@ export default class JobItem extends PureComponent {
   }
   handleClickState(state) {
     localStorage.setItem('selectedStateItem', state);
+    localStorage.setItem('selectedCityItem', '');
     location.replace(config.BASE_URL);
   }
   handleClickCity(city) {
     localStorage.setItem('selectedCityItem', city);
+    localStorage.setItem('selectedStateItem', '');
     location.replace(config.BASE_URL);
   }
   render() {

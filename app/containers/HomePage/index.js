@@ -32,7 +32,7 @@ export default class HomePage extends PureComponent {
     };
   }
   componentWillMount() {
-    localStorage.setItem('selectedStateItem', '');
+    // localStorage.setItem('selectedStateItem', '');
     const queryString = params.get('search');
     const url = `${config.API_BASE_URL}/${queryString ? `searches?search=${queryString}` : 'jobs'}`;
     axios.get(url).then(
@@ -142,6 +142,10 @@ export default class HomePage extends PureComponent {
       const selectedCityItem = localStorage.selectedCityItem;
       dataFiltered = dataFiltered.filter((item) => item.city === selectedCityItem);
     }
+    if (localStorage.selectedStateItem) {
+      const selectedStateItem = localStorage.selectedStateItem;
+      dataFiltered = dataFiltered.filter((item) => item.salary_state === selectedStateItem);
+    }
     const groupByCreatedAt = groupBy(dataFiltered,
       (itemFiltered) => itemFiltered.created_at.substring(0, 10));
     const loadingLimited = arrayLength >= values(groupByCreatedAt).length;
@@ -166,6 +170,10 @@ export default class HomePage extends PureComponent {
             { localStorage.selectedCityItem &&
               <div className="HomePageContainer-jobBy">
                 Jobs in { localStorage.selectedCityItem }
+              </div> }
+            { localStorage.selectedStateItem &&
+              <div className="HomePageContainer-jobBy">
+                Jobs in { localStorage.selectedStateItem }
               </div> }
             { !filterLoading ?
               <span>
