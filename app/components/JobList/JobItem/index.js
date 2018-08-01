@@ -13,20 +13,22 @@ export default class JobItem extends PureComponent {
     super();
     this.state = {
       hover: false,
-      hoverShareButton: false,
-      hoverState: false,
       hoverCity: false,
+      hoverEdit: false,
+      hoverState: false,
+      hoverDelete: false,
       showAddThis: false,
       showSocialShare: false,
-      hoverEdit: false,
-      hoverDelete: false,
+      hoverShareButton: false,
     };
   }
   handleClickState(state) {
     localStorage.setItem('selectedStateItem', state);
+    location.replace(config.BASE_URL);
   }
   handleClickCity(city) {
     localStorage.setItem('selectedCityItem', city);
+    location.replace(config.BASE_URL);
   }
   render() {
     const {
@@ -49,12 +51,12 @@ export default class JobItem extends PureComponent {
     } = this.props;
     const {
       hover,
-      hoverState,
-      hoverShareButton,
       hoverCity,
-      showSocialShare,
       hoverEdit,
+      hoverState,
       hoverDelete,
+      showSocialShare,
+      hoverShareButton,
     } = this.state;
     const hoverClassName = classNames('JobItem',
       { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity && !hoverEdit && !hoverDelete });

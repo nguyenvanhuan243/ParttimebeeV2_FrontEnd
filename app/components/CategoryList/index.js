@@ -17,6 +17,8 @@ export default class CategoryList extends PureComponent {
     this.props.onHandleSelectedCategory();
     this.setState({ selectedInput: text });
     localStorage.setItem('selectedCategoryItem', text);
+    localStorage.setItem('selectedStateItem', '');
+    localStorage.setItem('selectedCityItem', '');
   }
   render() {
     const categoryList = [

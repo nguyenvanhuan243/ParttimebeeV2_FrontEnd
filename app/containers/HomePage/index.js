@@ -138,6 +138,10 @@ export default class HomePage extends PureComponent {
     if (selectedState) {
       dataFiltered = dataFiltered.filter((item) => item.salary_state === selectedState);
     }
+    if (localStorage.selectedCityItem) {
+      const selectedCityItem = localStorage.selectedCityItem;
+      dataFiltered = dataFiltered.filter((item) => item.city === selectedCityItem);
+    }
     const groupByCreatedAt = groupBy(dataFiltered,
       (itemFiltered) => itemFiltered.created_at.substring(0, 10));
     const loadingLimited = arrayLength >= values(groupByCreatedAt).length;
@@ -158,6 +162,10 @@ export default class HomePage extends PureComponent {
             { (!filterLoading && (localStorage.selectedCategoryItem !== 'Home')) &&
               <div className="HomePageContainer-jobBy">
                 Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem} Category
+              </div> }
+            { localStorage.selectedCityItem &&
+              <div className="HomePageContainer-jobBy">
+                Jobs in { localStorage.selectedCityItem }
               </div> }
             { !filterLoading ?
               <span>
