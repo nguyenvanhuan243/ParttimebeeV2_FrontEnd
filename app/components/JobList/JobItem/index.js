@@ -64,7 +64,7 @@ export default class JobItem extends PureComponent {
       { 'JobItem-hover': hover && !hoverShareButton && !hoverState && !hoverCity && !hoverEdit && !hoverDelete });
     const hoverShareClassName = classNames('JobItem-contentShareContainer',
       { 'JobItem-colorHover': hoverShareButton });
-    const hoverStateClassName = classNames('JobItem-contentJobState', {
+    const hoverStateClassName = classNames('JobItem-contentJobStateText', {
       'JobItem-colorHover': hoverState,
     });
     const hoverCityClassName = classNames('JobItem-contentJobCity', {
@@ -94,11 +94,10 @@ export default class JobItem extends PureComponent {
             <div className="JobItem-contentFooter">
               <div className="JobItem-stateAndCity">
                 <div
-                  className={hoverStateClassName}
                   onMouseEnter={() => this.setState({ hoverState: true })}
                   onMouseLeave={() => this.setState({ hoverState: false })}
                 >
-                  <button onClick={() => this.handleClickState(state)} className="JobItem-contentJobStateText">
+                  <button onClick={() => this.handleClickState(state)} className={hoverStateClassName}>
                     { state && state.toUpperCase() }
                   </button>
                 </div>
