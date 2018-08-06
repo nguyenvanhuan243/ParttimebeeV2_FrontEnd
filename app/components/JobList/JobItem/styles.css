@@ -162,7 +162,6 @@ a.JobItem-href:hover {
 
 .JobItem-colorHover {
   background-color: #e8e8e8;
-  text-decoration: none !important;
 }
 .JobItem-contentEditText {
   width: 24px;
