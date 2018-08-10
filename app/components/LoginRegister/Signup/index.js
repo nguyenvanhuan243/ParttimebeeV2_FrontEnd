@@ -141,7 +141,7 @@ export default class Signup extends PureComponent {
                     className="Signup-removeOutline"
                     type="text"
                     placeholder="Email"
-                    value={registerEmailState}
+                    value={registerEmailState || ''}
                     ref={(ref) => (this.email = ref)}
                     onFocus={(e) => this.setState({ focusEmail: true, showEmailAnimation: e.target.value })}
                     onBlur={(e) => this.handleOnBlurEmail(e)}
