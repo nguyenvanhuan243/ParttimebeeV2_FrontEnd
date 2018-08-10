@@ -79,13 +79,13 @@ export default class Signup extends PureComponent {
       }, WAIT_INTERVAL),
     });
   }
-  handleOnBlurPassword(e) {
+  handleOnBlurPassword = (e) => {
     this.setState({
       focusPassword: false,
       showPasswordAnimation: e.target.value,
     });
   }
-  handleOnchangePassword(e) {
+  handleOnchangePassword = (e) => {
     this.setState({
       passwordValue: e.target.value,
       showPasswordAnimation: !(e.target.value === ''),
@@ -178,8 +178,8 @@ export default class Signup extends PureComponent {
                     placeholder="Password"
                     ref={(ref) => (this.password = ref)}
                     onFocus={(e) => this.setState({ focusPassword: true, showPasswordAnimation: e.target.value })}
-                    onBlur={(e) => this.handleOnBlurPassword(e)}
-                    onChange={(e) => this.handleOnchangePassword(e)}
+                    onBlur={this.handleOnBlurPassword}
+                    onChange={this.handleOnchangePassword}
                   />
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
