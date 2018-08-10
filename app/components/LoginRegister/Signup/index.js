@@ -67,6 +67,7 @@ export default class Signup extends PureComponent {
     const { timeOut } = this.state;
     clearTimeout(timeOut);
     const value = e.target.value;
+    this.setState({ registerEmailState: value });
     this.setState({
       showEmailAnimation: value,
       timeOut: setTimeout(() => {
@@ -144,10 +145,7 @@ export default class Signup extends PureComponent {
                     ref={(ref) => (this.email = ref)}
                     onFocus={(e) => this.setState({ focusEmail: true, showEmailAnimation: e.target.value })}
                     onBlur={(e) => this.handleOnBlurEmail(e)}
-                    onChange={(e) => {
-                      this.handleOnchangeEmail(e);
-                      this.setState({ registerEmailState: e.target.value });
-                    }}
+                    onChange={(e) => this.handleOnchangeEmail(e)}
                   />
                   { !isEmail && emailValue.length > 0 &&
                   <div className="Signup-invalidEmail">
