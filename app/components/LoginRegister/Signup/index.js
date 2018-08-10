@@ -7,7 +7,6 @@ import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 import axios from 'axios';
-import { get } from 'lodash';
 import config from '../../../../config';
 
 const WAIT_INTERVAL = 500;
@@ -61,7 +60,7 @@ export default class Signup extends PureComponent {
     });
     const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
     axios.post(disposableUrl, { email: e.target.value }).then((response) => {
-      this.setState({ disposableEmail: get(response, response.data.success, '') });
+      this.setState({ disposableEmail: response.data.success });
     });
   }
   handleOnchangeEmail = (e) => {
@@ -75,7 +74,7 @@ export default class Signup extends PureComponent {
         this.setState({ isEmail: validator.isEmail(value) });
         const url = `${config.API_BASE_URL}/users/check-user-exist`;
         axios.post(url, { email: value }).then((response) => {
-          this.setState({ userExisted: get(response, response.data.success, '') });
+          this.setState({ userExisted: response.data.success });
         });
       }, WAIT_INTERVAL),
     });
@@ -87,9 +86,10 @@ export default class Signup extends PureComponent {
     });
   }
   handleOnchangePassword = (e) => {
+    const value = e.target.value;
     this.setState({
-      passwordValue: e.target.value,
-      showPasswordAnimation: !(e.target.value === ''),
+      passwordValue: value,
+      showPasswordAnimation: !(value === ''),
     });
   }
   render() {
