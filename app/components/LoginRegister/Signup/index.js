@@ -67,9 +67,9 @@ export default class Signup extends PureComponent {
     const { timeOut } = this.state;
     clearTimeout(timeOut);
     const value = e.target.value;
-    this.setState({ registerEmailState: value });
     this.setState({
       showEmailAnimation: value,
+      registerEmailState: value,
       timeOut: setTimeout(() => {
         this.setState({ isEmail: validator.isEmail(value) });
         const url = `${config.API_BASE_URL}/users/check-user-exist`;
