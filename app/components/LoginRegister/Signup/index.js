@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import axios from 'axios';
 import { Alert } from 'reactstrap';
 import validator from 'validator';
 import classNames from 'classnames';
@@ -6,7 +7,6 @@ import TickIcon from 'components/Icons/TickIcon/Loadable';
 import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
 import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
-import axios from 'axios';
 import config from '../../../../config';
 
 const WAIT_INTERVAL = 500;
@@ -53,25 +53,30 @@ export default class Signup extends PureComponent {
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
   handleOnBlurEmail = (e) => {
+    const value = e.target.value;
     this.setState({
       focusEmail: false,
-      showEmailAnimation: e.target.value,
-      emailValue: e.target.value,
+      emailValue: value,
+      showEmailAnimation: value,
     });
     const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
-    axios.post(disposableUrl, { email: e.target.value }).then((response) => {
+    axios.post(disposableUrl, { email: value }).then((response) => {
       this.setState({ disposableEmail: response.data.success });
     });
   }
   handleOnchangeEmail = (e) => {
-    const { timeOut } = this.state;
     clearTimeout(timeOut);
     const value = e.target.value;
+    const { timeOut } = this.state;
     this.setState({
       showEmailAnimation: value,
       registerEmailState: value,
       timeOut: setTimeout(() => {
         this.setState({ isEmail: validator.isEmail(value) });
+        const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
+        axios.post(disposableUrl, { email: value }).then((response) => {
+          this.setState({ disposableEmail: response.data.success });
+        });
         const url = `${config.API_BASE_URL}/users/check-user-exist`;
         axios.post(url, { email: value }).then((response) => {
           this.setState({ userExisted: response.data.success });
@@ -148,7 +153,7 @@ export default class Signup extends PureComponent {
                     onBlur={this.handleOnBlurEmail}
                     onChange={this.handleOnchangeEmail}
                   />
-                  { !isEmail && emailValue.length > 0 &&
+                  { ((!isEmail && emailValue.length > 0) || disposableEmail) &&
                   <div className="Signup-invalidEmail">
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">Invalid email :(</span>
