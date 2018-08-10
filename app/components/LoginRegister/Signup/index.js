@@ -166,7 +166,7 @@ export default class Signup extends PureComponent {
                   { (!isEmail || (isEmail && userExisted) || disposableEmail) && emailValue.length > 0 ?
                     <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" /> :
                     <div
-                      style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                      style={{ backgroundColor: focusEmail ? '#ffaa00' : '#e8e8e8' }}
                       className="Signup-separate"
                     />
                   }
@@ -193,7 +193,7 @@ export default class Signup extends PureComponent {
                   <label htmlFor className={passwordAnimation}>Password</label>
                   { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 && <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />}
                   { (passwordValue.length >= 6 || passwordValue.length === 0 || focusPassword) && <div
-                    style={{ 'background-color': focusPassword ? '#ffaa00' : '#e8e8e8' }}
+                    style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
                     className="Signup-separate"
                   />}
                 </div>
