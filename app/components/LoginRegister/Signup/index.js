@@ -68,6 +68,7 @@ export default class Signup extends PureComponent {
     clearTimeout(timeOut);
     const value = e.target.value;
     const { timeOut } = this.state;
+    this.setState({ emailValue: value });
     this.setState({
       showEmailAnimation: value,
       registerEmailState: value,
@@ -77,11 +78,11 @@ export default class Signup extends PureComponent {
         axios.post(disposableUrl, { email: value }).then((response) => {
           this.setState({ disposableEmail: response.data.success });
         });
-        const url = `${config.API_BASE_URL}/users/check-user-exist`;
-        axios.post(url, { email: value }).then((response) => {
-          this.setState({ userExisted: response.data.success });
-        });
       }, WAIT_INTERVAL),
+    });
+    const url = `${config.API_BASE_URL}/users/check-user-exist`;
+    axios.post(url, { email: value }).then((response) => {
+      this.setState({ userExisted: response.data.success });
     });
   }
   handleOnBlurPassword = (e) => {
@@ -153,7 +154,7 @@ export default class Signup extends PureComponent {
                     onBlur={this.handleOnBlurEmail}
                     onChange={this.handleOnchangeEmail}
                   />
-                  { ((!isEmail && emailValue.length > 0) || disposableEmail) &&
+                  { emailValue.length > 0 && (!isEmail || disposableEmail) &&
                   <div className="Signup-invalidEmail">
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">Invalid email :(</span>
