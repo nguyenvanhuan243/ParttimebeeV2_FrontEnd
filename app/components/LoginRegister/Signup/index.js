@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Alert } from 'reactstrap';
 import validator from 'validator';
 import classNames from 'classnames';
+import { isEmpty } from 'lodash';
 import TickIcon from 'components/Icons/TickIcon/Loadable';
 import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
 import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
@@ -20,6 +21,7 @@ export default class Signup extends PureComponent {
       danger: false,
       isEmail: true,
       success: false,
+      finished: false,
       isPassword: true,
       focusEmail: false,
       userExisted: true,
@@ -68,12 +70,18 @@ export default class Signup extends PureComponent {
     const { timeOut } = this.state;
     clearTimeout(timeOut);
     const value = e.target.value;
+    if (isEmpty(value)) {
+      this.setState({ isEmail: true, finished: false });
+    }
     this.setState({ emailValue: value });
     this.setState({
       showEmailAnimation: value,
       registerEmailState: value,
       timeOut: setTimeout(() => {
-        this.setState({ isEmail: validator.isEmail(value) });
+        this.setState({
+          isEmail: validator.isEmail(value),
+          finished: true,
+        });
         const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
         axios.post(disposableUrl, { email: value }).then((response) => {
           this.setState({ disposableEmail: response.data.success });
@@ -103,6 +111,7 @@ export default class Signup extends PureComponent {
       danger,
       success,
       isEmail,
+      finished,
       isPassword,
       emailValue,
       focusEmail,
@@ -164,7 +173,7 @@ export default class Signup extends PureComponent {
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">is registered</span>
                   </div> }
-                  { !userExisted && isEmail && !disposableEmail &&
+                  { (emailValue.length > 0) && !userExisted && finished && isEmail && !disposableEmail &&
                   <div className="Signup-looksGoodEmail">
                     <TickIcon />
                     <span className="Signup-looksGoodText">looks good!</span>
