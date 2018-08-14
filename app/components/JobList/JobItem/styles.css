@@ -101,7 +101,6 @@ a.JobItem-href:hover {
   text-align: center;
   outline: none !important;
   cursor: pointer;
-  min-width: 83px;
   height: 24px;
   border-radius: 3px;
   background-color: #f8f8f8;
