@@ -9,7 +9,7 @@ import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon
 import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 import config from '../../../../config';
 
-const WAIT_INTERVAL = 500;
+const WAIT_INTERVAL = 1000;
 const params = new URLSearchParams(location.search);
 export default class Signup extends PureComponent {
   constructor() {
@@ -65,9 +65,9 @@ export default class Signup extends PureComponent {
     });
   }
   handleOnchangeEmail = (e) => {
+    const { timeOut } = this.state;
     clearTimeout(timeOut);
     const value = e.target.value;
-    const { timeOut } = this.state;
     this.setState({ emailValue: value });
     this.setState({
       showEmailAnimation: value,
