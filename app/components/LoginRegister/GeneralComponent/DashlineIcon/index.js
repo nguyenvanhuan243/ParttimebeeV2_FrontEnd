@@ -12,8 +12,10 @@ export default class DashlineIcon extends PureComponent { // eslint-disable-line
       showLogo = true,
     } = this.props;
     const isSignUpPage = location.pathname.includes('signup') || location.pathname.includes('forgot-password');
+    const isCreatedAccount = location.pathname.includes('created-account');
     const showLogoClassNames = classNames('DashlineIcon-logo', {
       'DashlineIcon-logoSignup': isSignUpPage,
+      'DashlineIcon-created-account': isCreatedAccount,
     });
     return (
       <div className="DashlineIcon-container">
