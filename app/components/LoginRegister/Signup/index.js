@@ -1,15 +1,16 @@
 import React, { PureComponent } from 'react';
-import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
-import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
+import axios from 'axios';
 import { Alert } from 'reactstrap';
-import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
 import validator from 'validator';
 import classNames from 'classnames';
+import { isEmpty } from 'lodash';
 import TickIcon from 'components/Icons/TickIcon/Loadable';
-import axios from 'axios';
+import InvalidEmail from 'components/Icons/InvalidEmail/Loadable';
+import DashlineIcon from 'components/LoginRegister/GeneralComponent/DashlineIcon/Loadable';
+import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon/Loadable';
 import config from '../../../../config';
 
-const WAIT_INTERVAL = 500;
+const WAIT_INTERVAL = 1000;
 const params = new URLSearchParams(location.search);
 export default class Signup extends PureComponent {
   constructor() {
@@ -20,6 +21,7 @@ export default class Signup extends PureComponent {
       danger: false,
       isEmail: true,
       success: false,
+      finished: false,
       isPassword: true,
       focusEmail: false,
       userExisted: true,
@@ -52,42 +54,56 @@ export default class Signup extends PureComponent {
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
-  handleOnBlurEmail(e) {
+  handleOnBlurEmail = (e) => {
+    const value = e.target.value;
     this.setState({
       focusEmail: false,
-      showEmailAnimation: e.target.value,
-      emailValue: e.target.value,
+      emailValue: value,
+      showEmailAnimation: value,
     });
     const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
-    axios.post(disposableUrl, { email: e.target.value }).then((response) => {
+    axios.post(disposableUrl, { email: value }).then((response) => {
       this.setState({ disposableEmail: response.data.success });
     });
   }
-  handleOnchangeEmail(e) {
+  handleOnchangeEmail = (e) => {
     const { timeOut } = this.state;
     clearTimeout(timeOut);
     const value = e.target.value;
+    if (isEmpty(value)) {
+      this.setState({ isEmail: true, finished: false });
+    }
+    this.setState({ emailValue: value });
     this.setState({
       showEmailAnimation: value,
+      registerEmailState: value,
       timeOut: setTimeout(() => {
-        this.setState({ isEmail: validator.isEmail(value) });
-        const url = `${config.API_BASE_URL}/users/check-user-exist`;
-        axios.post(url, { email: value }).then((response) => {
-          this.setState({ userExisted: response.data.success });
+        this.setState({
+          isEmail: validator.isEmail(value),
+          finished: true,
+        });
+        const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
+        axios.post(disposableUrl, { email: value }).then((response) => {
+          this.setState({ disposableEmail: response.data.success });
         });
       }, WAIT_INTERVAL),
     });
+    const url = `${config.API_BASE_URL}/users/check-user-exist`;
+    axios.post(url, { email: value }).then((response) => {
+      this.setState({ userExisted: response.data.success });
+    });
   }
-  handleOnBlurPassword(e) {
+  handleOnBlurPassword = (e) => {
     this.setState({
       focusPassword: false,
       showPasswordAnimation: e.target.value,
     });
   }
-  handleOnchangePassword(e) {
+  handleOnchangePassword = (e) => {
+    const value = e.target.value;
     this.setState({
-      passwordValue: e.target.value,
-      showPasswordAnimation: !(e.target.value === ''),
+      passwordValue: value,
+      showPasswordAnimation: !(value === ''),
     });
   }
   render() {
@@ -95,6 +111,7 @@ export default class Signup extends PureComponent {
       danger,
       success,
       isEmail,
+      finished,
       isPassword,
       emailValue,
       focusEmail,
@@ -140,16 +157,13 @@ export default class Signup extends PureComponent {
                     className="Signup-removeOutline"
                     type="text"
                     placeholder="Email"
-                    value={registerEmailState}
+                    value={registerEmailState || ''}
                     ref={(ref) => (this.email = ref)}
                     onFocus={(e) => this.setState({ focusEmail: true, showEmailAnimation: e.target.value })}
-                    onBlur={(e) => this.handleOnBlurEmail(e)}
-                    onChange={(e) => {
-                      this.handleOnchangeEmail(e);
-                      this.setState({ registerEmailState: e.target.value });
-                    }}
+                    onBlur={this.handleOnBlurEmail}
+                    onChange={this.handleOnchangeEmail}
                   />
-                  { !isEmail && emailValue.length > 0 &&
+                  { emailValue.length > 0 && (!isEmail || disposableEmail) &&
                   <div className="Signup-invalidEmail">
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">Invalid email :(</span>
@@ -159,7 +173,7 @@ export default class Signup extends PureComponent {
                     <InvalidEmail />
                     <span className="Signup-invalidEmailText">is registered</span>
                   </div> }
-                  { !userExisted && isEmail && !disposableEmail &&
+                  { (emailValue.length > 0) && !userExisted && finished && isEmail && !disposableEmail &&
                   <div className="Signup-looksGoodEmail">
                     <TickIcon />
                     <span className="Signup-looksGoodText">looks good!</span>
@@ -168,7 +182,7 @@ export default class Signup extends PureComponent {
                   { (!isEmail || (isEmail && userExisted) || disposableEmail) && emailValue.length > 0 ?
                     <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" /> :
                     <div
-                      style={{ 'background-color': focusEmail ? '#ffaa00' : '#e8e8e8' }}
+                      style={{ backgroundColor: focusEmail ? '#ffaa00' : '#e8e8e8' }}
                       className="Signup-separate"
                     />
                   }
@@ -180,8 +194,8 @@ export default class Signup extends PureComponent {
                     placeholder="Password"
                     ref={(ref) => (this.password = ref)}
                     onFocus={(e) => this.setState({ focusPassword: true, showPasswordAnimation: e.target.value })}
-                    onBlur={(e) => this.handleOnBlurPassword(e)}
-                    onChange={(e) => this.handleOnchangePassword(e)}
+                    onBlur={this.handleOnBlurPassword}
+                    onChange={this.handleOnchangePassword}
                   />
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
@@ -195,7 +209,7 @@ export default class Signup extends PureComponent {
                   <label htmlFor className={passwordAnimation}>Password</label>
                   { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 && <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />}
                   { (passwordValue.length >= 6 || passwordValue.length === 0 || focusPassword) && <div
-                    style={{ 'background-color': focusPassword ? '#ffaa00' : '#e8e8e8' }}
+                    style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
                     className="Signup-separate"
                   />}
                 </div>

@@ -165,7 +165,7 @@ export default class HomePage extends PureComponent {
             { !readyToRender && <LoadingJobsList /> }
             { (!filterLoading && !localStorage.selectedCityItem && !localStorage.selectedStateItem && (localStorage.selectedCategoryItem !== 'Home')) &&
               <div className="HomePageContainer-jobBy">
-                Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem} dddCfdasfdategory
+                Jobs in {localStorage.selectedStateItem && `${localStorage.selectedStateItem} and`} {localStorage.selectedCategoryItem}
               </div> }
             { localStorage.selectedCityItem &&
               <div className="HomePageContainer-jobBy">

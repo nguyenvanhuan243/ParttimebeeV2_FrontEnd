@@ -45,6 +45,7 @@ export default class StateList extends PureComponent {
   }
   handleSelectedInput(text) {
     localStorage.setItem('selectedStateItem', text);
+    localStorage.setItem('selectedCategoryItem', '');
     this.setState({ selectedInput: text });
     this.props.onHandleSelectedState();
   }
@@ -57,7 +58,7 @@ export default class StateList extends PureComponent {
       text={item.text}
       iconType={item.iconType}
       onClickFunc={() => this.handleSelectedInput(item.text)}
-      selected={selectedInput === item.text}
+      selected={selectedInput === item.text && localStorage.selectedStateItem}
     />));
     return (
       <div>
