@@ -45,6 +45,7 @@ export default class Signup extends PureComponent {
           this.setState({ success: true });
           localStorage.setItem('currentUser', response.data.id);
         }
+        location.replace(`${config.BASE_URL}/user/created-account`);
       }).catch((error) => {
         this.setState({ danger: error.status === 422 });
       });
