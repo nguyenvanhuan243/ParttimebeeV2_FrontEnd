@@ -4,37 +4,12 @@
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   display: block;
-  animation: ReportJobPopup 0.3s;
   z-index: 1;
 }
 
 .ReportJobPopup-container {
   width: 1320px;
   margin: 0 auto;
-}
-
-@keyframes ReportJobPopup {
-  0%{
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.4);
-  }
-  60%{
-    transform: scale(1.1);
-  }
-  70%{
-    transform: scale(1.2);
-  }
-  80%{
-    transform: scale(1);
-  }
-  90%{
-    transform: scale(1.1);
-  }
-  100%{
-    transform: scale(1);
-  }
 }
 
 .ReportJobPopup-inputText {
