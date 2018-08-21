@@ -21,6 +21,7 @@ import MyJobs from 'containers/MyJobs/Loadable';
 import Signup from 'components/LoginRegister/Signup/Loadable';
 import Login from 'components/LoginRegister/Login/Loadable';
 import ForgotPassword from 'components/LoginRegister/ForgotPassword/Loadable';
+import CreatedAccount from 'components/LoginRegister/CreatedAccount/Loadable';
 import ForgotPasswordIncoming from 'components/LoginRegister/ForgotPasswordIncoming/Loadable';
 import TermsPage from 'components/Pages/Terms/Loadable';
 import PolicyPage from 'components/Pages/Policy/Loadable';
@@ -42,6 +43,7 @@ export default function App() {
         <Route exact path="/user/forgot-password" component={ForgotPassword} />
         <Route exact path="/user/forgot-password-incoming" component={ForgotPasswordIncoming} />
         <Route exact path="/user/change-password" component={ForgotPassword} />
+        <Route exact path="/user/created-account" component={CreatedAccount} />
         {/* Pages */}
         <Route exact path="/pages/terms" component={TermsPage} />
         <Route exact path="/pages/policy" component={PolicyPage} />
