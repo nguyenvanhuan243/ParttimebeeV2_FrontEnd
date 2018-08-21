@@ -100,7 +100,7 @@
 }
 
 .ReportJobPopup-selectOptionTitle {
-  width: 64px;
+  min-width: 64px;
   height: 20px;
   font-size: 13px;
   font-weight: 500;
