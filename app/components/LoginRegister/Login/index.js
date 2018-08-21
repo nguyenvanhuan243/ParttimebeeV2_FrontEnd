@@ -4,10 +4,10 @@ import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon
 import axios from 'axios';
 import validator from 'validator';
 import classNames from 'classnames';
+import { isMac } from '../../../utils/operatingSystem';
 import config from '../../../../config';
 
 const params = new URLSearchParams(location.search);
-const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 export default class Login extends PureComponent {
   constructor() {
     super();
@@ -71,7 +71,7 @@ export default class Login extends PureComponent {
       'Signup-animationColor': focusPassword,
     });
     const loginHaveAccountClassNames = classNames('Login-haveAccount', {
-      'Login-haveAccountMacOs': isMac,
+      'Login-haveAccountMacOs': isMac(),
     });
     const loginFormClassNames = classNames('Login-form', {
       'Signup-effectShake': shakeEffect,
