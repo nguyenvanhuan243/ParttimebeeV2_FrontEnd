@@ -7,7 +7,7 @@ const CreatedAccount = () => (
     <div className="ForgotPassword-title">
       Hooray! Your account has been created!
     </div>
-    <div className="ForgotPassword-abstract">
+    <div className="CreatedAccount-abstract">
       Please check email to confirm it.
     </div>
   </div>

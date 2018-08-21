@@ -64,6 +64,7 @@ import 'components/JobSavedAlert/styles.css';
 import 'components/JobDetail/RelatedJobList/styles.css';
 import 'components/JobDetail/RelatedJobList/Item/styles.css';
 import 'components/LoginRegister/Signup/styles.css';
+import 'components/LoginRegister/CreatedAccount/styles.css';
 import 'components/LoginRegister/Login/styles.css';
 import 'components/LoginRegister/ForgotPassword/styles.css';
 import 'components/LoginRegister/ForgotPasswordIncoming/styles.css';
