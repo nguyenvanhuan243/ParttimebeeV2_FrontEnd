@@ -256,6 +256,10 @@ input.EditProfileForm-inputHoverEmail:focus {
   width: 875px !important;
 }
 
+.EditProfileForm-inputHoverEmail {
+  width: 100%;
+}
+
 .EditProfileForm-optionInput {
   font-weight: 500 !important;
   color: #d8d8d8 !important;
