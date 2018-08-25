@@ -24,8 +24,9 @@ export default class JobItem extends PureComponent {
   }
 
   componentDidMount() {
+    const { href } = this.props;
     document.getElementById('JobItemID').addEventListener('click', () => {
-      setTimeout(() => location.replace('http://localhost:3001/job-detail/10'), 100);
+      setTimeout(() => location.replace(href), 100);
     });
   }
 
