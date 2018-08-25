@@ -74,15 +74,15 @@ export default class Signup extends PureComponent {
     if (isEmpty(value)) {
       this.setState({ isEmail: true, finished: false });
     }
+    if (value.length === 1) {
+      this.setState({ isEmail: true, finished: false });
+    }
     this.setState({ emailValue: value });
     this.setState({
       showEmailAnimation: value,
       registerEmailState: value,
       timeOut: setTimeout(() => {
-        this.setState({
-          isEmail: validator.isEmail(value),
-          finished: true,
-        });
+        this.setState({ isEmail: validator.isEmail(value), finished: true });
         const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
         axios.post(disposableUrl, { email: value }).then((response) => {
           this.setState({ disposableEmail: response.data.success });
