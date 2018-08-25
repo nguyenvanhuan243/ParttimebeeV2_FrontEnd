@@ -22,16 +22,25 @@ export default class JobItem extends PureComponent {
       hoverShareButton: false,
     };
   }
+
+  componentDidMount() {
+    document.getElementById('JobItemID').addEventListener('click', () => {
+      setTimeout(() => location.replace('http://localhost:3001/job-detail/10'), 100);
+    });
+  }
+
   handleClickState(state) {
     localStorage.setItem('selectedStateItem', state);
     localStorage.setItem('selectedCityItem', '');
     location.replace(config.BASE_URL);
   }
+
   handleClickCity(city) {
     localStorage.setItem('selectedCityItem', city);
     localStorage.setItem('selectedStateItem', '');
     location.replace(config.BASE_URL);
   }
+
   render() {
     const {
       title = '',
@@ -79,6 +88,7 @@ export default class JobItem extends PureComponent {
     const jobUrl = `${config.BASE_URL}/job-detail/${localStorage.jobId}`;
     return (
       <div
+        id="JobItemID"
         className={hoverClassName}
         onMouseEnter={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false, showSocialShare: false })}
