@@ -78,104 +78,102 @@ export default class JobItem extends PureComponent {
     });
     const jobUrl = `${config.BASE_URL}/job-detail/${localStorage.jobId}`;
     return (
-      <div>
-        <div
-          className={hoverClassName}
-          onMouseEnter={() => this.setState({ hover: true })}
-          onMouseLeave={() => this.setState({ hover: false, showSocialShare: false })}
-        >
-          { showImage && <a className="JobItem-href" href={href}> <div className="JobItem-image" /> </a> }
-          <div className="JobItem-content">
-            <div className="JobItem-contentTitle">
-              <a className="JobItem-href" href={href}> { title } </a>
-            </div>
-            { showCompanyName &&
-              <div className="JobItem-contentCompanyName">{ companyName }</div> }
-            <div className="JobItem-contentFooter">
-              <div className="JobItem-stateAndCity">
-                <div
-                  onMouseEnter={() => this.setState({ hoverState: true })}
-                  onMouseLeave={() => this.setState({ hoverState: false })}
-                >
-                  <button onClick={() => this.handleClickState(state)} className={hoverStateClassName}>
-                    { state && state.toUpperCase() }
-                  </button>
-                </div>
-                { (city !== '' && showCity) &&
-                <div
-                  onMouseEnter={() => this.setState({ hoverCity: true })}
-                  onMouseLeave={() => this.setState({ hoverCity: false })}
-                >
-                  <button onClick={() => this.handleClickCity(city)} className={hoverCityClassName}>
-                    { city && city.toUpperCase() }
-                  </button>
-                </div> }
+      <div
+        className={hoverClassName}
+        onMouseEnter={() => this.setState({ hover: true })}
+        onMouseLeave={() => this.setState({ hover: false, showSocialShare: false })}
+      >
+        { showImage && <a className="JobItem-href" href={href}> <div className="JobItem-image" /> </a> }
+        <div className="JobItem-content">
+          <div className="JobItem-contentTitle">
+            <a className="JobItem-href" href={href}> { title } </a>
+          </div>
+          { showCompanyName &&
+            <div className="JobItem-contentCompanyName">{ companyName }</div> }
+          <div className="JobItem-contentFooter">
+            <div className="JobItem-stateAndCity">
+              <div
+                onMouseEnter={() => this.setState({ hoverState: true })}
+                onMouseLeave={() => this.setState({ hoverState: false })}
+              >
+                <button onClick={() => this.handleClickState(state)} className={hoverStateClassName}>
+                  { state && state.toUpperCase() }
+                </button>
               </div>
-              { showView &&
-                <div className="JobItem-contentViewContainer">
-                  <ViewIcon />
-                  <div className="JobItem-contentViewNumber"> { viewNumber } </div>
-                </div> }
-              {
-                showSocialShare && <div className="JobItem-socialShare">
-                  <button
-                    onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${jobUrl}`)}
-                    className="JobInformation-facebook"
-                  >
-                    <span className="JobItem-socialShareMargin">
-                      <Facebook />
-                    </span>
-                  </button>
-                  <button
-                    onClick={() => window.open('https://web.whatsapp.com')}
-                    className="JobInformation-whatsapp"
-                  >
-                    <span className="JobItem-socialShareMargin">
-                      <WhatsApp />
-                    </span>
-                  </button>
-                  <button
-                    onClick={() => window.open('mailto: parttimebee.my@gmail.com')}
-                    className="JobInformation-email"
-                  >
-                    <span className="JobItem-socialShareMargin">
-                      <Email />
-                    </span>
-                  </button>
-                </div>
-              }
-              { showShare &&
-                <div
-                  className={hoverShareClassName}
-                  onMouseLeave={() => this.setState({ hoverShareButton: false })}
-                  onMouseEnter={() => {
-                    this.setState({ hoverShareButton: true, showSocialShare: true });
-                    onHoverJobItem();
-                  }}
-                >
-                  <ShareIcon />
-                  <span className="JobItem-contentShareText"> SHARE </span>
-                </div> }
-              { showDelete &&
-                <button
-                  onClick={onClickJobItem}
-                  className={deleteIconClassName}
-                  onMouseEnter={() => this.setState({ hoverDelete: true })}
-                  onMouseLeave={() => this.setState({ hoverDelete: false })}
-                >
-                  <DeleteIcon />
-                </button> }
-              { showEdit &&
-                <a
-                  href={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`}
-                  className={contentEditContainerClassName}
-                  onMouseEnter={() => this.setState({ hoverEdit: true })}
-                  onMouseLeave={() => this.setState({ hoverEdit: false })}
-                >
-                  <div> <ShareIcon /> </div>
-                  <div className="JobItem-contentEditText"> EDIT </div>
-                </a> }
+              { (city !== '' && showCity) &&
+              <div
+                onMouseEnter={() => this.setState({ hoverCity: true })}
+                onMouseLeave={() => this.setState({ hoverCity: false })}
+              >
+                <button onClick={() => this.handleClickCity(city)} className={hoverCityClassName}>
+                  { city && city.toUpperCase() }
+                </button>
+              </div> }
             </div>
+            { showView &&
+              <div className="JobItem-contentViewContainer">
+                <ViewIcon />
+                <div className="JobItem-contentViewNumber"> { viewNumber } </div>
+              </div> }
+            {
+              showSocialShare && <div className="JobItem-socialShare">
+                <button
+                  onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${jobUrl}`)}
+                  className="JobInformation-facebook"
+                >
+                  <span className="JobItem-socialShareMargin">
+                    <Facebook />
+                  </span>
+                </button>
+                <button
+                  onClick={() => window.open('https://web.whatsapp.com')}
+                  className="JobInformation-whatsapp"
+                >
+                  <span className="JobItem-socialShareMargin">
+                    <WhatsApp />
+                  </span>
+                </button>
+                <button
+                  onClick={() => window.open('mailto: parttimebee.my@gmail.com')}
+                  className="JobInformation-email"
+                >
+                  <span className="JobItem-socialShareMargin">
+                    <Email />
+                  </span>
+                </button>
+              </div>
+            }
+            { showShare &&
+              <div
+                className={hoverShareClassName}
+                onMouseLeave={() => this.setState({ hoverShareButton: false })}
+                onMouseEnter={() => {
+                  this.setState({ hoverShareButton: true, showSocialShare: true });
+                  onHoverJobItem();
+                }}
+              >
+                <ShareIcon />
+                <span className="JobItem-contentShareText"> SHARE </span>
+              </div> }
+            { showDelete &&
+              <button
+                onClick={onClickJobItem}
+                className={deleteIconClassName}
+                onMouseEnter={() => this.setState({ hoverDelete: true })}
+                onMouseLeave={() => this.setState({ hoverDelete: false })}
+              >
+                <DeleteIcon />
+              </button> }
+            { showEdit &&
+              <a
+                href={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`}
+                className={contentEditContainerClassName}
+                onMouseEnter={() => this.setState({ hoverEdit: true })}
+                onMouseLeave={() => this.setState({ hoverEdit: false })}
+              >
+                <div> <ShareIcon /> </div>
+                <div className="JobItem-contentEditText"> EDIT </div>
+              </a> }
           </div>
         </div>
       </div>
