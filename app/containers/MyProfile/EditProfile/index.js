@@ -114,8 +114,8 @@ export default class EditProfile extends Component {
   }
   handleDeleteProfile() {
     this.setState({
-      showAskReasonPopup: false,
       isSubmited: false,
+      showAskReasonPopup: false,
     });
   }
   render() {
@@ -160,7 +160,6 @@ export default class EditProfile extends Component {
       'EditProfile-errorLable': alertCompanyName });
     const separateCompanyNameClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertCompanyName });
-    const linkAvatar = user.url_avatar ? user.url_avatar : 'https://www.neolutionesport.com/wp-content/uploads/2017/03/default-avatar-knives-ninja.png';
     return (
       <div>
         <div>
@@ -225,11 +224,13 @@ export default class EditProfile extends Component {
                     <form id="editForm">
                       <div className="EditProfileForm-avatarContainer">
                         <div className="EditProfileForm-image">
-                          <img
-                            className="EditProfileForm-image"
-                            src={linkAvatar}
-                            alt="Avatar"
-                          />
+                          {
+                            user.url_avatar ? <img
+                              className="EditProfileForm-image"
+                              src={user.url_avatar}
+                              alt="Avatar"
+                            /> : <div className="EditProfileForm-image" />
+                          }
                           <input
                             className="EditProfileForm-image"
                             type="file"
