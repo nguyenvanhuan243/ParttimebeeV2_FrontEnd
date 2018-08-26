@@ -224,6 +224,10 @@
   margin-bottom: 20px;
 }
 
+input.EditProfileForm-image:hover {
+  cursor: pointer !important;
+}
+
 .EditProfileForm-avatar {
   width: 165px;
   height: 20px;
