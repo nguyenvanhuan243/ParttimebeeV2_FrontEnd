@@ -4,38 +4,11 @@
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   display: block;
-  animation: AskReasonPopup 0.3s;
   z-index: 100;
-}
-
-@keyframes AskReasonPopup {
-  0%{
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.4);
-  }
-  60%{
-    transform: scale(1.1);
-  }
-  70%{
-    transform: scale(1.2);
-  }
-  80%{
-    transform: scale(1);
-  }
-  90%{
-    transform: scale(1.1);
-  }
-  100%{
-    transform: scale(1);
-  }
 }
 
 .AskReasonPopup-inputText {
   margin-left: 5px;
-  /* width: 34px; */
-  /* height: 20px !important; */
   display: inline;
   font-size: 13px;
   font-weight: normal;
@@ -141,7 +114,6 @@
 }
 
 .AskReasonPopup-submitReportText {
-  
   font-size: 11px;
   font-weight: bold;
   font-style: normal;
