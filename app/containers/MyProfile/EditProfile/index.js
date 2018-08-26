@@ -160,6 +160,7 @@ export default class EditProfile extends Component {
       'EditProfile-errorLable': alertCompanyName });
     const separateCompanyNameClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertCompanyName });
+    const avatarURL = user.url_avatar || 'http://www.chicshelfpaper.com/images/P/0260.jpg';
     return (
       <div>
         <div>
@@ -224,13 +225,11 @@ export default class EditProfile extends Component {
                     <form id="editForm">
                       <div className="EditProfileForm-avatarContainer">
                         <div className="EditProfileForm-image">
-                          {
-                            user.url_avatar ? <img
-                              className="EditProfileForm-image"
-                              src={user.url_avatar}
-                              alt="Avatar"
-                            /> : <div className="EditProfileForm-image" />
-                          }
+                          <img
+                            className="EditProfileForm-image"
+                            src={avatarURL}
+                            alt="Avatar"
+                          />
                           <input
                             className="EditProfileForm-image"
                             type="file"
