@@ -44,9 +44,6 @@ export default class AskReasonPopup extends PureComponent {
   render() {
     const { selectedOption, showDeleteProfile } = this.state;
     const { closePopupFunc = () => {} } = this.props;
-    const feedBackStyle = {
-      resize: 'none',
-    };
 
     return (
       <div>
@@ -159,7 +156,7 @@ export default class AskReasonPopup extends PureComponent {
                             ref={(ref) => (this.text = ref)}
                             cols="55"
                             rows="3"
-                            style={feedBackStyle}
+                            style={{ resize: 'none' }}
                           />
                         </fieldset>
                         <div className="AskReasonPopup-marginBonus" />
