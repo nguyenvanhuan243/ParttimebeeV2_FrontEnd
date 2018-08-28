@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import JobItem from 'components/JobList/JobItem/Loadable';
 import ShowMoreIcon from 'components/Icons/ShowMore/Loadable';
-import config from '../../../config';
 export default class JobList extends PureComponent {
   constructor() {
     super();
@@ -48,7 +47,7 @@ export default class JobList extends PureComponent {
     listFilterd.slice(0, limit).map((item) =>
       listItem.push(<JobItem
         key={item.id}
-        href={`${config.BASE_URL}/job-detail/${item.id}`}
+        href={`/job-detail/${item.id}`}
         title={item.title}
         showImage={showImage}
         onClickJobItem={() => this.setJobId(item.id)}

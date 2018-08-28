@@ -6,6 +6,7 @@ import Facebook from 'components/ShareThisProfile/Icons/FacebookIcon/Loadable';
 import WhatsApp from 'components/ShareThisProfile/Icons/WhatsAppIcon/Loadable';
 import Email from 'components/ShareThisProfile/Icons/EmailIcon/Loadable';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import config from '../../../../config';
 
 export default class JobItem extends PureComponent {
@@ -94,10 +95,10 @@ export default class JobItem extends PureComponent {
         onMouseEnter={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false, showSocialShare: false })}
       >
-        { showImage && <a className="JobItem-href" href={href}> <div className="JobItem-image" /> </a> }
+        { showImage && <Link className="JobItem-href" to={href}> <div className="JobItem-image" /> </Link> }
         <div className="JobItem-content">
           <div className="JobItem-contentTitle">
-            <a className="JobItem-href" href={href}> { title } </a>
+            <Link className="JobItem-href" to={href}> { title } </Link>
           </div>
           { showCompanyName &&
             <div className="JobItem-contentCompanyName">{ companyName }</div> }
@@ -176,15 +177,15 @@ export default class JobItem extends PureComponent {
                 <DeleteIcon />
               </button> }
             { showEdit &&
-              <a
-                href={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`}
+              <Link
+                to={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`}
                 className={contentEditContainerClassName}
                 onMouseEnter={() => this.setState({ hoverEdit: true })}
                 onMouseLeave={() => this.setState({ hoverEdit: false })}
               >
                 <div> <ShareIcon /> </div>
                 <div className="JobItem-contentEditText"> EDIT </div>
-              </a> }
+              </Link> }
           </div>
         </div>
       </div>
