@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react';
 import Logo from 'components/LoginRegister/GeneralComponent/Logo/Loadable';
 import classNames from 'classnames';
-import config from '../../../../../config';
+import { Link } from 'react-router-dom';
 
 export default class DashlineIcon extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
@@ -180,9 +180,9 @@ export default class DashlineIcon extends PureComponent { // eslint-disable-line
             </svg>
           </div>
         </div>
-        <a href={`${config.BASE_URL}`} className={showLogoClassNames}>
+        <Link to={'/'} className={showLogoClassNames}>
           { showLogo ? <Logo /> : null }
-        </a>
+        </Link>
       </div>
     );
   }
