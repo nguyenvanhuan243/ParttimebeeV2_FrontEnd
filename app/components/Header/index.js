@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import config from '../../../config';
 
 const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
@@ -44,11 +45,11 @@ export default class Header extends PureComponent {
               <LogoIcon />
             </div>
             <div style={notLoginStyle} className="Header-postJobContainer">
-              <a className="Header-href" href={(localStorage.currentUser && user) ? `${config.BASE_URL}/post-job` : `${config.BASE_URL}/user/login`}>
+              <Link className="Header-href" to={(localStorage.currentUser && user) ? '/post-job' : '/user/login'}>
                 <div className="Header-postJob">
                   <div className="Header-postJobText"> POST JOB </div>
                 </div>
-              </a>
+              </Link>
               { (localStorage.currentUser && user) && <button
                 onMouseEnter={() => this.setState({ expandAvatar: true })}
                 className="Header-loggedAvatar"
@@ -70,21 +71,21 @@ export default class Header extends PureComponent {
             <div className="Header-expandLoggedAvatar">
               <ul className="Header-ulContainer">
                 <li className="Header-paddingTop">
-                  <a className="Header-hrefText" href={`${config.BASE_URL}/myjobs/myjobs`}>
+                  <Link className="Header-hrefText" to={'/myjobs/myjobs'}>
                     MY JOBS
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="Header-hrefText" href={`${config.BASE_URL}/myprofile/my-profile`}>
+                  <Link className="Header-hrefText" to={'/myprofile/my-profile'}>
                     MY PROFILE
-                  </a>
+                  </Link>
                 </li>
                 <div className="Header-separateMenu">
                 </div>
                 <li>
-                  <a onClick={() => this.onLogout()} className="Header-hrefText" href="">
+                  <Link onClick={() => this.onLogout()} className="Header-hrefText" to="">
                     LOGOUT
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
