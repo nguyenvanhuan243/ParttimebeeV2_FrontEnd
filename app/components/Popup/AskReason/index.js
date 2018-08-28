@@ -2,15 +2,8 @@ import React, { PureComponent, PropTypes } from 'react';
 import CloseIcon from 'components/Icons/CloseIcon/Loadable';
 import DeleteConfirmation from 'components/Popup/DeleteConfirmation/Loadable';
 import axios from 'axios';
+import { REASON } from './constant';
 import config from '../../../../config';
-
-const REASON = {
-  reason1: 'This account was a duplicate account.',
-  reason2: 'I had a bad experience on the platform.',
-  reason3: 'I’m no longer interested in this community.',
-  reason4: 'I’m just taking a break.',
-  reason5: 'Other',
-};
 
 export default class AskReasonPopup extends PureComponent {
   constructor() {
