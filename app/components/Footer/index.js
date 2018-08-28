@@ -1,31 +1,18 @@
-import React, { PureComponent } from 'react';
-import config from '../../../config';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default class Footer extends PureComponent { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    return (
-      <div className="Footer">
-        <div className="Footer-information">
-          <a href={`${config.BASE_URL}/pages/about`}>
-            About
-          </a>
-          <div className="Footer-oval"></div>
-          <a href="mailto:parttimebee.my@gmail.com">
-            Contact
-          </a>
-          <div className="Footer-oval"></div>
-          <a href={`${config.BASE_URL}/pages/terms`}>
-            Terms
-          </a>
-          <div className="Footer-oval"></div>
-          <a href={`${config.BASE_URL}/pages/policy`}>
-            Privacy
-          </a>
-        </div>
-        <div className="Footer-copyRight">
-          PARTTIME BEE © 2017
-        </div>
-      </div>
-    );
-  }
-}
+const Footer = () => (
+  <div className="Footer">
+    <div className="Footer-information">
+      <Link to={'/pages/about'}> About </Link>
+      <div className="Footer-oval"></div>
+      <Link to="mailto:parttimebee.my@gmail.com"> Contact </Link>
+      <div className="Footer-oval"></div>
+      <Link to={'pages/terms'}> Terms </Link>
+      <div className="Footer-oval"></div>
+      <Link to={'/pages/policy'}> Privacy </Link>
+    </div>
+    <div className="Footer-copyRight"> PARTTIME BEE © 2017 </div>
+  </div>
+);
+export default Footer;
