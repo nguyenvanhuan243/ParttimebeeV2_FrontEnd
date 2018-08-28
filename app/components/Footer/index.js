@@ -1,4 +1,5 @@
 import React from 'react';
+import Mailto from 'react-mailto';
 import { Link } from 'react-router-dom';
 
 const Footer = () => (
@@ -6,7 +7,9 @@ const Footer = () => (
     <div className="Footer-information">
       <Link to={'/pages/about'}> About </Link>
       <div className="Footer-oval"></div>
-      <Link to="mailto:parttimebee.my@gmail.com"> Contact </Link>
+      <Mailto email={'parttimebee.my@gmail.com'}>
+        Contact
+      </Mailto>
       <div className="Footer-oval"></div>
       <Link to={'pages/terms'}> Terms </Link>
       <div className="Footer-oval"></div>
@@ -16,3 +19,4 @@ const Footer = () => (
   </div>
 );
 export default Footer;
+
