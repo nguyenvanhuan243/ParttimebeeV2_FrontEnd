@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react';
+import { Link } from 'react-router-dom';
 import ArrowIcon from 'components/Icons/Arrow/Loadable';
 import { isMac } from '../../../utils/operatingSystem';
-import { Link } from 'react-router-dom';
 
 export default class CompanyInfo extends PureComponent {
   render() {
