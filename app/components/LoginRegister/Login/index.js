@@ -4,6 +4,7 @@ import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon
 import axios from 'axios';
 import validator from 'validator';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import { isMac } from '../../../utils/operatingSystem';
 import config from '../../../../config';
 
@@ -164,10 +165,10 @@ export default class Login extends PureComponent {
               { ((!isEmail && emailValue.length > 0) || disposableEmail) && <div style={{ marginTop: '15px' }}>This is not a valid email address.</div> }
               { !userExisted && isEmail && !disposableEmail &&
                 <span>
-                  There is no user with that email. You can<a
+                  There is no user with that email. You can<Link
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
-                    href={`${config.BASE_URL}/user/signup?email=${this.email && this.email.value}`}
-                  > register </a>right away.
+                    to={`/user/signup?email=${this.email && this.email.value}`}
+                  > register </Link>right away.
                 </span>
               }
             </div>
@@ -178,13 +179,13 @@ export default class Login extends PureComponent {
           </div>
         </div>
         <div className="Login-passwordContainer">
-          <a className="Login-forgotPassword" href={`${config.BASE_URL}/user/forgot-password`}>
+          <Link className="Login-forgotPassword" to={'/user/forgot-password'}>
             <div style={{ minWidth: '105px', fontSize: '13px' }}>
               Forgor password?
             </div>
-          </a>
+          </Link>
           <div className={loginHaveAccountClassNames}>
-            Don’t have an account? <a className="Login-getStarted" href={`${config.BASE_URL}/user/signup`}>Get started</a>
+            Don’t have an account? <Link className="Login-getStarted" to={'/user/signup'}>Get started</Link>
           </div>
         </div>
       </div>
