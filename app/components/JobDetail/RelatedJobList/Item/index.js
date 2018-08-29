@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 export default class Item extends PureComponent {
   constructor() {
@@ -21,9 +22,9 @@ export default class Item extends PureComponent {
       'RelatedJobItem-hover': this.state.hover,
     });
     return (
-      <a
+      <Link
         className="RelatedJobItem-href"
-        href={href}
+        to={href}
         onMouseEnter={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false })}
       >
@@ -35,9 +36,9 @@ export default class Item extends PureComponent {
               <div className="RelatedJobItem-companyName"> { companyName } </div>
             </div>
           </div>
-          { showSeparate && <div className="RelatedJobItem-separate"></div> }
+          { showSeparate && <div className="RelatedJobItem-separate" /> }
         </div>
-      </a>
+      </Link>
     );
   }
 }

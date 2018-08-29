@@ -1,8 +1,8 @@
 import React from 'react';
-import config from '../../../../config';
+import { Link } from 'react-router-dom';
 
 const LogoIcon = () => (
-  <a href={config.BASE_URL}>
+  <Link to={'/'}>
     <svg height="34" width="28" viewBox="0 0 28 34">
       <g fill="none">
         <path d="M0 0h28v34H0z" />
@@ -14,7 +14,7 @@ const LogoIcon = () => (
         </g>
       </g>
     </svg>
-  </a>
+  </Link>
 );
 export default LogoIcon;
 

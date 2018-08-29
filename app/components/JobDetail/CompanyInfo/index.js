@@ -1,14 +1,14 @@
 import React, { PureComponent, PropTypes } from 'react';
 import ArrowIcon from 'components/Icons/Arrow/Loadable';
 import { isMac } from '../../../utils/operatingSystem';
-import config from '../../../../config';
+import { Link } from 'react-router-dom';
 
 export default class CompanyInfo extends PureComponent {
   render() {
     const { userId = 0 } = this.props;
     const fontWeight = isMac() ? '' : 'bold';
     return (
-      <a className="CompanyInfo-href" href={`${config.BASE_URL}/employer-profile/${userId}`}>
+      <Link className="CompanyInfo-href" to={`/employer-profile/${userId}`}>
         <div className="CompanyInfo">
           <div className="CompanyInfo-container">
             <div className="CompanyInfo-image" />
@@ -19,7 +19,7 @@ export default class CompanyInfo extends PureComponent {
             <ArrowIcon />
           </div>
         </div>
-      </a>
+      </Link>
     );
   }
 }

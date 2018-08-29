@@ -4,7 +4,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import PhoneIcon from 'components/Icons/Phone/Loadable';
 import AddressIcon from 'components/Icons/Address/Loadable';
 import WhiteEmailIcon from 'components/Icons/WhiteEmail/Loadable';
-import config from '../../../config';
+import { Link } from 'react-router-dom';
 
 export default class EmployerProfileBanner extends PureComponent {
   constructor() {
@@ -87,14 +87,14 @@ export default class EmployerProfileBanner extends PureComponent {
               </button> }
             </div>
           </div>
-          { showEdit ?
-            <a className="EmployerProfileBanner-hrefText" href={`${config.BASE_URL}/myprofile/edit-profile`}>
+          { showEdit &&
+            <Link className="EmployerProfileBanner-hrefText" to={'/myprofile/edit-profile'}>
               <div className="EmployerProfileBanner-editButton">
                 <div className="EmployerProfileBanner-editButtonText">
                   Edit
                 </div>
               </div>
-            </a> : null }
+            </Link> }
         </div>
       </div>
     );

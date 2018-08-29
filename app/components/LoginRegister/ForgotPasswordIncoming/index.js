@@ -1,7 +1,6 @@
 import React from 'react';
 import MailingIcon from 'components/LoginRegister/ForgotPasswordIncoming/MailingIcon/Loadable';
-import config from '../../../../config';
-
+import { Link } from 'react-router-dom';
 const ForgotPasswordIncoming = () => (
   <div className="ForgotPasswordIncoming">
     <MailingIcon />
@@ -12,13 +11,13 @@ const ForgotPasswordIncoming = () => (
       We just sent you an email.<br></br>
       Please follow the link in the email to reset your password.
     </div>
-    <a className="ForgotPasswordIncoming-href" href={`${config.BASE_URL}`}>
+    <Link className="ForgotPasswordIncoming-href" to={'/'}>
       <div className="ForgotPasswordIncoming-backToHome">
         <span className="ForgotPasswordIncoming-backToHomeText">
           BACK TO HOME
         </span>
       </div>
-    </a>
+    </Link>
   </div>
 );
 export default ForgotPasswordIncoming;
