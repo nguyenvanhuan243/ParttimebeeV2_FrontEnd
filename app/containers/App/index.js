@@ -13,6 +13,7 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Router } from 'react-router';
 import HomePage from 'containers/HomePage/Loadable';
 import LoadingJobs from 'containers/General/LoadingJobs/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -34,8 +35,14 @@ export default function App() {
       <Switch>
         {/* General */}
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/loading-jobs" component={LoadingJobs} />
-        <Route exact path="/job-detail/:id" component={JobDetail} />
+        <Router
+          render={() => <LoadingJobs />}
+          routes={'/loading-jobs'}
+        />
+        <Router
+          render={() => <JobDetail />}
+          routes={'/job-detail/:id'}
+        />
         <Route exact path="/employer-profile/:id" component={MyJobs} />
         {/* Login / Register */}
         <Route exact path="/user/signup" component={Signup} />
