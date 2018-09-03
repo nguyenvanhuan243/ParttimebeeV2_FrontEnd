@@ -138,6 +138,14 @@
   border: solid 1px #e8e8e8;
   margin-top: 30px;
   margin-left: 595px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.EditProfile-buttonTextContainer:focus {
+  outline: none !important;
 }
 
 .EditProfile-buttonText {
@@ -150,8 +158,8 @@
   color: #999999;
   cursor: pointer;
   outline: none !important;
-  padding-left: 16.5px;
-  padding-top: 7px;
+  /* padding-left: 16.5px; */
+  /* padding-top: 7px; */
 }
 
 .EditProfile-abstract {

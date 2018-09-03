@@ -96,15 +96,15 @@ export default class EditProfile extends Component {
   buildFormData() {
     const formData = new FormData();
     formData.append('profile[email]', this.email.value);
+    formData.append('profile[phone]', this.phone.value);
+    formData.append('profile[address]', this.address.value);
+    formData.append('profile[website]', this.website.value);
+    formData.append('profile[avatar]', this.avatar.files[0]);
     formData.append('profile[password]', this.password.value);
-    formData.append('profile[confirmPassword]', this.confirmPassword.value);
     formData.append('profile[contactName]', this.contactName.value);
     formData.append('profile[companyName]', this.companyName.value);
-    formData.append('profile[address]', this.address.value);
-    formData.append('profile[phone]', this.phone.value);
-    formData.append('profile[website]', this.website.value);
+    formData.append('profile[confirmPassword]', this.confirmPassword.value);
     formData.append('profile[companyDescription]', this.companyDescription.editor.innerHTML);
-    formData.append('profile[avatar]', this.avatar.files[0]);
     return formData;
   }
   handleAskReasonPopup() {
@@ -164,12 +164,12 @@ export default class EditProfile extends Component {
     return (
       <div>
         <div>
-          { (showAskReasonPopup || isSubmited) ?
+          { (showAskReasonPopup || isSubmited) &&
             <AskReasonPopup
               closeAskReasonFunc={() => this.handleAskReasonPopup()}
               closePopupFunc={() => { this.handleDeleteProfile(); }}
               onSubmitFormFunc={() => this.setState({ isSubmited: true })}
-            /> : null }
+            /> }
         </div>
         <div>
           <Header />
@@ -177,7 +177,7 @@ export default class EditProfile extends Component {
             <div className="EditProfile-editProfile">
               Edit Profile
             </div>
-            { showErrorAlert ? <div className="EditProfile-alert">
+            { showErrorAlert && <div className="EditProfile-alert">
               <EditProfileAlert
                 showEmail={alertEmail}
                 showPassword={alertPassword}
@@ -185,7 +185,7 @@ export default class EditProfile extends Component {
                 showContactName={alertContactName}
                 showCompanyName={alertCompanyName}
               />
-            </div> : null }
+            </div> }
             <div className="EditProfile-postJobForm">
               <div className="EditProfileForm">
                 <div className="EditProfileForm-container">
@@ -419,7 +419,7 @@ export default class EditProfile extends Component {
                   UPDATE
                 </span>
               </button>
-              { showSaving ?
+              { showSaving &&
                 <div className="EditProfile-savingContainer">
                   <div className="EditProfile-savingIcon">
                     <SavingIcon />
@@ -427,15 +427,15 @@ export default class EditProfile extends Component {
                   <div className="EditProfile-savingText">
                     SAVING…
                   </div>
-                </div> : null }
-              { showUpdated ? <div className="EditProfile-oKayContainer">
+                </div> }
+              { showUpdated && <div className="EditProfile-oKayContainer">
                 <div className="EditProfile-oKayIcon">
                   <OkayIcon />
                 </div>
                 <div className="EditProfile-oKayText">
                   UPDATED!
                 </div>
-              </div> : null }
+              </div> }
             </div>
             <div className="EditProfile-deleteMyAccount">
               <div className="EditProfile-deleteAccountContainer">
@@ -446,11 +446,11 @@ export default class EditProfile extends Component {
                   Taking a break from Parttime Bee? Youve found the right place.
                 </div>
               </div>
-              <div className="EditProfile-buttonTextContainer">
-                <button onClick={() => this.handleAskReasonPopup()} className="EditProfile-buttonText">
+              <button className="EditProfile-buttonTextContainer" onClick={() => this.handleAskReasonPopup()}>
+                <div className="EditProfile-buttonText">
                   CONTINUE
-                </button>
-              </div>
+                </div>
+              </button>
             </div>
           </div>
         </div>
