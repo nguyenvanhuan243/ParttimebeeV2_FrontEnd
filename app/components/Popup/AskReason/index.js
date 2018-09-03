@@ -60,7 +60,7 @@ export default class AskReasonPopup extends PureComponent {
                   <div>
                     <form onSubmit={this.onSubmit}>
                       <div>
-                        <fieldset className="AskReasonPopup-fieldset">
+                        <div className="AskReasonPopup-fieldset">
                           <input
                             id="1"
                             className="AskReasonPopup-radio"
@@ -75,8 +75,8 @@ export default class AskReasonPopup extends PureComponent {
                               { REASON.reason1 }
                             </span>
                           </label>
-                        </fieldset>
-                        <fieldset className="AskReasonPopup-fieldset">
+                        </div>
+                        <div className="AskReasonPopup-fieldset">
                           <input
                             id="2"
                             className="AskReasonPopup-radio"
@@ -91,8 +91,8 @@ export default class AskReasonPopup extends PureComponent {
                               { REASON.reason2 }
                             </span>
                           </label>
-                        </fieldset>
-                        <fieldset className="AskReasonPopup-fieldset">
+                        </div>
+                        <div className="AskReasonPopup-fieldset">
                           <input
                             id="3"
                             className="AskReasonPopup-radio"
@@ -107,8 +107,8 @@ export default class AskReasonPopup extends PureComponent {
                               { REASON.reason3 }
                             </span>
                           </label>
-                        </fieldset>
-                        <fieldset className="AskReasonPopup-fieldset">
+                        </div>
+                        <div className="AskReasonPopup-fieldset">
                           <input
                             id="4"
                             className="AskReasonPopup-radio"
@@ -123,8 +123,8 @@ export default class AskReasonPopup extends PureComponent {
                               { REASON.reason4 }
                             </span>
                           </label>
-                        </fieldset>
-                        <fieldset className="AskReasonPopup-fieldset">
+                        </div>
+                        <div className="AskReasonPopup-fieldset">
                           <input
                             id="5"
                             className="AskReasonPopup-radio"
@@ -139,10 +139,10 @@ export default class AskReasonPopup extends PureComponent {
                               { REASON.reason5 }
                             </span>
                           </label>
-                        </fieldset>
+                        </div>
                         <div className="AskReasonPopup-separate" />
                         <div className="AskReasonPopup-selectOptionTitle"> Feedback: </div>
-                        <fieldset className="AskReasonPopup-fieldset">
+                        <div className="AskReasonPopup-fieldset">
                           <textarea
                             className="AskReasonPopup-custom"
                             placeholder="Type your feedback here…"
@@ -151,7 +151,7 @@ export default class AskReasonPopup extends PureComponent {
                             rows="3"
                             style={{ resize: 'none' }}
                           />
-                        </fieldset>
+                        </div>
                         <div className="AskReasonPopup-marginBonus" />
                         <div className="AskReasonPopup-separate" />
                         <div className="AskReasonPopup-note">
