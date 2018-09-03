@@ -20,7 +20,7 @@ export default class RelatedJobList extends PureComponent { // eslint-disable-li
       <Item
         key={item.id}
         showSeparate={item !== lastElement}
-        href={`${config.BASE_URL}/job-detail/${item.id}`}
+        href={`/job-detail/${item.id}`}
         title={item.title}
         companyName={item.company_name}
         changePaddingTop={item.id === dataResourceEndPoint[0].id}
