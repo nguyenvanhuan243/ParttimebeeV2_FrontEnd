@@ -34,7 +34,7 @@ export default class ReportJobPopup extends PureComponent {
                 <div className="ReportJobPopup-selectOption">
                   <form onSubmit={this.onSubmit}>
                     <div>
-                      <fieldset className="ReportJobPopup-fieldset">
+                      <div className="ReportJobPopup-fieldset">
                         <input
                           id="1"
                           className="ReportJobPopup-radio"
@@ -48,8 +48,8 @@ export default class ReportJobPopup extends PureComponent {
                           <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Spam' ? 'ReportJobPopup-selected' : null}`} />
                           <span className="ReportJobPopup-inputText"> Spam</span>
                         </label>
-                      </fieldset>
-                      <fieldset className="ReportJobPopup-fieldset">
+                      </div>
+                      <div className="ReportJobPopup-fieldset">
                         <input
                           id="2"
                           className="ReportJobPopup-radio"
@@ -62,8 +62,8 @@ export default class ReportJobPopup extends PureComponent {
                           <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Duplicate' ? 'ReportJobPopup-selected' : null}`} />
                           <span className="ReportJobPopup-inputText"> Duplicate</span>
                         </label>
-                      </fieldset>
-                      <fieldset className="ReportJobPopup-fieldset">
+                      </div>
+                      <div className="ReportJobPopup-fieldset">
                         <input
                           id="3"
                           className="ReportJobPopup-radio"
@@ -76,8 +76,8 @@ export default class ReportJobPopup extends PureComponent {
                           <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Inappropriate' ? 'ReportJobPopup-selected' : null}`} />
                           <span className="ReportJobPopup-inputText"> Inappropriate</span>
                         </label>
-                      </fieldset>
-                      <fieldset className="ReportJobPopup-fieldset">
+                      </div>
+                      <div className="ReportJobPopup-fieldset">
                         <input
                           id="4"
                           className="ReportJobPopup-radio"
@@ -90,8 +90,8 @@ export default class ReportJobPopup extends PureComponent {
                           <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Needs editing' ? 'ReportJobPopup-selected' : null}`} />
                           <span className="ReportJobPopup-inputText"> Needs editing</span>
                         </label>
-                      </fieldset>
-                      <fieldset className="ReportJobPopup-fieldset">
+                      </div>
+                      <div className="ReportJobPopup-fieldset">
                         <input
                           id="5"
                           className="ReportJobPopup-radio"
@@ -104,8 +104,8 @@ export default class ReportJobPopup extends PureComponent {
                           <div className={`ReportJobPopup-radioCustom ${selectedOption === 'Self promotion' ? 'ReportJobPopup-selected' : null}`} />
                           <span className="ReportJobPopup-inputText"> Self promotion</span>
                         </label>
-                      </fieldset>
-                      <fieldset className="ReportJobPopup-fieldset">
+                      </div>
+                      <div className="ReportJobPopup-fieldset">
                         <input
                           id="6"
                           className="ReportJobPopup-radio"
@@ -118,7 +118,7 @@ export default class ReportJobPopup extends PureComponent {
                           <span className={`ReportJobPopup-radioCustom ${selectedOption === 'Not working' ? 'ReportJobPopup-selected' : null}`} />
                           <span className="ReportJobPopup-inputText"> Not working</span>
                         </label>
-                      </fieldset>
+                      </div>
                       <button className="ReportJobPopup-submitReport">
                         <div className="ReportJobPopup-submitReportText"> SUBMIT </div>
                       </button>
