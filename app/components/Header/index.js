@@ -65,6 +65,7 @@ export default class Header extends PureComponent {
         </div>
         { expandAvatar &&
           <div className="Header-expandLoggedAvatarContainer">
+            <div className="Header-triangle-up" />
             <div className="Header-expandLoggedAvatar">
               <ul className="Header-ulContainer">
                 <li className="Header-paddingTop">
