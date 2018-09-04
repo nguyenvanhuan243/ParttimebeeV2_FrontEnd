@@ -63,7 +63,7 @@ export default class Header extends PureComponent {
             </div>
           </div>
         </div>
-        { expandAvatar ?
+        { expandAvatar &&
           <div className="Header-expandLoggedAvatarContainer">
             <div className="Header-expandLoggedAvatar">
               <ul className="Header-ulContainer">
@@ -86,7 +86,7 @@ export default class Header extends PureComponent {
                 </li>
               </ul>
             </div>
-          </div> : null }
+          </div> }
       </div>
     );
   }
