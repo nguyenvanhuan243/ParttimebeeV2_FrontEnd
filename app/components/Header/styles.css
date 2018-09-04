@@ -7,10 +7,12 @@
 .Header-triangle-up {
   width: 0;
   height: 0;
-  margin-left: 1074px;
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
+  margin-top: -9px;
+  margin-left: 1073px;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
   border-bottom: 6px solid #555;
+  position: absolute;
 }
 
 .Header-href {
@@ -119,6 +121,7 @@ a.Header-postJobText:hover {
   margin-left: 1025px;
   position: absolute;
   border-radius: 4px;
+  margin-top: -3px;
 }
 
 .Header-ulContainer {
