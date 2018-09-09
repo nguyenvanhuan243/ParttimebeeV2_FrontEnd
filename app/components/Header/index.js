@@ -51,7 +51,7 @@ export default class Header extends PureComponent {
                 </div>
               </Link>
               { (localStorage.currentUser && user) && <button
-                onMouseEnter={() => this.setState({ expandAvatar: true })}
+                onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
                 className="Header-loggedAvatar"
               >
                 { user.url_avatar && <img
@@ -63,11 +63,9 @@ export default class Header extends PureComponent {
             </div>
           </div>
         </div>
-        { expandAvatar ?
-          <div
-            className="Header-expandLoggedAvatarContainer"
-            onMouseLeave={() => this.setState({ expandAvatar: false })}
-          >
+        { expandAvatar &&
+          <div className="Header-expandLoggedAvatarContainer">
+            <div className="Header-triangle-up" />
             <div className="Header-expandLoggedAvatar">
               <ul className="Header-ulContainer">
                 <li className="Header-paddingTop">
@@ -89,7 +87,7 @@ export default class Header extends PureComponent {
                 </li>
               </ul>
             </div>
-          </div> : null }
+          </div> }
       </div>
     );
   }
