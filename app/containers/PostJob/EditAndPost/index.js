@@ -11,6 +11,7 @@ import config from '../../../../config';
 
 const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
 const hasEditJob = location.search.includes('edit-job');
+const currentUserUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
 
 export default class EditAndPost extends Component {
   constructor() {
@@ -40,6 +41,11 @@ export default class EditAndPost extends Component {
   }
   componentWillMount() {
     const requestUrl = `${config.API_BASE_URL}/jobs/${jobId}`;
+    axios.get(currentUserUrl).then((response) => {
+      if (!response.data.contact_name || !response.data.company_name) {
+        location.replace(`${config.BASE_URL}/myprofile/edit-profile`);
+      }
+    });
     axios.get(requestUrl).then(
       (response) => {
         this.setState({ jobItem: response.data.job });
@@ -93,16 +99,16 @@ export default class EditAndPost extends Component {
 
   render() {
     const {
-      focusOnTitle,
-      focusOnCategory,
-      focusOnSalary,
-      focusOnSalaryType,
-      focusOnSalaryState,
-      focusOnCity,
-      focusOnDescription,
       jobItem,
       hasJobSaved,
+      focusOnCity,
+      focusOnTitle,
+      focusOnSalary,
       characterLeft,
+      focusOnCategory,
+      focusOnSalaryType,
+      focusOnSalaryState,
+      focusOnDescription,
     } = this.state;
     return (
       <div>
