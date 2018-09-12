@@ -67,11 +67,11 @@ export default class MyJobs extends Component {
   }
   render() {
     const {
-      showDeleteConfirmationPopup,
-      activeCurrent,
-      myJobResourceEndPoint,
       activeJob,
       currentUser,
+      activeCurrent,
+      myJobResourceEndPoint,
+      showDeleteConfirmationPopup,
     } = this.state;
     const goingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.GOING);
     const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.PENDING);
@@ -185,7 +185,7 @@ export default class MyJobs extends Component {
                 }
               </div>}
             <div className="MyJobs-sideBar">
-              <ShareThisProfile />
+              { myJobResourceEndPoint.length > 0 && <ShareThisProfile /> }
               <div className="MyJobs-googleAds250276"> <GoogleAdsense /> </div>
               <div> <Footer /> </div>
             </div>
