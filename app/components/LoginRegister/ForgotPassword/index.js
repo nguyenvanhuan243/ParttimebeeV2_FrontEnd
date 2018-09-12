@@ -76,7 +76,7 @@ export default class ForgotPassword extends PureComponent {
         <DashlineIcon />
         <div className="ForgotPassword-title"> { isChangePassword ? changePasswordText : 'Forgot your password' }  </div>
         { !isChangePassword &&
-          <div className="ForgotPassword-abstract"> We`ll send you an email with a reset link. </div> }
+          <div className="ForgotPassword-abstract">{"We'll send you an email with a reset link."}</div> }
         <div className={forgetFormClassNames}>
           <div>
             <form onSubmit={this.onSubmit}>
