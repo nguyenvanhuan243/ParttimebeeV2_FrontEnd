@@ -109,7 +109,7 @@ export default class ForgotPassword extends PureComponent {
     const forgetFormClassNames = classNames('Signup-form', {
       'Signup-effectShake': shakeEffect,
     });
-    const changePasswordText = changePasswordIsClicked ? 'Password Updated' : 'Change Password';
+    const changePasswordText = changePasswordIsClicked ? 'Password Updated' : 'Reset Password';
     return (
       <div className="ForgotPassword">
         <DashlineIcon />
@@ -164,7 +164,7 @@ export default class ForgotPassword extends PureComponent {
                     />
                   </div> }
                 { !changePasswordIsClicked ? <button className="Signup-button">
-                  <div className="Signup-buttonText"> { isChangePassword ? 'Change Password' : 'Reset Password' }  </div>
+                  <div className="Signup-buttonText">Reset Password</div>
                 </button> : <button className="Signup-button">
                   <div className="Signup-buttonText"> Back to MY PROFILE  </div>
                 </button> }
