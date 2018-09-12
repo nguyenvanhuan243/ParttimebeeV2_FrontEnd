@@ -85,6 +85,18 @@ export default class ForgotPassword extends PureComponent {
     });
   }
 
+  handleOnChangePassword = (e) => {
+    const {
+      target: {
+        value = '',
+      } = {},
+    } = e;
+    this.setState({
+      passwordValue: value,
+      showPasswordAnimation: value,
+    });
+  }
+
   render() {
     const {
       isEmail,
@@ -146,7 +158,7 @@ export default class ForgotPassword extends PureComponent {
                         ref={(ref) => (this.password = ref)}
                         onFocus={() => this.setState({ focusPassword: true })}
                         onBlur={() => this.setState({ focusPassword: false })}
-                        onChange={(e) => this.setState({ passwordValue: e.target.value, showPasswordAnimation: e.target.value })}
+                        onChange={this.handleOnChangePassword}
                       /> }
                     <div className="Signup-showPasswordIcon">
                       <PasswordIcon
