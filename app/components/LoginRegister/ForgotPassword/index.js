@@ -5,10 +5,13 @@ import PasswordIcon from 'components/LoginRegister/GeneralComponent/PasswordIcon
 import axios from 'axios';
 import validator from 'validator';
 import config from '../../../../config';
-
 const params = new URLSearchParams(location.search);
+const resetPasswordUrl = `${config.API_BASE_URL}/users/reset-password`;
+const updatePasswordUrl = `${config.API_BASE_URL}/users/update-password`;
+const checkUserExistUrl = `${config.API_BASE_URL}/users/check-user-exist`;
 const isChangePassword = location.pathname.includes('change-password');
 const hasChangePasswordRoute = location.pathname.includes('change-password');
+const forgotPasswordIncomingUrl = `${config.BASE_URL}/user/forgot-password-incoming`;
 export default class ForgotPassword extends PureComponent {
   constructor() {
     super();
@@ -29,7 +32,7 @@ export default class ForgotPassword extends PureComponent {
     if (hasChangePasswordRoute) {
       this.setState({ changePasswordIsClicked: true });
       e.preventDefault();
-      axios.post(`${config.API_BASE_URL}/users/update-password`, {
+      axios.post(updatePasswordUrl, {
         token: params.get('token'),
         newPassword: this.password.value,
       });
@@ -38,12 +41,34 @@ export default class ForgotPassword extends PureComponent {
       const { userExisted } = this.state;
       e.preventDefault();
       if (validator.isEmail(email) && userExisted) {
-        axios.post(`${config.API_BASE_URL}/users/reset-password`, { email });
-        location.replace(`${config.BASE_URL}/user/forgot-password-incoming`);
+        axios.post(resetPasswordUrl, { email });
+        location.replace(forgotPasswordIncomingUrl);
       } else {
         this.setState({ shakeEffect: !this.state.shakeEffect });
       }
     }
+  }
+
+  handleOnBlurEmail = (e) => {
+    const {
+      target: {
+        value = '',
+      } = {},
+    } = e;
+    this.setState({ focusEmail: false });
+    axios.post(checkUserExistUrl, { email: value }).then((response) => {
+      const {
+        data: {
+          success,
+        } = {},
+      } = response;
+      this.setState({
+        userExisted: success,
+      });
+    });
+    this.setState({
+      isEmail: validator.isEmail(value),
+    });
   }
 
   render() {
@@ -89,14 +114,7 @@ export default class ForgotPassword extends PureComponent {
                       placeholder="Email"
                       ref={(ref) => (this.email = ref)}
                       onFocus={() => this.setState({ focusEmail: true })}
-                      onBlur={(e) => {
-                        this.setState({ focusEmail: false });
-                        const url = `${config.API_BASE_URL}/users/check-user-exist`;
-                        axios.post(url, { email: e.target.value }).then((response) => {
-                          this.setState({ userExisted: response.data.success });
-                        });
-                        this.setState({ isEmail: validator.isEmail(e.target.value) });
-                      }}
+                      onBlur={this.handleOnBlurEmail}
                       onChange={(e) => this.setState({
                         shakeEffect: !e.target.value,
                         showEmailAnimation: e.target.value,
