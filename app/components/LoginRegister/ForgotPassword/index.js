@@ -7,9 +7,9 @@ import validator from 'validator';
 import config from '../../../../config';
 const params = new URLSearchParams(location.search);
 const resetPasswordUrl = `${config.API_BASE_URL}/users/reset-password`;
+const isChangePassword = location.pathname.includes('change-password');
 const updatePasswordUrl = `${config.API_BASE_URL}/users/update-password`;
 const checkUserExistUrl = `${config.API_BASE_URL}/users/check-user-exist`;
-const isChangePassword = location.pathname.includes('change-password');
 const hasChangePasswordRoute = location.pathname.includes('change-password');
 const forgotPasswordIncomingUrl = `${config.BASE_URL}/user/forgot-password-incoming`;
 export default class ForgotPassword extends PureComponent {
@@ -18,9 +18,9 @@ export default class ForgotPassword extends PureComponent {
     this.state = {
       isEmail: true,
       emailValue: '',
-      userExisted: true,
       isPassword: true,
       passwordValue: '',
+      userExisted: true,
       focusEmail: false,
       shakeEffect: false,
       focusPassword: false,
@@ -28,6 +28,7 @@ export default class ForgotPassword extends PureComponent {
       changePasswordIsClicked: false,
     };
   }
+
   onSubmit = (e) => {
     if (hasChangePasswordRoute) {
       this.setState({ changePasswordIsClicked: true });
@@ -68,6 +69,19 @@ export default class ForgotPassword extends PureComponent {
     });
     this.setState({
       isEmail: validator.isEmail(value),
+    });
+  }
+
+  handleOnChangeEmail = (e) => {
+    const {
+      target: {
+        value = '',
+      } = {},
+    } = e;
+    this.setState({
+      shakeEffect: !value && value.length > 0,
+      showEmailAnimation: value,
+      emailValue: value,
     });
   }
 
@@ -115,11 +129,7 @@ export default class ForgotPassword extends PureComponent {
                       ref={(ref) => (this.email = ref)}
                       onFocus={() => this.setState({ focusEmail: true })}
                       onBlur={this.handleOnBlurEmail}
-                      onChange={(e) => this.setState({
-                        shakeEffect: !e.target.value,
-                        showEmailAnimation: e.target.value,
-                        emailValue: e.target.value,
-                      })}
+                      onChange={this.handleOnChangeEmail}
                     />
                     <label htmlFor className={emailAnimation}>Email</label>
                     { (userExisted || emailValue.length === 0) ? <div
