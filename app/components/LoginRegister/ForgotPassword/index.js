@@ -25,6 +25,7 @@ export default class ForgotPassword extends PureComponent {
       changePasswordIsClicked: false,
     };
   }
+
   onSubmit = (e) => {
     if (hasChangePasswordRoute) {
       this.setState({ changePasswordIsClicked: true });
@@ -44,6 +45,19 @@ export default class ForgotPassword extends PureComponent {
         this.setState({ shakeEffect: !this.state.shakeEffect });
       }
     }
+  }
+
+  handleOnChangeEmail = (e) => {
+    const {
+      target: {
+        value = '',
+      } = {},
+    } = e;
+    this.setState({
+      shakeEffect: !value && value.length > 0,
+      showEmailAnimation: value,
+      emailValue: value,
+    });
   }
 
   render() {
@@ -97,11 +111,7 @@ export default class ForgotPassword extends PureComponent {
                         });
                         this.setState({ isEmail: validator.isEmail(e.target.value) });
                       }}
-                      onChange={(e) => this.setState({
-                        shakeEffect: !e.target.value,
-                        showEmailAnimation: e.target.value,
-                        emailValue: e.target.value,
-                      })}
+                      onChange={this.handleOnChangeEmail}
                     />
                     <label htmlFor className={emailAnimation}>Email</label>
                     { (userExisted || emailValue.length === 0) ? <div
