@@ -32,7 +32,6 @@ export default class HomePage extends PureComponent {
     };
   }
   componentWillMount() {
-    // localStorage.setItem('selectedStateItem', '');
     const queryString = params.get('search');
     const url = `${config.API_BASE_URL}/${queryString ? `searches?search=${queryString}` : 'jobs'}`;
     axios.get(url).then(
@@ -88,9 +87,6 @@ export default class HomePage extends PureComponent {
     });
     this.handleFilterLoading();
     this.handleLoading();
-    if (localStorage.selectedCategoryItem === 'Home') {
-      location.replace(config.BASE_URL);
-    }
   }
 
   handleScrollCallback = () => {
