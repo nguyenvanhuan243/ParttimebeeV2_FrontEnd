@@ -8,7 +8,7 @@ const ForgotPasswordIncoming = () => (
       Incoming!
     </div>
     <div className="ForgotPasswordIncoming-abstract">
-      We just sent you an email.<br></br>
+      {"We've just sent you an email."}<br></br>
       Please follow the link in the email to reset your password.
     </div>
     <Link className="ForgotPasswordIncoming-href" to={'/'}>
