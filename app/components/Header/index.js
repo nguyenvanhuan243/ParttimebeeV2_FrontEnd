@@ -11,19 +11,48 @@ export default class Header extends PureComponent {
     super();
     this.state = { expandAvatar: false, user: {} };
   }
+
   componentWillMount() {
-    axios.get(requestUrl).then((response) => {
+    axios.get(requestUrl).then(response => {
       this.setState({ user: response.data });
     });
   }
+
   onLogout() {
     localStorage.removeItem('currentUser');
     location.replace(`${config.BASE_URL}`);
   }
-  onSubmit = (e) => {
+
+  onSubmit = e => {
     e.preventDefault();
     location.replace(`${location.href}?search=${this.search.value}`);
   }
+
+  getMyProfileUrl = user => {
+    const {
+      company_name: companyName = '',
+      contact_name: contactName = '',
+    } = user;
+    return `/myprofile${companyName && contactName ? '/my-profile' : '/first-time-post-job'}`;
+  }
+
+  getMyJobUrl = user => {
+    const {
+      company_name: companyName = '',
+      contact_name: contactName = '',
+    } = user;
+    return `/myjobs${companyName && contactName ? '/myjobs' : '/first-time-post-job'}`;
+  }
+
+  handleFlowPostJob = user => {
+    const {
+      company_name: companyName = '',
+      contact_name: contactName = '',
+    } = user;
+    const isPostJob = `${companyName && contactName ? '/post-job' : '/myjobs/first-time-post-job'}`;
+    return (localStorage.currentUser && user) ? isPostJob : '/user/login';
+  }
+
   render() {
     const { expandAvatar, user } = this.state;
     const notLoginStyle = { marginLeft: (localStorage.currentUser && user) ? '0' : '56' };
@@ -37,7 +66,7 @@ export default class Header extends PureComponent {
                 <input
                   className="SearchForm-customInput"
                   placeholder="Search job..."
-                  ref={(ref) => (this.search = ref)}
+                  ref={ref => (this.search = ref)}
                 />
               </form>
             </div>
@@ -45,10 +74,10 @@ export default class Header extends PureComponent {
               <LogoIcon />
             </div>
             <div style={notLoginStyle} className="Header-postJobContainer">
-              <Link className="Header-href" to={(localStorage.currentUser && user) ? '/post-job' : '/user/login'}>
-                <div className="Header-postJob">
+              <Link className="Header-href" to={this.handleFlowPostJob(user)}>
+                <button className="Header-postJob">
                   <div className="Header-postJobText"> POST JOB </div>
-                </div>
+                </button>
               </Link>
               { (localStorage.currentUser && user) && <button
                 onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
@@ -69,12 +98,12 @@ export default class Header extends PureComponent {
             <div className="Header-expandLoggedAvatar">
               <ul className="Header-ulContainer">
                 <li className="Header-paddingTop">
-                  <Link className="Header-hrefText" to={'/myjobs/myjobs'}>
+                  <Link className="Header-hrefText" to={this.getMyJobUrl(user)}>
                     MY JOBS
                   </Link>
                 </li>
                 <li>
-                  <Link className="Header-hrefText" to={'/myprofile/my-profile'}>
+                  <Link className="Header-hrefText" to={this.getMyProfileUrl(user)}>
                     MY PROFILE
                   </Link>
                 </li>

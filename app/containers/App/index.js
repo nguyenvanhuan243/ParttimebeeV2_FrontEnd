@@ -51,6 +51,8 @@ export default function App() {
         {/* MY PROFILES */}
         <Route exact path="/myprofile/my-profile" component={MyJobs} />
         <Route exact path="/myprofile/edit-profile" component={EditProfile} />
+        <Route exact path="/myprofile/first-time-post-job" component={MyJobs} />
+        <Route exact path="/myjobs/first-time-post-job" component={MyJobs} />
         {/* MY JOBS */}
         <Route exact path="/myjobs/myjobs" component={MyJobs} />
         <Route exact path="/myjobs/myjobs-on-going-single/:id" component={JobDetail} />

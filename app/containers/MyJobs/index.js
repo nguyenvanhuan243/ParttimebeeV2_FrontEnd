@@ -17,6 +17,7 @@ const TYPE_JOB = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
 const userIdFromPathName = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
 const employerProfile = location.pathname.includes('employer-profile');
 const currentUserId = localStorage.currentUser || userIdFromPathName;
+const firstTimePostJobUrl = location.pathname.includes('first-time-post-job');
 export default class MyJobs extends Component {
   constructor() {
     super();
@@ -31,8 +32,8 @@ export default class MyJobs extends Component {
   componentWillMount() {
     const url = `${config.API_BASE_URL}/users/${currentUserId}/jobs`;
     const currentUserUrl = `${config.API_BASE_URL}/users/${currentUserId}`;
-    axios.get(url).then((response) => this.setState({ myJobResourceEndPoint: response.data }));
-    axios.get(currentUserUrl).then((response) => this.setState({ currentUser: response.data }));
+    axios.get(url).then(response => this.setState({ myJobResourceEndPoint: response.data }));
+    axios.get(currentUserUrl).then(response => this.setState({ currentUser: response.data }));
   }
   getActiveJob(active) {
     if (active.includes('On-going')) {
@@ -53,7 +54,7 @@ export default class MyJobs extends Component {
     this.getActiveJob(value);
   }
   countJobByType(array, type) {
-    return array.filter((item) => item.job_type === type).length;
+    return array.filter(item => item.job_type === type).length;
   }
   renderAfterGroupBy(object) {
     return values(object).map((item, index) => (
@@ -87,12 +88,12 @@ export default class MyJobs extends Component {
     const style = {
       marginLeft: marginLeftStyle,
     };
-    myJobList.push(textArray.map((value) =>
+    myJobList.push(textArray.map(value =>
       <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
     let dataFiltered = [];
-    dataFiltered = myJobResourceEndPoint.filter((item) => item.job_type === 'going');
+    dataFiltered = myJobResourceEndPoint.filter(item => item.job_type === 'going');
     const groupByCreatedAt = groupBy(dataFiltered,
-      (itemFiltered) => itemFiltered.created_at.substring(0, 10));
+      itemFiltered => itemFiltered.created_at.substring(0, 10));
     return (
       <div className="MyJobs">
         <div className="MyJobs-deleteConfirmationPopup">
@@ -123,18 +124,18 @@ export default class MyJobs extends Component {
                   </div>
                   { myJobResourceEndPoint.length !== 0 ?
                     <div className="MyJobsComponent-content"> { myJobList } </div> : null }
-                </div> : 'Available Jobs' }
+                </div> : (!firstTimePostJobUrl && 'Available Jobs') }
             </div>
             { employerProfile &&
-              <div style={style} className="MyJobs-jobList">
+              <div style={style}>
                 { this.renderAfterGroupBy(groupByCreatedAt) }
               </div>
             }
-            { myJobResourceEndPoint.length === 0 && !employerProfile ?
-              <div style={style} className="MyJobs-jobList">
+            { ((myJobResourceEndPoint.length === 0 && !employerProfile) || firstTimePostJobUrl) ?
+              <div style={style}>
                 <NoJobsYet />
               </div> :
-              <div style={style} className="MyJobs-jobList">
+              <div style={style}>
                 {
                   (activeJob === 'all' || activeJob === 'going') && !employerProfile ?
                     <JobList
@@ -185,8 +186,8 @@ export default class MyJobs extends Component {
                 }
               </div>}
             <div className="MyJobs-sideBar">
-              { myJobResourceEndPoint.length > 0 && <ShareThisProfile /> }
-              <div className="MyJobs-googleAds250276"> <GoogleAdsense /> </div>
+              { myJobResourceEndPoint.length > 0 && !firstTimePostJobUrl && <ShareThisProfile /> }
+              <GoogleAdsense />
               <div> <Footer /> </div>
             </div>
           </div>
