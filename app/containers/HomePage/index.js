@@ -30,6 +30,7 @@ export default class HomePage extends PureComponent {
       scrollLoadingJob: false,
       selectedCategory: 'Home',
     };
+    localStorage.setItem('selectedCategoryItem', 'Home');
   }
   componentWillMount() {
     const queryString = params.get('search');

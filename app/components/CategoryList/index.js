@@ -14,11 +14,14 @@ export default class CategoryList extends PureComponent {
     this.state = { selectedInput: 'Home' };
   }
   handleSelectedInput = (text) => {
-    this.props.onHandleSelectedCategory();
-    this.setState({ selectedInput: text });
-    localStorage.setItem('selectedCategoryItem', text);
-    localStorage.setItem('selectedStateItem', '');
+    const {
+      onHandleSelectedCategory = () => {},
+    } = this.props;
     localStorage.setItem('selectedCityItem', '');
+    localStorage.setItem('selectedStateItem', '');
+    localStorage.setItem('selectedCategoryItem', text);
+    onHandleSelectedCategory();
+    this.setState({ selectedInput: text });
   }
   render() {
     const categoryList = [
