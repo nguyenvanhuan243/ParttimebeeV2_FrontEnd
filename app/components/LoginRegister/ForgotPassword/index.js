@@ -29,7 +29,7 @@ export default class ForgotPassword extends PureComponent {
     };
   }
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     if (hasChangePasswordRoute) {
       this.setState({ changePasswordIsClicked: true });
       e.preventDefault();
@@ -48,16 +48,17 @@ export default class ForgotPassword extends PureComponent {
         this.setState({ shakeEffect: !this.state.shakeEffect });
       }
     }
+    setTimeout(() => this.setState({ shakeEffect: false }), 100);
   }
 
-  handleOnBlurEmail = (e) => {
+  handleOnBlurEmail = e => {
     const {
       target: {
         value = '',
       } = {},
     } = e;
     this.setState({ focusEmail: false });
-    axios.post(checkUserExistUrl, { email: value }).then((response) => {
+    axios.post(checkUserExistUrl, { email: value }).then(response => {
       const {
         data: {
           success,
@@ -72,7 +73,7 @@ export default class ForgotPassword extends PureComponent {
     });
   }
 
-  handleOnChangeEmail = (e) => {
+  handleOnChangeEmail = e => {
     const {
       target: {
         value = '',
@@ -85,7 +86,7 @@ export default class ForgotPassword extends PureComponent {
     });
   }
 
-  handleOnChangePassword = (e) => {
+  handleOnChangePassword = e => {
     const {
       target: {
         value = '',
@@ -138,7 +139,7 @@ export default class ForgotPassword extends PureComponent {
                       className="Signup-removeOutline"
                       type="text"
                       placeholder="Email"
-                      ref={(ref) => (this.email = ref)}
+                      ref={ref => (this.email = ref)}
                       onFocus={() => this.setState({ focusEmail: true })}
                       onBlur={this.handleOnBlurEmail}
                       onChange={this.handleOnChangeEmail}
@@ -155,7 +156,7 @@ export default class ForgotPassword extends PureComponent {
                         className="Signup-removeOutline"
                         type={isPassword ? 'password' : 'text'}
                         placeholder="Password"
-                        ref={(ref) => (this.password = ref)}
+                        ref={ref => (this.password = ref)}
                         onFocus={() => this.setState({ focusPassword: true })}
                         onBlur={() => this.setState({ focusPassword: false })}
                         onChange={this.handleOnChangePassword}
@@ -163,7 +164,7 @@ export default class ForgotPassword extends PureComponent {
                     <div className="Signup-showPasswordIcon">
                       <PasswordIcon
                         show={isPassword && true}
-                        onToggle={(e) => {
+                        onToggle={e => {
                           e.preventDefault();
                           this.setState({ isPassword: !this.state.isPassword });
                         }}
