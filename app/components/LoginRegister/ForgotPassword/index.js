@@ -51,13 +51,7 @@ export default class ForgotPassword extends PureComponent {
     setTimeout(() => this.setState({ shakeEffect: false }), 100);
   }
 
-  handleOnBlurEmail = e => {
-    const {
-      target: {
-        value = '',
-      } = {},
-    } = e;
-    this.setState({ focusEmail: false });
+  checkUserExist = value => {
     axios.post(checkUserExistUrl, { email: value }).then(response => {
       const {
         data: {
@@ -68,9 +62,16 @@ export default class ForgotPassword extends PureComponent {
         userExisted: success,
       });
     });
-    this.setState({
-      isEmail: validator.isEmail(value),
-    });
+  }
+
+  handleOnBlurEmail = e => {
+    const {
+      target: {
+        value = '',
+      } = {},
+    } = e;
+    this.checkUserExist(value);
+    this.setState({ focusEmail: false, isEmail: validator.isEmail(value) });
   }
 
   handleOnChangeEmail = e => {
@@ -80,10 +81,11 @@ export default class ForgotPassword extends PureComponent {
       } = {},
     } = e;
     this.setState({
-      shakeEffect: !value && value.length > 0,
-      showEmailAnimation: value,
       emailValue: value,
+      showEmailAnimation: value,
+      shakeEffect: !value && value.length > 0,
     });
+    this.checkUserExist(value);
   }
 
   handleOnChangePassword = e => {
