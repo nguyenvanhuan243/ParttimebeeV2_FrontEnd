@@ -31,7 +31,10 @@ export default class ForgotPassword extends PureComponent {
 
   onSubmit = e => {
     if (hasChangePasswordRoute) {
-      this.setState({ changePasswordIsClicked: true });
+      this.setState({
+        shakeEffect: true,
+        changePasswordIsClicked: true,
+      });
       e.preventDefault();
       axios.post(updatePasswordUrl, {
         token: params.get('token'),
@@ -125,7 +128,7 @@ export default class ForgotPassword extends PureComponent {
     const forgetFormClassNames = classNames('Signup-form', {
       'Signup-effectShake': shakeEffect,
     });
-    const changePasswordText = changePasswordIsClicked ? 'Password Updated' : 'Reset Password';
+    const changePasswordText = (changePasswordIsClicked && passwordValue.value >= 6) ? 'Password Updated' : 'Reset Password';
     return (
       <div className="ForgotPassword">
         <DashlineIcon />
@@ -154,32 +157,35 @@ export default class ForgotPassword extends PureComponent {
                     /> : emailValue.length > 0 && <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" />}
                   </div> :
                   <div>
-                    { !changePasswordIsClicked &&
-                      <input
-                        className="Signup-removeOutline"
-                        type={isPassword ? 'password' : 'text'}
-                        placeholder="Password"
-                        ref={ref => (this.password = ref)}
-                        onFocus={() => this.setState({ focusPassword: true })}
-                        onBlur={() => this.setState({ focusPassword: false })}
-                        onChange={this.handleOnChangePassword}
-                      /> }
-                    <div className="Signup-showPasswordIcon">
-                      <PasswordIcon
-                        show={isPassword && true}
-                        onToggle={e => {
-                          e.preventDefault();
-                          this.setState({ isPassword: !this.state.isPassword });
-                        }}
-                      />
-                    </div>
+                    { (!changePasswordIsClicked || passwordValue.length < 6) &&
+                      <div>
+                        <input
+                          className="Signup-removeOutline"
+                          type={isPassword ? 'password' : 'text'}
+                          placeholder="Password"
+                          ref={ref => (this.password = ref)}
+                          onFocus={() => this.setState({ focusPassword: true })}
+                          onBlur={() => this.setState({ focusPassword: false })}
+                          onChange={this.handleOnChangePassword}
+                        />
+                        <div className="Signup-showPasswordIcon">
+                          <PasswordIcon
+                            show={isPassword && true}
+                            onToggle={e => {
+                              e.preventDefault();
+                              this.setState({ isPassword: !this.state.isPassword });
+                            }}
+                          />
+                        </div>
+                      </div>
+                    }
                     { !changePasswordIsClicked && <label htmlFor className={passwordAnimation}>Password</label> }
                     <div
                       style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
                       className="Signup-separate"
                     />
                   </div> }
-                { !changePasswordIsClicked ? <button className="Signup-button">
+                { (!changePasswordIsClicked || passwordValue.length < 6) ? <button className="Signup-button">
                   <div className="Signup-buttonText">Reset Password</div>
                 </button> : <button className="Signup-button">
                   <div className="Signup-buttonText"> Back to MY PROFILE  </div>
