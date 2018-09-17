@@ -109,6 +109,7 @@ export default class ForgotPassword extends PureComponent {
       shakeEffect,
       emailValue,
       focusPassword,
+      passwordValue,
       showEmailAnimation,
       showPasswordAnimation,
       changePasswordIsClicked,
@@ -187,10 +188,15 @@ export default class ForgotPassword extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            <span className="Signup-emailValidate">
-              { !userExisted && isEmail && 'This email is not found in our system. Please enter again.' }
-              { !isEmail && emailValue.length > 0 && 'Please make sure you enter your email correctly!' }
-            </span>
+            { !isChangePassword ?
+              <span className="Signup-emailValidate">
+                { !userExisted && isEmail && 'This email is not found in our system. Please enter again.' }
+                { !isEmail && emailValue.length > 0 && 'Please make sure you enter your email correctly!' }
+              </span> :
+              <span style={{ marginTop: '10px' }} className="Signup-passwordValidate">
+                { focusPassword ? 'Type 6 characters or more.' : null }
+                { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
+              </span> }
           </div>
         </div>
       </div>
