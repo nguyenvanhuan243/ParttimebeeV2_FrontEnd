@@ -141,6 +141,7 @@ a.Signup-loginHereHref {
   border-radius: 3px;
   background-color: #ffaa00;
   outline: none !important;
+  cursor: pointer;
 }
 
 button.Signup-button {
@@ -155,7 +156,6 @@ button.Signup-button {
   line-height: 1.47;
   letter-spacing: 0.2px;
   color: #ffffff;
-  cursor: pointer;
   outline: none !important;
 }
 
