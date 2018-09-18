@@ -128,7 +128,7 @@ export default class ForgotPassword extends PureComponent {
     const forgetFormClassNames = classNames('Signup-form', {
       'Signup-effectShake': shakeEffect,
     });
-    const changePasswordText = (changePasswordIsClicked && passwordValue.value >= 6) ? 'Password Updated' : 'Reset Password';
+    const changePasswordText = (changePasswordIsClicked && passwordValue.length >= 6) ? 'Password Updated' : 'Reset Password';
     return (
       <div className="ForgotPassword">
         <DashlineIcon />
