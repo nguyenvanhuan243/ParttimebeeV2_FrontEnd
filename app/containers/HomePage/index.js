@@ -32,11 +32,12 @@ export default class HomePage extends PureComponent {
     };
     localStorage.setItem('selectedCategoryItem', 'Home');
   }
+
   componentWillMount() {
     const queryString = params.get('search');
     const url = `${config.API_BASE_URL}/${queryString ? `searches?search=${queryString}` : 'jobs'}`;
     axios.get(url).then(
-      (response) => {
+      response => {
         this.setState({ dataArray: response.data });
         setTimeout(
           () => this.setState({ readyToRender: true }), 300
@@ -73,6 +74,7 @@ export default class HomePage extends PureComponent {
       () => this.setState({ isLoading: true }), 300
     );
   }
+
   handleFilterLoading() {
     setTimeout(
       () => {
@@ -128,23 +130,23 @@ export default class HomePage extends PureComponent {
       readyToRender,
     } = this.state;
     let dataFiltered = [];
-    dataFiltered = dataArray.filter((item) => item.job_type === 'going');
+    dataFiltered = dataArray.filter(item => item.job_type === 'going');
     if (selectedCategory !== 'Home') {
-      dataFiltered = dataFiltered.filter((item) => item.category === selectedCategory);
+      dataFiltered = dataFiltered.filter(item => item.category === selectedCategory);
     }
     if (selectedState) {
-      dataFiltered = dataFiltered.filter((item) => item.salary_state === selectedState);
+      dataFiltered = dataFiltered.filter(item => item.salary_state === selectedState);
     }
     if (localStorage.selectedCityItem) {
       const selectedCityItem = localStorage.selectedCityItem;
-      dataFiltered = dataFiltered.filter((item) => item.city === selectedCityItem);
+      dataFiltered = dataFiltered.filter(item => item.city === selectedCityItem);
     }
     if (localStorage.selectedStateItem) {
       const selectedStateItem = localStorage.selectedStateItem;
-      dataFiltered = dataFiltered.filter((item) => item.salary_state === selectedStateItem);
+      dataFiltered = dataFiltered.filter(item => item.salary_state === selectedStateItem);
     }
     const groupByCreatedAt = groupBy(dataFiltered,
-      (itemFiltered) => itemFiltered.created_at.substring(0, 10));
+      itemFiltered => itemFiltered.created_at.substring(0, 10));
     const loadingLimited = arrayLength >= values(groupByCreatedAt).length;
     return (
       <div>
@@ -177,7 +179,7 @@ export default class HomePage extends PureComponent {
                 { this.renderAfterGroupBy(groupByCreatedAt) }
               </span> :
               <div className="HomePageContainer-none" /> }
-            { scrollLoadingJob && !loadingLimited ? <LoadingJobsList /> : null }
+            { scrollLoadingJob && !loadingLimited && <LoadingJobsList /> }
           </div> }
           <div className="HomePageContainer-sidebarContainer">
             <Subscribe /> <Sponsored /> <Footer />
