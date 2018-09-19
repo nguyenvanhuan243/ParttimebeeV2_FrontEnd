@@ -31,8 +31,12 @@ export default class ForgotPassword extends PureComponent {
 
   onSubmit = e => {
     if (hasChangePasswordRoute) {
+      if (this.password.value.length < 6) {
+        this.setState({
+          shakeEffect: true,
+        });
+      }
       this.setState({
-        shakeEffect: true,
         changePasswordIsClicked: true,
       });
       e.preventDefault();
@@ -100,6 +104,7 @@ export default class ForgotPassword extends PureComponent {
     this.setState({
       passwordValue: value,
       showPasswordAnimation: value,
+      changePasswordIsClicked: false,
     });
   }
 
@@ -180,10 +185,12 @@ export default class ForgotPassword extends PureComponent {
                       </div>
                     }
                     { !changePasswordIsClicked && <label htmlFor className={passwordAnimation}>Password</label> }
-                    <div
-                      style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
-                      className="Signup-separate"
-                    />
+                    { changePasswordIsClicked && passwordValue.length >= 6 ?
+                      null : <div
+                        style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
+                        className="Signup-separate"
+                      />
+                    }
                   </div> }
                 { (!changePasswordIsClicked || passwordValue.length < 6) ? <button className="Signup-button">
                   <div className="Signup-buttonText">Reset Password</div>
