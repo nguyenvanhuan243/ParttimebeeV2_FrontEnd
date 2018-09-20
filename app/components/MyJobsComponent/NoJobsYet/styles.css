@@ -3,7 +3,9 @@
   height: 170px;
   border-radius: 3px;
   background-color: #ffffff;
-  border: solid 1px #e8e8e8;
+  padding-top: 28px;
+  padding-bottom: 32px;
+  /* border: solid 1px #e8e8e8; */
 }
 
 .NoJobsYet-text {
@@ -17,9 +19,9 @@
   letter-spacing: normal;
   text-align: left;
   color: #999999;
-  margin-left: 256px;
+  margin-left: 381px;
   margin-right: 255px;
-  margin-top: 72px;
+  margin-top: 20px;
   margin-bottom: 16px;
 }
 
@@ -32,7 +34,7 @@
   height: 30px;
   border-radius: 3px;
   background-color: #ffaa00;
-  margin-left: 245px;
+  margin-left: 370px;
   margin-right: 245px;
   padding-left: 16px;
   padding-right: 16px;
@@ -51,4 +53,8 @@
   letter-spacing: 0.2px;
   text-align: left;
   color: #ffffff;
+}
+
+.NoJobsYet-sadIcon {
+  margin-left: 403px;
 }
