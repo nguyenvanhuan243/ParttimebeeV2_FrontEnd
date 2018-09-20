@@ -49,6 +49,9 @@ export default class Header extends PureComponent {
   }
 
   handleFlowPostJob = user => {
+    if (isEmpty(user)) {
+      return '/user/login';
+    }
     const {
       company_name: companyName = '',
       contact_name: contactName = '',
