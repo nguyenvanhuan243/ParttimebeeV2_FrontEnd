@@ -8,7 +8,7 @@ import CategoryList from 'components/CategoryList/Loadable';
 import LoadingJobsList from 'components/LoadingJobs/LoadingJobsList/Loadable';
 import SearchNotFound from 'components/SearchNotFound/Loadable';
 import StateList from 'components/StateList/Loadable';
-import { groupBy, values } from 'lodash';
+import { groupBy, values, isEmpty } from 'lodash';
 import ScrollEvent from 'react-onscroll';
 import moment from 'moment';
 import axios from 'axios';
@@ -35,7 +35,13 @@ export default class HomePage extends PureComponent {
 
   componentWillMount() {
     const queryString = params.get('search');
+    const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
     const url = `${config.API_BASE_URL}/${queryString ? `searches?search=${queryString}` : 'jobs'}`;
+    axios.get(requestUrl).then(response => {
+      if (isEmpty(response.data)) {
+        localStorage.setItem('currentUser', '');
+      }
+    });
     axios.get(url).then(
       response => {
         this.setState({ dataArray: response.data });
