@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
 import axios from 'axios';
+import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
 import config from '../../../config';
 
@@ -14,6 +15,9 @@ export default class Header extends PureComponent {
 
   componentWillMount() {
     axios.get(requestUrl).then(response => {
+      if (isEmpty(response.data)) {
+        localStorage.setItem('currentUser', '');
+      }
       this.setState({ user: response.data });
     });
   }
