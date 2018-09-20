@@ -86,7 +86,7 @@ export default class MyJobs extends Component {
     const myProfile = location.pathname.includes('my-profile') || location.pathname.includes('myjobs/myjobs');
     const marginLeftStyle = employerProfile ? '20px' : '93px';
     const style = {
-      marginLeft: marginLeftStyle,
+      marginLeft: myJobResourceEndPoint.length === 0 ? '0' : marginLeftStyle,
     };
     myJobList.push(textArray.map(value =>
       <Item key={value} onActive={() => this.handleActive(value)} text={value} active={activeCurrent === value} />));
@@ -116,16 +116,18 @@ export default class MyJobs extends Component {
             />
           </div>
           <div className="MyJobs-contentContainer">
-            <div className="MyJobs-availableJob">
-              { myProfile ?
-                <div className="MyJobsComponent-container">
-                  <div className="MyJobsComponent-title">
-                    <span className="MyJobsComponent-titleText"> My Jobs </span>
-                  </div>
-                  { myJobResourceEndPoint.length !== 0 ?
-                    <div className="MyJobsComponent-content"> { myJobList } </div> : null }
-                </div> : (!firstTimePostJobUrl && 'Available Jobs') }
-            </div>
+            { myJobResourceEndPoint.length !== 0 &&
+              <div className="MyJobs-availableJob">
+                { myProfile ?
+                  <div className="MyJobsComponent-container">
+                    <div className="MyJobsComponent-title">
+                      <span className="MyJobsComponent-titleText"> My Jobs </span>
+                    </div>
+                    { myJobResourceEndPoint.length !== 0 ?
+                      <div className="MyJobsComponent-content"> { myJobList } </div> : null }
+                  </div> : (!firstTimePostJobUrl && 'Available Jobs') }
+              </div>
+            }
             { employerProfile &&
               <div style={style}>
                 { this.renderAfterGroupBy(groupByCreatedAt) }
