@@ -55,7 +55,7 @@ export default class Header extends PureComponent {
 
   render() {
     const { expandAvatar, user } = this.state;
-    const notLoginStyle = { marginLeft: (localStorage.currentUser && user) ? '0' : '56' };
+    const notLoginStyle = { marginLeft: (localStorage.currentUser && user && user.email_confirmed) ? '0' : '56' };
     return (
       <div>
         <div className="Header">
@@ -79,7 +79,7 @@ export default class Header extends PureComponent {
                   <div className="Header-postJobText"> POST JOB </div>
                 </button>
               </Link>
-              { (localStorage.currentUser && user) && <button
+              { (localStorage.currentUser && user && user.email_confirmed) && <button
                 onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
                 className="Header-loggedAvatar"
               >
