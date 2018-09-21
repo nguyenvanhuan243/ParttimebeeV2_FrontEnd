@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
-import { Alert } from 'reactstrap';
 import validator from 'validator';
 import classNames from 'classnames';
 import { isEmpty } from 'lodash';
@@ -18,9 +17,7 @@ export default class Signup extends PureComponent {
     this.state = {
       emailValue: '',
       passwordValue: '',
-      danger: false,
       isEmail: true,
-      success: false,
       finished: false,
       isPassword: true,
       focusEmail: false,
@@ -33,21 +30,18 @@ export default class Signup extends PureComponent {
       registerEmailState: params.get('email'),
     };
   }
-  onSubmit = (e) => {
+  onSubmit = e => {
     const email = this.email.value;
     const password = this.password.value;
     const { userExisted, isEmail, disposableEmail } = this.state;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
     if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
-      axios.post(url).then((response) => {
+      axios.post(url).then(response => {
         if (response.status === 201) {
-          this.setState({ success: true });
           localStorage.setItem('currentUser', response.data.id);
         }
         location.replace(`${config.BASE_URL}/user/created-account`);
-      }).catch((error) => {
-        this.setState({ danger: error.status === 422 });
       });
     }
     if (!email || !password || password.length < 6 || userExisted || !isEmail || disposableEmail) {
@@ -55,7 +49,7 @@ export default class Signup extends PureComponent {
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
-  handleOnBlurEmail = (e) => {
+  handleOnBlurEmail = e => {
     const value = e.target.value;
     this.setState({
       focusEmail: false,
@@ -63,11 +57,11 @@ export default class Signup extends PureComponent {
       showEmailAnimation: value,
     });
     const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
-    axios.post(disposableUrl, { email: value }).then((response) => {
+    axios.post(disposableUrl, { email: value }).then(response => {
       this.setState({ disposableEmail: response.data.success });
     });
   }
-  handleOnchangeEmail = (e) => {
+  handleOnchangeEmail = e => {
     const { timeOut } = this.state;
     clearTimeout(timeOut);
     const value = e.target.value;
@@ -84,23 +78,23 @@ export default class Signup extends PureComponent {
       timeOut: setTimeout(() => {
         this.setState({ isEmail: validator.isEmail(value), finished: true });
         const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
-        axios.post(disposableUrl, { email: value }).then((response) => {
+        axios.post(disposableUrl, { email: value }).then(response => {
           this.setState({ disposableEmail: response.data.success });
         });
       }, WAIT_INTERVAL),
     });
     const url = `${config.API_BASE_URL}/users/check-user-exist`;
-    axios.post(url, { email: value }).then((response) => {
+    axios.post(url, { email: value }).then(response => {
       this.setState({ userExisted: response.data.success });
     });
   }
-  handleOnBlurPassword = (e) => {
+  handleOnBlurPassword = e => {
     this.setState({
       focusPassword: false,
       showPasswordAnimation: e.target.value,
     });
   }
-  handleOnchangePassword = (e) => {
+  handleOnchangePassword = e => {
     const value = e.target.value;
     this.setState({
       passwordValue: value,
@@ -109,8 +103,6 @@ export default class Signup extends PureComponent {
   }
   render() {
     const {
-      danger,
-      success,
       isEmail,
       finished,
       isPassword,
@@ -144,13 +136,6 @@ export default class Signup extends PureComponent {
         <div className="Signup-abstract"> It’s Free! </div>
         <div className={signupFormClassNames}>
           <div>
-            { success &&
-              <Alert color="success">
-                Your account has been registered, Please check email to confirm it.
-              </Alert> }
-            { (danger && !success) && <Alert color="danger">
-              This email is used by a other user, Please use email has not been registered!
-            </Alert> }
             <form onSubmit={this.onSubmit}>
               <div className="Signup-inputCustom">
                 <div className="Signup-emailContainer">
@@ -159,8 +144,8 @@ export default class Signup extends PureComponent {
                     type="text"
                     placeholder="Email"
                     value={registerEmailState || ''}
-                    ref={(ref) => (this.email = ref)}
-                    onFocus={(e) => this.setState({ focusEmail: true, showEmailAnimation: e.target.value })}
+                    ref={ref => (this.email = ref)}
+                    onFocus={e => this.setState({ focusEmail: true, showEmailAnimation: e.target.value })}
                     onBlur={this.handleOnBlurEmail}
                     onChange={this.handleOnchangeEmail}
                   />
@@ -193,15 +178,15 @@ export default class Signup extends PureComponent {
                     className="Signup-removeOutline"
                     type={isPassword ? 'password' : 'text'}
                     placeholder="Password"
-                    ref={(ref) => (this.password = ref)}
-                    onFocus={(e) => this.setState({ focusPassword: true, showPasswordAnimation: e.target.value })}
+                    ref={ref => (this.password = ref)}
+                    onFocus={e => this.setState({ focusPassword: true, showPasswordAnimation: e.target.value })}
                     onBlur={this.handleOnBlurPassword}
                     onChange={this.handleOnchangePassword}
                   />
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
                       show={isPassword}
-                      onToggle={(e) => {
+                      onToggle={e => {
                         e.preventDefault();
                         this.setState({ isPassword: !this.state.isPassword });
                       }}
