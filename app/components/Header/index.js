@@ -6,7 +6,7 @@ import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
 import config from '../../../config';
 
-const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
+const params = new URLSearchParams(location.search);
 export default class Header extends PureComponent {
   constructor() {
     super();
@@ -14,6 +14,10 @@ export default class Header extends PureComponent {
   }
 
   componentWillMount() {
+    if (params.get('confirmed')) {
+      localStorage.setItem('currentUser', params.get('userid'));
+    }
+    const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
     axios.get(requestUrl).then(response => {
       if (isEmpty(response.data)) {
         localStorage.setItem('currentUser', '');
