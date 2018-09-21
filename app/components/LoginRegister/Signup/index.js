@@ -39,9 +39,8 @@ export default class Signup extends PureComponent {
     if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
       axios.post(url).then(response => {
         if (response.status === 201) {
-          // localStorage.setItem('currentUser', response.data.id);
+          location.replace(`${config.BASE_URL}/user/created-account`);
         }
-        location.replace(`${config.BASE_URL}/user/created-account`);
       });
     }
     if (!email || !password || password.length < 6 || userExisted || !isEmail || disposableEmail) {
