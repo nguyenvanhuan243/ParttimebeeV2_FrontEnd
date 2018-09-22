@@ -37,18 +37,24 @@ export default class Login extends PureComponent {
     const password = this.password.value;
     const { disposableEmail, userExisted } = this.state;
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
-    if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
-      axios.post(url).then(response => {
-        this.setState({ success: response === 201 });
-        localStorage.setItem('currentUser', response.data.user.id);
-        window.location.replace(`${config.BASE_URL}`);
-      }).catch(error => {
-        this.setState({ danger: error.response.status === 422 });
-      });
-    }
-    if (!email || !password || !userExisted || password.length < 6) {
-      this.setState({ shakeEffect: true });
-    }
+    axios.post(checkUserExistUrl, { email }).then(response => {
+      if (response.data.user.email_confirmed) {
+        if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
+          axios.post(url).then(responseInternal => {
+            this.setState({ responseInternal: response === 201 });
+            localStorage.setItem('currentUser', responseInternal.data.user.id);
+            window.location.replace(`${config.BASE_URL}`);
+          }).catch(error => {
+            this.setState({ danger: error.responseInternal.status === 422 });
+          });
+        }
+        if (!email || !password || !userExisted || password.length < 6) {
+          this.setState({ shakeEffect: true });
+        }
+      } else {
+        this.setState({ shakeEffect: true });
+      }
+    });
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
 
