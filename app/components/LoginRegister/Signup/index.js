@@ -30,11 +30,12 @@ export default class Signup extends PureComponent {
       registerEmailState: params.get('email'),
     };
   }
+
   onSubmit = e => {
+    e.preventDefault();
     const email = this.email.value;
     const password = this.password.value;
     const { userExisted, isEmail, disposableEmail } = this.state;
-    e.preventDefault();
     const url = `${config.API_BASE_URL}/users?email=${email}&password=${password}`;
     if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
       axios.post(url).then(response => {
@@ -48,6 +49,7 @@ export default class Signup extends PureComponent {
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
+
   handleOnBlurEmail = e => {
     const value = e.target.value;
     this.setState({
@@ -60,6 +62,7 @@ export default class Signup extends PureComponent {
       this.setState({ disposableEmail: response.data.success });
     });
   }
+
   handleOnchangeEmail = e => {
     const { timeOut } = this.state;
     clearTimeout(timeOut);
@@ -87,12 +90,14 @@ export default class Signup extends PureComponent {
       this.setState({ userExisted: response.data.success });
     });
   }
+
   handleOnBlurPassword = e => {
     this.setState({
       focusPassword: false,
       showPasswordAnimation: e.target.value,
     });
   }
+
   handleOnchangePassword = e => {
     const value = e.target.value;
     this.setState({
@@ -100,6 +105,26 @@ export default class Signup extends PureComponent {
       showPasswordAnimation: !(value === ''),
     });
   }
+
+  handleOnToggle = e => {
+    e.preventDefault();
+    this.setState({ isPassword: !this.state.isPassword });
+  }
+
+  handleOnFocusEmail = e => {
+    this.setState({
+      focusEmail: true,
+      showEmailAnimation: e.target.value,
+    });
+  }
+
+  handleOnFocusPassword = e => {
+    this.setState({
+      focusPassword: true,
+      showPasswordAnimation: e.target.value,
+    });
+  }
+
   render() {
     const {
       isEmail,
@@ -117,12 +142,12 @@ export default class Signup extends PureComponent {
       showPasswordAnimation,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
-      'Signup-inputAnimation': showEmailAnimation,
       'Signup-animationColor': focusEmail,
+      'Signup-inputAnimation': showEmailAnimation,
     });
     const passwordAnimation = classNames('Signup-inputLabel', {
-      'Signup-inputAnimation': showPasswordAnimation,
       'Signup-animationColor': focusPassword,
+      'Signup-inputAnimation': showPasswordAnimation,
     });
     const signupFormClassNames = classNames('Signup-form', {
       'Signup-effectShake': shakeEffect,
@@ -144,7 +169,7 @@ export default class Signup extends PureComponent {
                     placeholder="Email"
                     value={registerEmailState || ''}
                     ref={ref => (this.email = ref)}
-                    onFocus={e => this.setState({ focusEmail: true, showEmailAnimation: e.target.value })}
+                    onFocus={this.handleOnFocusEmail}
                     onBlur={this.handleOnBlurEmail}
                     onChange={this.handleOnchangeEmail}
                   />
@@ -178,17 +203,14 @@ export default class Signup extends PureComponent {
                     type={isPassword ? 'password' : 'text'}
                     placeholder="Password"
                     ref={ref => (this.password = ref)}
-                    onFocus={e => this.setState({ focusPassword: true, showPasswordAnimation: e.target.value })}
+                    onFocus={this.handleOnFocusPassword}
                     onBlur={this.handleOnBlurPassword}
                     onChange={this.handleOnchangePassword}
                   />
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
                       show={isPassword}
-                      onToggle={e => {
-                        e.preventDefault();
-                        this.setState({ isPassword: !this.state.isPassword });
-                      }}
+                      onToggle={this.handleOnToggle}
                     />
                   </div>
                   <label htmlFor className={passwordAnimation}>Password</label>
