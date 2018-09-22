@@ -67,7 +67,7 @@ export default class Login extends PureComponent {
     });
   }
 
-  handleOnchangeEmail = e => {
+  handleOnChangeEmail = e => {
     this.setState({
       loginEmailState: e.target.value,
       showEmailAnimation: e.target.value,
@@ -120,7 +120,7 @@ export default class Login extends PureComponent {
                     ref={ref => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
                     onBlur={this.handleOnBlurEmail}
-                    onChange={this.handleOnchangeEmail}
+                    onChange={this.handleOnChangeEmail}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
                   { ((isEmail && userExisted && !disposableEmail) || emailValue.length === 0) &&
