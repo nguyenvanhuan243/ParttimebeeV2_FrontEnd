@@ -27,6 +27,7 @@ export default class Login extends PureComponent {
       focusPassword: false,
       disposableEmail: false,
       showEmailAnimation: false,
+      showMessageEmailNotConfirm: false,
       loginEmailState: params.get('email'),
     };
   }
@@ -38,6 +39,15 @@ export default class Login extends PureComponent {
     const { disposableEmail, userExisted } = this.state;
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
     axios.post(checkUserExistUrl, { email }).then(response => {
+      if (response.data.user && !response.data.user.email_confirmed) {
+        this.setState({
+          showMessageEmailNotConfirm: true,
+        });
+      } else {
+        this.setState({
+          showMessageEmailNotConfirm: false,
+        });
+      }
       if (response.data.user.email_confirmed) {
         if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
           axios.post(url).then(responseInternal => {
@@ -114,6 +124,7 @@ export default class Login extends PureComponent {
       loginEmailState,
       showEmailAnimation,
       showPasswordAnimation,
+      showMessageEmailNotConfirm,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-inputAnimation': showEmailAnimation,
@@ -191,12 +202,17 @@ export default class Login extends PureComponent {
           <div className="Signup-validateContainer">
             <div className="Signup-emailValidate">
               { ((!isEmail && emailValue.length > 0) || disposableEmail) && <div style={{ marginTop: '15px' }}>This is not a valid email address.</div> }
-              { !userExisted && isEmail && !disposableEmail &&
+              { !showMessageEmailNotConfirm && !userExisted && isEmail && !disposableEmail &&
                 <span>
                   There is no user with that email. You can<Link
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
                     to={`/user/signup?email=${this.email && this.email.value}`}
                   > register </Link>right away.
+                </span>
+              }
+              { showMessageEmailNotConfirm &&
+                <span>
+                  Check your email, we already sent an email to this address for verification
                 </span>
               }
             </div>
