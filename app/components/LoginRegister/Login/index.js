@@ -28,18 +28,18 @@ export default class Login extends PureComponent {
       loginEmailState: params.get('email'),
     };
   }
-  onSubmit = (e) => {
+  onSubmit = e => {
     const email = this.email.value;
     const password = this.password.value;
     const { disposableEmail, userExisted } = this.state;
     e.preventDefault();
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
     if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
-      axios.post(url).then((response) => {
+      axios.post(url).then(response => {
         this.setState({ success: response === 201 });
         localStorage.setItem('currentUser', response.data.user.id);
         window.location.replace(`${config.BASE_URL}`);
-      }).catch((error) => {
+      }).catch(error => {
         this.setState({ danger: error.response.status === 422 });
       });
     }
@@ -91,25 +91,25 @@ export default class Login extends PureComponent {
                     type="text"
                     placeholder="Email"
                     value={loginEmailState}
-                    ref={(ref) => (this.email = ref)}
+                    ref={ref => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
-                    onBlur={(e) => {
+                    onBlur={e => {
                       this.setState({ focusEmail: false, emailValue: e.target.value });
                       if (!validator.isEmail(e.target.value)) {
                         this.setState({ isEmail: false });
                       } else {
                         const url = `${config.API_BASE_URL}/users/check-user-exist`;
-                        axios.post(url, { email: e.target.value }).then((response) => {
+                        axios.post(url, { email: e.target.value }).then(response => {
                           this.setState({ userExisted: response.data.success && true });
                         });
                         this.setState({ isEmail: true });
                       }
                       const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
-                      axios.post(disposableUrl, { email: e.target.value }).then((response) => {
+                      axios.post(disposableUrl, { email: e.target.value }).then(response => {
                         this.setState({ disposableEmail: response.data.success });
                       });
                     }}
-                    onChange={(e) => this.setState({
+                    onChange={e => this.setState({
                       showEmailAnimation: e.target.value,
                       loginEmailState: e.target.value,
                     })}
@@ -130,10 +130,10 @@ export default class Login extends PureComponent {
                     className="Signup-removeOutline"
                     type={isPassword ? 'password' : 'text'}
                     placeholder="Password"
-                    ref={(ref) => (this.password = ref)}
+                    ref={ref => (this.password = ref)}
                     onFocus={() => this.setState({ focusPassword: true })}
                     onBlur={() => this.setState({ focusPassword: false })}
-                    onChange={(e) => this.setState({
+                    onChange={e => this.setState({
                       passwordValue: e.target.value,
                       showPasswordAnimation: e.target.value,
                     })}
@@ -141,7 +141,7 @@ export default class Login extends PureComponent {
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
                       show={isPassword && true}
-                      onToggle={(e) => {
+                      onToggle={e => {
                         e.preventDefault();
                         this.setState({ isPassword: !this.state.isPassword });
                       }}
