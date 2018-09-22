@@ -9,6 +9,8 @@ import { isMac } from '../../../utils/operatingSystem';
 import config from '../../../../config';
 
 const params = new URLSearchParams(location.search);
+const checkUserExistUrl = `${config.API_BASE_URL}/users/check-user-exist`;
+const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
 export default class Login extends PureComponent {
   constructor() {
     super();
@@ -55,13 +57,11 @@ export default class Login extends PureComponent {
     if (!validator.isEmail(e.target.value)) {
       this.setState({ isEmail: false });
     } else {
-      const url = `${config.API_BASE_URL}/users/check-user-exist`;
-      axios.post(url, { email: e.target.value }).then(response => {
+      axios.post(checkUserExistUrl, { email: e.target.value }).then(response => {
         this.setState({ userExisted: response.data.success && true });
       });
       this.setState({ isEmail: true });
     }
-    const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
     axios.post(disposableUrl, { email: e.target.value }).then(response => {
       this.setState({ disposableEmail: response.data.success });
     });
