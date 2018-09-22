@@ -28,6 +28,7 @@ export default class Login extends PureComponent {
       loginEmailState: params.get('email'),
     };
   }
+
   onSubmit = e => {
     const email = this.email.value;
     const password = this.password.value;
@@ -48,6 +49,31 @@ export default class Login extends PureComponent {
     }
     setTimeout(() => this.setState({ shakeEffect: false }), 200);
   }
+
+  handleOnBlurEmail = e => {
+    this.setState({ focusEmail: false, emailValue: e.target.value });
+    if (!validator.isEmail(e.target.value)) {
+      this.setState({ isEmail: false });
+    } else {
+      const url = `${config.API_BASE_URL}/users/check-user-exist`;
+      axios.post(url, { email: e.target.value }).then(response => {
+        this.setState({ userExisted: response.data.success && true });
+      });
+      this.setState({ isEmail: true });
+    }
+    const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
+    axios.post(disposableUrl, { email: e.target.value }).then(response => {
+      this.setState({ disposableEmail: response.data.success });
+    });
+  }
+
+  handleOnchangeEmail = e => {
+    this.setState({
+      loginEmailState: e.target.value,
+      showEmailAnimation: e.target.value,
+    });
+  }
+
   render() {
     const {
       isEmail,
@@ -93,26 +119,8 @@ export default class Login extends PureComponent {
                     value={loginEmailState}
                     ref={ref => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
-                    onBlur={e => {
-                      this.setState({ focusEmail: false, emailValue: e.target.value });
-                      if (!validator.isEmail(e.target.value)) {
-                        this.setState({ isEmail: false });
-                      } else {
-                        const url = `${config.API_BASE_URL}/users/check-user-exist`;
-                        axios.post(url, { email: e.target.value }).then(response => {
-                          this.setState({ userExisted: response.data.success && true });
-                        });
-                        this.setState({ isEmail: true });
-                      }
-                      const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
-                      axios.post(disposableUrl, { email: e.target.value }).then(response => {
-                        this.setState({ disposableEmail: response.data.success });
-                      });
-                    }}
-                    onChange={e => this.setState({
-                      showEmailAnimation: e.target.value,
-                      loginEmailState: e.target.value,
-                    })}
+                    onBlur={this.handleOnBlurEmail}
+                    onChange={this.handleOnchangeEmail}
                   />
                   <label htmlFor className={emailAnimation}>Email</label>
                   { ((isEmail && userExisted && !disposableEmail) || emailValue.length === 0) &&
