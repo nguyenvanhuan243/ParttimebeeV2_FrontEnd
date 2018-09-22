@@ -27,6 +27,7 @@ export default class Signup extends PureComponent {
       disposableEmail: false,
       showEmailAnimation: false,
       timeOut: () => {},
+      showMessageEmailNotConfirm: false,
       registerEmailState: params.get('email'),
     };
   }
@@ -68,13 +69,19 @@ export default class Signup extends PureComponent {
     clearTimeout(timeOut);
     const value = e.target.value;
     if (isEmpty(value)) {
-      this.setState({ isEmail: true, finished: false });
+      this.setState({
+        isEmail: true,
+        finished: false,
+      });
     }
     if (value.length === 1) {
-      this.setState({ isEmail: true, finished: false });
+      this.setState({
+        isEmail: true,
+        finished: false,
+      });
     }
-    this.setState({ emailValue: value });
     this.setState({
+      emailValue: value,
       showEmailAnimation: value,
       registerEmailState: value,
       timeOut: setTimeout(() => {
@@ -87,7 +94,10 @@ export default class Signup extends PureComponent {
     });
     const url = `${config.API_BASE_URL}/users/check-user-exist`;
     axios.post(url, { email: value }).then(response => {
-      this.setState({ userExisted: response.data.success });
+      this.setState({
+        userExisted: response.data.success,
+        showMessageEmailNotConfirm: (response.data.user && !response.data.user.email_confirmed),
+      });
     });
   }
 
@@ -140,6 +150,7 @@ export default class Signup extends PureComponent {
       showEmailAnimation,
       registerEmailState,
       showPasswordAnimation,
+      showMessageEmailNotConfirm,
     } = this.state;
     const emailAnimation = classNames('Signup-inputLabel', {
       'Signup-animationColor': focusEmail,
@@ -227,7 +238,7 @@ export default class Signup extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            { userExisted && isEmail && emailValue.length > 0 && disposableEmail &&
+            { !showMessageEmailNotConfirm && userExisted && isEmail && emailValue.length > 0 && disposableEmail &&
               <div className="Signup-emailValidate">
                 <span>
                   Looks like you already have an account. You can<a
@@ -238,7 +249,12 @@ export default class Signup extends PureComponent {
               </div>
             }
             <span className="Signup-emailValidate">
-              { focusEmail && 'We’ll send an email to this address for verification.' }
+              { showMessageEmailNotConfirm &&
+                <span className="Signup-emailValidate">
+                  Check your email, we already sent an email to this address for verification
+                </span>
+              }
+              { focusEmail && !showMessageEmailNotConfirm && 'We’ll send an email to this address for verification.' }
               { disposableEmail && isEmail && !focusEmail &&
                 <div style={{ marginTop: '15px' }}>
                   This is not valid email address.
