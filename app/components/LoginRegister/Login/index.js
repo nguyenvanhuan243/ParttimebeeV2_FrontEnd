@@ -32,10 +32,10 @@ export default class Login extends PureComponent {
   }
 
   onSubmit = e => {
+    e.preventDefault();
     const email = this.email.value;
     const password = this.password.value;
     const { disposableEmail, userExisted } = this.state;
-    e.preventDefault();
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
     if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
       axios.post(url).then(response => {
@@ -53,16 +53,24 @@ export default class Login extends PureComponent {
   }
 
   handleOnBlurEmail = e => {
-    this.setState({ focusEmail: false, emailValue: e.target.value });
-    if (!validator.isEmail(e.target.value)) {
+    const {
+      target: {
+        value = '',
+      } = {},
+    } = e;
+    this.setState({
+      focusEmail: false,
+      emailValue: value,
+    });
+    if (!validator.isEmail(value)) {
       this.setState({ isEmail: false });
     } else {
-      axios.post(checkUserExistUrl, { email: e.target.value }).then(response => {
+      axios.post(checkUserExistUrl, { email: value }).then(response => {
         this.setState({ userExisted: response.data.success && true });
       });
       this.setState({ isEmail: true });
     }
-    axios.post(disposableUrl, { email: e.target.value }).then(response => {
+    axios.post(disposableUrl, { email: value }).then(response => {
       this.setState({ disposableEmail: response.data.success });
     });
   }
@@ -72,6 +80,18 @@ export default class Login extends PureComponent {
       loginEmailState: e.target.value,
       showEmailAnimation: e.target.value,
     });
+  }
+
+  handleOnChangePassword = e => {
+    this.setState({
+      passwordValue: e.target.value,
+      showPasswordAnimation: e.target.value,
+    });
+  }
+
+  handleOnToggle = e => {
+    e.preventDefault();
+    this.setState({ isPassword: !this.state.isPassword });
   }
 
   render() {
@@ -141,18 +161,12 @@ export default class Login extends PureComponent {
                     ref={ref => (this.password = ref)}
                     onFocus={() => this.setState({ focusPassword: true })}
                     onBlur={() => this.setState({ focusPassword: false })}
-                    onChange={e => this.setState({
-                      passwordValue: e.target.value,
-                      showPasswordAnimation: e.target.value,
-                    })}
+                    onChange={this.handleOnChangePassword}
                   />
                   <div className="Signup-showPasswordIcon">
                     <PasswordIcon
-                      show={isPassword && true}
-                      onToggle={e => {
-                        e.preventDefault();
-                        this.setState({ isPassword: !this.state.isPassword });
-                      }}
+                      show={isPassword}
+                      onToggle={this.handleOnToggle}
                     />
                   </div>
                   <label htmlFor className={passwordAnimation}>Password</label>
@@ -181,8 +195,7 @@ export default class Login extends PureComponent {
               }
             </div>
             <span className="Signup-passwordValidate">
-              { focusPassword ? 'Type 6 characters or more.' : null }
-              { !focusPassword && passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : null }
+              { passwordValue.length < 6 && passwordValue.length > 0 && 'Type 6 characters or more.' }
             </span>
           </div>
         </div>
