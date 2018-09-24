@@ -211,9 +211,7 @@ export default class Login extends PureComponent {
                 </span>
               }
               { showMessageEmailNotConfirm &&
-                <span>
-                  Check your email, we already sent an email to this address for verification
-                </span>
+                'Check your email, we already sent an email to this address for verification'
               }
             </div>
             <span className="Signup-passwordValidate">
