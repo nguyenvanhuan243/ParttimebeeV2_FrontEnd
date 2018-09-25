@@ -250,7 +250,7 @@ export default class Signup extends PureComponent {
             }
             <span className="Signup-emailValidate">
               { showMessageEmailNotConfirm &&
-                'Check your email, we already sent an email to this address for verification'
+                'Check your email, we already sent an email to this address for verification.'
               }
               { focusEmail && !showMessageEmailNotConfirm && 'We’ll send an email to this address for verification.' }
               { disposableEmail && isEmail && !focusEmail &&
