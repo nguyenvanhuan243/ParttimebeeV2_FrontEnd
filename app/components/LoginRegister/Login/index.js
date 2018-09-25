@@ -48,7 +48,7 @@ export default class Login extends PureComponent {
           showMessageEmailNotConfirm: false,
         });
       }
-      if (response.data.user.email_confirmed) {
+      if (response.data.user && response.data.user.email_confirmed) {
         if (validator.isEmail(email) && password.length >= 6 && !disposableEmail) {
           axios.post(url).then(responseInternal => {
             this.setState({ responseInternal: response === 201 });
@@ -153,7 +153,7 @@ export default class Login extends PureComponent {
                     className="Signup-removeOutline"
                     type="text"
                     placeholder="Email"
-                    value={loginEmailState}
+                    value={loginEmailState || ''}
                     ref={ref => (this.email = ref)}
                     onFocus={() => this.setState({ focusEmail: true })}
                     onBlur={this.handleOnBlurEmail}
