@@ -1,30 +1,32 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 
 export default class Item extends PureComponent {
   constructor() {
     super();
     this.state = { hover: false };
   }
+
   render() {
     const {
-      href = '',
-      title = 'JOB TITLE HERE',
-      companyName = 'Company Name',
+      href = () => {},
       showSeparate = true,
       changePaddingTop = false,
       changePaddingBottom = false,
+      title = 'JOB TITLE HERE',
+      companyName = 'Company Name',
     } = this.props;
+
     const itemClassName = classNames('RelatedJobItem', {
+      'RelatedJobItem-hover': this.state.hover,
       'RelatedJobItem-paddingTop11': changePaddingTop,
       'RelatedJobItem-paddingBottom11': changePaddingBottom,
-      'RelatedJobItem-hover': this.state.hover,
     });
+
     return (
-      <Link
+      <button
+        onClick={href}
         className="RelatedJobItem-href"
-        to={href}
         onMouseEnter={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false })}
       >
@@ -38,14 +40,14 @@ export default class Item extends PureComponent {
           </div>
           { showSeparate && <div className="RelatedJobItem-separate" /> }
         </div>
-      </Link>
+      </button>
     );
   }
 }
 Item.propTypes = {
   title: PropTypes.string,
   companyName: PropTypes.string,
-  href: PropTypes.string,
+  href: PropTypes.func.isRequired,
   showSeparate: PropTypes.bool,
   changePaddingTop: PropTypes.bool,
   changePaddingBottom: PropTypes.bool,
