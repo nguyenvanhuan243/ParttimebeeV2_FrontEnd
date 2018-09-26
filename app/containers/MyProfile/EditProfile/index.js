@@ -36,8 +36,9 @@ export default class EditProfile extends Component {
       editorState: EditorState.createEmpty(),
     };
   }
+
   componentWillMount() {
-    axios.get(requestUrl).then((response) => {
+    axios.get(requestUrl).then(response => {
       this.setState({ user: response.data });
       const blocksFromHTML = convertFromHTML(this.state.user.company_description);
       const state = ContentState.createFromBlockArray(
@@ -47,6 +48,7 @@ export default class EditProfile extends Component {
       this.setState({ editorState: EditorState.createWithContent(state) });
     });
   }
+
   onSubmit = () => {
     if (this.email.value === '' || this.password.value === '' || this.confirmPassword.value === '' ||
         this.companyName.value === '' || this.contactName.value === '') {
@@ -93,6 +95,7 @@ export default class EditProfile extends Component {
       );
     }
   }
+
   buildFormData() {
     const formData = new FormData();
     formData.append('profile[email]', this.email.value);
@@ -107,17 +110,20 @@ export default class EditProfile extends Component {
     formData.append('profile[companyDescription]', this.companyDescription.editor.innerHTML);
     return formData;
   }
+
   handleAskReasonPopup() {
     this.setState({
       showAskReasonPopup: !this.state.showAskReasonPopup,
     });
   }
+
   handleDeleteProfile() {
     this.setState({
       isSubmited: false,
       showAskReasonPopup: false,
     });
   }
+
   render() {
     const {
       user,
@@ -233,7 +239,7 @@ export default class EditProfile extends Component {
                           <input
                             className="EditProfileForm-image"
                             type="file"
-                            ref={(ref) => (this.avatar = ref)}
+                            ref={ref => (this.avatar = ref)}
                           />
                         </div>
                         <div className="EditProfileForm-editAvatar">Edit avatar</div>
@@ -242,9 +248,9 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="email"
-                          ref={(ref) => (this.email = ref)}
+                          ref={ref => (this.email = ref)}
                           value={emailValue || (user && user.email)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ emailValue: e.target.value });
                             if (emailValue === '') {
                               user.email = '';
@@ -260,9 +266,9 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="password"
-                          ref={(ref) => (this.password = ref)}
+                          ref={ref => (this.password = ref)}
                           value={this.state.passwordValue || (user && user.password)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ passwordValue: e.target.value });
                             if (passwordValue === '') {
                               user.password = '';
@@ -278,9 +284,9 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="password"
-                          ref={(ref) => (this.confirmPassword = ref)}
+                          ref={ref => (this.confirmPassword = ref)}
                           value={confirmPasswordValue || (user && user.password)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ confirmPasswordValue: e.target.value });
                             if (confirmPasswordValue === '') {
                               user.password = '';
@@ -296,9 +302,9 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
-                          ref={(ref) => (this.contactName = ref)}
+                          ref={ref => (this.contactName = ref)}
                           value={contactNameValue || (user && user.contact_name)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ contactNameValue: e.target.value });
                             if (contactNameValue === '') {
                               user.contact_name = '';
@@ -314,9 +320,9 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
-                          ref={(ref) => (this.companyName = ref)}
+                          ref={ref => (this.companyName = ref)}
                           value={companyNameValue || (user && user.company_name)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ companyNameValue: e.target.value });
                             if (companyNameValue === '') {
                               user.company_name = '';
@@ -332,9 +338,9 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
-                          ref={(ref) => (this.address = ref)}
+                          ref={ref => (this.address = ref)}
                           value={addressValue || (user && user.address)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ addressValue: e.target.value });
                             if (addressValue === '') {
                               user.address = '';
@@ -347,9 +353,9 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="text"
-                          ref={(ref) => (this.phone = ref)}
+                          ref={ref => (this.phone = ref)}
                           value={phoneValue || (user && user.phone_number)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ phoneValue: e.target.value });
                             if (phoneValue === '') {
                               user.phone_number = '';
@@ -363,9 +369,9 @@ export default class EditProfile extends Component {
                           className="EditProfileForm-inputHoverEmail"
                           placeholder="http://"
                           type="text"
-                          ref={(ref) => (this.website = ref)}
+                          ref={ref => (this.website = ref)}
                           value={websiteValue || (user && user.website)}
-                          onChange={(e) => {
+                          onChange={e => {
                             this.setState({ websiteValue: e.target.value });
                             if (websiteValue === '') {
                               user.website = '';
@@ -380,10 +386,10 @@ export default class EditProfile extends Component {
                           onFocus={() => this.setState({ focusOnDescription: true })}
                           onBlur={() => this.setState({ focusOnDescription: false })}
                           placeholder="Company Description"
-                          editorRef={(ref) => (this.companyDescription = ref)}
+                          editorRef={ref => (this.companyDescription = ref)}
                           wrapperClassName="EditProfileForm-wrapper"
                           editorClassName="EditProfileForm-editor"
-                          onEditorStateChange={(editorState) => this.setState({ editorState })}
+                          onEditorStateChange={editorState => this.setState({ editorState })}
                           toolbar={{
                             inline: { inDropdown: true },
                             list: { inDropdown: true },
