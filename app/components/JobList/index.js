@@ -78,7 +78,7 @@ export default class JobList extends PureComponent {
           </div>
           { listItem }
           { listFilterd.length > 5 && showMore &&
-            <button className="JobList-buttonContainer" onClick={this.handleShowMore(listFilterd)}>
+            <button className="JobList-buttonContainer" onClick={() => this.handleShowMore(listFilterd)}>
               <div className="JobList-showMore">
                 <ShowMoreIcon />
                 <div className="JobList-showMoreText"> SHOW {listFilterd.length - 5} MORE </div>
