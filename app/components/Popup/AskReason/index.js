@@ -13,7 +13,7 @@ export default class AskReasonPopup extends PureComponent {
       showDeleteProfile: false,
     };
   }
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
     const requestUrl = `${config.API_BASE_URL}/feedbacks`;
     axios.post(requestUrl, {
@@ -39,14 +39,14 @@ export default class AskReasonPopup extends PureComponent {
     const { closePopupFunc = () => {} } = this.props;
 
     return (
-      <div>
+      <div className="AskReasonPopup">
         { showDeleteProfile && <DeleteConfirmation
           type={'ACCOUNT'}
           closeFunc={closePopupFunc}
           currentUserId={localStorage.currentUser}
         /> }
         { !showDeleteProfile ?
-          <div className="AskReasonPopup">
+          <div className="AskReasonPopup-container">
             <button className="AskReasonPopup-closeButton" onClick={closePopupFunc}>
               <CloseIcon />
             </button>
@@ -64,7 +64,7 @@ export default class AskReasonPopup extends PureComponent {
                           <input
                             id="1"
                             className="AskReasonPopup-radio"
-                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            onChange={event => this.setState({ selectedOption: event.target.value })}
                             type="radio"
                             value={REASON.reason1}
                             checked={selectedOption === REASON.reason1}
@@ -80,7 +80,7 @@ export default class AskReasonPopup extends PureComponent {
                           <input
                             id="2"
                             className="AskReasonPopup-radio"
-                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            onChange={event => this.setState({ selectedOption: event.target.value })}
                             type="radio"
                             value={REASON.reason2}
                             checked={selectedOption === REASON.reason2}
@@ -96,7 +96,7 @@ export default class AskReasonPopup extends PureComponent {
                           <input
                             id="3"
                             className="AskReasonPopup-radio"
-                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            onChange={event => this.setState({ selectedOption: event.target.value })}
                             type="radio"
                             value={REASON.reason3}
                             checked={selectedOption === REASON.reason3}
@@ -112,7 +112,7 @@ export default class AskReasonPopup extends PureComponent {
                           <input
                             id="4"
                             className="AskReasonPopup-radio"
-                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            onChange={event => this.setState({ selectedOption: event.target.value })}
                             type="radio"
                             value={REASON.reason4}
                             checked={selectedOption === REASON.reason4}
@@ -128,7 +128,7 @@ export default class AskReasonPopup extends PureComponent {
                           <input
                             id="5"
                             className="AskReasonPopup-radio"
-                            onChange={(event) => this.setState({ selectedOption: event.target.value })}
+                            onChange={event => this.setState({ selectedOption: event.target.value })}
                             type="radio"
                             value={REASON.reason5}
                             checked={selectedOption === REASON.reason5}
@@ -146,7 +146,7 @@ export default class AskReasonPopup extends PureComponent {
                           <textarea
                             className="AskReasonPopup-custom"
                             placeholder="Type your feedback here…"
-                            ref={(ref) => (this.text = ref)}
+                            ref={ref => (this.text = ref)}
                             cols="55"
                             rows="3"
                             style={{ resize: 'none' }}
