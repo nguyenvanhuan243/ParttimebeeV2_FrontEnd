@@ -55,6 +55,16 @@
   color: #999999;
 }
 
+button.RelatedJobItem-href {
+  cursor: pointer;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  width: 318px;
+  outline: none !important;
+}
+
 a.RelatedJobItem-href:hover {
   text-decoration: none;
 }

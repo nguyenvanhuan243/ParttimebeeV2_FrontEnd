@@ -6,17 +6,22 @@ export default class JobList extends PureComponent {
     super();
     this.state = { limit: 5, showMore: true };
   }
-  setJobId(jobId) {
+
+  setJobId = jobId => {
     const { onDeleteConfirmation = () => {} } = this.props;
     onDeleteConfirmation();
     localStorage.setItem('jobId', jobId);
   }
-  handleShowMore(listFilterd) {
+
+  handleShowMore = listFilterd => {
     this.setState({
       limit: listFilterd.length,
       showMore: false,
     });
   }
+
+  changeSpaceToPlus = title => title.split(' ').join('+');
+
   render() {
     const {
       text = '',
@@ -40,18 +45,18 @@ export default class JobList extends PureComponent {
     const listItem = [];
     let listFilterd = [];
     if (hasMyjob || hasProfile) {
-      listFilterd = dataResourceEndPoint.filter((item) => item.job_type === (jobType));
+      listFilterd = dataResourceEndPoint.filter(item => item.job_type === jobType);
     } else {
       listFilterd = dataResourceEndPoint;
     }
-    listFilterd.slice(0, limit).map((item) =>
+    listFilterd.slice(0, limit).map(item =>
       listItem.push(<JobItem
         key={item.id}
-        href={`/job-detail/${item.id}`}
+        href={`/job-detail/${item.id}+${this.changeSpaceToPlus(item.title)}`}
         title={item.title}
         showImage={showImage}
-        onClickJobItem={() => this.setJobId(item.id)}
-        onHoverJobItem={() => this.setJobId(item.id)}
+        onClickJobItem={this.setJobId(item.id)}
+        onHoverJobItem={this.setJobId(item.id)}
         showDelete={showDelete}
         showEdit={showEdit}
         showView={showView}
@@ -72,13 +77,13 @@ export default class JobList extends PureComponent {
             <div className="JobList-titleText"> { title } </div>
           </div>
           { listItem }
-          { listFilterd.length > 5 && showMore ?
-            <button className="JobList-buttonContainer" onClick={() => this.handleShowMore(listFilterd)}>
+          { listFilterd.length > 5 && showMore &&
+            <button className="JobList-buttonContainer" onClick={this.handleShowMore(listFilterd)}>
               <div className="JobList-showMore">
                 <ShowMoreIcon />
                 <div className="JobList-showMoreText"> SHOW {listFilterd.length - 5} MORE </div>
               </div>
-            </button> : null }
+            </button> }
         </div>
       </div>
     );
