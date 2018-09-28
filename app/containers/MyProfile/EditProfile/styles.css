@@ -375,7 +375,7 @@ input.EditProfileForm-inputHoverEmail:focus {
 }
 
 .EditProfileForm-textError {
-  width: 187px;
+  min-width: 187px;
   height: 20px;
   font-size: 13px;
   font-weight: normal;
