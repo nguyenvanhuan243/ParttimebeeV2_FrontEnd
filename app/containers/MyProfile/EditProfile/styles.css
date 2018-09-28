@@ -398,7 +398,7 @@ input.EditProfileForm-inputHoverEmail:focus {
 }
 
 .EditProfileForm-changePasswordButton {
-  width: 122px;
+  min-width: 122px;
   height: 24px;
   cursor: pointer;
   border-radius: 3px;

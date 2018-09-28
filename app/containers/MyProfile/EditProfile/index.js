@@ -33,6 +33,7 @@ export default class EditProfile extends Component {
       addressValue: '',
       phoneValue: '',
       websiteValue: '',
+      showChangePassword: false,
       editorState: EditorState.createEmpty(),
     };
   }
@@ -124,6 +125,13 @@ export default class EditProfile extends Component {
     });
   }
 
+  handleOnChangePassword = e => {
+    e.preventDefault();
+    this.setState({
+      showChangePassword: !this.state.showChangePassword,
+    });
+  }
+
   render() {
     const {
       user,
@@ -143,6 +151,7 @@ export default class EditProfile extends Component {
       showErrorAlert,
       alertContactName,
       alertCompanyName,
+      showChangePassword,
       showAskReasonPopup,
       alertConfirmPassword,
     } = this.state;
@@ -205,15 +214,19 @@ export default class EditProfile extends Component {
                     <div className={passwordLableClassName}>
                       Password
                     </div>
-                    <div className={passwordLableClassName}>
-                      New Password
-                    </div>
-                    <div className={confirmPasswordLableClassName}>
-                      Confirm Password
-                    </div>
-                    <div className={confirmPasswordLableClassName}>
-                      Current Password
-                    </div>
+                    { showChangePassword &&
+                      <span>
+                        <div className={passwordLableClassName}>
+                          New Password
+                        </div>
+                        <div className={confirmPasswordLableClassName}>
+                          Confirm Password
+                        </div>
+                        <div className={confirmPasswordLableClassName}>
+                          Current Password
+                        </div>
+                      </span>
+                    }
                     <div className={contactNameLableClassName}>
                       Contact Name
                     </div>
@@ -269,66 +282,70 @@ export default class EditProfile extends Component {
                         </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
-                        <button className="EditProfileForm-changePasswordButton">
+                        <button onClick={this.handleOnChangePassword} className="EditProfileForm-changePasswordButton">
                           <span className="EditProfileForm-changePasswordText">
-                            Change Password
+                            CHANGE PASSWORD
                           </span>
                         </button>
                       </div>
-                      <div className="EditProfileForm-lableItem">
-                        <input
-                          className="EditProfileForm-inputHoverEmail"
-                          type="password"
-                          ref={ref => (this.password = ref)}
-                          value={this.state.passwordValue || (user && user.password)}
-                          onChange={e => {
-                            this.setState({ passwordValue: e.target.value });
-                            if (passwordValue === '') {
-                              user.password = '';
-                            }
-                          }}
-                        />
-                        <div className={separatePasswordClassName} />
-                        { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
-                          Please enter your password
-                        </div> }
-                      </div>
-                      <div className="EditProfileForm-lableItem">
-                        <input
-                          className="EditProfileForm-inputHoverEmail"
-                          type="password"
-                          ref={ref => (this.confirmPassword = ref)}
-                          value={confirmPasswordValue || (user && user.password)}
-                          onChange={e => {
-                            this.setState({ confirmPasswordValue: e.target.value });
-                            if (confirmPasswordValue === '') {
-                              user.password = '';
-                            }
-                          }}
-                        />
-                        <div className={separateConfirmPasswordClassName} />
-                        { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
-                          Please enter your confirm password
-                        </div> }
-                      </div>
-                      <div className="EditProfileForm-lableItem">
-                        <input
-                          className="EditProfileForm-inputHoverEmail"
-                          type="password"
-                          ref={ref => (this.confirmPassword = ref)}
-                          value={confirmPasswordValue || (user && user.password)}
-                          onChange={e => {
-                            this.setState({ confirmPasswordValue: e.target.value });
-                            if (confirmPasswordValue === '') {
-                              user.password = '';
-                            }
-                          }}
-                        />
-                        <div className={separateConfirmPasswordClassName} />
-                        { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
-                          Please enter your confirm password
-                        </div> }
-                      </div>
+                      { showChangePassword &&
+                        <span>
+                          <div className="EditProfileForm-lableItem">
+                            <input
+                              className="EditProfileForm-inputHoverEmail"
+                              type="password"
+                              ref={ref => (this.password = ref)}
+                              value={this.state.passwordValue || (user && user.password)}
+                              onChange={e => {
+                                this.setState({ passwordValue: e.target.value });
+                                if (passwordValue === '') {
+                                  user.password = '';
+                                }
+                              }}
+                            />
+                            <div className={separatePasswordClassName} />
+                            { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                              Please enter your password
+                            </div> }
+                          </div>
+                          <div className="EditProfileForm-lableItem">
+                            <input
+                              className="EditProfileForm-inputHoverEmail"
+                              type="password"
+                              ref={ref => (this.confirmPassword = ref)}
+                              value={confirmPasswordValue || (user && user.password)}
+                              onChange={e => {
+                                this.setState({ confirmPasswordValue: e.target.value });
+                                if (confirmPasswordValue === '') {
+                                  user.password = '';
+                                }
+                              }}
+                            />
+                            <div className={separateConfirmPasswordClassName} />
+                            { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                              Please enter your confirm password
+                            </div> }
+                          </div>
+                          <div className="EditProfileForm-lableItem">
+                            <input
+                              className="EditProfileForm-inputHoverEmail"
+                              type="password"
+                              ref={ref => (this.confirmPassword = ref)}
+                              value={confirmPasswordValue || (user && user.password)}
+                              onChange={e => {
+                                this.setState({ confirmPasswordValue: e.target.value });
+                                if (confirmPasswordValue === '') {
+                                  user.password = '';
+                                }
+                              }}
+                            />
+                            <div className={separateConfirmPasswordClassName} />
+                            { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                              Please enter your confirm password
+                            </div> }
+                          </div>
+                        </span>
+                      }
                       <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"
