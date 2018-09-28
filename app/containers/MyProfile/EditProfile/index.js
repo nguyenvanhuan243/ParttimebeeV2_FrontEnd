@@ -205,8 +205,14 @@ export default class EditProfile extends Component {
                     <div className={passwordLableClassName}>
                       Password
                     </div>
+                    <div className={passwordLableClassName}>
+                      New Password
+                    </div>
                     <div className={confirmPasswordLableClassName}>
                       Confirm Password
+                    </div>
+                    <div className={confirmPasswordLableClassName}>
+                      Current Password
                     </div>
                     <div className={contactNameLableClassName}>
                       Contact Name
@@ -263,6 +269,13 @@ export default class EditProfile extends Component {
                         </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
+                        <button className="EditProfileForm-changePasswordButton">
+                          <span className="EditProfileForm-changePasswordText">
+                            Change Password
+                          </span>
+                        </button>
+                      </div>
+                      <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="password"
@@ -278,6 +291,24 @@ export default class EditProfile extends Component {
                         <div className={separatePasswordClassName} />
                         { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
                           Please enter your password
+                        </div> }
+                      </div>
+                      <div className="EditProfileForm-lableItem">
+                        <input
+                          className="EditProfileForm-inputHoverEmail"
+                          type="password"
+                          ref={ref => (this.confirmPassword = ref)}
+                          value={confirmPasswordValue || (user && user.password)}
+                          onChange={e => {
+                            this.setState({ confirmPasswordValue: e.target.value });
+                            if (confirmPasswordValue === '') {
+                              user.password = '';
+                            }
+                          }}
+                        />
+                        <div className={separateConfirmPasswordClassName} />
+                        { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                          Please enter your confirm password
                         </div> }
                       </div>
                       <div className="EditProfileForm-lableItem">
