@@ -60,11 +60,7 @@ export default class EditProfile extends Component {
       this.setState({
         showErrorAlert: true,
       });
-      if (this.email.value === '') {
-        this.setState({ alertEmail: 'Email' });
-      } else {
-        this.setState({ alertEmail: '' });
-      }
+      this.setState({ alertEmail: this.email.value === '' ? 'Email' : '' });
       if (showChangePassword && this.password.value === '') {
         this.setState({ alertPassword: 'Password' });
       } else {
