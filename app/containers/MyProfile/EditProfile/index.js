@@ -269,13 +269,11 @@ export default class EditProfile extends Component {
                         <span>
                           <div className="EditProfileForm-lableItem">
                             <input
-                              className="EditProfileForm-inputHoverEmail"
                               type="password"
-                              ref={ref => (this.password = ref)}
                               value={passwordValue}
-                              onChange={e => {
-                                this.setState({ passwordValue: e.target.value });
-                              }}
+                              ref={ref => (this.password = ref)}
+                              className="EditProfileForm-inputHoverEmail"
+                              onChange={e => this.setState({ passwordValue: e.target.value })}
                             />
                             <div className={separatePasswordClassName} />
                             { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
