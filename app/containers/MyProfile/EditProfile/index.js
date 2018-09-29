@@ -108,6 +108,7 @@ export default class EditProfile extends Component {
     formData.append('profile[contactName]', this.contactName.value);
     formData.append('profile[companyName]', this.companyName.value);
     formData.append('profile[confirmPassword]', this.confirmPassword.value);
+    formData.append('profile[currentPassword]', this.currentPassword.value);
     formData.append('profile[companyDescription]', this.companyDescription.editor.innerHTML);
     return formData;
   }
@@ -141,8 +142,9 @@ export default class EditProfile extends Component {
       showUpdated,
       alertEmail,
       alertPassword,
-      passwordValue,
-      confirmPasswordValue,
+      passwordValue = '',
+      confirmPasswordValue = '',
+      currentPasswordValue,
       contactNameValue,
       companyNameValue,
       addressValue,
@@ -295,13 +297,7 @@ export default class EditProfile extends Component {
                               className="EditProfileForm-inputHoverEmail"
                               type="password"
                               ref={ref => (this.password = ref)}
-                              value={this.state.passwordValue || (user && user.password)}
-                              onChange={e => {
-                                this.setState({ passwordValue: e.target.value });
-                                if (passwordValue === '') {
-                                  user.password = '';
-                                }
-                              }}
+                              value={passwordValue}
                             />
                             <div className={separatePasswordClassName} />
                             { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -313,13 +309,7 @@ export default class EditProfile extends Component {
                               className="EditProfileForm-inputHoverEmail"
                               type="password"
                               ref={ref => (this.confirmPassword = ref)}
-                              value={confirmPasswordValue || (user && user.password)}
-                              onChange={e => {
-                                this.setState({ confirmPasswordValue: e.target.value });
-                                if (confirmPasswordValue === '') {
-                                  user.password = '';
-                                }
-                              }}
+                              value={confirmPasswordValue}
                             />
                             <div className={separateConfirmPasswordClassName} />
                             { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -330,11 +320,11 @@ export default class EditProfile extends Component {
                             <input
                               className="EditProfileForm-inputHoverEmail"
                               type="password"
-                              ref={ref => (this.confirmPassword = ref)}
-                              value={confirmPasswordValue || (user && user.password)}
+                              ref={ref => (this.currentPassword = ref)}
+                              value={currentPasswordValue || (user && user.password)}
                               onChange={e => {
-                                this.setState({ confirmPasswordValue: e.target.value });
-                                if (confirmPasswordValue === '') {
+                                this.setState({ currentPasswordValue: e.target.value });
+                                if (currentPasswordValue === '') {
                                   user.password = '';
                                 }
                               }}
