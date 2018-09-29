@@ -312,7 +312,7 @@ export default class EditProfile extends Component {
                             />
                             <div className={separateConfirmPasswordClassName} />
                             { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
-                              Please enter your confirm password
+                              Please enter your current password
                             </div> }
                           </div>
                         </span>
