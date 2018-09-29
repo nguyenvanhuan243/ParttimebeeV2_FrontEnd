@@ -55,22 +55,17 @@ export default class EditProfile extends Component {
     const { showChangePassword } = this.state;
     if (this.email.value === '' || (showChangePassword && (this.password.value === '' || this.confirmPassword.value === '')) ||
         this.companyName.value === '' || this.contactName.value === '') {
-      this.setState({ showErrorAlert: true });
-      this.setState({ alertEmail: (this.email.value === '' ? 'Email' : '') });
-      this.setState({ alertPassword: (showChangePassword && this.password.value === '' ? 'Password' : '') });
-      this.setState({ alertConfirmPassword: (showChangePassword && this.confirmPassword.value === '' ? 'Confirm Password' : '') });
-      this.setState({ alertContactName: (this.contactName.value === '' ? 'Contact Name' : '') });
-      this.setState({ alertCompanyName: (this.companyName.value === '' ? 'Company Name' : '') });
-    } else {
       this.setState({
-        showSaving: true,
-        showUpdated: false,
-        showErrorAlert: false,
+        showErrorAlert: true,
+        alertEmail: (this.email.value === '' ? 'Email' : ''),
+        alertContactName: (this.contactName.value === '' ? 'Contact Name' : ''),
+        alertCompanyName: (this.companyName.value === '' ? 'Company Name' : ''),
+        alertPassword: (showChangePassword && this.password.value === '' ? 'Password' : ''),
+        alertConfirmPassword: (showChangePassword && this.confirmPassword.value === '' ? 'Confirm Password' : ''),
       });
-      setTimeout(() => this.setState({
-        showUpdated: true,
-        showSaving: false,
-      }), 2000);
+    } else {
+      this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
+      setTimeout(() => this.setState({ showUpdated: true, showSaving: false }), 2000);
       axios.put(requestUrl,
         this.buildFormData(),
       );
