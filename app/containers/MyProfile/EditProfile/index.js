@@ -66,6 +66,7 @@ export default class EditProfile extends Component {
         alertCompanyName: isEmpty(this.companyName.value),
         alertPassword: (showChangePassword && this.password.value.length < 6),
         alertConfirmPassword: showChangePassword && isEmpty(this.confirmPassword.value),
+        alertCurrentPassword: showChangePassword && isEmpty(this.currentPassword.value),
       });
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
@@ -144,6 +145,7 @@ export default class EditProfile extends Component {
       showChangePassword,
       showAskReasonPopup,
       alertConfirmPassword,
+      alertCurrentPassword,
       currentPasswordCorrect,
     } = this.state;
     const emailLableClassName = classNames('EditProfileForm-lableItem', {
@@ -157,9 +159,11 @@ export default class EditProfile extends Component {
     const confirmPasswordLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertConfirmPassword });
     const currentPasswordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertConfirmPassword && !currentPasswordCorrect });
+      'EditProfile-errorLable': alertCurrentPassword && !currentPasswordCorrect });
     const separateConfirmPasswordClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertConfirmPassword && !currentPasswordCorrect });
+    const separateCurrentPasswordClassName = classNames('EditProfileForm-separate', {
+      'EditProfile-errorSeparate': alertCurrentPassword && !currentPasswordCorrect });
     const contactNameLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertContactName });
     const separateContactNameClassName = classNames('EditProfileForm-separate', {
@@ -320,7 +324,7 @@ export default class EditProfile extends Component {
                                 if (isEmpty(currentPasswordValue)) { user.password = ''; }
                               }}
                             />
-                            <div className={separateConfirmPasswordClassName} />
+                            <div className={separateCurrentPasswordClassName} />
                             { !currentPasswordCorrect && showErrorAlert && <div className="EditProfileForm-textError">
                               Wrong password.
                             </div> }
