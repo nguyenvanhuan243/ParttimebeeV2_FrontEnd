@@ -52,15 +52,13 @@ export default class EditProfile extends Component {
   }
 
   onSubmit = () => {
-    const {
-      showChangePassword,
-    } = this.state;
+    const { showChangePassword } = this.state;
     if (this.email.value === '' || (showChangePassword && (this.password.value === '' || this.confirmPassword.value === '')) ||
         this.companyName.value === '' || this.contactName.value === '') {
       this.setState({
         showErrorAlert: true,
       });
-      this.setState({ alertEmail: this.email.value === '' ? 'Email' : '' });
+      this.setState({ alertEmail: (this.email.value === '' ? 'Email' : '') });
       if (showChangePassword && this.password.value === '') {
         this.setState({ alertPassword: 'Password' });
       } else {
@@ -71,16 +69,8 @@ export default class EditProfile extends Component {
       } else {
         this.setState({ alertConfirmPassword: '' });
       }
-      if (this.contactName.value === '') {
-        this.setState({ alertContactName: 'Contact Name' });
-      } else {
-        this.setState({ alertContactName: '' });
-      }
-      if (this.companyName.value === '') {
-        this.setState({ alertCompanyName: 'Company Name' });
-      } else {
-        this.setState({ alertCompanyName: '' });
-      }
+      this.setState({ alertContactName: (this.contactName.value === '' ? 'Contact Name' : '') });
+      this.setState({ alertCompanyName: (this.companyName.value === '' ? 'Company Name' : '') });
     } else {
       this.setState({
         showSaving: true,
