@@ -140,7 +140,7 @@ export default class Header extends PureComponent {
                 onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
                 className="Header-loggedAvatar"
               >
-                { this.getDefaultAvatar(user) }
+                { !user.url_avatar && this.getDefaultAvatar(user) }
                 { user.url_avatar && <img
                   alt="fdsfds"
                   src={user.url_avatar}
