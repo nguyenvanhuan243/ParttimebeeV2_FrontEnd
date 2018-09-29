@@ -273,6 +273,9 @@ export default class EditProfile extends Component {
                               type="password"
                               ref={ref => (this.password = ref)}
                               value={passwordValue}
+                              onChange={e => {
+                                this.setState({ passwordValue: e.target.value });
+                              }}
                             />
                             <div className={separatePasswordClassName} />
                             { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -285,6 +288,9 @@ export default class EditProfile extends Component {
                               type="password"
                               ref={ref => (this.confirmPassword = ref)}
                               value={confirmPasswordValue}
+                              onChange={e => {
+                                this.setState({ confirmPasswordValue: e.target.value });
+                              }}
                             />
                             <div className={separateConfirmPasswordClassName} />
                             { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
