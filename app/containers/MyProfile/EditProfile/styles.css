@@ -419,3 +419,27 @@ input.EditProfileForm-inputHoverEmail:focus {
   text-align: center;
   color: #ffffff;
 }
+
+.EditProfile-warningText {
+  min-width: 183px;
+  height: 14px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  color: #999999;
+  margin-left: 9px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.EditProfile-warningIcon {
+  margin-left: 20px;
+  padding-top: 4px;
+}
+
+.EditProfile-warningContainer {
+  display: flex;
+}

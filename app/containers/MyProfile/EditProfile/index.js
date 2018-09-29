@@ -4,6 +4,7 @@ import EditProfileAlert from 'components/EditProfile/Alert/Loadable';
 import AskReasonPopup from 'components/Popup/AskReason/Loadable';
 import SavingIcon from 'components/Icons/Saving/Loadable';
 import OkayIcon from 'components/Icons/Okay/Loadable';
+import WarningIcon from 'components/Icons/Warning/Loadable';
 import classNames from 'classnames';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertFromHTML, ContentState, EditorState } from 'draft-js';
@@ -463,6 +464,16 @@ export default class EditProfile extends Component {
                   UPDATE
                 </span>
               </button>
+              { (alertEmail || alertCompanyName || alertContactName || alertPassword || alertConfirmPassword) &&
+                <div className="EditProfile-warningContainer">
+                  <div className="EditProfile-warningIcon">
+                    <WarningIcon />
+                  </div>
+                  <span className="EditProfile-warningText">
+                    OOPS! Something went wrong~
+                  </span>
+                </div>
+              }
               { showSaving &&
                 <div className="EditProfile-savingContainer">
                   <div className="EditProfile-savingIcon">
