@@ -14,6 +14,7 @@ import { isEmpty } from 'lodash';
 import config from '../../../../config';
 
 const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
+const checkCurrentPasswordUrl = `${config.API_BASE_URL}/users/check-current-password`;
 export default class EditProfile extends Component {
   constructor() {
     super();
@@ -36,6 +37,7 @@ export default class EditProfile extends Component {
       phoneValue: '',
       websiteValue: '',
       showChangePassword: false,
+      currentPasswordCorrect: false,
       editorState: EditorState.createEmpty(),
     };
   }
@@ -54,6 +56,7 @@ export default class EditProfile extends Component {
 
   onSubmit = () => {
     const { showChangePassword } = this.state;
+    this.checkCurrentPassword(this.currentPassword.value);
     if (isEmpty(this.email.value) || (showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value))) ||
       isEmpty(this.companyName.value) || isEmpty(this.contactName.value)) {
       this.setState({
@@ -71,6 +74,14 @@ export default class EditProfile extends Component {
         this.buildFormData(),
       );
     }
+  }
+
+  checkCurrentPassword = currentPassword => {
+    axios.post(checkCurrentPasswordUrl, {
+      currentPassword,
+    }).then(response => {
+      this.setState({ currentPasswordCorrect: response.data });
+    });
   }
 
   buildFormData() {
@@ -132,6 +143,7 @@ export default class EditProfile extends Component {
       showChangePassword,
       showAskReasonPopup,
       alertConfirmPassword,
+      currentPasswordCorrect,
     } = this.state;
     const emailLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertEmail });
@@ -142,9 +154,9 @@ export default class EditProfile extends Component {
     const separatePasswordClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertPassword });
     const confirmPasswordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertConfirmPassword });
+      'EditProfile-errorLable': alertConfirmPassword && !currentPasswordCorrect });
     const separateConfirmPasswordClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertConfirmPassword });
+      'EditProfile-errorSeparate': alertConfirmPassword && !currentPasswordCorrect });
     const contactNameLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertContactName });
     const separateContactNameClassName = classNames('EditProfileForm-separate', {
@@ -299,15 +311,15 @@ export default class EditProfile extends Component {
                               className="EditProfileForm-inputHoverEmail"
                               type="password"
                               ref={ref => (this.currentPassword = ref)}
-                              value={currentPasswordValue || (user && user.password)}
+                              value={currentPasswordValue}
                               onChange={e => {
                                 this.setState({ currentPasswordValue: e.target.value });
                                 if (isEmpty(currentPasswordValue)) { user.password = ''; }
                               }}
                             />
                             <div className={separateConfirmPasswordClassName} />
-                            { alertConfirmPassword && showErrorAlert && <div className="EditProfileForm-textError">
-                              Please enter your current password
+                            { !currentPasswordCorrect && alertConfirmPassword && showErrorAlert && <div className="EditProfileForm-textError">
+                              Wrong password.
                             </div> }
                           </div>
                         </span>
