@@ -344,7 +344,7 @@ export default class EditProfile extends Component {
                           }}
                         />
                         <div className={separateCompanyNameClassName} />
-                        { (alertCompanyName && showErrorAlert) && <div className="EditProfileForm-textError">
+                        { alertCompanyName && showErrorAlert && <div className="EditProfileForm-textError">
                           Please enter your company name
                         </div> }
                       </div>
