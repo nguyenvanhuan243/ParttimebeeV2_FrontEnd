@@ -10,6 +10,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertFromHTML, ContentState, EditorState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import axios from 'axios';
+import { isEmpty } from 'lodash';
 import config from '../../../../config';
 
 const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
@@ -53,15 +54,15 @@ export default class EditProfile extends Component {
 
   onSubmit = () => {
     const { showChangePassword } = this.state;
-    if (this.email.value === '' || (showChangePassword && (this.password.value === '' || this.confirmPassword.value === '')) ||
-        this.companyName.value === '' || this.contactName.value === '') {
+    if (isEmpty(this.email.value) || (showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value))) ||
+      isEmpty(this.companyName.value) || isEmpty(this.contactName.value)) {
       this.setState({
         showErrorAlert: true,
-        alertEmail: (this.email.value === '' ? 'Email' : ''),
-        alertContactName: (this.contactName.value === '' ? 'Contact Name' : ''),
-        alertCompanyName: (this.companyName.value === '' ? 'Company Name' : ''),
-        alertPassword: (showChangePassword && this.password.value === '' ? 'Password' : ''),
-        alertConfirmPassword: (showChangePassword && this.confirmPassword.value === '' ? 'Confirm Password' : ''),
+        alertEmail: isEmpty(this.email.value),
+        alertContactName: isEmpty(this.contactName.value),
+        alertCompanyName: isEmpty(this.companyName.value),
+        alertPassword: (showChangePassword && this.password.value.length < 6),
+        alertConfirmPassword: showChangePassword && isEmpty(this.confirmPassword.value),
       });
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
@@ -248,7 +249,7 @@ export default class EditProfile extends Component {
                           value={emailValue || (user && user.email)}
                           onChange={e => {
                             this.setState({ emailValue: e.target.value });
-                            if (emailValue === '') {
+                            if (isEmpty(emailValue)) {
                               user.email = '';
                             }
                           }}
@@ -276,19 +277,17 @@ export default class EditProfile extends Component {
                               onChange={e => this.setState({ passwordValue: e.target.value })}
                             />
                             <div className={separatePasswordClassName} />
-                            { (alertPassword && showErrorAlert) && <div className="EditProfileForm-textError">
-                              Please enter your password
+                            { ((passwordValue.length < 6 && alertPassword) || (alertPassword && showErrorAlert)) && <div className="EditProfileForm-textError">
+                              Minimum 6 characters.
                             </div> }
                           </div>
                           <div className="EditProfileForm-lableItem">
                             <input
-                              className="EditProfileForm-inputHoverEmail"
                               type="password"
-                              ref={ref => (this.confirmPassword = ref)}
                               value={confirmPasswordValue}
-                              onChange={e => {
-                                this.setState({ confirmPasswordValue: e.target.value });
-                              }}
+                              ref={ref => (this.confirmPassword = ref)}
+                              className="EditProfileForm-inputHoverEmail"
+                              onChange={e => this.setState({ confirmPasswordValue: e.target.value })}
                             />
                             <div className={separateConfirmPasswordClassName} />
                             { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
@@ -303,9 +302,7 @@ export default class EditProfile extends Component {
                               value={currentPasswordValue || (user && user.password)}
                               onChange={e => {
                                 this.setState({ currentPasswordValue: e.target.value });
-                                if (currentPasswordValue === '') {
-                                  user.password = '';
-                                }
+                                if (isEmpty(currentPasswordValue)) { user.password = ''; }
                               }}
                             />
                             <div className={separateConfirmPasswordClassName} />
@@ -323,7 +320,7 @@ export default class EditProfile extends Component {
                           value={contactNameValue || (user && user.contact_name)}
                           onChange={e => {
                             this.setState({ contactNameValue: e.target.value });
-                            if (contactNameValue === '') {
+                            if (isEmpty(contactNameValue)) {
                               user.contact_name = '';
                             }
                           }}
@@ -341,7 +338,7 @@ export default class EditProfile extends Component {
                           value={companyNameValue || (user && user.company_name)}
                           onChange={e => {
                             this.setState({ companyNameValue: e.target.value });
-                            if (companyNameValue === '') {
+                            if (isEmpty(companyNameValue)) {
                               user.company_name = '';
                             }
                           }}
@@ -359,7 +356,7 @@ export default class EditProfile extends Component {
                           value={addressValue || (user && user.address)}
                           onChange={e => {
                             this.setState({ addressValue: e.target.value });
-                            if (addressValue === '') {
+                            if (isEmpty(addressValue)) {
                               user.address = '';
                             }
                           }}
@@ -374,7 +371,7 @@ export default class EditProfile extends Component {
                           value={phoneValue || (user && user.phone_number)}
                           onChange={e => {
                             this.setState({ phoneValue: e.target.value });
-                            if (phoneValue === '') {
+                            if (isEmpty(phoneValue)) {
                               user.phone_number = '';
                             }
                           }}
@@ -390,7 +387,7 @@ export default class EditProfile extends Component {
                           value={websiteValue || (user && user.website)}
                           onChange={e => {
                             this.setState({ websiteValue: e.target.value });
-                            if (websiteValue === '') {
+                            if (isEmpty(websiteValue)) {
                               user.website = '';
                             }
                           }}
