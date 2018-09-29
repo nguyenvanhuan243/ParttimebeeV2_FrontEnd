@@ -52,7 +52,10 @@ export default class EditProfile extends Component {
   }
 
   onSubmit = () => {
-    if (this.email.value === '' || this.password.value === '' || this.confirmPassword.value === '' ||
+    const {
+      showChangePassword,
+    } = this.state;
+    if (this.email.value === '' || (showChangePassword && (this.password.value === '' || this.confirmPassword.value === '')) ||
         this.companyName.value === '' || this.contactName.value === '') {
       this.setState({
         showErrorAlert: true,
@@ -62,12 +65,12 @@ export default class EditProfile extends Component {
       } else {
         this.setState({ alertEmail: '' });
       }
-      if (this.password.value === '') {
+      if (showChangePassword && this.password.value === '') {
         this.setState({ alertPassword: 'Password' });
       } else {
         this.setState({ alertPassword: '' });
       }
-      if (this.confirmPassword.value === '') {
+      if (showChangePassword && this.confirmPassword.value === '') {
         this.setState({ alertConfirmPassword: 'Confirm Password' });
       } else {
         this.setState({ alertConfirmPassword: '' });
