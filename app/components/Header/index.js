@@ -12,6 +12,46 @@ import {
   DefaultAvatar8,
   DefaultAvatar9,
   DefaultAvatar10,
+  DefaultAvatar11,
+  DefaultAvatar12,
+  DefaultAvatar13,
+  DefaultAvatar14,
+  DefaultAvatar15,
+  DefaultAvatar16,
+  DefaultAvatar17,
+  DefaultAvatar18,
+  DefaultAvatar19,
+  DefaultAvatar20,
+  DefaultAvatar21,
+  DefaultAvatar22,
+  DefaultAvatar23,
+  DefaultAvatar24,
+  DefaultAvatar25,
+  DefaultAvatar26,
+  DefaultAvatar27,
+  DefaultAvatar28,
+  DefaultAvatar29,
+  DefaultAvatar30,
+  DefaultAvatar31,
+  DefaultAvatar32,
+  DefaultAvatar33,
+  DefaultAvatar34,
+  DefaultAvatar35,
+  DefaultAvatar36,
+  DefaultAvatar37,
+  DefaultAvatar38,
+  DefaultAvatar39,
+  DefaultAvatar40,
+  DefaultAvatar41,
+  DefaultAvatar42,
+  DefaultAvatar43,
+  DefaultAvatar44,
+  DefaultAvatar45,
+  DefaultAvatar46,
+  DefaultAvatar47,
+  DefaultAvatar48,
+  DefaultAvatar49,
+  DefaultAvatar50,
 } from 'components/DefaultAvatar';
 import axios from 'axios';
 import { isEmpty } from 'lodash';
@@ -94,6 +134,126 @@ export default class Header extends PureComponent {
     }
     if (user.default_avatar.includes('10')) {
       return <DefaultAvatar10 />;
+    }
+    if (user.default_avatar.includes('11')) {
+      return <DefaultAvatar11 />;
+    }
+    if (user.default_avatar.includes('12')) {
+      return <DefaultAvatar12 />;
+    }
+    if (user.default_avatar.includes('13')) {
+      return <DefaultAvatar13 />;
+    }
+    if (user.default_avatar.includes('14')) {
+      return <DefaultAvatar14 />;
+    }
+    if (user.default_avatar.includes('15')) {
+      return <DefaultAvatar15 />;
+    }
+    if (user.default_avatar.includes('16')) {
+      return <DefaultAvatar16 />;
+    }
+    if (user.default_avatar.includes('17')) {
+      return <DefaultAvatar17 />;
+    }
+    if (user.default_avatar.includes('19')) {
+      return <DefaultAvatar18 />;
+    }
+    if (user.default_avatar.includes('19')) {
+      return <DefaultAvatar19 />;
+    }
+    if (user.default_avatar.includes('20')) {
+      return <DefaultAvatar20 />;
+    }
+    if (user.default_avatar.includes('21')) {
+      return <DefaultAvatar21 />;
+    }
+    if (user.default_avatar.includes('22')) {
+      return <DefaultAvatar22 />;
+    }
+    if (user.default_avatar.includes('23')) {
+      return <DefaultAvatar23 />;
+    }
+    if (user.default_avatar.includes('24')) {
+      return <DefaultAvatar24 />;
+    }
+    if (user.default_avatar.includes('25')) {
+      return <DefaultAvatar25 />;
+    }
+    if (user.default_avatar.includes('26')) {
+      return <DefaultAvatar26 />;
+    }
+    if (user.default_avatar.includes('27')) {
+      return <DefaultAvatar27 />;
+    }
+    if (user.default_avatar.includes('28')) {
+      return <DefaultAvatar28 />;
+    }
+    if (user.default_avatar.includes('29')) {
+      return <DefaultAvatar29 />;
+    }
+    if (user.default_avatar.includes('30')) {
+      return <DefaultAvatar30 />;
+    }
+    if (user.default_avatar.includes('31')) {
+      return <DefaultAvatar31 />;
+    }
+    if (user.default_avatar.includes('32')) {
+      return <DefaultAvatar32 />;
+    }
+    if (user.default_avatar.includes('33')) {
+      return <DefaultAvatar33 />;
+    }
+    if (user.default_avatar.includes('34')) {
+      return <DefaultAvatar34 />;
+    }
+    if (user.default_avatar.includes('35')) {
+      return <DefaultAvatar35 />;
+    }
+    if (user.default_avatar.includes('36')) {
+      return <DefaultAvatar36 />;
+    }
+    if (user.default_avatar.includes('37')) {
+      return <DefaultAvatar37 />;
+    }
+    if (user.default_avatar.includes('38')) {
+      return <DefaultAvatar38 />;
+    }
+    if (user.default_avatar.includes('39')) {
+      return <DefaultAvatar39 />;
+    }
+    if (user.default_avatar.includes('40')) {
+      return <DefaultAvatar40 />;
+    }
+    if (user.default_avatar.includes('41')) {
+      return <DefaultAvatar41 />;
+    }
+    if (user.default_avatar.includes('42')) {
+      return <DefaultAvatar42 />;
+    }
+    if (user.default_avatar.includes('43')) {
+      return <DefaultAvatar43 />;
+    }
+    if (user.default_avatar.includes('44')) {
+      return <DefaultAvatar44 />;
+    }
+    if (user.default_avatar.includes('45')) {
+      return <DefaultAvatar45 />;
+    }
+    if (user.default_avatar.includes('46')) {
+      return <DefaultAvatar46 />;
+    }
+    if (user.default_avatar.includes('47')) {
+      return <DefaultAvatar47 />;
+    }
+    if (user.default_avatar.includes('48')) {
+      return <DefaultAvatar48 />;
+    }
+    if (user.default_avatar.includes('49')) {
+      return <DefaultAvatar49 />;
+    }
+    if (user.default_avatar.includes('50')) {
+      return <DefaultAvatar50 />;
     }
     return <DefaultAvatar1 />;
   }
