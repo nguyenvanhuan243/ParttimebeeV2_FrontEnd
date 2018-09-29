@@ -1,8 +1,12 @@
 import React, { PureComponent } from 'react';
 export default class DefaultAvatar4 extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const style = {
+      width: '40px',
+      height: '40px',
+    };
     return (
-      <svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <svg style={style} viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
         {/* Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch */}
         <title>004-shovel-1</title>
         <desc>Created with Sketch.</desc>

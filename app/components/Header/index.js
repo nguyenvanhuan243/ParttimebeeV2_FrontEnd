@@ -1,7 +1,18 @@
 import React, { PureComponent } from 'react';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
-import { DefaultAvatar1 } from 'components/DefaultAvatar';
+import {
+  DefaultAvatar1,
+  DefaultAvatar2,
+  DefaultAvatar3,
+  DefaultAvatar4,
+  DefaultAvatar5,
+  DefaultAvatar6,
+  DefaultAvatar7,
+  DefaultAvatar8,
+  DefaultAvatar9,
+  DefaultAvatar10,
+} from 'components/DefaultAvatar';
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
@@ -53,6 +64,40 @@ export default class Header extends PureComponent {
     return `/myjobs${companyName && contactName ? '/myjobs' : '/first-time-post-job'}`;
   }
 
+  getDefaultAvatar = user => {
+    if (user.default_avatar.includes('1')) {
+      return <DefaultAvatar1 />;
+    }
+    if (user.default_avatar.includes('2')) {
+      return <DefaultAvatar2 />;
+    }
+    if (user.default_avatar.includes('3')) {
+      return <DefaultAvatar3 />;
+    }
+    if (user.default_avatar.includes('4')) {
+      return <DefaultAvatar4 />;
+    }
+    if (user.default_avatar.includes('5')) {
+      return <DefaultAvatar5 />;
+    }
+    if (user.default_avatar.includes('6')) {
+      return <DefaultAvatar6 />;
+    }
+    if (user.default_avatar.includes('7')) {
+      return <DefaultAvatar7 />;
+    }
+    if (user.default_avatar.includes('8')) {
+      return <DefaultAvatar8 />;
+    }
+    if (user.default_avatar.includes('9')) {
+      return <DefaultAvatar9 />;
+    }
+    if (user.default_avatar.includes('10')) {
+      return <DefaultAvatar10 />;
+    }
+    return <DefaultAvatar1 />;
+  }
+
   handleFlowPostJob = user => {
     if (isEmpty(user)) {
       return '/user/login';
@@ -95,7 +140,7 @@ export default class Header extends PureComponent {
                 onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
                 className="Header-loggedAvatar"
               >
-                <DefaultAvatar1 />
+                { this.getDefaultAvatar(user) }
                 { user.url_avatar && <img
                   alt="fdsfds"
                   src={user.url_avatar}
