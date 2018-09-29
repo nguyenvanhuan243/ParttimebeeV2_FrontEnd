@@ -74,6 +74,11 @@ export default class EditProfile extends Component {
         this.buildFormData(),
       );
     }
+    if (this.password.value !== this.confirmPassword.value) {
+      this.setState({
+        alertConfirmPassword: true,
+      });
+    }
   }
 
   checkCurrentPassword = currentPassword => {
@@ -154,6 +159,8 @@ export default class EditProfile extends Component {
     const separatePasswordClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertPassword });
     const confirmPasswordLableClassName = classNames('EditProfileForm-lableItem', {
+      'EditProfile-errorLable': alertConfirmPassword });
+    const currentPasswordLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertConfirmPassword && !currentPasswordCorrect });
     const separateConfirmPasswordClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertConfirmPassword && !currentPasswordCorrect });
@@ -212,7 +219,7 @@ export default class EditProfile extends Component {
                         <div className={confirmPasswordLableClassName}>
                           Confirm Password
                         </div>
-                        <div className={confirmPasswordLableClassName}>
+                        <div className={currentPasswordLableClassName}>
                           Current Password
                         </div>
                       </span>
@@ -303,7 +310,7 @@ export default class EditProfile extends Component {
                             />
                             <div className={separateConfirmPasswordClassName} />
                             { alertConfirmPassword && showErrorAlert && <div className="EditProfileForm-textError">
-                              Please enter your confirm password
+                              Make sure they are match!
                             </div> }
                           </div>
                           <div className="EditProfileForm-lableItem">
@@ -318,7 +325,7 @@ export default class EditProfile extends Component {
                               }}
                             />
                             <div className={separateConfirmPasswordClassName} />
-                            { !currentPasswordCorrect && alertConfirmPassword && showErrorAlert && <div className="EditProfileForm-textError">
+                            { !currentPasswordCorrect && showErrorAlert && <div className="EditProfileForm-textError">
                               Wrong password.
                             </div> }
                           </div>
@@ -451,7 +458,7 @@ export default class EditProfile extends Component {
                   UPDATE
                 </span>
               </button>
-              { (alertEmail || alertCompanyName || alertContactName || alertPassword || alertConfirmPassword) &&
+              { !showUpdated && (alertEmail || alertCompanyName || alertContactName || alertPassword || alertConfirmPassword) &&
                 <div className="EditProfile-warningContainer">
                   <div className="EditProfile-warningIcon">
                     <WarningIcon />
