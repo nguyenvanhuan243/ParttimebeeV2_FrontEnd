@@ -277,7 +277,7 @@ export default class EditProfile extends Component {
                               onChange={e => this.setState({ passwordValue: e.target.value })}
                             />
                             <div className={separatePasswordClassName} />
-                            { ((passwordValue.length < 6 && alertPassword) || (alertPassword && showErrorAlert)) && <div className="EditProfileForm-textError">
+                            { alertPassword && showErrorAlert && <div className="EditProfileForm-textError">
                               Minimum 6 characters.
                             </div> }
                           </div>
@@ -290,7 +290,7 @@ export default class EditProfile extends Component {
                               onChange={e => this.setState({ confirmPasswordValue: e.target.value })}
                             />
                             <div className={separateConfirmPasswordClassName} />
-                            { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                            { alertConfirmPassword && showErrorAlert && <div className="EditProfileForm-textError">
                               Please enter your confirm password
                             </div> }
                           </div>
@@ -306,7 +306,7 @@ export default class EditProfile extends Component {
                               }}
                             />
                             <div className={separateConfirmPasswordClassName} />
-                            { (alertConfirmPassword && showErrorAlert) && <div className="EditProfileForm-textError">
+                            { alertConfirmPassword && showErrorAlert && <div className="EditProfileForm-textError">
                               Please enter your current password
                             </div> }
                           </div>
@@ -326,7 +326,7 @@ export default class EditProfile extends Component {
                           }}
                         />
                         <div className={separateContactNameClassName} />
-                        { (alertContactName && showErrorAlert) && <div className="EditProfileForm-textError">
+                        { alertContactName && showErrorAlert && <div className="EditProfileForm-textError">
                           Please enter your contact name
                         </div> }
                       </div>
