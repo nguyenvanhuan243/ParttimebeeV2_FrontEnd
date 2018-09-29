@@ -74,11 +74,7 @@ export default class EditProfile extends Component {
         this.buildFormData(),
       );
     }
-    if (this.password.value !== this.confirmPassword.value) {
-      this.setState({
-        alertConfirmPassword: true,
-      });
-    }
+    this.setState({ alertConfirmPassword: this.password.value !== this.confirmPassword.value });
   }
 
   checkCurrentPassword = currentPassword => {
