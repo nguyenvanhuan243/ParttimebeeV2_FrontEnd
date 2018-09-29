@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
+import { DefaultAvatar1 } from 'components/DefaultAvatar/index';
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
@@ -94,6 +95,7 @@ export default class Header extends PureComponent {
                 onClick={() => this.setState({ expandAvatar: !this.state.expandAvatar })}
                 className="Header-loggedAvatar"
               >
+                <DefaultAvatar1 />
                 { user.url_avatar && <img
                   alt="fdsfds"
                   src={user.url_avatar}
