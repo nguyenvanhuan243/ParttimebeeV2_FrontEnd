@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import LogoIcon from 'components/Icons/Logo/Loadable';
 import SearchIcon from 'components/Icons/Search/Loadable';
-import { DefaultAvatar1 } from 'components/DefaultAvatar/index';
+import { DefaultAvatar1 } from 'components/DefaultAvatar';
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
