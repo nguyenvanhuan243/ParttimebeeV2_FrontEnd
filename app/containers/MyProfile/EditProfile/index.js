@@ -55,20 +55,10 @@ export default class EditProfile extends Component {
     const { showChangePassword } = this.state;
     if (this.email.value === '' || (showChangePassword && (this.password.value === '' || this.confirmPassword.value === '')) ||
         this.companyName.value === '' || this.contactName.value === '') {
-      this.setState({
-        showErrorAlert: true,
-      });
+      this.setState({ showErrorAlert: true });
       this.setState({ alertEmail: (this.email.value === '' ? 'Email' : '') });
-      if (showChangePassword && this.password.value === '') {
-        this.setState({ alertPassword: 'Password' });
-      } else {
-        this.setState({ alertPassword: '' });
-      }
-      if (showChangePassword && this.confirmPassword.value === '') {
-        this.setState({ alertConfirmPassword: 'Confirm Password' });
-      } else {
-        this.setState({ alertConfirmPassword: '' });
-      }
+      this.setState({ alertPassword: (showChangePassword && this.password.value === '' ? 'Password' : '') });
+      this.setState({ alertConfirmPassword: (showChangePassword && this.confirmPassword.value === '' ? 'Confirm Password' : '') });
       this.setState({ alertContactName: (this.contactName.value === '' ? 'Contact Name' : '') });
       this.setState({ alertCompanyName: (this.companyName.value === '' ? 'Company Name' : '') });
     } else {
