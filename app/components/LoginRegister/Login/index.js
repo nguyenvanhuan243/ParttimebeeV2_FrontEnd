@@ -49,7 +49,7 @@ export default class Login extends PureComponent {
       });
     });
     const {
-      passwordCorrect,
+      passwordCorrect = true,
     } = this.state;
     if (!passwordCorrect) {
       this.setState({
@@ -140,7 +140,7 @@ export default class Login extends PureComponent {
       focusPassword,
       disposableEmail,
       loginEmailState,
-      passwordCorrect,
+      passwordCorrect = true,
       showEmailAnimation,
       showPasswordAnimation,
       showMessageEmailNotConfirm,
