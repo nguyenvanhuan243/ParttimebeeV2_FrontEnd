@@ -252,7 +252,7 @@ export default class Signup extends PureComponent {
               { showMessageEmailNotConfirm &&
                 'Check your email, we already sent an email to this address for verification.'
               }
-              { focusEmail && !showMessageEmailNotConfirm && 'We’ll send an email to this address for verification.' }
+              { focusEmail && !showMessageEmailNotConfirm && (userExisted ? 'Looks like you already have an account. You can login from here' : 'We’ll send an email to this address for verification.') }
               { disposableEmail && isEmail && !focusEmail &&
                 <div style={{ marginTop: '15px' }}>
                   This is not valid email address.
