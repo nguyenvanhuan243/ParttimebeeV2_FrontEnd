@@ -10,6 +10,7 @@ import config from '../../../../config';
 
 const params = new URLSearchParams(location.search);
 const checkUserExistUrl = `${config.API_BASE_URL}/users/check-user-exist`;
+const checkUserPasswordUrl = `${config.API_BASE_URL}/users/check-user-password`;
 const disposableUrl = `${config.API_BASE_URL}/disposable-email/check`;
 export default class Login extends PureComponent {
   constructor() {
@@ -25,6 +26,7 @@ export default class Login extends PureComponent {
       focusEmail: false,
       shakeEffect: false,
       focusPassword: false,
+      passwordCorrect: true,
       disposableEmail: false,
       showEmailAnimation: false,
       showMessageEmailNotConfirm: false,
@@ -38,6 +40,22 @@ export default class Login extends PureComponent {
     const password = this.password.value;
     const { disposableEmail, userExisted } = this.state;
     const url = `${config.API_BASE_URL}/sessions?email=${email}&password=${password}`;
+    axios.post(checkUserPasswordUrl, {
+      email,
+      password,
+    }).then(response => {
+      this.setState({
+        passwordCorrect: response.data.success,
+      });
+    });
+    const {
+      passwordCorrect,
+    } = this.state;
+    if (!passwordCorrect) {
+      this.setState({
+        shakeEffect: true,
+      });
+    }
     axios.post(checkUserExistUrl, { email }).then(response => {
       if (response.data.user && !response.data.user.email_confirmed) {
         this.setState({
@@ -122,6 +140,7 @@ export default class Login extends PureComponent {
       focusPassword,
       disposableEmail,
       loginEmailState,
+      passwordCorrect,
       showEmailAnimation,
       showPasswordAnimation,
       showMessageEmailNotConfirm,
@@ -215,7 +234,7 @@ export default class Login extends PureComponent {
               }
             </div>
             <span className="Signup-passwordValidate">
-              { passwordValue.length < 6 && passwordValue.length > 0 && 'Type 6 characters or more.' }
+              { passwordValue.length < 6 && passwordValue.length > 0 ? 'Type 6 characters or more.' : (!passwordCorrect && 'Your password is not correct') }
             </span>
           </div>
         </div>
