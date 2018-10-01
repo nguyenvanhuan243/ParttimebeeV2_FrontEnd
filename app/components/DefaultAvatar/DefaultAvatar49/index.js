@@ -7,8 +7,6 @@ export default class DefaultAvatar49 extends PureComponent { // eslint-disable-l
     };
     return (
       <svg style={style} viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-        {/* Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch */}
-        <title>049-hanging-pot</title>
         <desc>Created with Sketch.</desc>
         <defs />
         <g id="049-hanging-pot" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">

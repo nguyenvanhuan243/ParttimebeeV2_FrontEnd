@@ -7,8 +7,6 @@ export default class DefaultAvatar23 extends PureComponent { // eslint-disable-l
     };
     return (
       <svg style={style} viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-        {/* Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch */}
-        <title>023-ladybug</title>
         <desc>Created with Sketch.</desc>
         <defs />
         <g id="023-ladybug" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
