@@ -206,11 +206,11 @@ export default class Login extends PureComponent {
                     />
                   </div>
                   <label htmlFor className={passwordAnimation}>Password</label>
-                  { (passwordValue.length >= 6 || passwordValue.length === 0) && <div
+                  { (passwordValue.length >= 6 || passwordValue.length === 0) && passwordCorrect && <div
                     style={{ backgroundColor: focusPassword ? '#ffaa00' : '#e8e8e8' }}
                     className="Signup-separate"
                   /> }
-                  { passwordValue.length < 6 && passwordValue.length > 0 && <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" /> }
+                  { ((passwordValue.length < 6 && passwordValue.length > 0) || !passwordCorrect) && <div style={{ backgroundColor: '#da552f' }} className="Signup-separate" /> }
                 </div>
                 <button className="Signup-button">
                   <div className="Signup-buttonText"> Login </div>
