@@ -56,17 +56,23 @@ export default class EditProfile extends Component {
 
   onSubmit = () => {
     const { showChangePassword } = this.state;
-    this.checkCurrentPassword(this.currentPassword.value);
-    if (isEmpty(this.email.value) || (showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value))) ||
-      isEmpty(this.companyName.value) || isEmpty(this.contactName.value)) {
+    if (showChangePassword) {
+      this.checkCurrentPassword(this.currentPassword.value);
+      if (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value)) {
+        this.setState({
+          alertPassword: (showChangePassword && this.password.value.length < 6),
+          alertConfirmPassword: showChangePassword && isEmpty(this.confirmPassword.value),
+          alertCurrentPassword: showChangePassword && isEmpty(this.currentPassword.value),
+        });
+      }
+      this.setState({ alertConfirmPassword: this.password.value !== this.confirmPassword.value });
+    }
+    if (isEmpty(this.email.value) || isEmpty(this.companyName.value) || isEmpty(this.contactName.value)) {
       this.setState({
         showErrorAlert: true,
         alertEmail: isEmpty(this.email.value),
         alertContactName: isEmpty(this.contactName.value),
         alertCompanyName: isEmpty(this.companyName.value),
-        alertPassword: (showChangePassword && this.password.value.length < 6),
-        alertConfirmPassword: showChangePassword && isEmpty(this.confirmPassword.value),
-        alertCurrentPassword: showChangePassword && isEmpty(this.currentPassword.value),
       });
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
@@ -75,7 +81,6 @@ export default class EditProfile extends Component {
         this.buildFormData(),
       );
     }
-    this.setState({ alertConfirmPassword: this.password.value !== this.confirmPassword.value });
   }
 
   checkCurrentPassword = currentPassword => {
@@ -87,18 +92,23 @@ export default class EditProfile extends Component {
   }
 
   buildFormData() {
+    const {
+      showChangePassword,
+    } = this.state;
     const formData = new FormData();
     formData.append('profile[email]', this.email.value);
     formData.append('profile[phone]', this.phone.value);
     formData.append('profile[address]', this.address.value);
     formData.append('profile[website]', this.website.value);
     formData.append('profile[avatar]', this.avatar.files[0]);
-    formData.append('profile[password]', this.password.value);
     formData.append('profile[contactName]', this.contactName.value);
     formData.append('profile[companyName]', this.companyName.value);
-    formData.append('profile[confirmPassword]', this.confirmPassword.value);
-    formData.append('profile[currentPassword]', this.currentPassword.value);
     formData.append('profile[companyDescription]', this.companyDescription.editor.innerHTML);
+    if (showChangePassword) {
+      formData.append('profile[password]', this.password.value);
+      formData.append('profile[confirmPassword]', this.confirmPassword.value);
+      formData.append('profile[currentPassword]', this.currentPassword.value);
+    }
     return formData;
   }
 
