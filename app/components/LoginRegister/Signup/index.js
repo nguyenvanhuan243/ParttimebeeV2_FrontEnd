@@ -238,7 +238,7 @@ export default class Signup extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            { !showMessageEmailNotConfirm && userExisted && isEmail && emailValue.length > 0 && disposableEmail &&
+            { userExisted && isEmail && emailValue.length > 0 && !disposableEmail &&
               <div className="Signup-emailValidate">
                 <span>
                   Looks like you already have an account. You can<a
@@ -252,7 +252,7 @@ export default class Signup extends PureComponent {
               { showMessageEmailNotConfirm &&
                 'Check your email, we already sent an email to this address for verification.'
               }
-              { focusEmail && !showMessageEmailNotConfirm && 'We’ll send an email to this address for verification.' }
+              { focusEmail && !userExisted && !showMessageEmailNotConfirm && 'We’ll send an email to this address for verification.' }
               { disposableEmail && isEmail && !focusEmail &&
                 <div style={{ marginTop: '15px' }}>
                   This is not valid email address.
