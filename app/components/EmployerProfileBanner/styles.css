@@ -263,11 +263,8 @@ a.EmployerProfileBanner-hrefText:Hover {
 }
 
 .EmployerProfileBanner-addNowText {
-  /* width: 51px; */
   height: 16px;
-  /* font-family: Roboto; */
   font-size: 11px;
-  font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.45;

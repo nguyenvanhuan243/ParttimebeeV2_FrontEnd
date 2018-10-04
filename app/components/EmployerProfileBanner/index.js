@@ -58,6 +58,7 @@ import {
   DefaultAvatar50,
 } from 'components/DefaultAvatar';
 import axios from 'axios';
+import { isMac } from '../../utils/operatingSystem';
 import config from '../../../config';
 
 const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
@@ -283,7 +284,7 @@ export default class EmployerProfileBanner extends PureComponent {
               </div>
               <Link to={'/myprofile/edit-profile'} className="EmployerProfileBanner-link">
                 <div className="EmployerProfileBanner-addNow">
-                  <div className="EmployerProfileBanner-addNowText">
+                  <div style={{ fontWeight: isMac ? '700' : '' }} className="EmployerProfileBanner-addNowText">
                     ADD NOW
                   </div>
                 </div>
