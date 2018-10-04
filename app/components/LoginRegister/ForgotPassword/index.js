@@ -36,13 +36,13 @@ export default class ForgotPassword extends PureComponent {
           shakeEffect: true,
         });
       }
-      this.setState({
-        changePasswordIsClicked: true,
-      });
       e.preventDefault();
       axios.post(updatePasswordUrl, {
         token: params.get('token'),
         newPassword: this.password.value,
+      }).then(response => {
+        this.setState({ changePasswordIsClicked: true });
+        localStorage.setItem('currentUser', response.data.user.id);
       });
     } else {
       const email = this.email.value;
