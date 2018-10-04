@@ -108,6 +108,11 @@ export default class ForgotPassword extends PureComponent {
     });
   }
 
+  handleBackToProfile = e => {
+    e.preventDefault();
+    location.replace(`${config.BASE_URL}/myprofile/my-profile`);
+  }
+
   render() {
     const {
       isEmail,
@@ -194,7 +199,7 @@ export default class ForgotPassword extends PureComponent {
                   </div> }
                 { (!changePasswordIsClicked || passwordValue.length < 6) ? <button className="Signup-button">
                   <div className="Signup-buttonText">Reset Password</div>
-                </button> : <button className="Signup-button">
+                </button> : <button onClick={this.handleBackToProfile} className="Signup-button">
                   <div className="Signup-buttonText"> Back to MY PROFILE  </div>
                 </button> }
               </div>
