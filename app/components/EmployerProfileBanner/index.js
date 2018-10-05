@@ -248,7 +248,6 @@ export default class EmployerProfileBanner extends PureComponent {
       website,
       address,
       companyName,
-      urlAvatar = '',
       showEdit = false,
       companyDescription,
     } = this.props;
@@ -264,14 +263,14 @@ export default class EmployerProfileBanner extends PureComponent {
     return (
       <div className={className}>
         <div className="EmployerProfileBanner-container">
-          { !urlAvatar ?
+          { !user.url_avatar ?
             <div className="EmployerProfileBanner-defaultAvatar">
               { this.getDefaultAvatar(user) }
             </div> :
             <img
               className="EmployerProfileBanner-avatar"
               alt="Avatar"
-              src={urlAvatar}
+              src={user.url_avatar}
             />
           }
           { shouldUpdate ?
@@ -357,6 +356,5 @@ EmployerProfileBanner.propTypes = {
   website: PropTypes.string,
   address: PropTypes.string,
   companyDescription: PropTypes.string,
-  urlAvatar: PropTypes.string,
 };
 
