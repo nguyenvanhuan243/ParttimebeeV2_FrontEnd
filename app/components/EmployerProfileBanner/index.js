@@ -284,7 +284,7 @@ export default class EmployerProfileBanner extends PureComponent {
               </div>
               <Link to={'/myprofile/edit-profile'} className="EmployerProfileBanner-link">
                 <div className="EmployerProfileBanner-addNow">
-                  <div style={{ fontWeight: isMac ? '700' : '' }} className="EmployerProfileBanner-addNowText">
+                  <div style={{ fontWeight: isMac() ? '500' : '700' }} className="EmployerProfileBanner-addNowText">
                     ADD NOW
                   </div>
                 </div>
