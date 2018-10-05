@@ -272,7 +272,7 @@ export default class Header extends PureComponent {
 
   render() {
     const { expandAvatar, user } = this.state;
-    const notLoginStyle = { marginLeft: (localStorage.currentUser && user && user.email_confirmed) ? '0' : '56' };
+    const notLoginStyle = { marginLeft: (localStorage.currentUser && user && user.email_confirmed) ? 0 : 56 };
     return (
       <div>
         <div className="Header">
