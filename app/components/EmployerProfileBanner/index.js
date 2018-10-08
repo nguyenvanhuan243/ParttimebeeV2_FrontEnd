@@ -327,18 +327,22 @@ export default class EmployerProfileBanner extends PureComponent {
               }
               <div className="EmployerProfileBanner-separate">
               </div>
-              <div className="EmployerProfileBanner-companyDescription">
-                COMPANY DESCRIPTION
-              </div>
-              <div className={companyDescriptionClassNames}>
-                <div dangerouslySetInnerHTML={{ __html: companyDescription }} />
-                { !showReadMore && <button
-                  onClick={() => this.setState({ showReadMore: true })}
-                  className="EmployerProfileBanner-readMoreButton"
-                >
-                  Read more
-                </button> }
-              </div>
+              { companyDescription && companyDescription.length > 287 &&
+                <div>
+                  <div className="EmployerProfileBanner-companyDescription">
+                    COMPANY DESCRIPTION
+                  </div>
+                  <div className={companyDescriptionClassNames}>
+                    <div dangerouslySetInnerHTML={{ __html: companyDescription }} />
+                    { !showReadMore && <button
+                      onClick={() => this.setState({ showReadMore: true })}
+                      className="EmployerProfileBanner-readMoreButton"
+                    >
+                      Read more
+                    </button> }
+                  </div>
+                </div>
+              }
             </div>}
           { showEdit && !shouldUpdate &&
             <Link className="EmployerProfileBanner-hrefText" to={'/myprofile/edit-profile'}>
