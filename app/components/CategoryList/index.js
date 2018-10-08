@@ -13,7 +13,7 @@ export default class CategoryList extends PureComponent {
     super();
     this.state = { selectedInput: 'Home' };
   }
-  handleSelectedInput = (text) => {
+  handleSelectedInput = text => {
     const {
       onHandleSelectedCategory = () => {},
     } = this.props;
@@ -36,11 +36,11 @@ export default class CategoryList extends PureComponent {
     const CategoryArray = [];
     const { selectedInput } = this.state;
     const { selectedCategoryItem } = localStorage;
-    categoryList.map((item) => CategoryArray.push(<CategoryItem
+    categoryList.map(item => CategoryArray.push(<CategoryItem
       text={item.text}
       iconType={item.icon}
       key={item.text.toString()}
-      selected={(selectedInput === item.text) && selectedCategoryItem}
+      selected={(selectedInput === item.text) && (selectedCategoryItem === true)}
       onClickFunc={() => this.handleSelectedInput(item.text)}
     />));
     return <div> { CategoryArray } </div>;
