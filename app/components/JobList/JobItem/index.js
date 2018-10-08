@@ -201,7 +201,7 @@ JobItem.propTypes = {
   showImage: PropTypes.bool,
   showCity: PropTypes.bool,
   onClickJobItem: PropTypes.func.isRequired,
-  onHoverJobItem: PropTypes.func.isRequired,
+  onHoverJobItem: PropTypes.func,
   title: PropTypes.string,
   href: PropTypes.string,
   showCompanyName: PropTypes.bool,
