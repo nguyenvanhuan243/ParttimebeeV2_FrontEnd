@@ -638,7 +638,7 @@ export default class EditProfile extends Component {
                           editorState={this.state.editorState}
                           onFocus={() => this.setState({ focusOnDescription: true })}
                           onBlur={() => this.setState({ focusOnDescription: false })}
-                          placeholder="Company Description"
+                          placeholder=""
                           editorRef={ref => (this.companyDescription = ref)}
                           wrapperClassName="EditProfileForm-wrapper"
                           editorClassName="EditProfileForm-editor"
