@@ -2,10 +2,9 @@
   width: 830px;
   height: 170px;
   border-radius: 3px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   padding-top: 28px;
   padding-bottom: 32px;
-  /* border: solid 1px #e8e8e8; */
 }
 
 .NoJobsYet-text {
