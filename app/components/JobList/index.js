@@ -55,8 +55,8 @@ export default class JobList extends PureComponent {
         href={`/job-detail/${item.id}+${this.changeSpaceToPlus(item.title)}`}
         title={item.title}
         showImage={showImage}
-        onClickJobItem={this.setJobId(item.id)}
-        onHoverJobItem={this.setJobId(item.id)}
+        onClickJobItem={() => this.setJobId(item.id)}
+        onHoverJobItem={() => this.setJobId(item.id)}
         showDelete={showDelete}
         showEdit={showEdit}
         showView={showView}
