@@ -294,31 +294,37 @@ export default class EmployerProfileBanner extends PureComponent {
                 { companyName && companyName.toUpperCase() }
               </div>
               <div className="EmployerProfileBanner-infoContainer">
-                <div className="EmployerProfileBanner-phoneContainer">
-                  <PhoneIcon />
-                  <div className="EmployerProfileBanner-phoneText">
-                    { phone }
+                { phone &&
+                  <div className="EmployerProfileBanner-phoneContainer">
+                    <PhoneIcon />
+                    <div className="EmployerProfileBanner-phoneText">
+                      { phone }
+                    </div>
                   </div>
-                </div>
+                }
                 <div className="EmployerProfileBanner-mailContainer">
                   <WhiteEmailIcon />
                   <div className="EmployerProfileBanner-mailText">
                     { email }
                   </div>
                 </div>
-                <div className="EmployerProfileBanner-webContainer">
-                  <WebIcon />
-                  <div className="EmployerProfileBanner-webText">
-                    { website }
+                { website &&
+                  <div className="EmployerProfileBanner-webContainer">
+                    <WebIcon />
+                    <div className="EmployerProfileBanner-webText">
+                      { website }
+                    </div>
+                  </div>
+                }
+              </div>
+              { address &&
+                <div className="EmployerProfileBanner-addressContainer">
+                  <AddressIcon />
+                  <div className="EmployerProfileBanner-addressText">
+                    { address }
                   </div>
                 </div>
-              </div>
-              <div className="EmployerProfileBanner-addressContainer">
-                <AddressIcon />
-                <div className="EmployerProfileBanner-addressText">
-                  { address }
-                </div>
-              </div>
+              }
               <div className="EmployerProfileBanner-separate">
               </div>
               <div className="EmployerProfileBanner-companyDescription">

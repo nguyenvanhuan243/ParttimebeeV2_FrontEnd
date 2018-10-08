@@ -54,11 +54,11 @@
 
 .EmployerProfileBanner-phoneContainer {
   display: flex;
+  margin-right: 24px;
 }
 
 .EmployerProfileBanner-mailContainer {
   display: flex;
-  margin-left: 24px;
 }
 
 .EmployerProfileBanner-webContainer {
