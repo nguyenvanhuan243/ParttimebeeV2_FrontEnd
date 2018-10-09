@@ -245,7 +245,7 @@ export default class EmployerProfileBanner extends PureComponent {
   render() {
     const {
       phone,
-      email,
+      email = '',
       website,
       address,
       companyName,
