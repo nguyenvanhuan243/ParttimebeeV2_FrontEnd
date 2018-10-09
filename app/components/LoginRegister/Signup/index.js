@@ -238,30 +238,21 @@ export default class Signup extends PureComponent {
             </form>
           </div>
           <div className="Signup-validateContainer">
-            { !showMessageEmailNotConfirm && userExisted && isEmail && emailValue.length > 0 && !disposableEmail &&
-              <div className="Signup-emailValidate">
+            <div className="Signup-emailValidate">
+              { !showMessageEmailNotConfirm && userExisted && isEmail && emailValue.length > 0 && !disposableEmail &&
                 <span>
                   Looks like you already have an account. You can<a
                     style={{ color: '#ffaa00', textDecoration: 'none' }}
                     href={`${config.BASE_URL}/user/login?email=${this.email && this.email.value}`}
                   > login from here </a>
                 </span>
-              </div>
-            }
-            <span className="Signup-emailValidate">
-              { showMessageEmailNotConfirm &&
-                'Check your email, we already sent an email to this address for verification.'
               }
+              { showMessageEmailNotConfirm && 'Check your email, we already sent an email to this address for verification.' }
               { focusEmail && !userExisted && !showMessageEmailNotConfirm && 'We’ll send an email to this address for verification.' }
-              { disposableEmail && isEmail && !focusEmail &&
-                <div style={{ marginTop: '15px' }}>
-                  This is not valid email address.
-                </div>
-              }
-            </span>
+              { disposableEmail && isEmail && !focusEmail && <div style={{ marginTop: '15px' }}> This is not valid email address.</div> }
+            </div>
             <span className="Signup-passwordValidate">
-              { (focusPassword || (!focusPassword && passwordValue.length < 6 && passwordValue.length > 0)) &&
-                'Type 6 characters or more.' }
+              { (focusPassword || (!focusPassword && passwordValue.length < 6 && passwordValue.length > 0)) && 'Type 6 characters or more.' }
             </span>
           </div>
         </div>
