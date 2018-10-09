@@ -110,7 +110,7 @@ export default class EditProfile extends Component {
     const { showChangePassword } = this.state;
     if (showChangePassword) {
       this.checkCurrentPassword(this.currentPassword.value);
-      if (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value)) {
+      if (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || isEmpty(this.currentPassword.value)) {
         this.setState({
           alertPassword: this.password.value.length < 6,
           alertConfirmPassword: isEmpty(this.confirmPassword.value),
