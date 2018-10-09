@@ -107,15 +107,18 @@ export default class EditProfile extends Component {
   }
 
   onSubmit = () => {
-    const { showChangePassword } = this.state;
+    const { showChangePassword, currentPasswordCorrect } = this.state;
     const checkAlertPassword = showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || isEmpty(this.currentPassword.value));
     if (showChangePassword) {
       this.checkCurrentPassword(this.currentPassword.value);
       if (showChangePassword) {
+        const password = this.password.value;
+        const confirmPassword = this.confirmPassword.value;
+        const currentPassword = this.currentPassword.value;
         this.setState({
-          alertPassword: this.password.value.length < 6,
-          alertConfirmPassword: isEmpty(this.confirmPassword.value),
-          alertCurrentPassword: isEmpty(this.currentPassword.value),
+          alertPassword: password.length < 6,
+          alertConfirmPassword: (isEmpty(confirmPassword) || password !== confirmPassword),
+          alertCurrentPassword: (isEmpty(currentPassword) || !currentPasswordCorrect),
         });
       }
       this.setState({ alertConfirmPassword: this.password.value !== this.confirmPassword.value });
@@ -129,7 +132,10 @@ export default class EditProfile extends Component {
       });
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
-      setTimeout(() => this.setState({ showUpdated: true, showSaving: false }), 2000);
+      setTimeout(() => {
+        this.setState({ showUpdated: true, showSaving: false });
+        setTimeout(() => location.reload(), 1000);
+      }, 2000);
       axios.put(requestUrl,
         this.buildFormData(),
       );
