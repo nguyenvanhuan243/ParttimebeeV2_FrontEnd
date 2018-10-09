@@ -370,7 +370,7 @@ export default class EditProfile extends Component {
       'EditProfile-errorLable': alertEmail });
     const separateEmailClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertEmail });
-    const passwordLableClassName = classNames('EditProfileForm-lableItem', {
+    const newPasswordLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertPassword });
     const separatePasswordClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertPassword });
@@ -425,12 +425,12 @@ export default class EditProfile extends Component {
                     <div className={emailLableClassName}>
                       Email
                     </div>
-                    <div className={passwordLableClassName}>
+                    <div className="EditProfileForm-lableItem">
                       Password
                     </div>
                     { showChangePassword &&
                       <span>
-                        <div className={passwordLableClassName}>
+                        <div className={newPasswordLableClassName}>
                           New Password
                         </div>
                         <div className={confirmPasswordLableClassName}>
