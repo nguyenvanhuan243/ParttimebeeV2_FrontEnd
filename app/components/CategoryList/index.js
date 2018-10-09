@@ -35,12 +35,11 @@ export default class CategoryList extends PureComponent {
     ];
     const CategoryArray = [];
     const { selectedInput } = this.state;
-    const { selectedCategoryItem } = localStorage;
     categoryList.map(item => CategoryArray.push(<CategoryItem
       text={item.text}
       iconType={item.icon}
       key={item.text.toString()}
-      selected={(selectedInput === item.text) && (selectedCategoryItem === true)}
+      selected={selectedInput === item.text}
       onClickFunc={() => this.handleSelectedInput(item.text)}
     />));
     return <div> { CategoryArray } </div>;
