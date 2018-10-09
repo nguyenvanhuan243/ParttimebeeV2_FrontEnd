@@ -275,3 +275,23 @@ a.EmployerProfileBanner-hrefText:Hover {
 .EmployerProfileBanner-link:hover {
   text-decoration: none;
 }
+
+.EmployerProfileBanner-websiteLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.EmployerProfileBanner-websiteLink:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.EmployerProfileBanner-emailLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.EmployerProfileBanner-emailLink:hover {
+  color: inherit;
+  text-decoration: none;
+}

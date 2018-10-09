@@ -4,6 +4,7 @@ import WebIcon from 'components/Icons/Web/Loadable';
 import React, { PureComponent, PropTypes } from 'react';
 import PhoneIcon from 'components/Icons/Phone/Loadable';
 import AddressIcon from 'components/Icons/Address/Loadable';
+import Mailto from 'react-mailto';
 import WhiteEmailIcon from 'components/Icons/WhiteEmail/Loadable';
 import {
   DefaultAvatar1,
@@ -305,14 +306,18 @@ export default class EmployerProfileBanner extends PureComponent {
                 <div className="EmployerProfileBanner-mailContainer">
                   <WhiteEmailIcon />
                   <div className="EmployerProfileBanner-mailText">
-                    { email }
+                    <Mailto className="EmployerProfileBanner-emailLink" email={email}>
+                      { email }
+                    </Mailto>
                   </div>
                 </div>
                 { website &&
                   <div className="EmployerProfileBanner-webContainer">
                     <WebIcon />
                     <div className="EmployerProfileBanner-webText">
-                      { website }
+                      <Link className="EmployerProfileBanner-websiteLink" to={website} target={'_blank'}>
+                        { website }
+                      </Link>
                     </div>
                   </div>
                 }
