@@ -108,9 +108,10 @@ export default class EditProfile extends Component {
 
   onSubmit = () => {
     const { showChangePassword } = this.state;
+    const checkAlertPassword = showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || isEmpty(this.currentPassword.value));
     if (showChangePassword) {
       this.checkCurrentPassword(this.currentPassword.value);
-      if (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || isEmpty(this.currentPassword.value)) {
+      if (showChangePassword) {
         this.setState({
           alertPassword: this.password.value.length < 6,
           alertConfirmPassword: isEmpty(this.confirmPassword.value),
@@ -119,7 +120,7 @@ export default class EditProfile extends Component {
       }
       this.setState({ alertConfirmPassword: this.password.value !== this.confirmPassword.value });
     }
-    if (isEmpty(this.email.value) || isEmpty(this.companyName.value) || isEmpty(this.contactName.value)) {
+    if (isEmpty(this.email.value) || isEmpty(this.companyName.value) || isEmpty(this.contactName.value) || checkAlertPassword) {
       this.setState({
         showErrorAlert: true,
         alertEmail: isEmpty(this.email.value),
