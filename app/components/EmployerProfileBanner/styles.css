@@ -225,7 +225,7 @@ a.EmployerProfileBanner-hrefText:Hover {
 }
 
 .EmployerProfileBanner-welcomeText {
-  width: 281px;
+  min-width: 281px;
   height: 32px;
   font-family: Roboto;
   font-size: 24px;
