@@ -383,11 +383,11 @@ export default class EditProfile extends Component {
     const separatePasswordClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertPassword });
     const confirmPasswordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertConfirmPassword });
+      'EditProfile-errorLable': (alertConfirmPassword || (showErrorAlert && (alertConfirmPassword || isEmpty(confirmPasswordValue)))) });
     const currentPasswordLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertCurrentPassword && !currentPasswordCorrect });
     const separateConfirmPasswordClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertConfirmPassword && !currentPasswordCorrect });
+      'EditProfile-errorSeparate': ((alertConfirmPassword && !currentPasswordCorrect) || (showErrorAlert && (alertConfirmPassword || isEmpty(confirmPasswordValue)))) });
     const separateCurrentPasswordClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertCurrentPassword && !currentPasswordCorrect });
     const contactNameLableClassName = classNames('EditProfileForm-lableItem', {
