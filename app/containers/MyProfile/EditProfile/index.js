@@ -71,23 +71,23 @@ export default class EditProfile extends Component {
   constructor() {
     super();
     this.state = {
+      user: {},
+      phoneValue: '',
+      alertEmail: '',
+      emailValue: '',
+      addressValue: '',
+      websiteValue: '',
+      alertPassword: '',
+      contactNameValue: '',
+      companyNameValue: '',
+      alertCompanyName: '',
+      alertContactName: '',
+      alertConfirmPassword: '',
       isSubmited: false,
       showSaving: false,
       showUpdated: false,
       showErrorAlert: false,
       showAskReasonPopup: false,
-      alertEmail: '',
-      alertPassword: '',
-      alertCompanyName: '',
-      alertContactName: '',
-      alertConfirmPassword: '',
-      user: {},
-      emailValue: '',
-      contactNameValue: '',
-      companyNameValue: '',
-      addressValue: '',
-      phoneValue: '',
-      websiteValue: '',
       showChangePassword: false,
       currentPasswordCorrect: false,
       editorState: EditorState.createEmpty(),
@@ -98,19 +98,23 @@ export default class EditProfile extends Component {
     axios.get(requestUrl).then(response => {
       this.setState({ user: response.data });
       const blocksFromHTML = convertFromHTML(this.state.user.company_description);
-      const state = ContentState.createFromBlockArray(
-        blocksFromHTML.contentBlocks,
-        blocksFromHTML.entityMap
-      );
-      this.setState({ editorState: EditorState.createWithContent(state) });
+      if (!isEmpty(blocksFromHTML.contentBlocks)) {
+        const state = ContentState.createFromBlockArray(
+          blocksFromHTML.entityMap,
+          blocksFromHTML.contentBlocks
+        );
+        this.setState({ editorState: EditorState.createWithContent(state) });
+      }
     });
   }
 
   onSubmit = () => {
     const { showChangePassword, currentPasswordCorrect } = this.state;
-    const checkAlertPassword = showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || isEmpty(this.currentPassword.value) || !currentPasswordCorrect);
     if (showChangePassword) {
       this.checkCurrentPassword(this.currentPassword.value);
+    }
+    const checkAlertPassword = showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || !currentPasswordCorrect);
+    if (showChangePassword) {
       if (showChangePassword) {
         const password = this.password.value;
         const confirmPassword = this.confirmPassword.value;
