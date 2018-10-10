@@ -134,12 +134,12 @@ export default class EditProfile extends Component {
         alertContactName: isEmpty(this.contactName.value),
         alertCompanyName: isEmpty(this.companyName.value),
       });
-      setTimeout(() => location.reload(), 1000);
+      setTimeout(() => location.reload(), 2000);
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
       setTimeout(() => {
         this.setState({ showUpdated: true, showSaving: false });
-        setTimeout(() => location.reload(), 1000);
+        setTimeout(() => location.reload(), 2000);
       }, 2000);
       axios.put(requestUrl,
         this.buildFormData(),
