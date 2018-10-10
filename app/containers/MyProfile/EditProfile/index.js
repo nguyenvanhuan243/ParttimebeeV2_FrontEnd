@@ -108,7 +108,7 @@ export default class EditProfile extends Component {
 
   onSubmit = () => {
     const { showChangePassword, currentPasswordCorrect } = this.state;
-    const checkAlertPassword = showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || isEmpty(this.currentPassword.value));
+    const checkAlertPassword = showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || isEmpty(this.currentPassword.value) || !currentPasswordCorrect);
     if (showChangePassword) {
       this.checkCurrentPassword(this.currentPassword.value);
       if (showChangePassword) {
