@@ -98,11 +98,13 @@ export default class EditProfile extends Component {
     axios.get(requestUrl).then(response => {
       this.setState({ user: response.data });
       const blocksFromHTML = convertFromHTML(this.state.user.company_description);
-      const state = ContentState.createFromBlockArray(
-        blocksFromHTML.contentBlocks,
-        blocksFromHTML.entityMap
-      );
-      this.setState({ editorState: EditorState.createWithContent(state) });
+      if (!isEmpty(blocksFromHTML.contentBlocks)) {
+        const state = ContentState.createFromBlockArray(
+          blocksFromHTML.contentBlocks,
+          blocksFromHTML.entityMap
+        );
+        this.setState({ editorState: EditorState.createWithContent(state) });
+      }
     });
   }
 
