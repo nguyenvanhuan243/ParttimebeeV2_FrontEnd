@@ -130,7 +130,7 @@ export default class EditProfile extends Component {
         alertContactName: isEmpty(this.contactName.value),
         alertCompanyName: isEmpty(this.companyName.value),
       });
-      setTimeout(() => location.reload(), 100000);
+      setTimeout(() => location.reload(), 50000);
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
       setTimeout(() => {
@@ -537,7 +537,7 @@ export default class EditProfile extends Component {
                               onChange={e => this.setState({ confirmPasswordValue: e.target.value })}
                             />
                             <div className={separateConfirmPasswordClassName} />
-                            { alertConfirmPassword && showErrorAlert && <div className="EditProfileForm-textError">
+                            { showErrorAlert && (alertConfirmPassword || isEmpty(confirmPasswordValue)) && <div className="EditProfileForm-textError">
                               Make sure they are match!
                             </div> }
                           </div>
