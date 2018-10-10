@@ -134,7 +134,7 @@ export default class EditProfile extends Component {
         alertContactName: isEmpty(this.contactName.value),
         alertCompanyName: isEmpty(this.companyName.value),
       });
-      setTimeout(() => location.reload(), 50000);
+      setTimeout(() => location.reload(), 1000);
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
       setTimeout(() => {
