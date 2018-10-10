@@ -177,7 +177,7 @@ export default class AskReasonPopup extends PureComponent {
 AskReasonPopup.propTypes = {
   closePopupFunc: PropTypes.func.isRequired,
   closeAskReasonFunc: PropTypes.func.isRequired,
-  showDeleteProfileFunc: PropTypes.func.isRequired,
+  showDeleteProfileFunc: PropTypes.func,
   onSubmitFormFunc: PropTypes.func.isRequired,
 };
 
