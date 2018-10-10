@@ -686,7 +686,7 @@ export default class EditProfile extends Component {
                   UPDATE
                 </span>
               </button>
-              { !showUpdated && (alertEmail || alertCompanyName || alertContactName || alertPassword || alertConfirmPassword) &&
+              { !showUpdated && (alertEmail || alertCompanyName || alertContactName || alertPassword || alertConfirmPassword || (!currentPasswordCorrect && showErrorAlert)) &&
                 <div className="EditProfile-warningContainer">
                   <div className="EditProfile-warningIcon">
                     <WarningIcon />
