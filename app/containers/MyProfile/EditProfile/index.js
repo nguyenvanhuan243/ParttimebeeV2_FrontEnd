@@ -130,7 +130,7 @@ export default class EditProfile extends Component {
         alertContactName: isEmpty(this.contactName.value),
         alertCompanyName: isEmpty(this.companyName.value),
       });
-      setTimeout(() => location.reload(), 1000);
+      setTimeout(() => location.reload(), 100000);
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
       setTimeout(() => {
@@ -414,7 +414,7 @@ export default class EditProfile extends Component {
             <div className="EditProfile-editProfile">
               Edit Profile
             </div>
-            { showErrorAlert && <div className="EditProfile-alert">
+            { false && <div className="EditProfile-alert">
               <EditProfileAlert
                 showEmail={alertEmail}
                 showPassword={alertPassword}
