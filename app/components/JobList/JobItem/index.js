@@ -170,7 +170,7 @@ export default class JobItem extends PureComponent {
               </button> }
             { showEdit &&
               <Link
-                to={`${config.BASE_URL}/postjobs-edit-job/${jobId}?edit-job`}
+                to={`/postjobs-edit-job/${jobId}?edit-job`}
                 className={contentEditContainerClassName}
                 onMouseEnter={() => this.setState({ hoverEdit: true })}
                 onMouseLeave={() => this.setState({ hoverEdit: false })}
