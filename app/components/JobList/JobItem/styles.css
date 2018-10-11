@@ -129,6 +129,7 @@ a.JobItem-href:hover {
   outline: none !important;
   cursor: pointer;
   padding-right: 4px;
+  text-decoration: none !important;
 }
 
 .JobItem-contentShareContainer {
