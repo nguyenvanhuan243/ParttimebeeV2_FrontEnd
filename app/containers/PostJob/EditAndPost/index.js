@@ -41,13 +41,13 @@ export default class EditAndPost extends Component {
   }
   componentWillMount() {
     const requestUrl = `${config.API_BASE_URL}/jobs/${jobId}`;
-    axios.get(currentUserUrl).then((response) => {
+    axios.get(currentUserUrl).then(response => {
       if (!response.data.contact_name || !response.data.company_name) {
         location.replace(`${config.BASE_URL}/myprofile/edit-profile`);
       }
     });
     axios.get(requestUrl).then(
-      (response) => {
+      response => {
         this.setState({ jobItem: response.data.job });
         const blocksFromHTML = convertFromHTML(this.state.jobItem.description);
         const state = ContentState.createFromBlockArray(
@@ -59,7 +59,7 @@ export default class EditAndPost extends Component {
     );
   }
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     const {
       buttonIsSubmited,
     } = this.state;
@@ -69,13 +69,13 @@ export default class EditAndPost extends Component {
       const url = `${config.API_BASE_URL}/jobs/${jobId}`;
       this.setState({ hasJobSaved: !this.state.hasJobSaved });
       axios.put(url, {
+        city: this.city.value,
         title: this.title.value,
-        category: this.category.value,
-        description: this.description.editor.innerHTML,
         salary: this.salary.value,
+        category: this.category.value,
         salaryType: this.salaryType.value,
         salaryState: this.salaryState.value,
-        city: this.city.value,
+        description: this.description.editor.innerHTML,
       });
     } else {
       const url = `${config.API_BASE_URL}/jobs`;
@@ -89,10 +89,8 @@ export default class EditAndPost extends Component {
         city: this.city.value,
         user_id: localStorage.currentUser,
         button_is_submited: buttonIsSubmited,
-      }).then((response) => {
+      }).then(response => {
         location.replace(`${config.BASE_URL}/job-detail/${response.data.id}?${buttonIsSubmited === 'Preview' ? 'preview&' : ''}created&`);
-      }).catch((error) => {
-        console.log(error);
       });
     }
   }
@@ -141,10 +139,10 @@ export default class EditAndPost extends Component {
                         maxLength="45"
                         onFocus={() => this.setState({ focusOnTitle: true })}
                         onBlur={() => this.setState({ focusOnTitle: false })}
-                        ref={(ref) => (this.title = ref)}
+                        ref={ref => (this.title = ref)}
                         required
                         value={this.state.titleValue || (jobItem && jobItem.title)}
-                        onChange={(e) => {
+                        onChange={e => {
                           this.setState({
                             titleValue: e.target.value,
                             characterLeft: (45 - e.target.value.length),
@@ -165,9 +163,9 @@ export default class EditAndPost extends Component {
                         className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
                         onFocus={() => this.setState({ focusOnCategory: true })}
                         onBlur={() => this.setState({ focusOnCategory: false })}
-                        ref={(ref) => (this.category = ref)}
+                        ref={ref => (this.category = ref)}
                         value={this.state.CategoryValue || (jobItem && jobItem.category)}
-                        onChange={(e) => this.setState({ CategoryValue: e.target.value })}
+                        onChange={e => this.setState({ CategoryValue: e.target.value })}
                       >
                         <option> Select a category </option>
                         <option> Event </option>
@@ -183,10 +181,10 @@ export default class EditAndPost extends Component {
                         editorState={this.state.editorState}
                         onFocus={() => this.setState({ focusOnDescription: true })}
                         onBlur={() => this.setState({ focusOnDescription: false })}
-                        editorRef={(ref) => (this.description = ref)}
+                        editorRef={ref => (this.description = ref)}
                         wrapperClassName="EditAndPost-wrapper"
                         editorClassName="EditAndPost-editor"
-                        onEditorStateChange={(editorState) => this.setState({
+                        onEditorStateChange={editorState => this.setState({
                           editorState,
                           descriptionCharacterLeft: (1001 - this.description.editor.innerText.length),
                         })}
@@ -222,10 +220,10 @@ export default class EditAndPost extends Component {
                         type="number"
                         onFocus={() => this.setState({ focusOnSalary: true })}
                         onBlur={() => this.setState({ focusOnSalary: false })}
-                        ref={(ref) => (this.salary = ref)}
+                        ref={ref => (this.salary = ref)}
                         required
                         value={this.state.salaryValue || (jobItem && jobItem.salary)}
-                        onChange={(e) => {
+                        onChange={e => {
                           this.setState({ salaryValue: e.target.value });
                           if (this.state.salaryValue === '') {
                             jobItem.salary = '';
@@ -239,9 +237,9 @@ export default class EditAndPost extends Component {
                         className={`${focusOnSalaryType ? 'EditAndPost-inputSalaryTypeSelected' : 'EditAndPost-inputSalaryType'}`}
                         onFocus={() => this.setState({ focusOnSalaryType: true })}
                         onBlur={() => this.setState({ focusOnSalaryType: false })}
-                        ref={(ref) => (this.salaryType = ref)}
+                        ref={ref => (this.salaryType = ref)}
                         value={this.state.salaryTypeValue || (jobItem && jobItem.salary_type)}
-                        onChange={(e) => this.setState({ salaryTypeValue: e.target.value })}
+                        onChange={e => this.setState({ salaryTypeValue: e.target.value })}
                       >
                         <option> Select salary type </option>
                         <option> Per hour </option>
@@ -254,9 +252,9 @@ export default class EditAndPost extends Component {
                         className={`${focusOnSalaryState ? 'EditAndPost-inputSalaryStateSelected' : 'EditAndPost-inputSalaryState'}`}
                         onFocus={() => this.setState({ focusOnSalaryState: true })}
                         onBlur={() => this.setState({ focusOnSalaryState: false })}
-                        ref={(ref) => (this.salaryState = ref)}
+                        ref={ref => (this.salaryState = ref)}
                         value={this.state.salaryStateValue || (jobItem && jobItem.salary_state)}
-                        onChange={(e) => this.setState({ salaryStateValue: e.target.value })}
+                        onChange={e => this.setState({ salaryStateValue: e.target.value })}
                       >
                         <option> Select state </option>
                         <option> Johor </option>
@@ -282,9 +280,9 @@ export default class EditAndPost extends Component {
                         className="EditAndPost-customInput"
                         onFocus={() => this.setState({ focusOnCity: true })}
                         onBlur={() => this.setState({ focusOnCity: false })}
-                        ref={(ref) => (this.city = ref)}
+                        ref={ref => (this.city = ref)}
                         value={this.state.cityValue || (jobItem && jobItem.city)}
-                        onChange={(e) => {
+                        onChange={e => {
                           this.setState({ cityValue: e.target.value });
                           if (this.state.cityValue === '') {
                             jobItem.city = '';
