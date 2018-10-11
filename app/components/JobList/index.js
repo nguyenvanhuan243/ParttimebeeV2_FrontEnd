@@ -52,7 +52,7 @@ export default class JobList extends PureComponent {
     listFilterd.slice(0, limit).map(item =>
       listItem.push(<JobItem
         key={item.id}
-        href={`/job-detail/${item.id}+${this.changeSpaceToPlus(item.title)}`}
+        href={`/job-detail/${item.id}?${this.changeSpaceToPlus(item.title)}`}
         title={item.title}
         showImage={showImage}
         onClickJobItem={() => this.setJobId(item.id)}
