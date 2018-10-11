@@ -18,26 +18,26 @@ export default class EditAndPost extends Component {
   constructor() {
     super();
     this.state = {
+      jobItem: {},
+      showAlert: true,
+      hasJobSaved: false,
+      focusOnCity: false,
+      characterLeft: 45,
       focusOnTitle: false,
-      focusOnCategory: false,
       focusOnSalary: false,
+      focusOnCategory: false,
       focusOnSalaryType: false,
       focusOnSalaryState: false,
-      focusOnCity: false,
       focusOnDescription: false,
-      showAlert: true,
-      buttonIsSubmited: 'Post',
-      jobItem: {},
+      descriptionCharacterLeft: 1000,
+      cityValue: '',
       titleValue: '',
       CategoryValue: '',
       SalaryValue: '',
       SalaryTypeValue: '',
       salaryStateValue: '',
-      cityValue: '',
-      hasJobSaved: false,
+      buttonIsSubmited: 'Post',
       editorState: EditorState.createEmpty(),
-      characterLeft: 45,
-      descriptionCharacterLeft: 1000,
     };
   }
   componentWillMount() {
