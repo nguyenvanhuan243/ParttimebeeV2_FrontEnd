@@ -99,13 +99,16 @@ export default class EditAndPost extends Component {
   render() {
     const {
       jobItem,
+      cityValue,
       titleValue,
       hasJobSaved,
       focusOnCity,
+      salaryValue,
       focusOnTitle,
       focusOnSalary,
       characterLeft,
       focusOnCategory,
+      salaryStateValue,
       focusOnSalaryType,
       focusOnSalaryState,
       focusOnDescription,
@@ -162,12 +165,12 @@ export default class EditAndPost extends Component {
                     </div>
                     <div className="selectParent">
                       <select
-                        className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
+                        ref={ref => (this.category = ref)}
                         onFocus={() => this.setState({ focusOnCategory: true })}
                         onBlur={() => this.setState({ focusOnCategory: false })}
-                        ref={ref => (this.category = ref)}
-                        value={this.state.CategoryValue || (jobItem && jobItem.category)}
                         onChange={e => this.setState({ CategoryValue: e.target.value })}
+                        value={this.state.CategoryValue || (jobItem && jobItem.category)}
+                        className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
                       >
                         <option> Select a category </option>
                         <option> Event </option>
@@ -181,11 +184,11 @@ export default class EditAndPost extends Component {
                     <div className="EditAndPost-inputDescription">
                       <Editor
                         editorState={this.state.editorState}
+                        editorClassName="EditAndPost-editor"
+                        wrapperClassName="EditAndPost-wrapper"
+                        editorRef={ref => (this.description = ref)}
                         onFocus={() => this.setState({ focusOnDescription: true })}
                         onBlur={() => this.setState({ focusOnDescription: false })}
-                        editorRef={ref => (this.description = ref)}
-                        wrapperClassName="EditAndPost-wrapper"
-                        editorClassName="EditAndPost-editor"
                         onEditorStateChange={editorState => this.setState({
                           editorState,
                           descriptionCharacterLeft: (1001 - this.description.editor.innerText.length),
@@ -217,17 +220,17 @@ export default class EditAndPost extends Component {
                     </div>
                     <div className="EditAndPost-inputSalary">
                       <input
-                        className="EditAndPost-customInput"
-                        placeholder="RM19.00"
+                        required
                         type="number"
+                        placeholder="RM19.00"
+                        className="EditAndPost-customInput"
+                        ref={ref => (this.salary = ref)}
                         onFocus={() => this.setState({ focusOnSalary: true })}
                         onBlur={() => this.setState({ focusOnSalary: false })}
-                        ref={ref => (this.salary = ref)}
-                        required
-                        value={this.state.salaryValue || (jobItem && jobItem.salary)}
+                        value={salaryValue || (jobItem && jobItem.salary)}
                         onChange={e => {
                           this.setState({ salaryValue: e.target.value });
-                          if (this.state.salaryValue === '') {
+                          if (isEmpty(salaryValue)) {
                             jobItem.salary = '';
                           }
                         }}
@@ -236,12 +239,12 @@ export default class EditAndPost extends Component {
                     <div className={`${focusOnSalary ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}></div>
                     <div className="selectParent">
                       <select
-                        className={`${focusOnSalaryType ? 'EditAndPost-inputSalaryTypeSelected' : 'EditAndPost-inputSalaryType'}`}
+                        ref={ref => (this.salaryType = ref)}
                         onFocus={() => this.setState({ focusOnSalaryType: true })}
                         onBlur={() => this.setState({ focusOnSalaryType: false })}
-                        ref={ref => (this.salaryType = ref)}
-                        value={this.state.salaryTypeValue || (jobItem && jobItem.salary_type)}
                         onChange={e => this.setState({ salaryTypeValue: e.target.value })}
+                        value={this.state.salaryTypeValue || (jobItem && jobItem.salary_type)}
+                        className={`${focusOnSalaryType ? 'EditAndPost-inputSalaryTypeSelected' : 'EditAndPost-inputSalaryType'}`}
                       >
                         <option> Select salary type </option>
                         <option> Per hour </option>
@@ -251,12 +254,12 @@ export default class EditAndPost extends Component {
                     </div>
                     <div className="selectParent">
                       <select
-                        className={`${focusOnSalaryState ? 'EditAndPost-inputSalaryStateSelected' : 'EditAndPost-inputSalaryState'}`}
+                        ref={ref => (this.salaryState = ref)}
                         onFocus={() => this.setState({ focusOnSalaryState: true })}
                         onBlur={() => this.setState({ focusOnSalaryState: false })}
-                        ref={ref => (this.salaryState = ref)}
-                        value={this.state.salaryStateValue || (jobItem && jobItem.salary_state)}
                         onChange={e => this.setState({ salaryStateValue: e.target.value })}
+                        value={salaryStateValue || (jobItem && jobItem.salary_state)}
+                        className={`${focusOnSalaryState ? 'EditAndPost-inputSalaryStateSelected' : 'EditAndPost-inputSalaryState'}`}
                       >
                         <option> Select state </option>
                         <option> Johor </option>
@@ -279,14 +282,14 @@ export default class EditAndPost extends Component {
                     </div>
                     <div className="EditAndPost-inputCity">
                       <input
+                        ref={ref => (this.city = ref)}
                         className="EditAndPost-customInput"
+                        value={cityValue || (jobItem && jobItem.city)}
                         onFocus={() => this.setState({ focusOnCity: true })}
                         onBlur={() => this.setState({ focusOnCity: false })}
-                        ref={ref => (this.city = ref)}
-                        value={this.state.cityValue || (jobItem && jobItem.city)}
                         onChange={e => {
                           this.setState({ cityValue: e.target.value });
-                          if (this.state.cityValue === '') {
+                          if (isEmpty(cityValue)) {
                             jobItem.city = '';
                           }
                         }}
