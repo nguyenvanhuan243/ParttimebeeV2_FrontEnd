@@ -7,6 +7,7 @@ import 'w3-css/w3.css';
 import { convertFromHTML, ContentState, EditorState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { Editor } from 'react-draft-wysiwyg';
+import { isEmpty } from 'lodash';
 import config from '../../../../config';
 
 const jobId = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
@@ -80,15 +81,15 @@ export default class EditAndPost extends Component {
     } else {
       const url = `${config.API_BASE_URL}/jobs`;
       axios.post(url, {
+        city: this.city.value,
         title: this.title.value,
-        category: this.category.value,
-        description: this.description.editor.innerHTML,
         salary: this.salary.value,
+        category: this.category.value,
+        user_id: localStorage.currentUser,
         salaryType: this.salaryType.value,
         salaryState: this.salaryState.value,
-        city: this.city.value,
-        user_id: localStorage.currentUser,
         button_is_submited: buttonIsSubmited,
+        description: this.description.editor.innerHTML,
       }).then(response => {
         location.replace(`${config.BASE_URL}/job-detail/${response.data.id}?${buttonIsSubmited === 'Preview' ? 'preview&' : ''}created&`);
       });
@@ -98,6 +99,7 @@ export default class EditAndPost extends Component {
   render() {
     const {
       jobItem,
+      titleValue,
       hasJobSaved,
       focusOnCity,
       focusOnTitle,
@@ -134,23 +136,23 @@ export default class EditAndPost extends Component {
                   <form onSubmit={this.onSubmit}>
                     <div className="EditAndPost-inputTitle">
                       <input
-                        className="EditAndPost-customInput"
-                        placeholder="Title"
-                        maxLength="45"
-                        onFocus={() => this.setState({ focusOnTitle: true })}
-                        onBlur={() => this.setState({ focusOnTitle: false })}
-                        ref={ref => (this.title = ref)}
                         required
-                        value={this.state.titleValue || (jobItem && jobItem.title)}
+                        maxLength="45"
+                        placeholder="Title"
+                        className="EditAndPost-customInput"
+                        ref={ref => (this.title = ref)}
                         onChange={e => {
                           this.setState({
                             titleValue: e.target.value,
                             characterLeft: (45 - e.target.value.length),
                           });
-                          if (this.state.titleValue === '') {
+                          if (isEmpty(titleValue)) {
                             jobItem.title = '';
                           }
                         }}
+                        value={titleValue || (jobItem && jobItem.title)}
+                        onFocus={() => this.setState({ focusOnTitle: true })}
+                        onBlur={() => this.setState({ focusOnTitle: false })}
                       />
                     </div>
                     <div className={`${focusOnTitle ? 'EditAndPost-separateActive' : 'EditAndPost-separate'}`}>
