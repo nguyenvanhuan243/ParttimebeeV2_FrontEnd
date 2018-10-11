@@ -24,13 +24,6 @@ export default class JobItem extends PureComponent {
     };
   }
 
-  componentDidMount() {
-    const { href } = this.props;
-    document.getElementById('JobItemID').addEventListener('click', () => {
-      setTimeout(() => location.replace(href), 100);
-    });
-  }
-
   handleClickState(state) {
     localStorage.setItem('selectedStateItem', state);
     localStorage.setItem('selectedCityItem', '');
@@ -90,7 +83,6 @@ export default class JobItem extends PureComponent {
     const jobUrl = `${config.BASE_URL}/job-detail/${localStorage.jobId}`;
     return (
       <div
-        id="JobItemID"
         className={hoverClassName}
         onMouseEnter={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false, showSocialShare: false })}
