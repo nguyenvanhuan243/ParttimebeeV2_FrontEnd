@@ -9,6 +9,13 @@
   height: 589px !important;
 }
 
+.EmployerProfileBanner-readMoreShow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 140px;
+}
+
 .EmployerProfileBanner-avatar {
   width: 140px;
   height: 140px;

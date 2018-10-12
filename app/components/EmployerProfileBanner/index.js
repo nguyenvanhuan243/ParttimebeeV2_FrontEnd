@@ -5,6 +5,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import PhoneIcon from 'components/Icons/Phone/Loadable';
 import AddressIcon from 'components/Icons/Address/Loadable';
 import Mailto from 'react-mailto';
+import { isEmpty } from 'lodash';
 import WhiteEmailIcon from 'components/Icons/WhiteEmail/Loadable';
 import {
   DefaultAvatar1,
@@ -260,6 +261,10 @@ export default class EmployerProfileBanner extends PureComponent {
     const companyDescriptionClassNames = classNames('EmployerProfileBanner-companyDescriptionText', {
       'EmployerProfileBanner-overFlow': !showReadMore,
     });
+    if (!isEmpty(document.getElementsByClassName('public-DraftStyleDefault-block'))) {
+      const element = document.getElementsByClassName('public-DraftStyleDefault-block')[1];
+      element.classList.add('EmployerProfileBanner-readMoreShow');
+    }
 
     return (
       <div className={className}>
