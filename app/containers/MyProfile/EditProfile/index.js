@@ -66,7 +66,6 @@ import { isEmpty } from 'lodash';
 import config from '../../../../config';
 
 const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
-const checkCurrentPasswordUrl = `${config.API_BASE_URL}/users/check-current-password`;
 export default class EditProfile extends Component {
   constructor() {
     super();
@@ -77,19 +76,15 @@ export default class EditProfile extends Component {
       emailValue: '',
       addressValue: '',
       websiteValue: '',
-      alertPassword: '',
       contactNameValue: '',
       companyNameValue: '',
       alertCompanyName: '',
       alertContactName: '',
-      alertConfirmPassword: '',
       isSubmited: false,
       showSaving: false,
       showUpdated: false,
       showErrorAlert: false,
       showAskReasonPopup: false,
-      showChangePassword: false,
-      currentPasswordCorrect: false,
       editorState: EditorState.createEmpty(),
     };
   }
@@ -109,25 +104,7 @@ export default class EditProfile extends Component {
   }
 
   onSubmit = () => {
-    const { showChangePassword, currentPasswordCorrect } = this.state;
-    if (showChangePassword) {
-      this.checkCurrentPassword(this.currentPassword.value);
-    }
-    const checkAlertPassword = showChangePassword && (isEmpty(this.password.value) || isEmpty(this.confirmPassword.value) || !currentPasswordCorrect);
-    if (showChangePassword) {
-      if (showChangePassword) {
-        const password = this.password.value;
-        const confirmPassword = this.confirmPassword.value;
-        const currentPassword = this.currentPassword.value;
-        this.setState({
-          alertPassword: password.length < 6,
-          alertConfirmPassword: (isEmpty(confirmPassword) || password !== confirmPassword),
-          alertCurrentPassword: (isEmpty(currentPassword) || !currentPasswordCorrect),
-        });
-      }
-      this.setState({ alertConfirmPassword: this.password.value !== this.confirmPassword.value });
-    }
-    if (isEmpty(this.email.value) || isEmpty(this.companyName.value) || isEmpty(this.contactName.value) || checkAlertPassword) {
+    if (isEmpty(this.email.value) || isEmpty(this.companyName.value) || isEmpty(this.contactName.value)) {
       this.setState({
         showErrorAlert: true,
         alertEmail: isEmpty(this.email.value),
@@ -316,25 +293,7 @@ export default class EditProfile extends Component {
     });
   }
 
-  handleOnChangePassword = e => {
-    e.preventDefault();
-    this.setState({
-      showChangePassword: !this.state.showChangePassword,
-    });
-  }
-
-  checkCurrentPassword = currentPassword => {
-    axios.post(checkCurrentPasswordUrl, {
-      currentPassword,
-    }).then(response => {
-      this.setState({ currentPasswordCorrect: response.data });
-    });
-  }
-
   buildFormData() {
-    const {
-      showChangePassword,
-    } = this.state;
     const formData = new FormData();
     formData.append('profile[email]', this.email.value);
     formData.append('profile[phone]', this.phone.value);
@@ -344,11 +303,6 @@ export default class EditProfile extends Component {
     formData.append('profile[contactName]', this.contactName.value);
     formData.append('profile[companyName]', this.companyName.value);
     formData.append('profile[companyDescription]', this.companyDescription.editor.innerHTML);
-    if (showChangePassword) {
-      formData.append('profile[password]', this.password.value);
-      formData.append('profile[confirmPassword]', this.confirmPassword.value);
-      formData.append('profile[currentPassword]', this.currentPassword.value);
-    }
     return formData;
   }
 
@@ -360,10 +314,6 @@ export default class EditProfile extends Component {
       showSaving,
       showUpdated,
       alertEmail,
-      alertPassword,
-      passwordValue = '',
-      confirmPasswordValue = '',
-      currentPasswordValue,
       contactNameValue,
       companyNameValue,
       addressValue,
@@ -372,28 +322,12 @@ export default class EditProfile extends Component {
       showErrorAlert,
       alertContactName,
       alertCompanyName,
-      showChangePassword,
       showAskReasonPopup,
-      alertConfirmPassword,
-      alertCurrentPassword,
-      currentPasswordCorrect,
     } = this.state;
     const emailLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertEmail });
     const separateEmailClassName = classNames('EditProfileForm-separate', {
       'EditProfile-errorSeparate': alertEmail });
-    const newPasswordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertPassword });
-    const separatePasswordClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertPassword });
-    const confirmPasswordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': (alertConfirmPassword || (showErrorAlert && (alertConfirmPassword || isEmpty(confirmPasswordValue)))) });
-    const currentPasswordLableClassName = classNames('EditProfileForm-lableItem', {
-      'EditProfile-errorLable': alertCurrentPassword && !currentPasswordCorrect });
-    const separateConfirmPasswordClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': ((alertConfirmPassword && !currentPasswordCorrect) || (showErrorAlert && (alertConfirmPassword || isEmpty(confirmPasswordValue)))) });
-    const separateCurrentPasswordClassName = classNames('EditProfileForm-separate', {
-      'EditProfile-errorSeparate': alertCurrentPassword && !currentPasswordCorrect });
     const contactNameLableClassName = classNames('EditProfileForm-lableItem', {
       'EditProfile-errorLable': alertContactName });
     const separateContactNameClassName = classNames('EditProfileForm-separate', {
@@ -421,8 +355,6 @@ export default class EditProfile extends Component {
             { false && <div className="EditProfile-alert">
               <EditProfileAlert
                 showEmail={alertEmail}
-                showPassword={alertPassword}
-                showConfirmPassword={alertConfirmPassword}
                 showContactName={alertContactName}
                 showCompanyName={alertCompanyName}
               />
@@ -437,22 +369,6 @@ export default class EditProfile extends Component {
                     <div className={emailLableClassName}>
                       Email
                     </div>
-                    <div className="EditProfileForm-lableItem">
-                      Password
-                    </div>
-                    { showChangePassword &&
-                      <span>
-                        <div className={newPasswordLableClassName}>
-                          New Password
-                        </div>
-                        <div className={confirmPasswordLableClassName}>
-                          Confirm Password
-                        </div>
-                        <div className={currentPasswordLableClassName}>
-                          Current Password
-                        </div>
-                      </span>
-                    }
                     <div className={contactNameLableClassName}>
                       Contact Name
                     </div>
@@ -510,59 +426,6 @@ export default class EditProfile extends Component {
                           Please enter your email
                         </div> }
                       </div>
-                      <div className="EditProfileForm-lableItem">
-                        <button onClick={this.handleOnChangePassword} className="EditProfileForm-changePasswordButton">
-                          <span className="EditProfileForm-changePasswordText">
-                            CHANGE PASSWORD
-                          </span>
-                        </button>
-                      </div>
-                      { showChangePassword &&
-                        <span>
-                          <div className="EditProfileForm-lableItem">
-                            <input
-                              type="password"
-                              value={passwordValue}
-                              ref={ref => (this.password = ref)}
-                              className="EditProfileForm-inputHoverEmail"
-                              onChange={e => this.setState({ passwordValue: e.target.value })}
-                            />
-                            <div className={separatePasswordClassName} />
-                            { alertPassword && showErrorAlert && <div className="EditProfileForm-textError">
-                              Minimum 6 characters.
-                            </div> }
-                          </div>
-                          <div className="EditProfileForm-lableItem">
-                            <input
-                              type="password"
-                              value={confirmPasswordValue}
-                              ref={ref => (this.confirmPassword = ref)}
-                              className="EditProfileForm-inputHoverEmail"
-                              onChange={e => this.setState({ confirmPasswordValue: e.target.value })}
-                            />
-                            <div className={separateConfirmPasswordClassName} />
-                            { showErrorAlert && (alertConfirmPassword || isEmpty(confirmPasswordValue)) && <div className="EditProfileForm-textError">
-                              Make sure they are match!
-                            </div> }
-                          </div>
-                          <div className="EditProfileForm-lableItem">
-                            <input
-                              className="EditProfileForm-inputHoverEmail"
-                              type="password"
-                              ref={ref => (this.currentPassword = ref)}
-                              value={currentPasswordValue}
-                              onChange={e => {
-                                this.setState({ currentPasswordValue: e.target.value });
-                                if (isEmpty(currentPasswordValue)) { user.password = ''; }
-                              }}
-                            />
-                            <div className={separateCurrentPasswordClassName} />
-                            { !currentPasswordCorrect && showErrorAlert && <div className="EditProfileForm-textError">
-                              Wrong password.
-                            </div> }
-                          </div>
-                        </span>
-                      }
                       <div className="EditProfileForm-lableItem">
                         <input
                           className="EditProfileForm-inputHoverEmail"
@@ -690,7 +553,7 @@ export default class EditProfile extends Component {
                   UPDATE
                 </span>
               </button>
-              { !showUpdated && (alertEmail || alertCompanyName || alertContactName || alertPassword || alertConfirmPassword || (!currentPasswordCorrect && showErrorAlert)) &&
+              { !showUpdated && (alertEmail || alertCompanyName || alertContactName) &&
                 <div className="EditProfile-warningContainer">
                   <div className="EditProfile-warningIcon">
                     <WarningIcon />
