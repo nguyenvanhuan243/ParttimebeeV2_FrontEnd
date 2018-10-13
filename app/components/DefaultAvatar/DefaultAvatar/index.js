@@ -4,6 +4,10 @@ import DefaultAvatar2 from './Avatar2';
 import DefaultAvatar3 from './Avatar3';
 import DefaultAvatar4 from './Avatar4';
 import DefaultAvatar5 from './Avatar5';
+import DefaultAvatar6 from './Avatar6';
+import DefaultAvatar7 from './Avatar7';
+import DefaultAvatar8 from './Avatar8';
+import DefaultAvatar9 from './Avatar9';
 export default class DefaultAvatar extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   renderDefaultAvatar = defaultAvatarNumber => {
     if (defaultAvatarNumber.includes('1')) {
@@ -20,6 +24,18 @@ export default class DefaultAvatar extends PureComponent { // eslint-disable-lin
     }
     if (defaultAvatarNumber.includes('5')) {
       return DefaultAvatar5;
+    }
+    if (defaultAvatarNumber.includes('6')) {
+      return DefaultAvatar6;
+    }
+    if (defaultAvatarNumber.includes('7')) {
+      return DefaultAvatar7;
+    }
+    if (defaultAvatarNumber.includes('8')) {
+      return DefaultAvatar8;
+    }
+    if (defaultAvatarNumber.includes('9')) {
+      return DefaultAvatar9;
     }
     return DefaultAvatar1;
   }
