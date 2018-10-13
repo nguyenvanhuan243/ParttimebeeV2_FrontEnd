@@ -64,6 +64,7 @@ import { isMac } from '../../utils/operatingSystem';
 import config from '../../../config';
 
 const requestUrl = `${config.API_BASE_URL}/users/${localStorage.currentUser}`;
+const DEFAULT_AVATAR_SIZE = '140px';
 export default class EmployerProfileBanner extends PureComponent {
   constructor() {
     super();
@@ -90,157 +91,157 @@ export default class EmployerProfileBanner extends PureComponent {
   getDefaultAvatar = user => {
     if (user.default_avatar) {
       if (user.default_avatar.includes('1')) {
-        return <DefaultAvatar1 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar1 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('2')) {
-        return <DefaultAvatar2 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar2 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('3')) {
-        return <DefaultAvatar3 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar3 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('4')) {
-        return <DefaultAvatar4 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar4 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('5')) {
-        return <DefaultAvatar5 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar5 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('6')) {
-        return <DefaultAvatar6 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar6 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('7')) {
-        return <DefaultAvatar7 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar7 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('8')) {
-        return <DefaultAvatar8 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar8 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('9')) {
-        return <DefaultAvatar9 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar9 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('10')) {
-        return <DefaultAvatar10 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar10 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('11')) {
-        return <DefaultAvatar11 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar11 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('12')) {
-        return <DefaultAvatar12 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar12 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('13')) {
-        return <DefaultAvatar13 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar13 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('14')) {
-        return <DefaultAvatar14 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar14 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('15')) {
-        return <DefaultAvatar15 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar15 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('16')) {
-        return <DefaultAvatar16 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar16 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('17')) {
-        return <DefaultAvatar17 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar17 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('19')) {
-        return <DefaultAvatar18 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar18 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('19')) {
-        return <DefaultAvatar19 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar19 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('20')) {
-        return <DefaultAvatar20 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar20 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('21')) {
-        return <DefaultAvatar21 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar21 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('22')) {
-        return <DefaultAvatar22 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar22 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('23')) {
-        return <DefaultAvatar23 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar23 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('24')) {
-        return <DefaultAvatar24 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar24 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('25')) {
-        return <DefaultAvatar25 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar25 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('26')) {
-        return <DefaultAvatar26 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar26 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('27')) {
-        return <DefaultAvatar27 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar27 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('28')) {
-        return <DefaultAvatar28 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar28 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('29')) {
-        return <DefaultAvatar29 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar29 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('30')) {
-        return <DefaultAvatar30 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar30 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('31')) {
-        return <DefaultAvatar31 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar31 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('32')) {
-        return <DefaultAvatar32 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar32 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('33')) {
-        return <DefaultAvatar33 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar33 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('34')) {
-        return <DefaultAvatar34 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar34 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('35')) {
-        return <DefaultAvatar35 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar35 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('36')) {
-        return <DefaultAvatar36 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar36 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('37')) {
-        return <DefaultAvatar37 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar37 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('38')) {
-        return <DefaultAvatar38 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar38 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('39')) {
-        return <DefaultAvatar39 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar39 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('40')) {
-        return <DefaultAvatar40 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar40 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('41')) {
-        return <DefaultAvatar41 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar41 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('42')) {
-        return <DefaultAvatar42 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar42 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('43')) {
-        return <DefaultAvatar43 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar43 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('44')) {
-        return <DefaultAvatar44 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar44 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('45')) {
-        return <DefaultAvatar45 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar45 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('46')) {
-        return <DefaultAvatar46 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar46 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('47')) {
-        return <DefaultAvatar47 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar47 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('48')) {
-        return <DefaultAvatar48 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar48 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('49')) {
-        return <DefaultAvatar49 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar49 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
       if (user.default_avatar.includes('50')) {
-        return <DefaultAvatar50 avatarWidth={'140px'} avatarHeight={'140px'} />;
+        return <DefaultAvatar50 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
       }
     }
-    return <DefaultAvatar1 avatarWidth={'140px'} avatarHeight={'140px'} />;
+    return <DefaultAvatar1 avatarWidth={DEFAULT_AVATAR_SIZE} avatarHeight={DEFAULT_AVATAR_SIZE} />;
   }
 
   render() {
