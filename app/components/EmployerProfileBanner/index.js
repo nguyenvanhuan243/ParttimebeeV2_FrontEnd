@@ -279,7 +279,7 @@ export default class EmployerProfileBanner extends PureComponent {
               src={user.url_avatar}
             />
           }
-          { shouldUpdate ?
+          { (shouldUpdate && localStorage.currentUser) ?
             <div className="EmployerProfileBanner-shouldUpdate">
               <div className="EmployerProfileBanner-welcomeText">
                 Welcome to Parttime Bee!
