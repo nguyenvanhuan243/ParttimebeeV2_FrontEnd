@@ -173,10 +173,10 @@ export default class EditAndPost extends Component {
                         className={`${focusOnCategory ? 'EditAndPost-inputCategorySelected' : 'EditAndPost-inputCategory'}`}
                       >
                         <option> Select a category </option>
-                        <option> Event </option>
+                        <option> Event & Exhibition </option>
                         <option> Education </option>
-                        <option> Retails </option>
-                        <option> Food </option>
+                        <option> Retails & Sales </option>
+                        <option> Food & Beverages </option>
                         <option> Administrative </option>
                         <option> Others </option>
                       </select>
