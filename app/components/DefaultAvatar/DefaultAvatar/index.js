@@ -1,6 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import DefaultAvatar1 from './Avatar1';
 import DefaultAvatar2 from './Avatar2';
+import DefaultAvatar3 from './Avatar3';
+import DefaultAvatar4 from './Avatar4';
+import DefaultAvatar5 from './Avatar5';
 export default class DefaultAvatar extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   renderDefaultAvatar = defaultAvatarNumber => {
     if (defaultAvatarNumber.includes('1')) {
@@ -8,6 +11,15 @@ export default class DefaultAvatar extends PureComponent { // eslint-disable-lin
     }
     if (defaultAvatarNumber.includes('2')) {
       return DefaultAvatar2;
+    }
+    if (defaultAvatarNumber.includes('3')) {
+      return DefaultAvatar3;
+    }
+    if (defaultAvatarNumber.includes('4')) {
+      return DefaultAvatar4;
+    }
+    if (defaultAvatarNumber.includes('5')) {
+      return DefaultAvatar5;
     }
     return DefaultAvatar1;
   }

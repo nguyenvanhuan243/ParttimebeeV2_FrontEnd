@@ -1,4 +1,4 @@
-// export { default as DefaultAvatar } from './DefaultAvatar/Loadable';
+// export { default as DefaultAvatar1 } from './DefaultAvatar/Avatar1';
 // export { default as DefaultAvatar2 } from './DefaultAvatar2/Loadable';
 // export { default as DefaultAvatar3 } from './DefaultAvatar3/Loadable';
 // export { default as DefaultAvatar4 } from './DefaultAvatar4/Loadable';
