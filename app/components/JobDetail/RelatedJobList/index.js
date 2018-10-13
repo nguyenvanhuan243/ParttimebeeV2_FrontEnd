@@ -18,7 +18,7 @@ export default class RelatedJobList extends PureComponent {
   changeSpaceToPlus = title => title.split(' ').join('+');
 
   handleRelatedJobItem(item) {
-    location.replace(`${config.BASE_URL}/job-detail/${item.id}+${this.changeSpaceToPlus(item.title)}`);
+    location.replace(`${config.BASE_URL}/job-detail/${item.id}?${this.changeSpaceToPlus(item.title)}`);
   }
 
   renderRelatedJob() {
