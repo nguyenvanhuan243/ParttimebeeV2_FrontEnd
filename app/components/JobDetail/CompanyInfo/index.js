@@ -1,14 +1,16 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { Link } from 'react-router-dom';
 import ArrowIcon from 'components/Icons/Arrow/Loadable';
+import RandomString from 'random-string';
 import { isMac } from '../../../utils/operatingSystem';
 
 export default class CompanyInfo extends PureComponent {
   render() {
     const { userId = 0 } = this.props;
     const fontWeight = isMac() ? '' : 'bold';
+    const randomeString = RandomString({ length: 50 });
     return (
-      <Link className="CompanyInfo-href" to={`/employer-profile/${userId}`}>
+      <Link className="CompanyInfo-href" to={`/employer-profile/${userId}?${randomeString}`}>
         <div className="CompanyInfo">
           <div className="CompanyInfo-container">
             <div className="CompanyInfo-image" />
