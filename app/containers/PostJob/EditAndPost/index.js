@@ -50,12 +50,17 @@ export default class EditAndPost extends Component {
     axios.get(requestUrl).then(
       response => {
         this.setState({ jobItem: response.data.job });
-        const blocksFromHTML = convertFromHTML(this.state.jobItem.description);
-        const state = ContentState.createFromBlockArray(
-          blocksFromHTML.contentBlocks,
-          blocksFromHTML.entityMap
-        );
-        this.setState({ editorState: EditorState.createWithContent(state) });
+        const {
+          jobItem = {},
+        } = this.state;
+        if (!isEmpty(jobItem)) {
+          const blocksFromHTML = convertFromHTML(jobItem.description);
+          const state = ContentState.createFromBlockArray(
+            blocksFromHTML.contentBlocks,
+            blocksFromHTML.entityMap
+          );
+          this.setState({ editorState: EditorState.createWithContent(state) });
+        }
       }
     );
   }
