@@ -13,11 +13,13 @@ import { groupBy, values } from 'lodash';
 import moment from 'moment';
 import config from '../../../config';
 
-const TYPE_JOB = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
+const JOB_TYPE = { GOING: 'going', PENDING: 'pending', EXPIRED: 'expired' };
 const userIdFromPathName = location.pathname.match(/\d+/) && location.pathname.match(/\d+/)[0];
 const employerProfile = location.pathname.includes('employer-profile');
 const currentUserId = localStorage.currentUser || userIdFromPathName;
 const firstTimePostJobUrl = location.pathname.includes('first-time-post-job');
+const url = `${config.API_BASE_URL}/users/${currentUserId}/jobs`;
+const currentUserUrl = `${config.API_BASE_URL}/users/${currentUserId}`;
 export default class MyJobs extends Component {
   constructor() {
     super();
@@ -29,43 +31,46 @@ export default class MyJobs extends Component {
       currentUser: {},
     };
   }
+
   componentWillMount() {
-    const url = `${config.API_BASE_URL}/users/${currentUserId}/jobs`;
-    const currentUserUrl = `${config.API_BASE_URL}/users/${currentUserId}`;
     axios.get(url).then(response => this.setState({ myJobResourceEndPoint: response.data }));
     axios.get(currentUserUrl).then(response => this.setState({ currentUser: response.data }));
   }
-  getActiveJob(active) {
+
+  getActiveJob = active => {
     if (active.includes('On-going')) {
-      this.setState({ activeJob: 'going' });
+      this.setState({ activeJob: JOB_TYPE.GOING });
     }
     if (active.includes('Pending')) {
-      this.setState({ activeJob: 'pending' });
+      this.setState({ activeJob: JOB_TYPE.PENDING });
     }
     if (active.includes('Expired')) {
-      this.setState({ activeJob: 'expired' });
+      this.setState({ activeJob: JOB_TYPE.EXPIRED });
     }
   }
-  handleDeleteConfirmationPopup() {
+
+  handleDeleteConfirmationPopup = () => {
     this.setState({ showDeleteConfirmationPopup: !this.state.showDeleteConfirmationPopup });
   }
-  handleActive(value) {
+
+  handleActive = value => {
     this.setState({ activeCurrent: value });
     this.getActiveJob(value);
   }
-  countJobByType(array, type) {
-    return array.filter(item => item.job_type === type).length;
-  }
-  renderAfterGroupBy(object) {
-    return values(object).map((item, index) => (
+
+  countJobByType = (array, type) => array.filter(item => item.job_type === type).length;
+
+  renderAfterGroupBy = object => (
+    values(object).map((item, index) => (
       <JobList
         key={index.toString()}
-        title={moment(item[0].created_at).format('dddd, MMMM DD')}
         dataResourceEndPoint={item}
         size={employerProfile ? 645 : 580}
+        title={moment(item[0].created_at).format('dddd, MMMM DD')}
       />
-    ));
-  }
+    ))
+  );
+
   render() {
     const {
       activeJob,
@@ -74,9 +79,9 @@ export default class MyJobs extends Component {
       myJobResourceEndPoint,
       showDeleteConfirmationPopup,
     } = this.state;
-    const goingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.GOING);
-    const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.PENDING);
-    const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.EXPIRED);
+    const goingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.GOING);
+    const pendingJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.PENDING);
+    const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, JOB_TYPE.EXPIRED);
     const myJobList = [];
     const textArray = [
       `${goingJobNumber} On-going ${goingJobNumber > 1 ? 'jobs' : 'job'}`,
