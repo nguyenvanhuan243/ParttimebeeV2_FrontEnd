@@ -53,12 +53,23 @@ export default class EditProfile extends Component {
   }
 
   onSubmit = () => {
-    if (isEmpty(this.email.value) || isEmpty(this.companyName.value) || isEmpty(this.contactName.value)) {
+    const {
+      email: {
+        value: email = '',
+      },
+      companyName: {
+        value: companyName = '',
+      },
+      contactName: {
+        value: contactName = '',
+      },
+    } = this;
+    if (isEmpty(email) || isEmpty(companyName) || isEmpty(contactName)) {
       this.setState({
         showErrorAlert: true,
-        alertEmail: isEmpty(this.email.value),
-        alertContactName: isEmpty(this.contactName.value),
-        alertCompanyName: isEmpty(this.companyName.value),
+        alertEmail: isEmpty(email),
+        alertContactName: isEmpty(contactName),
+        alertCompanyName: isEmpty(companyName),
       });
     } else {
       this.setState({ showSaving: true, showUpdated: false, showErrorAlert: false });
@@ -208,6 +219,7 @@ export default class EditProfile extends Component {
                         <input
                           className="EditProfileForm-inputHoverEmail"
                           type="email"
+                          disabled
                           ref={ref => (this.email = ref)}
                           value={emailValue || (user && user.email)}
                           onChange={e => {
