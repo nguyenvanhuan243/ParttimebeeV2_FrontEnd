@@ -62,10 +62,13 @@ export default class EmployerProfileBanner extends PureComponent {
     );
     const companyDescriptionClassNames = classNames('EmployerProfileBanner-companyDescriptionText', {
       'EmployerProfileBanner-overFlow': !showReadMore,
+      'EmployerProfileBanner-readMoreShow': !showReadMore,
     });
     if (!isEmpty(document.getElementsByClassName('public-DraftStyleDefault-block'))) {
-      const element = document.getElementsByClassName('public-DraftStyleDefault-block')[1];
-      element.classList.add('EmployerProfileBanner-readMoreShow');
+      const element = document && document.getElementsByClassName('public-DraftStyleDefault-block')[1];
+      if (element) {
+        element.classList.add('EmployerProfileBanner-readMoreShow');
+      }
     }
 
     return (
