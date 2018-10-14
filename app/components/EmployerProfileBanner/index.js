@@ -160,13 +160,11 @@ export default class EmployerProfileBanner extends PureComponent {
               }
             </div>}
           { showEdit && !shouldUpdate &&
-            <div className="EmployerProfileBanner-editButton">
-              <Link className="EmployerProfileBanner-hrefText" to={'/myprofile/edit-profile'}>
-                <div className="EmployerProfileBanner-editButtonText">
-                  Edit
-                </div>
-              </Link>
-            </div>
+            <Link className="EmployerProfileBanner-editButton EmployerProfileBanner-hrefText" to={'/myprofile/edit-profile'}>
+              <div className="EmployerProfileBanner-editButtonText">
+                Edit
+              </div>
+            </Link>
           }
         </div>
       </div>
