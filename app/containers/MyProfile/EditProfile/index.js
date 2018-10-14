@@ -44,8 +44,8 @@ export default class EditProfile extends Component {
       const blocksFromHTML = convertFromHTML(this.state.user.company_description);
       if (!isEmpty(blocksFromHTML.contentBlocks)) {
         const state = ContentState.createFromBlockArray(
-          blocksFromHTML.entityMap,
-          blocksFromHTML.contentBlocks
+          blocksFromHTML.contentBlocks,
+          blocksFromHTML.entityMap
         );
         this.setState({ editorState: EditorState.createWithContent(state) });
       }
