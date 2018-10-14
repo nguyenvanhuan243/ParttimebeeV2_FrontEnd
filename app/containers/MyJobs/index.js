@@ -79,9 +79,9 @@ export default class MyJobs extends Component {
     const expiredJobNumber = this.countJobByType(myJobResourceEndPoint, TYPE_JOB.EXPIRED);
     const myJobList = [];
     const textArray = [
-      `${goingJobNumber} On-going jobs`,
-      `${pendingJobNumber} Pending jobs`,
-      `${expiredJobNumber} Expired jobs`,
+      `${goingJobNumber} On-going ${goingJobNumber > 1 ? 'jobs' : 'job'}`,
+      `${pendingJobNumber} Pending ${pendingJobNumber > 1 ? 'jobs' : 'job'}`,
+      `${expiredJobNumber} Expired ${expiredJobNumber > 1 ? 'jobs' : 'job'}`,
     ];
     const myProfile = location.pathname.includes('my-profile') || location.pathname.includes('myjobs/myjobs');
     const marginLeftStyle = employerProfile ? '20px' : '93px';
