@@ -5,6 +5,7 @@ import {
   DefaultAvatar6, DefaultAvatar7, DefaultAvatar8, DefaultAvatar9, DefaultAvatar10,
   DefaultAvatar11, DefaultAvatar12, DefaultAvatar13, DefaultAvatar14, DefaultAvatar15,
   DefaultAvatar16, DefaultAvatar17, DefaultAvatar18, DefaultAvatar19, DefaultAvatar20,
+  DefaultAvatar21, DefaultAvatar22, DefaultAvatar23, DefaultAvatar24, DefaultAvatar25,
 } from './DefaultAvatar';
 
 export default class DefaultAvatar extends PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -68,6 +69,21 @@ export default class DefaultAvatar extends PureComponent { // eslint-disable-lin
     }
     if (isEqual(defaultAvatarNumber, 'DefaultAvatar20')) {
       return DefaultAvatar20;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar21')) {
+      return DefaultAvatar21;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar22')) {
+      return DefaultAvatar22;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar23')) {
+      return DefaultAvatar23;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar24')) {
+      return DefaultAvatar24;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar25')) {
+      return DefaultAvatar25;
     }
     return DefaultAvatar1;
   }
