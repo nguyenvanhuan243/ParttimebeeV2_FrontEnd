@@ -1,41 +1,73 @@
 import React, { PureComponent, PropTypes } from 'react';
-import DefaultAvatar1 from './Avatar1';
-import DefaultAvatar2 from './Avatar2';
-import DefaultAvatar3 from './Avatar3';
-import DefaultAvatar4 from './Avatar4';
-import DefaultAvatar5 from './Avatar5';
-import DefaultAvatar6 from './Avatar6';
-import DefaultAvatar7 from './Avatar7';
-import DefaultAvatar8 from './Avatar8';
-import DefaultAvatar9 from './Avatar9';
+import { isEqual } from 'lodash';
+import {
+  DefaultAvatar1, DefaultAvatar2, DefaultAvatar3, DefaultAvatar4, DefaultAvatar5,
+  DefaultAvatar6, DefaultAvatar7, DefaultAvatar8, DefaultAvatar9, DefaultAvatar10,
+  DefaultAvatar11, DefaultAvatar12, DefaultAvatar13, DefaultAvatar14, DefaultAvatar15,
+  DefaultAvatar16, DefaultAvatar17, DefaultAvatar18, DefaultAvatar19, DefaultAvatar20,
+} from './DefaultAvatar';
+
 export default class DefaultAvatar extends PureComponent { // eslint-disable-line react/prefer-stateless-function
   renderDefaultAvatar = defaultAvatarNumber => {
-    if (defaultAvatarNumber.includes('1')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar1')) {
       return DefaultAvatar1;
     }
-    if (defaultAvatarNumber.includes('2')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar2')) {
       return DefaultAvatar2;
     }
-    if (defaultAvatarNumber.includes('3')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar3')) {
       return DefaultAvatar3;
     }
-    if (defaultAvatarNumber.includes('4')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar4')) {
       return DefaultAvatar4;
     }
-    if (defaultAvatarNumber.includes('5')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar5')) {
       return DefaultAvatar5;
     }
-    if (defaultAvatarNumber.includes('6')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar6')) {
       return DefaultAvatar6;
     }
-    if (defaultAvatarNumber.includes('7')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar7')) {
       return DefaultAvatar7;
     }
-    if (defaultAvatarNumber.includes('8')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar8')) {
       return DefaultAvatar8;
     }
-    if (defaultAvatarNumber.includes('9')) {
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar9')) {
       return DefaultAvatar9;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar10')) {
+      return DefaultAvatar10;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar11')) {
+      return DefaultAvatar11;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar12')) {
+      return DefaultAvatar12;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar13')) {
+      return DefaultAvatar13;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar14')) {
+      return DefaultAvatar14;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar15')) {
+      return DefaultAvatar15;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar16')) {
+      return DefaultAvatar16;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar17')) {
+      return DefaultAvatar17;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar18')) {
+      return DefaultAvatar18;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar19')) {
+      return DefaultAvatar19;
+    }
+    if (isEqual(defaultAvatarNumber, 'DefaultAvatar20')) {
+      return DefaultAvatar20;
     }
     return DefaultAvatar1;
   }
